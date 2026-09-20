@@ -9,6 +9,11 @@
 | S1 | American Psychological Association, Reference Guide for Journal Articles, Books, and Edited Book Chapters, 7th Edition, 2026-03-23 갱신 | https://apastyle.apa.org/instructional-aids/reference-guide.pdf | Journal Article; Book; Chapter in an Edited Book; 말미 갱신 정보. 추출본에는 페이지 경계가 없어 쪽수는 기록하지 않음 | web open은 차단되었으나 Exa URL 본문 추출에서 제목·세 자료 유형·갱신 정보까지 확인. 영문 참고문헌의 저자 순서, 제목 대문자, 기울임, DOI와 출판사 소재지 처리에 한정해 사용. 안내가 매뉴얼 10.1–10.3을 가리키지만 해당 매뉴얼 절 자체를 읽었다고 간주하지 않음. |
 | S2 | American Psychological Association, Tables and Figures, 2019, 웹 자료(판 표시 없음) | https://apastyle.apa.org/style-grammar-guidelines/tables-figures | Tables and Figures 본문 개요 | Exa URL 본문 추출로 효율적 전달·이해·접근성 목적 확인. 세부 표 선·주석 형식 근거로 확장하지 않음. 매뉴얼 7장 안내는 확인했지만 7장 자체는 미독. |
 
+## U-KHU · 대학 교육 자료(교차 참고, APA 규범 아님)
+
+- 경희대 도서관 [리포트 작성법](https://libguides.khu.ac.kr/global/writing/01): 사회과학·교육·공학 분야 참고문헌에 APA 스타일 **선택** 안내(2026-09-20 확인).
+- 스킬 적용: 투고 학술지·소속 대학원 규정 > APA Publication Manual > 대학 교육 안내 순으로 충돌을 처리한다. U-KHU 문구를 APA 7 전체 준수의 증거로 쓰지 않는다.
+
 ## 접근을 시도했으나 규칙 근거로 사용하지 않은 자료
 
 | ID | 기관·제목·판본 | URL·경로 | 결과와 다음 조치 |
