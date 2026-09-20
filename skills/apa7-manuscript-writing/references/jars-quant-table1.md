@@ -4,7 +4,7 @@
 
 Table 1은 양적 실증 연구 공통 보고 항목이다. 설계별 추가표(Table 2–8, Module A–C)는 본문에서 해당 설계일 때만 연다.
 
-## Title·Author note (원문 Table 1 머리, 인쇄 p.6 앞/PDF p.4)
+## Title·Author note (원문 Table 1, 인쇄 p.6/PDF p.4)
 
 - Title: 주요 변인·이론적 쟁점과 그 관계, 연구 대상 집단을 명시.
 - Author note: 특수 사정 고지와 설명, 등록 연구의 등록 정보, 기존 출판물과 겹치는 자료 사용 여부를 명시.
