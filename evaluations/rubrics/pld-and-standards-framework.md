@@ -7,7 +7,7 @@
 | 개념 | Standards 2014 용어 | 본 프로젝트에서의 대응 | 구별 |
 | --- | --- | --- | --- |
 | 수행 수준을 서술하는 문장 | **performance-level descriptor (PLD)**; 때로 achievement-level descriptors | `three-axis.md` 각 축 0–3 기술 | PLD는 **관찰 가능한 수행**을 말로 적은 것. 본 프로젝트 PLD는 **잠정** |
-| 점수 구간을 나누는 경계 | **cut score** | **미설정** — 0–3은 순위형 PLD이지 운영 절단점 아님 | Standard 5.21: cut score rationale·절차 **문서화** 필요 |
+| 점수 구간을 나누는 경계 | **cut score** | 검증된 시험 절단점은 **미설정**; 내부 사례 통과 경계는 축별 2점 | Standard 5.21: cut score rationale·절차 **문서화** 필요 |
 | 절단점을 정하는 절차 | **standard setting** | 블라인드 사례별 **항목 판정**만; Bookmark·Angoff 등 **미실시** | ch.5 인쇄 p.100 / PDF p.111; glossary 인쇄 p.224 / PDF p.235 |
 | 채점 항목·수준별 기준 | **scoring rubric** | `analytic-korean-editing.md` + three-axis | glossary 인쇄 p.223 / PDF p.234 |
 | 성취·숙련 라벨 체계 | **performance level**, **performance standards** | three-axis 0–3 (축별, 합산 아님) | glossary 인쇄 p.221 / PDF p.232 |

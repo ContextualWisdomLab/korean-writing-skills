@@ -1,5 +1,7 @@
 # 한국어 글쓰기·APA7 스킬 개발 TODO
 
+> 현재 담당·수용 조건: [전담 리드 원장](LEAD_QUEUE.md). 아래 run·리드는 이전 작업 이력이다.
+
 > Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: `term_1c33634e-e367-4777-a76a-de0f1bde7dcf`
 
 ## 진행 상태
@@ -12,7 +14,7 @@
 | 강원국·김정선 | writing-skills-lead | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | writing-skills-lead | **반영** | — | U-KHU1–4, examples·validation | — |
 | KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
-| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 한국어 평가 논문 전문 확보 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
+| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 한국어 평가 논문 전문 확보 | pld-and-standards-framework.md·rubric-source-ledger.md; round-2는 철회 이력 | Zotero API; Ahn PDF |
 | APA 원문 | 원문 조사 worker·다음 담당 | **부분 확인** | Manual 7 본문 확보 | source-access-followup; JARS Table 1 소장본 대조 | 인증된 Zotero·기관 경로 |
 | 리드 검증 | writing-skills-lead | **진행** | scoped commit·원격 HEAD·필수 검사 확인 | PR #1 | 원문 미확인과 CI 대기 구분 |
 
