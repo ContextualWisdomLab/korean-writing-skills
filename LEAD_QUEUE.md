@@ -44,12 +44,12 @@ root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정�
 
 | 항목 | 담당 | 현재 증거 | 다음 조치 |
 | --- | --- | --- | --- |
-| 한국어 문장·능동/피동/사동·생략 주어 | 실행 기록 소유 | K5/K6 기존 통과(합산 안 함). K7·K8: `runs/round-4-k7-k8/` 2026-09-21 실행·채점 통과 | 스킬 전체 타당화·채점자 일치도는 다음 별도 설계. 문항 작성자와 채점자가 같은 세션인 한계는 status.md |
+| 한국어 문장·능동/피동/사동·생략 주어 | 실행 기록 소유 | K5/K6 기존 통과(합산 안 함). K7·K8 본문 축 점수 있음, **독립성 미확인** | 격리 Run 채점만 blind로 부를 수 있음 |
 | 논문근거 루브릭 | 평가 문서 소유 | three-axis.md; round-3-k5-k6 | 전체 타당화·채점자 일치도 미실시 |
 | PLD vs 통과 경계 | 평가 문서 소유 | three-axis PLD 칸 vs 축별 2점 내부 경계 vs Standards cut score 미설정. actor-responsibility-criteria는 항목 규칙 | 세 개념을 한 점수로 부르지 않음. 한국어 평가 논문 전문 미확보 |
 | AGENTS 정확인용 | 이 작업 트리 | AGENTS.md 근거 표; source-ledger | 미열람을 사실로 쓰지 않음. I'm not human 설치본 미발견 |
 | Manual 7 남은 절 | 원문 조사 | 2.1·2.8·2.18–2.24·7.6 확인(2026-09-21). 5.1 규칙 미채택 | 7.7 이후, 8.12 이후, 10.4 이후, 한글 글꼴, 개별 절 인쇄쪽 |
-| K7·K8 독립 채점 | 별도 subagent 채점 기록 | `independent-scoring.md` 사례 통과. worker-start opencode는 consumer_fenced | 코디네이터가 OpenCode 워커를 띄울 수 있음. 타당화 아님 |
+| K7·K8 채점 | 기록 소유 | 본문 축 점수 있음. **독립성 미확인**(차단 로그 없음). K7 이유 줄 출처 없음=근거 결함 | 격리 Run 채점자만 blind로 부를 수 있음 |
 | JARS Table 2–8 | 원문 조사 | Table 1만 S8·A-JARSQ | 설계별 표는 해당할 때만 원문 |
 | PR #1 검사 | root·이 트리 | MERGEABLE, head는 push 후 SHA로 갱신. 2026-09-20 23:26 조회 시 필수 검사 QUEUED | 필수 검사 성공 뒤에만 merge. 재실행 요청 안 함 |
 | 연구 원고 APA 적용 | 연구 담당 `run_de4c37377cf3` | 지침 `/tmp/writing-apa7-guidance-for-research-20260920.md` | 이 트리는 원고 파일을 고치지 않음 |
