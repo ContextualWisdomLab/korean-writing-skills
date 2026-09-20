@@ -1,20 +1,20 @@
 # 한국어 글쓰기·APA7 스킬 개발 TODO
 
-> Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: `term_b47b9cbc-11e9-4fb5-8eeb-cb135433a50d`
+> Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: `term_1c33634e-e367-4777-a76a-de0f1bde7dcf`
 
 ## 진행 상태
 
 | 트랙 | 담당 | 상태 | 다음 조치 | 완료 증거 | 의존성 |
 |------|------|------|-----------|-----------|--------|
-| 한국어 규범·퇴고 | writing-skills-lead | **보강(2차)** | K5·K6 접근 범위를 지킨 독립 재실행 | validator + rubric/PLD/AGENTS | — |
-| APA7 논문 작성 | apa7-manuscript-worker | **초안(실패 보고)** | Publication Manual·JARS 원문 | `skills/apa7-manuscript-writing/` | Zotero/elderly-gad |
-| 독립 평가 | independent-eval-worker | **완료** | — | `evaluations/runs/round-1-review.md` | — |
+| 한국어 규범·퇴고 | writing-skills-lead | **보강(3차)** | 일반화·추가 사례는 별도 검증 | round-3-k5-k6 + validator | — |
+| APA7 논문 작성 | apa7-manuscript-worker | **초안** | Publication Manual 본문 및 JARS 추가 설계표 | `skills/apa7-manuscript-writing/` | Zotero/elderly-gad |
+| 독립 평가 | 격리 실행·별도 채점 worker | **두 사례 채점 완료** | 전체 타당화와 구별 | `evaluations/runs/round-3-k5-k6/review.md` | 입력·스킬·출력 SHA-256 |
 | 강원국·김정선 | writing-skills-lead | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | writing-skills-lead | **반영** | — | U-KHU1–4, examples·validation | — |
 | KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
-| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 2회차 행위자 추가 실패 교정; 독립 재실행 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
-| APA 원문 | — | **미완(완료 조건)** | Manual 7·JARS·Zotero | apa source-ledger | 접근 경로 |
-| 리드 검증 | writing-skills-lead | **진행** | PR merge | PR URL | APA 원문 |
+| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 한국어 평가 논문 전문 확보 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
+| APA 원문 | 원문 조사 worker·다음 담당 | **부분 확인** | Manual 7 본문 확보 | source-access-followup; JARS Table 1 소장본 대조 | 인증된 Zotero·기관 경로 |
+| 리드 검증 | writing-skills-lead | **진행** | scoped commit·원격 HEAD·필수 검사 확인 | PR #1 | 원문 미확인과 CI 대기 구분 |
 
 ## I'm not human 스킬
 
@@ -34,6 +34,6 @@
 ## 완료 기준 (리드)
 
 - [x] 2 스킬 SKILL.md + references, skill validator 통과 (2026-09-20 복구 재실행)
-- [x] 독립 평가 시나리오·루브릭 (작성자 답 비공개); K5·K6 추가 검증은 미완
-- [ ] 원격 commit + 설치 가능 경로 보고
-- [ ] 초안 vs 검증 완료 구분 보고
+- [x] 독립 평가 시나리오·루브릭 (작성자 답 비공개); K5·K6 별도 채점 2건 통과, 전체 타당화 아님
+- [ ] 이번 scoped commit의 원격 HEAD 확인; 스킬 경로는 README에 기록
+- [x] 초안·두 사례 채점·문헌 미확인 범위를 구분

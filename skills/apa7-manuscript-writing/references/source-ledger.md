@@ -1,6 +1,6 @@
 # 근거 장부
 
-확인일: 2026-09-20. 담당: APA 스킬 작성 worker, task_f6b0edbebdae. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않았다. 본문을 얻은 자료와 접근 실패를 구별한다. 매뉴얼·JARS 확인이 완료되지 않아 현재 상태는 **원문 확인 미완료 초안**이다.
+확인일: 2026-09-20. 담당: APA 스킬 작성 worker, task_f6b0edbebdae. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않았다. 본문을 얻은 자료와 접근 실패를 구별한다. 매뉴얼 확인이 완료되지 않아 현재 상태는 **원문 확인 미완료 초안**이다. JARS-Quant Table 1은 아래 추가 조사에서 로컬 소장 PDF로 재확인했다.
 
 ## 직접 읽은 APA 공식 본문
 
@@ -45,3 +45,17 @@
 | 조정자 | 소유 경로 외 파일 미수정 | 통합 검토 후 commit·원격 확인 | 원격 commit을 실제 확인하기 전 전체 작업 완료 보고 금지. |
 
 이 저장소는 점검 당시 `.codegraph/`가 없었다. 현재 작업은 Markdown 문서 3개이며 코드 심볼·호출 관계 탐색이 없어 인덱싱하지 않기로 판단했다. CodeGraph CLI 존재와 init 옵션을 확인했으며, 코드가 추가되거나 코드 탐색이 필요해지면 인덱싱한다.
+
+
+## 2026-09-20 추가 원문 조사 · task_3ac9c39fee07
+
+담당: 원문 조사 worker. 상세 접근 기록은 [source-access-followup.md](../../../evaluations/references/source-access-followup.md). 이전 조회의 `~/Zotero`와 실제 첨부 경로 `~/Documents/Zotero`는 서로 다른 DB다. 이전의 그룹 0행을 현재 소장 라이브러리 전체의 부재로 해석하지 않는다.
+
+- `~/Documents/Zotero/zotero.sqlite`: 일반 읽기 전용 연결은 `database is locked`. `mode=ro&immutable=1`로 주 DB만 조회하여 개인 library 1, elderly-gad library 2 / group 6347780을 확인했다. WAL을 반영하지 않으므로 최신 동기화 상태나 완전한 부재 판정에는 사용할 수 없다.
+- 개인 JARS-Quant parent `NWXTJ7QC` / 첨부 `MA5XB6VW`; 그룹 원 논문 parent `49XLUQAT`에는 첨부가 없고, 정오표 parent `W4AJRLSI` 아래 첨부 `WTHXWQ32`에 원 논문과 정오표를 합친 PDF가 있다. 첨부 이름이나 parent 제목만으로 본문을 정오표 단독으로 판단하면 안 된다.
+- 두 PDF의 SHA-256은 동일: `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`. 파일은 각각 `~/Documents/Zotero/storage/MA5XB6VW/`와 `WTHXWQ32/`의 `Appelbaum et al. - 2018 - “Journal article reporting standards for quantitative research in psychology The APA Publications and Commun.pdf`다.
+- S8 판본: Appelbaum, Cooper, Kline, Mayo-Wilson, Nezu, Rao (2018), APA, *American Psychologist*, 73(1), 3–25, DOI https://doi.org/10.1037/amp0000191. 정오표 DOI https://doi.org/10.1037/amp0000389 가 마지막 PDF p.24에 붙어 있다. `pdftotext -layout`으로 직접 읽었으며 페이지 이미지는 대조하지 않았다.
+- 실제 열람: 인쇄 p.3/PDF p.1의 제목·저자·DOI; 인쇄 p.5/PDF p.3의 적용 구조; Table 1 인쇄 pp.6–8/PDF pp.4–6의 Title/Abstract/Introduction/Method/Results/Discussion. 짧은 구절: “Primary hypotheses”, “Secondary hypotheses”, “Exploratory hypotheses”(인쇄 p.7, Analytic strategy). 연구 설계에 맞는 보고 항목 선택, 사전·탐색 분석 구분, 결측 처리, 효과크기·구간 보고 근거로 사용한다. 자료나 분석 결과를 새로 만드는 허가가 아니다.
+- 정오표 PDF p.24: 인쇄 p.13 Clinical Trials와 p.25 참고문헌의 헬싱키 선언 인용을 2008년 판으로 정정한다. 이 정오표를 현행 연구윤리 규정으로 확대하지 않는다. Table 1 수정이라는 주장은 하지 않는다.
+- APA Manual 7: 두 DB의 제목 검색과 `~/Documents/Zotero` 개인·그룹 주 DB에서 `%publication%manual%`, `%APA%7%`, `%출판%매뉴얼%` 검색 0건. 최신 클라우드 소장본의 부재는 미확인이다. 개인 API 15초 timeout, 그룹 API 403이 다시 발생했다. Manual 본문·쪽·절은 여전히 미독이다.
+- Numbers and Statistics Guide 직접 HTTP 응답은 200이지만 212바이트 HTML(SHA-256 `d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d`)이다. PDF를 읽었다고 처리하지 않는다.

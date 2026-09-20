@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-20",
+  "base_commit": "df5c6af85366be89e7e0e090d95ec452c1cc8f26",
+  "run_id": "run_58eacbe56521",
+  "executor": {
+    "task": "task_7fa9c3e3a498",
+    "dispatch": "ctx_51619c900e64",
+    "allowed_reads": [
+      "K5.md",
+      "K6.md",
+      "SKILL.md"
+    ]
+  },
+  "scorer": {
+    "task": "task_1cc85e521eed",
+    "dispatch": "ctx_ede485b0f4c7",
+    "allowed_reads": [
+      "K5.md",
+      "K6.md",
+      "rubric.md",
+      "output.md"
+    ]
+  },
+  "sha256": {
+    "K5.md": "1c8afa28dbcacd8c755f9771350a00ef17f5280fa5d1f7e5c748cf68df3d911d",
+    "K6.md": "70ecc7c5505d3e5cc2001cb6a3b5ae0e1be66c4afe9f477ef90349286028d285",
+    "output.md": "68abea1b1f2ec248e4b405e044f180db987334c6018140bcd90aa98a16c38c5c",
+    "scoring.md": "2050b50872b2b3feef2314e8a8e916fe6c3d19be9a01cd3c19f90d361cc16690",
+    "executor-provenance.md": "5e91354ac8b5aff4e974bae2006e0384e85e77ccfcdb61963ec091f75d4eb11c",
+    "scorer-provenance.md": "50563f07e497d8cc137180d1aa393e8c9baac637b87aee6010cfb630b8e62ea0"
+  },
+  "repository_snapshots": {
+    "skills/korean-editing/SKILL.md": "a510af3c1e8f342221665b8ba8c7d4a66276a3af2564efcfb27eb120bb477080",
+    "evaluations/rubrics/three-axis.md": "a6006a3047c044af4c255ff97b3ce666a0aac047c4fb4eb5f5284eec07923bcd"
+  },
+  "temporary_workspace": "/tmp/korean-k56-ctx5fdd",
+  "isolation": "Explicit path allowlist in separate Orca sessions, not an OS sandbox; inherited AGENTS and general context remained visible."
+}
