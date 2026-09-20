@@ -12,7 +12,7 @@
 | 강원국·김정선 | writing-skills-lead | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | writing-skills-lead | **반영** | — | U-KHU1–4, examples·validation | — |
 | KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
-| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | K5–K6 blind·Zotero Standards | S-STD2014 PDF, analytic rubric | Zotero API; Ahn PDF |
+| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | K5–K6 독립 재실행 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
 | APA 원문 | — | **미완(완료 조건)** | Manual 7·JARS·Zotero | apa source-ledger | 접근 경로 |
 | 리드 검증 | writing-skills-lead | **진행** | PR merge | PR URL | APA 원문 |
 
