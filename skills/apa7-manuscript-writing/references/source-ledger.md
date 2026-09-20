@@ -77,8 +77,17 @@
 - 6.36 Decimal Fractions: "Use a zero before the decimal point in numbers that are less than 1 when the statistic can exceed 1." / "Do not use a zero before a decimal fraction when the statistic cannot be greater than 1 (e.g., correlations, proportions, levels of statistical significance)." 예 `r(24) = –.43, p = .028` 관측. 선행 0 규칙을 Manual 절번호 근거로 쓴다.
 - 6.44 Statistical Symbols and Abbreviations: "Do not define symbols or abbreviations that represent statistics (e.g., M, SD, F, t, df, p, N, n, OR, r) or any abbreviations or symbols composed of Greek letters" + "define the other abbreviations". 약어 정의 규칙을 Manual 절번호 근거로 쓴다.
 - 6.40은 "Selecting Effective Presentation" 표제로 스냅샷 확인. 안내서 A-NUM의 "6.40–6.45 = reporting statistics" 묶음과 표제가 다르므로, 6.40 숫자 개수 권고는 조건 재검증 없이 규칙화하지 않는다.
-- 5.1: Ch.5 스냅샷 파일이 없어 직접 대조 불가. Grok 직접 열람 보고(보고서 §4)는 담당 검증 보고 성격으로만 기록하고 규칙으로 채택하지 않는다. 편견 없는 언어 절은 잠정 점검 유지.
-- 서명 7판은 Grok 탭 관측 보고 수준(스냅샷 본문에서 표제 미검출). 목차값 Ch.5 p.130·Ch.6 p.152는 개별 절 인쇄쪽으로 쓰지 않으며, 해당 절 인쇄쪽은 미확인. 6.32·6.33 영어 수사 규칙은 한글 강제 아님. 7·8·10장 본문·판권지 미확인. 리더 등장 원인·자동완성 성공 미확인.
+- 5.1: Ch.5 스냅샷 파일이 없어 OpenCode가 규칙으로 채택하지 않음. Grok 열람 보고는 담당 검증 보고로만 둔다. 편견 없는 언어 절은 잠정 점검 유지.
+- 서명 7판은 리더 탭 제목 *Publication Manual of the American Psychological Association, Seventh Edition*. 목차값 Ch.5 p.130·Ch.6 p.152는 개별 절 인쇄쪽으로 쓰지 않는다. 6.32·6.33 영어 수사 규칙은 한글 강제 아님. 리더 등장 원인·자동완성 성공 미확인.
+
+## 2026-09-20 Manual 7 리더 7·8·10장 최소 절 · task_a9549b9a66a7
+
+담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1` / `ctx_b684f6f1dce1`. 기존 virdocs 리더. 상세 `/tmp/writing-manual7-ch7-ch8-ch10-20260920.md`. 장 전체·스냅샷 원문은 공개 저장소에 넣지 않는다. 장시작 쪽을 개별 절 쪽으로 쓰지 않는다.
+
+- 7.1 Purpose of Tables and Figures; 7.4 Formatting; 7.5 Referring in the Text. 본문 파일 `https://platform.virdocs.com/read/1302723/30/#/4/2` (21:43 KST). 짧은 구절: “The primary purpose of any table or figure is to facilitate readers’ understanding of the work.” “refer to every table and figure by its number—known as a callout.” “Do not write “the table above” (or “below”).” 7.6 이후 선·배치 세칙 미독.
+- 8.4 Correspondence Between Reference List and Text; 8.10 Author–Date Citation System. 본문 파일 `/read/1302723/33/` (21:46 KST). “Each work cited in the text must appear in the reference list, and each work in the reference list must be cited in the text.” 8.6 2차 출처는 드물게, 8.11 parenthetical/narrative는 같은 파일에서 짧게 확인.
+- 10.1 Periodicals; 10.2 Books and Reference Works; 10.3 도입 템플릿. 본문 파일 `/read/1302723/39/` (21:51 KST). 정기간행물 템플릿 Author/Date/Title/Source/Periodical information/DOI or URL. 빠진 권호쪽은 생략. 전자책 기기명은 참고문헌에 넣지 않음. A-REF의 DOI 마침표·출판사 소재지 문장은 이 창에서 찾지 못함.
+- 판권지·개별 절 인쇄쪽·7.6 이후·8.12 이후·10.4 이후·예 1–11 전문은 미확인.
 
 ## 2026-09-20 Sampling procedures 본문·이미지 대조
 

@@ -1,6 +1,6 @@
 # 전담 리드 작업 원장
 
-확인일: 2026-09-20. 전담 리드: Codex `term_731b94a7-ac3c-437c-876c-df9f8416eb66`, 현재 dispatch `ctx_812ff2c52f7e`(인수 `ctx_b7f2a390f5cd`), root `run_b22de9a1c59d`. 종료된 Cursor 리드는 재시작하지 않는다. 운영·검토·후속 배정은 이 리드와 root가 맡는다.
+확인일: 2026-09-20. 글쓰기 작업 트리 담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1`, dispatch `ctx_b684f6f1dce1`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 종료된 Codex 리드 `term_731b94a7`는 재시작하지 않는다. 연구 원고 파일은 연구 담당 소유다.
 
 ## 인수와 파일 소유
 
@@ -11,7 +11,7 @@ Air `ctx_a68eae315695`는 연구 run `run_de4c37377cf3`의 기존 작업이다. 
 | 작업 | 담당·소유 파일 | 증거 | 다음 조치·수용 조건 | 의존성 |
 | --- | --- | --- | --- | --- |
 | APA/JARS 원고 대조 | 기존 Air `ctx_a68eae315695`; 연구 저장소 작업 파일 | PR #237 `7d34241`; 쪽수 정정 `28c8c442` | 이 리드가 두 문서를 직접 읽고 Sampling procedures를 소장 PDF와 대조; 정확한 쪽수만 APA 스킬에 반영 | Manual 7·원고 고유 공백은 별도; Air lifecycle 종료 |
-| APA 스킬 통합 | 이 OpenCode; `skills/apa7-manuscript-writing/` 후속 수정 | 현재 PR의 source-ledger·validation + A-NUM(`6a1b2b67…`)·A-REF(`fc74e6a4…`)·A-JARSQ(`11c042b1…`) 직접 대조(`/tmp/apa-src-20260920/u02·u01·u07`) | Manual 7 실제 본문, Table 2–8·Qual/Mixed 본문, 원고 고유 수치·설계·IRB를 공통 규칙에 복사하지 않음; 영어 수사 규칙 한글 강제 금지 | Air 결과와 별개로 부족한 본문은 직접 확보; 연구리드 승인 불필요 |
+| APA 스킬 통합 | 이 Grok; `skills/apa7-manuscript-writing/` | source-ledger·A-NUM·A-REF·A-JARSQ + Manual 6.36·6.44·7.1·7.4·7.5·8.4·8.10·10.1–10.3 도입 | 확인한 절만 세칙으로 반영. 원고 고유 수치·IRB 복사 금지. 영어 수사 한글 강제 금지 | 연구 리드 승인 불필요 |
 | 한국어 원문 대조 | 이 OpenCode; `skills/korean-editing/references/` 후속 검토 | 기존 source-ledger의 국립국어원·대학·KBS·신문·강원국·김정선 항목 + U-KHU4 간접 인용절 자구 재확인(2026-09-20) | 기존 기록을 새 열람으로 계산하지 않음; 발행기관·제목·판본·URL·쪽/절·확인일·제한 문장을 원문과 대조 | 원서 본문(J2·G1 퇴고 표)·미확인 논문 전문·KUPIS는 남은 조건 |
 | 주어·능동·피동·사동 | 이 Codex; 한국어 스킬 후속 검토 | SKILL.md와 K5/K6 입력·출력 | 행위자·대상·범위·책임·불확실성 보존; 생략 주어를 화자로 단정하지 않음 | 새로운 예문은 별도 실행자와 채점자 필요 |
 | PLD·판정준거 | 이 Codex; 평가 문서 | 근거 장부 ctx_812ff2c52f7e; standards-20260920/evidence.json | 개인·그룹 동일 PDF 해시와 원문·이미지 대조, 개념 구별 및 독립 검토 완료 | 척도 타당화·채점자 일치도·중대 오류 열거와 명시 제약 해석은 후속 |
@@ -38,4 +38,17 @@ Air 결과의 주어 복원 후보는 연구 원고의 문맥에 한정한다. �
 
 root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정한다. Air dispatch의 completed/released, 원격 작업 트리의 깨끗한 `7d34241`, 활성 작성자 부재를 확인한 뒤 문서 한 개만 commit·push한다. [정정 commit 28c8c442](https://github.com/ContextualWisdomLab/[redacted-research-repo]/commit/28c8c4427e13f0bfdc4eb53bbe01234b78ed8762), [이슈 7 정정](https://github.com/ContextualWisdomLab/[redacted-research-repo]/issues/7#issuecomment-5749293598), [이슈 8 보완](https://github.com/ContextualWisdomLab/[redacted-research-repo]/issues/8#issuecomment-5749293705). 이슈 7의 ‘연구 기록 없이는 채울 수 있다’는 잘못된 문장도 후속 댓글에서 바로잡는다.
 
-후속 담당은 이 OpenCode와 root다. Manual 7 본문(6.36·6.44 직접 대조 완료, 5.1·6.32–6.35·6.40–6.43·6.45·7·8·10장 미확인), JARS Table 2–8·Qual/Mixed 본문, 한국어 평가 논문 전문과 강원국·김정선 원서 본문, 정확한 I'm not human 설치본, 현 루브릭 재채점 또는 동결본 비교 기록(동결 `a6006a30…`·현 `96022f61…` 채점표 동일 확인)·새 스킬 실행·별도 채점, PR #1 필수 검사·검토는 계속 남는다. 이번 원문 검토자는 `/root/standards_source_review`, 사례 채점자는 `/root/standards_case_scorer`이며 둘 다 지정 작업을 마친다. 연구리드의 반복 승인에 의존하지 않는다.
+후속 담당은 이 작업 트리와 root다. 연구리드에게 관리 일을 넘기지 않는다.
+
+## 잔여 항목 (2026-09-20 22:50 KST)
+
+| 항목 | 담당 | 현재 증거 | 다음 조치 |
+| --- | --- | --- | --- |
+| 한국어 문장·능동/피동/사동·생략 주어 | korean-editing 스킬 소유 | SKILL·examples·K5/K6 별도 채점; P-SONG2013·N-Q·M-HANI2 | 새 예문은 별도 실행·채점. ‘이 연구는’을 모든 생략 주어에 넣지 않음 |
+| 논문근거 루브릭 | 평가 문서 소유 | three-axis.md; round-3-k5-k6 | 전체 타당화·채점자 일치도 미실시. 새 블라인드 실행은 별도 |
+| PLD·PLC | 평가 문서 소유 | Standards 2014 PDF; evidence.json. “Performance Level Criterion” 용어집 없음 | 절단점과 내부 2점 경계를 섞지 않음. 한국어 평가 논문 전문은 미확보 |
+| AGENTS 정확인용 | 이 작업 트리 | AGENTS.md 근거 표; source-ledger | 미열람을 사실로 쓰지 않음. I'm not human 설치본 미발견 |
+| Manual 7 남은 절 | 원문 조사 | 7.1·7.4·7.5, 8.4·8.10, 10.1–10.3 도입 확인. 5.1 규칙 미채택 | 7.6 이후, 8.12 이후, 10.4 이후, 판권지, 개별 절 인쇄쪽 |
+| JARS Table 2–8 | 원문 조사 | Table 1만 S8·A-JARSQ | 설계별 표는 해당할 때만 원문 |
+| PR #1 검사 | root·이 트리 | MERGEABLE, checks QUEUED (2026-09-20 22:43) | 필수 검사 성공 뒤에만 merge 판정. 검사 대량 재실행 안 함 |
+| 연구 원고 APA 적용 | 연구 담당 `run_de4c37377cf3` | 지침 `/tmp/writing-apa7-guidance-for-research-20260920.md` | 이 트리는 원고 파일을 고치지 않음 |
