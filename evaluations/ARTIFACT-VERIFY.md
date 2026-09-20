@@ -7,10 +7,10 @@
 | 시각(대략) | 이벤트 | 결과 |
 | --- | --- | --- |
 | 16:06 | `Write` 도구로 `evaluations/runs/round-2-k5-k6-blind.md` 생성 | 로컬 파일 3836 bytes |
-| 16:07 1차 | `git add evaluations/runs/round-2-k5-k6-blind.md && git commit` **동일 셸** | **실패** — `fatal: pathspec ... did not match any files` (파일이 아직 untracked·add 타이밍 이슈) |
+| 16:07 1차 | `git add evaluations/runs/round-2-k5-k6-blind.md && git commit` **동일 셸** | **실패** — `fatal: pathspec ... did not match any files` (당시 작업 경로·파일 존재 시점은 확인하지 못함) |
 | 16:07 2차 | `git add` + `git commit` 재시도 | **성공** `dc7b005` |
 
-**원인**: 1차 commit에서 add 대상 파일이 staging에 올라가기 전에 pathspec이 실패했거나, 화면에 보인 실패가 1차 시도였음. **2차 commit 이후 원격 반영 완료.**
+**원인 미확정**: untracked 파일도 `git add` 대상이므로 미추적 상태만으로 실패를 설명할 수 없다. 당시 명령·작업 디렉터리·파일 존재 시점을 확인할 로그가 없어 타이밍 문제로 단정하지 않는다. `dc7b005`에는 해당 파일이 포함되어 있으며 복구 시점 작업 트리는 깨끗했다.
 
 ## 원격 검증 (GitHub)
 

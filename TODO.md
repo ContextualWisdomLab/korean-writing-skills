@@ -1,18 +1,18 @@
 # 한국어 글쓰기·APA7 스킬 개발 TODO
 
-> Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: writing-skills-lead
+> Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: `term_b47b9cbc-11e9-4fb5-8eeb-cb135433a50d`
 
 ## 진행 상태
 
 | 트랙 | 담당 | 상태 | 다음 조치 | 완료 증거 | 의존성 |
 |------|------|------|-----------|-----------|--------|
-| 한국어 규범·퇴고 | writing-skills-lead | **보강(2차)** | K5·K6 blind 실행 | validator + rubric/PLD/AGENTS | — |
+| 한국어 규범·퇴고 | writing-skills-lead | **보강(2차)** | K5·K6 접근 범위를 지킨 독립 재실행 | validator + rubric/PLD/AGENTS | — |
 | APA7 논문 작성 | apa7-manuscript-worker | **초안(실패 보고)** | Publication Manual·JARS 원문 | `skills/apa7-manuscript-writing/` | Zotero/elderly-gad |
 | 독립 평가 | independent-eval-worker | **완료** | — | `evaluations/runs/round-1-review.md` | — |
 | 강원국·김정선 | writing-skills-lead | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | writing-skills-lead | **반영** | — | U-KHU1–4, examples·validation | — |
 | KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
-| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | K5–K6 독립 재실행 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
+| Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 2회차 행위자 추가 실패 교정; 독립 재실행 | round-2-k5-k6-blind.md | Zotero API; Ahn PDF |
 | APA 원문 | — | **미완(완료 조건)** | Manual 7·JARS·Zotero | apa source-ledger | 접근 경로 |
 | 리드 검증 | writing-skills-lead | **진행** | PR merge | PR URL | APA 원문 |
 
@@ -33,7 +33,7 @@
 
 ## 완료 기준 (리드)
 
-- [ ] 3 스킬 SKILL.md + references, skill validator 통과
-- [ ] 독립 평가 시나리오·루브릭 (작성자 답 비공개)
+- [x] 2 스킬 SKILL.md + references, skill validator 통과 (2026-09-20 복구 재실행)
+- [x] 독립 평가 시나리오·루브릭 (작성자 답 비공개); K5·K6 추가 검증은 미완
 - [ ] 원격 commit + 설치 가능 경로 보고
 - [ ] 초안 vs 검증 완료 구분 보고

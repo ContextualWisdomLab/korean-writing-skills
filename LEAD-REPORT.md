@@ -1,56 +1,38 @@
-# 리드 보고 (writing-skills-lead)
+# 리드 복구 보고
 
-확인일: 2026-09-20 · child run: `run_58eacbe56521` · root: `run_b22de9a1c59d` · branch: `seonghobae/writing-skills-lead`
+확인일: 2026-09-20. 담당: `term_b47b9cbc-11e9-4fb5-8eeb-cb135433a50d`.
 
-## 원격 commit (검증됨)
+## 소유권과 현재 범위
 
-| commit | 내용 |
-| --- | --- |
-| `b668af1` | korean-editing: KBS·신문·피동·주어·KUPIS 기록 |
-| `f2d5b67` | Rubric·PLD·Standards·AGENTS 근거 대응 |
-| `dc7b005` | round-2 K5·K6 blind eval |
+`run_58eacbe56521`의 coordinator_handle을 새 리드로 변경했고 consumer_generation은 2다. 기존 자식 3건은 모두 released이며 한국어·독립 평가 작업은 completed, APA 작업은 failed다. 이전 사용자 소유 dispatch `ctx_f927c4370ded`는 변경하지 않았다. 새 리드가 담당자 없는 리드 문서·평가 판정·Standards 인용 정정을 맡았다. 시작 시 작업 트리는 깨끗했다.
 
-`evaluations/ARTIFACT-VERIFY.md`: round-2 **1차 commit pathspec 실패** → 2차 `dc7b005` 성공. GitHub API로 `round-2-k5-k6-blind.md` sha 확인.
+기존 run 메시지 14건과 watchdog 074628·075304를 읽었다. 강원국·김정선·대학·언론·문법·KUPIS·루브릭·AGENTS·Standards 요청과 기존 장부를 대조했다. 자료 접근이 끝나지 않은 항목은 아래에 남긴다.
 
-## 초안 vs 검증
+## 실제 수정과 검증
 
-| 산출물 | 상태 | 근거 |
-| --- | --- | --- |
-| `skills/korean-editing/` | **초안+2차 보강** | validator; round-1 K1–K4 4/4; round-2 K5–K6(리드 단일 세션); U-KHU·N-Q·M-HANI·P-SONG |
-| `skills/apa7-manuscript-writing/` | **초안(JARS Table1 부분)** | S8 Table 1; Manual 7·JARS PDF 미완 |
-| `evaluations/` | **1–2회차 기록** | round-1-review.md, round-2-k5-k6-blind.md; analytic rubric·PLD framework |
-| `AGENTS.md` | **근거 대응 표** | f2d5b67 |
+- pathspec 실패는 이미 `dc7b005`에서 복구되었다. 실패 원인을 untracked 상태나 add 타이밍으로 단정한 문구를 제거했다.
+- 기존 K5 출력은 입력에 없는 사용자를, K6 출력은 입력에 없는 담당자를 넣었다. 두 사례의 의미 보존을 0점으로 재판정하고 기존 2/2·누적 6/6 통과를 철회했다. 당시 출력과 점수는 감사 기록으로 보존했다.
+- 별도 Codex 실행자 `/root/blind_k5_k6`에게 스킬·입력 K5/K6·루브릭만 제공했다. 기존 답안은 읽지 않았다. K5는 행위자 미상을 유지했고 K6는 담당자를 미제공으로 표시했다. 다만 실행자가 입력 파일의 다른 사례까지 읽었으므로 접근 범위 위반으로 보류했다. 새 통과 사례로 집계하지 않는다. 별도 채점자 일치도는 측정하지 않았다.
+- Zotero 첨부 `A9MHWYKV/9780935302356.pdf`를 직접 텍스트 추출해 Standard 5.21과 glossary 위치를 바로잡았다. 인쇄쪽과 PDF쪽을 AGENTS·근거 장부·PLD 문서에 구분했다. 페이지 이미지 대조와 Zotero API 재조회는 하지 않았다.
+- 각 축 2점이라는 내부 통과 경계와 검증된 시험 절단점을 구별했다. 자연스러움 3점과 2점의 경계 설명을 기존 3축 루브릭에 맞췄다.
+- 두 스킬에 `quick_validate.py`를 실제 실행하여 모두 통과했다. 이 검사는 문헌 정확성이나 행동 타당도를 입증하지 않는다.
 
-## Standards·PLD·논문 루브릭 (06:48–06:51 지시)
+## 원격과 검증 범위
 
-| 산출물 | 경로 |
-| --- | --- |
-| 분석적 루브릭 | `evaluations/rubrics/analytic-korean-editing.md` |
-| PLD·cut score 프레임 | `evaluations/rubrics/pld-and-standards-framework.md` |
-| 근거 장부 | `evaluations/references/rubric-source-ledger.md` |
-| AGENTS 대응 | `AGENTS.md` §근거 대응 |
+PR: https://github.com/ContextualWisdomLab/korean-writing-skills/pull/1
 
-- **S-STD2014**: 공식 PDF + Zotero `GKX4IKDH` / `A9MHWYKV`. PLD·Standard 5.21·scoring rubric 확인. cut score·가중치 **미설정**.
-- **Performance Level Criterion**: Standards **정식 용어 아님**.
-- **R-AHN2026·R-KIM2010·R-KSL2019**: 초록·서지만; 본문 미독.
+복구 시작 HEAD: `3fa56684c493d3f0576ebc4429a7e078474396e4`. 당시 PR head와 일치했다. 열린 issue는 없었다. 필수 CI는 QUEUED, mergeStateStatus는 BLOCKED였다. 수정 commit의 원격 SHA와 최종 검사 상태는 리드의 완료 메시지에서 별도로 확인한다. 이번 범위에 merge 완료는 포함하지 않는다.
 
-## KUPIS·Zotero (06:43 지시)
+저장소는 추적 파일이 Markdown·JSON뿐이고 `.codegraph`가 없다. 코드 탐색 대상이 없고 호스트 자원 경고가 있어 이번 문서 정정에는 CodeGraph 인덱스를 생성하지 않았다. 무거운 빌드와 CI 재실행 요청은 하지 않았다.
 
-| 시도 | 결과 |
-| --- | --- |
-| KUPIS 포털 | 200, **SSO 없이** 논문 PDF 미확보 |
-| Zotero Standards | elderly-gad **확인** (위) |
-| Zotero 한국어 루브릭 논문 | parent 서지·본문 **미완** |
+## 남은 작업
 
-## PR
+| 담당 | 다음 조치 | 완료 기준 | 의존성·현재 증거 |
+| --- | --- | --- | --- |
+| 새 리드 | K5/K6만 분리한 입력으로 독립 재실행 | 접근 범위 준수, 입력·출력·스킬 hash, 별도 채점 | 기존 round-2 실패, 이번 독립 실행 보류 |
+| 새 리드 또는 다음 APA 담당 | Manual 7판과 JARS 필수 본문 대조 | 실제 쪽·절 및 한국어 적용 범위 | APA source-ledger; Table 1만 부분 확인 |
+| 새 리드 또는 다음 조사 담당 | KUPIS 기관 경로·Zotero로 한국어 평가 논문 전문 확인 | 논문별 항목·쪽·조건 대조 | Ahn/Kim/KSL은 초록·서지 중심 |
+| 새 리드 또는 다음 조사 담당 | 강원국·김정선 원서 및 정확한 I'm not human 설치본 확인 | 실제 설치본·판본·본문 확인 | 현재 부분 자료와 humanize-korean만 기록 |
+| root·새 리드 | PR 현재 head 필수 검사·검토 확인 | 실제 성공 및 merge 조건 충족 | 큐 대기 상태를 성공으로 계산하지 않음 |
 
-https://github.com/ContextualWisdomLab/korean-writing-skills/pull/1 — CI pending, merge 대기.
-
-## 남은 완료 조건
-
-1. APA Publication Manual 7판 본문 (Zotero).
-2. apastyle JARS PDF.
-3. KUPIS/기관 SSO로 한국어 평가·담화 논문 **전문**.
-4. K5·K6 **독립** 실행자 재평가.
-5. Ahn 2026 등 루브릭 논문 본문·ICC 근거.
-
+전체 문헌 검증과 타당화는 미완료다. 이 복구 작업의 완료 범위는 소유권 인수, 오류 정정, 가벼운 실제 검증과 원격 반영이다.

@@ -10,7 +10,7 @@
 - 직접 확인(인쇄 쪽, PDF 추출본 — 공식 PDF와 Zotero 소장본 **대조**):
   - ch.4 p.79: **scoring rubric** — 채점 기준·수준 수·판단 정도.
   - ch.5 pp.100–108: **cut scores**, **performance-level descriptors**(achievement-level descriptors 동의어), **standard-setting** 절차; Standard **5.21–5.23**.
-  - ch.5 glossary p.221: **performance-level descriptor**, **performance standards**, **performance level**, **standard setting**, **scoring rubric**.
+  - glossary: 인쇄 p.221 / PDF p.232에 **performance-level descriptor**, **performance standards**, **performance level**; 인쇄 p.223 / PDF p.234에 **scoring rubric**; 인쇄 p.224 / PDF p.235에 **standard setting**.
   - ch.2: 채점자 판단 포함 시 **interrater**·**generalizability** (forms·occasions·**raters**).
 - **Performance Level Criterion**: Zotero PDF·공식 PDF 전문 검색 **0건**. 정식 용어 **아님**. **performance-level descriptor**, **scoring rubric** criterion, **cut score**·**standard setting**과 구별.
 - 스킬 적용: PLD·절단점·타당도 요구의 **측정학 프레임**. 본 프로젝트의 0–3 PLD는 Standards가 검증한 수준이 **아님**.
@@ -52,3 +52,7 @@
 - `evaluations/rubrics/three-axis.md` 0–3: **편집 품질 PLD(잠정)**. 합격선·가중치·절단점은 문헌이 정하지 않았으므로 **심리측정학적으로 검증된 기준으로 주장하지 않음**.
 - 사례 통과: 세 축 각 ≥2, 중대 오류 없음 — **프로젝트 판정 규칙**.
 
+
+## 복구 세션 원문 재확인
+
+2026-09-20, 새 리드가 로컬 Zotero 첨부 `A9MHWYKV/9780935302356.pdf`를 `pdftotext -layout`으로 직접 읽었다. ch.5 Cut Scores는 인쇄 p.100 / PDF p.111, Standard 5.21은 인쇄 pp.107–108 / PDF pp.118–119, 5.22–5.23은 인쇄 p.108 / PDF p.119이다. 위 glossary 쪽을 정정했다. PDF쪽은 표지를 포함한 1부터 시작하는 쪽이다. 이번 재확인은 추출 텍스트 기준이며 페이지 이미지 대조와 개인·그룹 라이브러리 API 재조회는 하지 않았다. 공식 PDF 웹 도구는 접근 오류가 발생했으며 기존 공개본 대조 기록과 이번 로컬 열람을 구별한다.

@@ -8,9 +8,9 @@
 | --- | --- | --- | --- |
 | 수행 수준을 서술하는 문장 | **performance-level descriptor (PLD)**; 때로 achievement-level descriptors | `three-axis.md` 각 축 0–3 기술 | PLD는 **관찰 가능한 수행**을 말로 적은 것. 본 프로젝트 PLD는 **잠정** |
 | 점수 구간을 나누는 경계 | **cut score** | **미설정** — 0–3은 순위형 PLD이지 운영 절단점 아님 | Standard 5.21: cut score rationale·절차 **문서화** 필요 |
-| 절단점을 정하는 절차 | **standard setting** | 블라인드 사례별 **항목 판정**만; Bookmark·Angoff 등 **미실시** | ch.5 p.100, glossary p.223 |
-| 채점 항목·수준별 기준 | **scoring rubric** | `analytic-korean-editing.md` + three-axis | ch.4 p.79 |
-| 성취·숙련 라벨 체계 | **performance level**, **performance standards** | three-axis 0–3 (축별, 합산 아님) | glossary p.221 |
+| 절단점을 정하는 절차 | **standard setting** | 블라인드 사례별 **항목 판정**만; Bookmark·Angoff 등 **미실시** | ch.5 인쇄 p.100 / PDF p.111; glossary 인쇄 p.224 / PDF p.235 |
+| 채점 항목·수준별 기준 | **scoring rubric** | `analytic-korean-editing.md` + three-axis | glossary 인쇄 p.223 / PDF p.234 |
+| 성취·숙련 라벨 체계 | **performance level**, **performance standards** | three-axis 0–3 (축별, 합산 아님) | glossary 인쇄 p.221 / PDF p.232 |
 | 사용자 표현 “Performance Level Criterion” | **정식 용어 아님** | 각 PLD 수준을 부여하는 **판정 규칙**(아래)으로 대체 | descriptor·cut score·rubric criterion과 **동일시 금지** |
 
 ## 평가 목적·대상·한계 (Standard 5.0, 5.5, 1.0 맥락)
@@ -38,7 +38,7 @@
 
 | 수준 | PLD | 인접 차이 |
 | --- | --- | --- |
-| 3 | 문단 주장–근거 연결, 호응·지시 대상 분명, 장르·격식 유지 | 어색 1–2곳 수준 |
+| 3 | 문단 주장–근거 연결, 호응·지시 대상 분명, 장르·격식 유지 | 2와 달리 어색하거나 장황한 곳이 없음 |
 | 2 | 이해 가능, 군데 어색·장황 | 흐름 **다수** 단절(→1) 아님 |
 | 1 | 문장/문단 흐름 **여러 곳** 단절 | 출력이 요청 기능 상실(→0) 전 |
 | 0 | 한국어 산출로 기능하지 못함 | — |
@@ -56,7 +56,7 @@
 
 ## cut score·절단점·가중치
 
-- **설정하지 않음**. Standard 5.21–5.23의 cut score·standard-setting 절차 **미적용**.
+- **검증된 시험 절단점·가중치는 설정하지 않음**. 다만 아래의 2점 이상은 실제 내부 통과 경계이며, 경계가 전혀 없다는 뜻은 아니다. Standard 5.21–5.23에 따른 standard-setting 연구는 실시하지 않았다.
 - 사례 **통과**는 프로젝트 규칙(세 축 ≥2, 중대 오류 없음)이며 **Performance Level Criterion**이나 검증된 mastery cut **아님**.
 
 ## 채점자·일치도 (Standard 1.x, 2.x, 6.x 맥락)
