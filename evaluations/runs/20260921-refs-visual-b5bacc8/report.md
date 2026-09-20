@@ -87,4 +87,18 @@ DOCX 18쪽, HWPX PNG 16쪽. 이중 줄간격·내어쓰기가 DOCX에만 렌더�
 - 표 "미보고" 칸 채움은 검증된 수치 담당.
 - 본문 의미를 바꾸는 문장 교정은 이번 18쪽에서 인계할 근거 문장을 새로 잡지 못함.
 
+## HWPX 이탤릭 XML≠PNG
+
+생성기 코드는 수정하지 않음. 전담 `ctx_decb7be8ab10`. XML에 `italic="1"`이 있어도 쪽 PNG에서 학술지명이 기울어 보이는지를 본다.
+
+| 파일 | SHA-256 | 관찰 |
+| --- | --- | --- |
+| HWPX `manuscript_interim_20260921.hwpx` | `560263aac8f53c3f23476b7c5d1bf1a09b001a3aecf99202e1b8719a51ca4918` | `hh:charPr italic="1" id="27"` 1건. `<hh:italic` 자식 0건. |
+| 정규화 PNG `rhwp_rerender_probe_20260921_normalized/page_014.png` | `87b08c7f5b315f2553a0cc19aad0126129839d020c42be751bf42dc1cfa2cd62` | 표제 가운데·항목 내어쓰기는 보임. Clinical Interventions in Aging, 13 등이 기울어 보이지 않음. |
+| DOCX `docx_pages/page_014.png` | `88ca1e8681dab7b9fe8fcf750f3430a956dc9996fef5c7f7d2d725f108c5898a` | 같은 학술지명이 기울임. |
+
+후속 빌드 `air_render_175b012_hwpxfix_tablenum_20260920_204753` HWPX SHA-256 `2f90013ccc1dd8ea9fde277c9e40a710e9ef35eee2c467df53c157e2e3c89234`. 이 빌드에서 "참고문헌"은 `pages/page_015.png`이다. `pages/page_014.png`(SHA-256 `0ca4e66df2da9ef3d601c156ec85485fc53c3da7ea8fbb8fe91d5942804ff191`)는 결론 쪽이라 이탤릭 회귀 기준으로 쓰지 않음.
+
+수정판 ZIP·PNG 해시가 오면 정규화 page_014와 같은 학술지 줄을 다시 연다. XML 문자열만으로 통과를 선언하지 않음.
+
 APA 전체 준수·투고 완료를 주장하지 않음.

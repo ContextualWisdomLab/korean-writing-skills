@@ -43,4 +43,10 @@
 
 DOCX/HWPX에서 러닝헤드 표지, 줄간격, 문단 간격, 여백, 표 callout을 위 절과 대조한다. HWPX `height=4000`은 표 행 `cellSz`(hwpunit, 빌더 환산 40pt)이지 본문 글자 크기가 아니다. 글자 크기는 `hh:charPr height`를 본다.
 
-생성기 XML만으로 내어쓰기·정렬을 단정하지 않는다. 직접 속성, 상속 스타일, 최종 렌더를 구분한다. APA 2.12·2.23·2.24는 원문 규정이고, 특정 파일의 XML·렌더는 구현 관찰이다. DOCX는 문단 `w:ind`와 `basedOn` 체인, 번호 매기기 `numPr`(참고문헌 항목에 없으면 번호 매기기 hanging은 해당 없음), 그리고 워드프로세서 또는 LibreOffice 쪽 이미지를 본다. HWPX 머리글 네임스페이스 `http://www.hancom.co.kr/hwpml/2011/head`에서 확인한 요소는 `hh:margin` 아래 `hh:intent`(첫 줄), `hh:left`(왼쪽)이다. 이 패키지에 `hanging` 속성과 paraPr의 `indent` 속성은 없다. 음수 `hh:intent`는 같은 파일의 다른 paraPr에서 나타날 수 있으나, 참고문헌 문단이 그 id를 가리키는지는 `paraPrIDRef`로 본다. HWPX 쪽 PNG가 `@rhwp/core` 등 비한글 앱이면 한글 앱 최종 렌더로 쓰지 않는다.
+생성기 XML만으로 내어쓰기·정렬·기울임을 단정하지 않는다. 직접 속성, 상속 스타일, 최종 렌더를 구분한다. APA 2.12·2.23·2.24와 A-REF 학술지명·권 기울임은 원문 규정이고, 특정 파일의 XML·렌더는 구현 관찰이다.
+
+**XML 문자열이 있다는 검사만으로 시각 서식 통과를 선언하지 않는다.** `italic="1"`, `<hh:italic`, `CENTER`, `intent="-3600"` 등이 머리글에 있어도, 같은 빌드의 쪽 PNG에서 학술지명이 기울어 보이는지·표제가 가운데인지·둘째 줄이 내어쓰기인지 확인한다. 통과는 PNG(또는 한글 앱 쪽)와 그 파일 SHA-256을 XML과 한 줄에 적었을 때만 적는다. 파서가 속성(`italic="1"`)과 자식 태그(`<hh:italic …/>`) 중 하나만 읽는 경우, 없는 쪽 문자열을 찾아도 렌더가 따라가지 않을 수 있다.
+
+DOCX는 문단 `w:ind`와 `basedOn` 체인, 번호 매기기 `numPr`(참고문헌 항목에 없으면 번호 매기기 hanging은 해당 없음), 그리고 워드프로세서 또는 LibreOffice 쪽 이미지를 본다. HWPX 머리글 네임스페이스 `http://www.hancom.co.kr/hwpml/2011/head`에서 확인한 요소는 `hh:margin` 아래 `hh:intent`(첫 줄), `hh:left`(왼쪽)이다. 이 패키지에 `hanging` 속성과 paraPr의 `indent` 속성은 없다. 음수 `hh:intent`는 같은 파일의 다른 paraPr에서 나타날 수 있으나, 참고문헌 문단이 그 id를 가리키는지는 `paraPrIDRef`로 본다. HWPX 쪽 PNG가 `@rhwp/core` 등 비한글 앱이면 한글 앱 최종 렌더로 쓰지 않는다. 생성기 코드 수정은 HWPX 전담 소유이며 이 스킬이 생성기를 고치지 않는다.
+
+회귀 관찰(2026-09-21, 생성기 미수정): `air_render_b5bacc8_hangul_refsapa_20260920_201626` HWPX SHA-256 `560263aac8f53c3f23476b7c5d1bf1a09b001a3aecf99202e1b8719a51ca4918`에 `hh:charPr italic="1" id="27"`이 있고 `<hh:italic` 자식은 0건. 같은 폴더 `rhwp_rerender_probe_20260921_normalized/page_014.png` SHA-256 `87b08c7f5b315f2553a0cc19aad0126129839d020c42be751bf42dc1cfa2cd62`에서 학술지명(Clinical Interventions in Aging, 13 등)이 기울어 보이지 않음. DOCX `docx_pages/page_014.png` SHA-256 `88ca1e8681dab7b9fe8fcf750f3430a956dc9996fef5c7f7d2d725f108c5898a`에서는 같은 학술지명이 기울임. 수정판 HWPX가 나오면 새 ZIP·PNG 해시를 이 경로와 바꿔 독립 검토한다.
