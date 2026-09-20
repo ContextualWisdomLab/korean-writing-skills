@@ -59,3 +59,10 @@
 - 정오표 PDF p.24: 인쇄 p.13 Clinical Trials와 p.25 참고문헌의 헬싱키 선언 인용을 2008년 판으로 정정한다. 이 정오표를 현행 연구윤리 규정으로 확대하지 않는다. Table 1 수정이라는 주장은 하지 않는다.
 - APA Manual 7: 두 DB의 제목 검색과 `~/Documents/Zotero` 개인·그룹 주 DB에서 `%publication%manual%`, `%APA%7%`, `%출판%매뉴얼%` 검색 0건. 최신 클라우드 소장본의 부재는 미확인이다. 개인 API 15초 timeout, 그룹 API 403이 다시 발생했다. Manual 본문·쪽·절은 여전히 미독이다.
 - Numbers and Statistics Guide 직접 HTTP 응답은 200이지만 212바이트 HTML(SHA-256 `d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d`)이다. PDF를 읽었다고 처리하지 않는다.
+
+
+## 2026-09-20 Sampling procedures 본문·이미지 대조
+
+담당: Codex `ctx_812ff2c52f7e`. Appelbaum 등(2018), *American Psychologist*, 73(1), 3–25, DOI `10.1037/amp0000191`, APA 발행. 기존 S8 소장본 중 개인 item `NWXTJ7QC` / attachment `MA5XB6VW` PDF를 직접 읽는다. SHA-256 `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`. 인쇄 p.6/PDF p.4의 Table 1 Sampling procedures에서 참여자와의 합의·보상과 IRB·윤리·안전 모니터링 항목을 확인하고 같은 쪽 렌더링과 자구를 대조한다. 짧은 원문: “Institutional Review Board agreements, ethical standards met, and safety monitoring”. PDF 4쪽의 머리글 인쇄 숫자는 6이다. 공개 원문 시작점: https://doi.org/10.1037/amp0000191.
+
+판정: 위 내용을 보고 누락 점검에 쓰는 것은 뒷받침한다. 이 표는 개별 연구가 심의를 받았는지 또는 어떤 보상을 했는지 증명하지 않는다. 누락을 채우려면 실제 연구 기록이 필요하다는 적용은 프로젝트의 사실 보존 원칙이며, 원문에 없는 연구 사실을 JARS 문구로 대신하지 않는다. Manual 7판 조판 규칙 검증과도 구별한다.

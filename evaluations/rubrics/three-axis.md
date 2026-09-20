@@ -2,7 +2,7 @@
 
 초안·작성자 정답을 읽기 전에 고정한다. 정해진 교정문과의 문자열 일치는 채점하지 않는다. 각 사례를 세 축에서 0–3점으로 평가하고 원문과 출력의 짧은 대조를 근거로 남긴다.
 
-**측정학 프레임**: 본 표의 0–3은 [Standards 2014](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) 용어로 **performance-level descriptor(PLD)**에 해당하는 **프로젝트 잠정** 기술이다. **검증된 시험 절단점·가중치 없음; 내부 통과 경계는 각 축 2점**. “Performance Level Criterion”은 Standards 정식 용어가 아니며, 수준 부여 **판정 규칙**은 [pld-and-standards-framework.md](pld-and-standards-framework.md)를 본다. 항목·구성개념·문헌 대응은 [analytic-korean-editing.md](analytic-korean-editing.md), [rubric-source-ledger.md](../references/rubric-source-ledger.md).
+**측정학 프레임**: 본 표의 0–3은 점수 범주이며 각 칸의 수행 설명은 [Standards 2014](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) 용어로 **performance-level descriptor(PLD)**에 해당하는 **프로젝트 잠정** 기술이다. **검증된 시험 절단점·가중치 없음; 내부 통과 경계는 각 축 2점**. “Performance Level Criterion”은 확인한 2014판 용어집의 표제어로 찾지 못했으며, 수준 부여 **판정 규칙**은 [pld-and-standards-framework.md](pld-and-standards-framework.md)를 본다. 항목·구성개념·문헌 대응은 [analytic-korean-editing.md](analytic-korean-editing.md), [rubric-source-ledger.md](../references/rubric-source-ledger.md).
 
 | 점수 | 의미 보존 | 한국어 자연스러움 | 과잉 교정 억제 |
 | --- | --- | --- | --- |

@@ -6,13 +6,13 @@
 
 - 발행: American Educational Research Association, American Psychological Association, National Council on Measurement in Education.
 - URL: [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) — 확인일 2026-09-20.
-- Zotero elderly-gad: item `GKX4IKDH`, attachment `A9MHWYKV`, `9780935302356.pdf` (`~/Documents/Zotero/storage/A9MHWYKV/`). API `groups/6347780/items?q=Standards+for+Educational+and+Psychological+Testing&itemType=-attachment` (2026-09-20). 개인 라이브러리 동명 parent **미확인**.
+- Zotero elderly-gad: item `GKX4IKDH`, attachment `A9MHWYKV`, `9780935302356.pdf` (`~/Documents/Zotero/storage/A9MHWYKV/`). API `groups/6347780/items?q=Standards+for+Educational+and+Psychological+Testing&itemType=-attachment` (2026-09-20). 개인 parent는 아래 ctx_812ff2c52f7e 재확인 참조.
 - 직접 확인(인쇄 쪽, PDF 추출본 — 공식 PDF와 Zotero 소장본 **대조**):
   - ch.4 p.79: **scoring rubric** — 채점 기준·수준 수·판단 정도.
   - ch.5 pp.100–108: **cut scores**, **performance-level descriptors**(achievement-level descriptors 동의어), **standard-setting** 절차; Standard **5.21–5.23**.
   - glossary: 인쇄 p.221 / PDF p.232에 **performance-level descriptor**, **performance standards**, **performance level**; 인쇄 p.223 / PDF p.234에 **scoring rubric**; 인쇄 p.224 / PDF p.235에 **standard setting**.
   - ch.2: 채점자 판단 포함 시 **interrater**·**generalizability** (forms·occasions·**raters**).
-- **Performance Level Criterion**: Zotero PDF·공식 PDF 전문 검색 **0건**. 정식 용어 **아님**. **performance-level descriptor**, **scoring rubric** criterion, **cut score**·**standard setting**과 구별.
+- **Performance Level Criterion**: Zotero PDF·공식 PDF 전문 검색 **0건**. 이 판의 용어집 표제어로 확인하지 못함. 다른 문헌 전체의 용어 사용까지 부정하지 않음. **performance-level descriptor**, **scoring rubric** criterion, **cut score**·**standard setting**과 구별.
 - 스킬 적용: PLD·절단점·타당도 요구의 **측정학 프레임**. 본 프로젝트의 0–3 PLD는 Standards가 검증한 수준이 **아님**.
 
 ## R-AHN2026 · 교실 기반 한국어 쓰기 분석적 루브릭 (초록·서지)
@@ -68,3 +68,21 @@
 - R-KSL2015(이전 R-KSL2019): KCI 서지·국영문 초록·인용 내보내기 확인. 짧은 구절 “문장구조와 문체 및 맞춤법”은 국문초록에서 점수단계 변별 문제가 언급된 준거다. 논문 본문 pp.311–354를 열람했다고 기록하지 않는다.
 - Zotero `~/Documents/Zotero` 개인·elderly-gad 주 DB 제목에서 `%학문 목적 한국어 쓰기%`, `%한국어 쓰기 능력 평가%`, `%교실 기반 한국어%` 0건. 잠긴 DB를 immutable 읽기로 조회했으므로 WAL·클라우드 미반영 가능성이 있으며 소장본 부재의 확정 증거가 아니다.
 - U-KUPIS: 이번 web open은 Internal Error, 인증서 검증을 유지한 직접 HTTPS는 issuer 인증서 확인 실패였다. 기존 포털 HTML 200 기록과 다른 시도의 결과다. 브라우저·Zotero 전용 도구는 현재 노출 도구 목록에서 발견하지 못했으며 기존 Edge SSO 세션 접근은 확인하지 못했다. 계정 생성·인증 우회·평가 실행은 하지 않았다.
+
+
+## 원문·이미지 재대조 · ctx_812ff2c52f7e
+
+확인일 2026-09-20. 담당: Codex 전담 리드. AERA·APA·NCME 발행 *Standards for Educational and Psychological Testing*, 2014판. 위 공식 PDF URL은 이번 웹 열람에서 접근 오류를 반환한다. 아래 확인은 실제 로컬 소장 PDF에 근거한다.
+
+개인 item `6AICK2BQ` / attachment `LA29MJTH`, elderly-gad(6347780) item `GKX4IKDH` / attachment `A9MHWYKV`의 파일 `9780935302356.pdf`는 SHA-256 `b47005a05fa0fa93eec4bcf6b241cd73d24e4313480d901eae21e3de06f34941`로 같다. 저장된 인증키로 개인·그룹 로컬 API를 각각 조회했으나 두 요청 모두 12초 안에 응답하지 않는다. 일반 읽기 전용 DB 연결은 잠금 오류를 반환한다. `mode=ro&immutable=1`로 읽은 로컬 주 DB에서 두 item과 library 매핑을 확인한다. WAL·클라우드 최신 상태의 확인은 아니며 소장본 부재를 판단하는 데 사용하지 않는다.
+
+`pdftotext -layout`으로 PDF 111·118–119·232·234–235쪽을 읽고, PDF 118·119·232·234·235쪽의 렌더링을 직접 대조한다. 각 이미지 하단은 인쇄 107·108·221·223·224쪽으로 PDF쪽보다 11 작다. 아래 짧은 인용과 용어를 이미지에서 확인한다. PDF와 렌더링은 저장소에 넣지 않는다.
+
+| 확인할 주장 | 위치(인쇄/PDF) | 짧은 원문·본문 내용 | 제한·판정 |
+| --- | --- | --- | --- |
+| PLD는 점수 숫자 자체다 | 221/232, glossary | “Descriptions of what test takers know and can do at specific performance levels.” | 뒷받침하지 않음. 수준별 수행 설명이다. 숫자 0–3과 각 숫자 옆 기술을 구별한다. |
+| 루브릭은 수준 설명만 있으면 된다 | 223/234, scoring rubric | “rules, principles, and illustrations”를 포함하는 채점 준거를 정의한다. | 뒷받침하지 않음. 프로젝트에서는 관찰한 원문–출력 차이와 점수를 부여하는 규칙도 기록한다. |
+| 점수 범주를 나누는 경계는 근거·절차를 설명해야 한다 | 107–108/118–119, Standard 5.21 및 comment | 경계의 설정 근거·절차를 문서화하고, 판단을 사용하면 판단의 성격·신뢰성·참여자 선정과 훈련 등을 설명한다. | 뒷받침함. 정해진 인원 선발과 실질적 범주 분류에서 필요한 상세 정도가 다르다. 이 원문은 한국어 퇴고의 2점 경계를 검증하지 않는다. |
+| 별도 평가자 한 명이 사례를 채점하면 standard setting이다 | 224/235, standard setting; 108/119, Standards 5.22–5.23 | 시험 점수를 서로 구분되는 수행 수준에 대응시키도록 절단점을 정하는 구조화된 절차다. | 뒷받침하지 않음. 이미 정한 규칙으로 사례를 채점하는 작업과 경계를 정당화하는 연구는 다르다. 5.23의 경험적 자료 요구에는 실행 가능성과 적절성 조건이 붙는다. |
+
+프로젝트 적용: `three-axis.md`의 0–3은 점수 범주, 각 칸의 문장은 잠정 수준 기술이다. 행위자·조건·불확실성 대조는 채점 준거의 적용이고, 세 축 각각 2점 이상이라는 결정은 내부 수용 경계다. 이 구분은 문헌에 근거하지만 세 축의 내용과 경계 값은 프로젝트 결정이며, Standards가 승인한 한국어 퇴고 척도가 아니다. 이 판에서 확인하지 못한 표현을 모든 문헌에 없는 용어라고 확장하지 않는다.
