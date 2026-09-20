@@ -70,6 +70,16 @@
 - A-JARSQ: APA, *JARS-Quant Table 1*, © 2024. https://apastyle.apa.org/jars/quant-table-1.pdf , SHA-256 `11c042b1…97d60c2d` (3쪽). 확인: 표 제목 "New Data Collections", Sampling procedures(p.2, IRB·윤리·안전 모니터링 "Describe"형), 1차·2차·탐색 가설 구분, NHST 정확 *p*, 효과크기·CI(가능할 때), 2차 자료 분석 표시. 한계: Table 2–8·Module 미독, Qual/Mixed 표 미사용. 기존 S4의 212B HTML 기록은 당시 기록으로 유지한다.
 - S5 Manual 7판 본문은 여전히 미독이다. 위 안내서가 가리키는 절 번호를 Manual 열람으로 바꾸지 않는다.
 
+## 2026-09-20 Manual 7 리더 직접 대조(6.36·6.44)·5.1 보류 · task_fae26ef05da7
+
+담당: 단독 작성 OpenCode. Grok 보고서(`/tmp/writing-redshelf-autofill-20260920.md`)를 읽고, Grok이 저장한 실제 리더 스냅샷 `/tmp/apa-ch6-snap.json`(origin `https://platform.virdocs.com/read/1302723/27/#/4/2`)·`/tmp/apa-ch6-632.json`에서 아래 절 표제와 짧은 본문을 직접 대조했다. UI 동시 조작 없음, 저장 파일 읽기만. 스냅샷 전체·도서 장·하이라이트·개인정보는 공개 복제하지 않는다.
+
+- 6.36 Decimal Fractions: "Use a zero before the decimal point in numbers that are less than 1 when the statistic can exceed 1." / "Do not use a zero before a decimal fraction when the statistic cannot be greater than 1 (e.g., correlations, proportions, levels of statistical significance)." 예 `r(24) = –.43, p = .028` 관측. 선행 0 규칙을 Manual 절번호 근거로 쓴다.
+- 6.44 Statistical Symbols and Abbreviations: "Do not define symbols or abbreviations that represent statistics (e.g., M, SD, F, t, df, p, N, n, OR, r) or any abbreviations or symbols composed of Greek letters" + "define the other abbreviations". 약어 정의 규칙을 Manual 절번호 근거로 쓴다.
+- 6.40은 "Selecting Effective Presentation" 표제로 스냅샷 확인. 안내서 A-NUM의 "6.40–6.45 = reporting statistics" 묶음과 표제가 다르므로, 6.40 숫자 개수 권고는 조건 재검증 없이 규칙화하지 않는다.
+- 5.1: Ch.5 스냅샷 파일이 없어 직접 대조 불가. Grok 직접 열람 보고(보고서 §4)는 담당 검증 보고 성격으로만 기록하고 규칙으로 채택하지 않는다. 편견 없는 언어 절은 잠정 점검 유지.
+- 서명 7판은 Grok 탭 관측 보고 수준(스냅샷 본문에서 표제 미검출). 목차값 Ch.5 p.130·Ch.6 p.152는 개별 절 인쇄쪽으로 쓰지 않으며, 해당 절 인쇄쪽은 미확인. 6.32·6.33 영어 수사 규칙은 한글 강제 아님. 7·8·10장 본문·판권지 미확인. 리더 등장 원인·자동완성 성공 미확인.
+
 ## 2026-09-20 Sampling procedures 본문·이미지 대조
 
 담당: Codex `ctx_812ff2c52f7e`. Appelbaum 등(2018), *American Psychologist*, 73(1), 3–25, DOI `10.1037/amp0000191`, APA 발행. 기존 S8 소장본 중 개인 item `NWXTJ7QC` / attachment `MA5XB6VW` PDF를 직접 읽는다. SHA-256 `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`. 인쇄 p.6/PDF p.4의 Table 1 Sampling procedures에서 참여자와의 합의·보상과 IRB·윤리·안전 모니터링 항목을 확인하고 같은 쪽 렌더링과 자구를 대조한다. 짧은 원문: “Institutional Review Board agreements, ethical standards met, and safety monitoring”. PDF 4쪽의 머리글 인쇄 숫자는 6이다. 공개 원문 시작점: https://doi.org/10.1037/amp0000191.
