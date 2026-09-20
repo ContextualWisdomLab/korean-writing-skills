@@ -1,18 +1,18 @@
 # 루브릭·측정 근거 장부
 
-확인일: 2026-09-20. 담당: writing-skills-lead. 검색 요약만으로 채점 규칙을 만들지 않았다. Zotero API는 타임아웃·빈 응답, SQLite title 검색 0건 — **소장 부재를 뜻하지 않음**. 아래 S-STD2014는 발행기관 공개 PDF를 직접 열었다.
+확인일: 2026-09-20. 담당: writing-skills-lead. 검색 요약만으로 채점 규칙을 만들지 않았다. S-STD2014는 공식 PDF와 Zotero elderly-gad 소장본을 대조했다.
 
 ## S-STD2014 · Standards for Educational and Psychological Testing (2014)
 
 - 발행: American Educational Research Association, American Psychological Association, National Council on Measurement in Education.
 - URL: [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) — 확인일 2026-09-20.
-- Zotero: 개인·elderly-gad 6347780 SQLite/API 미확인(접근 실패). item key·attachment 미기록.
-- 직접 확인(인쇄 쪽, PDF 추출본 기준):
+- Zotero elderly-gad: item `GKX4IKDH`, attachment `A9MHWYKV`, `9780935302356.pdf` (`~/Documents/Zotero/storage/A9MHWYKV/`). API `groups/6347780/items?q=Standards+for+Educational+and+Psychological+Testing&itemType=-attachment` (2026-09-20). 개인 라이브러리 동명 parent **미확인**.
+- 직접 확인(인쇄 쪽, PDF 추출본 — 공식 PDF와 Zotero 소장본 **대조**):
   - ch.4 p.79: **scoring rubric** — 채점 기준·수준 수·판단 정도.
   - ch.5 pp.100–108: **cut scores**, **performance-level descriptors**(achievement-level descriptors 동의어), **standard-setting** 절차; Standard **5.21–5.23**.
   - ch.5 glossary p.221: **performance-level descriptor**, **performance standards**, **performance level**, **standard setting**, **scoring rubric**.
   - ch.2: 채점자 판단 포함 시 **interrater**·**generalizability** (forms·occasions·**raters**).
-- **Performance Level Criterion**: 이 판본 glossary·본문에서 **정식 용어로 확인되지 않음**. 사용자 표현은 **performance-level descriptor**, **scoring rubric**의 채점 기준, **cut score** 설정 판단과 구별한다.
+- **Performance Level Criterion**: Zotero PDF·공식 PDF 전문 검색 **0건**. 정식 용어 **아님**. **performance-level descriptor**, **scoring rubric** criterion, **cut score**·**standard setting**과 구별.
 - 스킬 적용: PLD·절단점·타당도 요구의 **측정학 프레임**. 본 프로젝트의 0–3 PLD는 Standards가 검증한 수준이 **아님**.
 
 ## R-AHN2026 · 교실 기반 한국어 쓰기 분석적 루브릭 (초록·서지)

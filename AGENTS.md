@@ -24,7 +24,7 @@
 | 주어 생략·에이전트 보고 | P-SONG2013; examples.md | 운영 보고 담당자 명시 — **프로젝트 적용** |
 | 문단→문장→표기 순 | K1 pp.13–15; SKILL 퇴고 절차 | K1 순서는 **편집 설계** 참고 |
 | 독립 평가·블라인드 | evaluations/protocol.md; S-STD2014 ch.1(판단 수집) | 4/4 통과 ≠ 타당도; ICC/FACETS **미실시** |
-| PLD·루브릭·cut score 구분 | AERA/APA/NCME Standards 2014 | [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) ch.4 p.79, ch.5 pp.100–108, glossary p.221; **Zotero 소장본 미확인**. “Performance Level Criterion” **정식 용어 아님** |
+| PLD·루브릭·cut score 구분 | AERA/APA/NCME Standards 2014 | [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) + Zotero elderly-gad `GKX4IKDH` / `A9MHWYKV` ch.5 p.100, Standard 5.21, glossary; “Performance Level Criterion” **정식 용어 아님** |
 | 분석적 퇴고 평가 설계 | R-KIM2010·R-AHN2026·R-KSL2019 | **초록·서지** 위주; L2 작문→학술 퇴고 **전이 한계** |
 | I'm not human | H1 source-ledger | 설치본 **미발견**; humanize-korean v2.3.2만 H1 |
 
