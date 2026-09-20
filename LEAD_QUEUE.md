@@ -1,6 +1,6 @@
 # 전담 리드 작업 원장
 
-확인일: 2026-09-20. 글쓰기 작업 트리 담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1`, dispatch `ctx_b684f6f1dce1`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 종료된 Codex 리드 `term_731b94a7`는 재시작하지 않는다. 연구 원고 파일은 연구 담당 소유다.
+확인일: 2026-09-20. 글쓰기 작업 트리 담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1`, dispatch `ctx_325b127e6817`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 종료된 Codex 리드 `term_731b94a7`는 재시작하지 않는다. 연구 원고 파일은 연구 담당 소유다.
 
 ## 인수와 파일 소유
 
@@ -44,11 +44,11 @@ root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정�
 
 | 항목 | 담당 | 현재 증거 | 다음 조치 |
 | --- | --- | --- | --- |
-| 한국어 문장·능동/피동/사동·생략 주어 | korean-editing 스킬 소유 | SKILL·examples·K5/K6 별도 채점; P-SONG2013·N-Q·M-HANI2 | 새 예문은 별도 실행·채점. ‘이 연구는’을 모든 생략 주어에 넣지 않음 |
-| 논문근거 루브릭 | 평가 문서 소유 | three-axis.md; round-3-k5-k6 | 전체 타당화·채점자 일치도 미실시. 새 블라인드 실행은 별도 |
-| PLD·PLC | 평가 문서 소유 | Standards 2014 PDF; evidence.json. “Performance Level Criterion” 용어집 없음 | 절단점과 내부 2점 경계를 섞지 않음. 한국어 평가 논문 전문은 미확보 |
+| 한국어 문장·능동/피동/사동·생략 주어 | 별도 실행자·채점자 | SKILL·examples·K5/K6(기존 통과, 합산 안 함); 항목 준거 `actor-responsibility-criteria.md`; 입력 K7·K8 | **K7·K8 미검증.** 다음: 격리 실행 후 별도 채점 |
+| 논문근거 루브릭 | 평가 문서 소유 | three-axis.md; round-3-k5-k6 | 전체 타당화·채점자 일치도 미실시 |
+| PLD vs 통과 경계 | 평가 문서 소유 | three-axis PLD 칸 vs 축별 2점 내부 경계 vs Standards cut score 미설정. actor-responsibility-criteria는 항목 규칙 | 세 개념을 한 점수로 부르지 않음. 한국어 평가 논문 전문 미확보 |
 | AGENTS 정확인용 | 이 작업 트리 | AGENTS.md 근거 표; source-ledger | 미열람을 사실로 쓰지 않음. I'm not human 설치본 미발견 |
 | Manual 7 남은 절 | 원문 조사 | 7.1·7.4·7.5, 8.4·8.10, 10.1–10.3 도입 확인. 5.1 규칙 미채택 | 7.6 이후, 8.12 이후, 10.4 이후, 판권지, 개별 절 인쇄쪽 |
 | JARS Table 2–8 | 원문 조사 | Table 1만 S8·A-JARSQ | 설계별 표는 해당할 때만 원문 |
-| PR #1 검사 | root·이 트리 | MERGEABLE, checks QUEUED (2026-09-20 22:43) | 필수 검사 성공 뒤에만 merge 판정. 검사 대량 재실행 안 함 |
+| PR #1 검사 | root·이 트리 | MERGEABLE, head는 push 후 SHA로 갱신. 2026-09-20 23:26 조회 시 필수 검사 QUEUED | 필수 검사 성공 뒤에만 merge. 재실행 요청 안 함 |
 | 연구 원고 APA 적용 | 연구 담당 `run_de4c37377cf3` | 지침 `/tmp/writing-apa7-guidance-for-research-20260920.md` | 이 트리는 원고 파일을 고치지 않음 |

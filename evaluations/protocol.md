@@ -26,6 +26,7 @@
 | 평가 설계 | 독립 평가 워커 | K5–K6 blind 실행 | 세 축·9사례·분석적 루브릭·PLD 프레임 | rubrics/*.md, references/rubric-source-ledger.md | Standards 본문·이미지 대조는 rubric-source-ledger의 ctx_812ff2c52f7e 참조; 척도 타당화는 미실시 |
 | 블라인드 실행 | 독립 실행자 | 준비된 스킬로 요청 수행 | 양쪽 출력 확보 | runs/의 실행 기록 | 조정자의 초안 완료 신호 |
 | 채점 | 독립 평가 워커 | 실제 출력 대조 | 사례별 판정·실패 근거 저장 | runs/의 평가 보고서 | 실행 출력 |
+| K7·K8 패킷 | 별도 실행자·채점자 | 스킬+K7/K8만 실행, 준거 파일은 채점자만 | 출력·세 축 점수·중대 오류 | `runs/round-4-k7-k8/` | **미검증**(2026-09-20 실행·채점 없음). K5/K6과 합산 금지 |
 
 근거: /Users/seonghobae/.codex/skills/.system/skill-creator/SKILL.md의 Independent Forward-Testing 절을 직접 읽음(2026-09-20). 이 절의 현실적인 요청·최소 원자료·의도한 답 미제공·격리 실행 원칙을 따른다.
 
