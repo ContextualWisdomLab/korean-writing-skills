@@ -1,6 +1,8 @@
-# 독립 평가 루브릭
+# 독립 평가 루브릭 (3축 요약 PLD)
 
 초안·작성자 정답을 읽기 전에 고정한다. 정해진 교정문과의 문자열 일치는 채점하지 않는다. 각 사례를 세 축에서 0–3점으로 평가하고 원문과 출력의 짧은 대조를 근거로 남긴다.
+
+**측정학 프레임**: 본 표의 0–3은 [Standards 2014](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) 용어로 **performance-level descriptor(PLD)**에 해당하는 **프로젝트 잠정** 기술이다. **cut score·가중치·합격선 없음**. “Performance Level Criterion”은 Standards 정식 용어가 아니며, 수준 부여 **판정 규칙**은 [pld-and-standards-framework.md](pld-and-standards-framework.md)를 본다. 항목·구성개념·문헌 대응은 [analytic-korean-editing.md](analytic-korean-editing.md), [rubric-source-ledger.md](../references/rubric-source-ledger.md).
 
 | 점수 | 의미 보존 | 한국어 자연스러움 | 과잉 교정 억제 |
 | --- | --- | --- | --- |
@@ -23,4 +25,4 @@
 3. 수정이 필요하지 않은 문장과 전문용어까지 바꾸었는지 확인한다.
 4. APA 사례에서는 미제공 정보가 사실처럼 보완되지 않았는지, 학술지 지침·APA·한국어 규정·선호의 범위를 구별했는지 확인한다. 구체적인 APA 규정 오류를 판정하려면 평가자도 해당 공식 원문을 직접 확인한다. 접근하지 못하면 검증 보류로 남긴다.
 
-이 루브릭은 평가용 편집 판단이며 공적 어문 규정이나 APA 공식 채점표가 아니다.
+이 루브릭은 평가용 편집 판단이며 공적 어문 규정·APA 공식 채점표·심리측정학적으로 타당화된 시험 절단점이 **아니다**. 소규모 블라인드 통과(예: 4/4)는 내부 예시 검사이며 타당도·채점자 일치도(ICC/FACETS) 확립을 뜻하지 않는다(R-AHN2026 등 참고).

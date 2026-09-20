@@ -11,6 +11,25 @@
 - Orca 리드는 작업을 원문 조사·스킬 작성·독립 평가로 나누고 소유 파일을 구분한다. 작업 기록에는 담당자·다음 조치·완료 기준·증거·의존성을 적는다.
 - 실제 검증과 원격 commit을 확인한 뒤 완료를 보고한다. CI를 무의미하게 대량 생성하지 않는다.
 
+## 근거 대응 (확인일 2026-09-20)
+
+아래는 **실제 열람·확인 범위**와 AGENTS 원칙의 대응이다. 미열람·초록만·Zotero 미확인은 그대로 표기한다. 사용자 지시·저장소 운영 규칙을 논문이 입증한 주장처럼 쓰지 않는다.
+
+| AGENTS 원칙 | 근거 | 확인 위치·한계 |
+| --- | --- | --- |
+| 원문 조사·쪽·절 기록 | skill `references/source-ledger.md` | korean-editing K1·K2·N41–43 등 PDF; APA S1·S2·S8 부분 |
+| 어문 규정 vs 기관·저자·편집·선호 구분 | K1(공공언어), K2(맞춤법 해설), E1/U1 | 공공언어를 학술 전체 규범으로 확대 금지(K1) |
+| 의미·수치·인용·전문용어 보존 | korean-editing SKILL 채택 조건; P-SONG2013 | 담화·생략 주어는 **항상 화자** 아님(P-SONG2013 PDF) |
+| 피동·명사화·한자어 일괄 금지 | N-Q1·N-Q2(국립국어원 상담); M-HANI2 | 피동 **일반** 금지 아님(M-HANI2) |
+| 주어 생략·에이전트 보고 | P-SONG2013; examples.md | 운영 보고 담당자 명시 — **프로젝트 적용** |
+| 문단→문장→표기 순 | K1 pp.13–15; SKILL 퇴고 절차 | K1 순서는 **편집 설계** 참고 |
+| 독립 평가·블라인드 | evaluations/protocol.md; S-STD2014 ch.1(판단 수집) | 4/4 통과 ≠ 타당도; ICC/FACETS **미실시** |
+| PLD·루브릭·cut score 구분 | AERA/APA/NCME Standards 2014 | [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) ch.4 p.79, ch.5 pp.100–108, glossary p.221; **Zotero 소장본 미확인**. “Performance Level Criterion” **정식 용어 아님** |
+| 분석적 퇴고 평가 설계 | R-KIM2010·R-AHN2026·R-KSL2019 | **초록·서지** 위주; L2 작문→학술 퇴고 **전이 한계** |
+| I'm not human | H1 source-ledger | 설치본 **미발견**; humanize-korean v2.3.2만 H1 |
+
+상세: `skills/korean-editing/references/source-ledger.md`, `evaluations/references/rubric-source-ledger.md`.
+
 ## APA 7 학술 논문 작성 작업
 - APA Publication Manual 7판과 APA 공식 Style/JARS 자료를 직접 열어 근거로 삼는다. 소장본은 개인 Zotero와 elderly-gad 그룹 양쪽을 검색한다. 읽지 않은 절·쪽수·규칙은 만들지 않는다.
 - 연구 질문과 주장-증거 연결, 초록·서론·방법·결과·논의 구성, JARS-Quant 보고, 표·그림, 통계 표기, 인용·참고문헌, 편견 없는 언어, 심사 응답의 작업 절차를 만든다.
