@@ -84,10 +84,12 @@
 
 담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1` / `ctx_b684f6f1dce1`. 기존 virdocs 리더. 상세 `/tmp/writing-manual7-ch7-ch8-ch10-20260920.md`. 장 전체·스냅샷 원문은 공개 저장소에 넣지 않는다. 장시작 쪽을 개별 절 쪽으로 쓰지 않는다.
 
-- 7.1 Purpose of Tables and Figures; 7.4 Formatting; 7.5 Referring in the Text. 본문 파일 `https://platform.virdocs.com/read/1302723/30/#/4/2` (21:43 KST). 짧은 구절: “The primary purpose of any table or figure is to facilitate readers’ understanding of the work.” “refer to every table and figure by its number—known as a callout.” “Do not write “the table above” (or “below”).” 7.6 이후 선·배치 세칙 미독.
+- 7.1 Purpose of Tables and Figures; 7.4 Formatting; 7.5 Referring in the Text. 본문 파일 `https://platform.virdocs.com/read/1302723/30/#/4/2` (21:43 KST). 짧은 구절: “The primary purpose of any table or figure is to facilitate readers’ understanding of the work.” “refer to every table and figure by its number—known as a callout.” “Do not write “the table above” (or “below”).”
+- 7.6 Placement of Tables and Figures. 같은 파일 `/30/` 재열람 2026-09-21 01:16. 장시작 목차 인쇄 p.194, **절 인쇄쪽 미확인**. 짧은 구절: 참고문헌 뒤 별 쪽 또는 “embed each table and figure within the text after its first callout. Follow the specifications of the journal publisher”. 왼쪽 맞춤, 짧은 표는 쪽 중간이 아님. **7.7 이후·표 선(7.17) 미독.**
+- 2.1·2.2·2.8·2.18–2.24. 본문 파일 `/read/1302723/15/` (2026-09-21 01:16). 장시작 목차 인쇄 p.28, **절 인쇄쪽 미확인**. 투고 원고는 러닝헤드·초록 등 전문 요소(2.1). `Running head` 표지 금지, 대문자·최대 50자(2.8). 이중 줄간격·문단 추가 간격 없음(2.21). 1-in. 여백(2.22). 글꼴 선택 목록(2.19). **한글 글꼴 이름 미확인.** 학생 안내(A-STU)만으로 투고 수용 불가. 상세 `/tmp/writing-apa7-docx-hwpx-20260921.md`.
 - 8.4 Correspondence Between Reference List and Text; 8.10 Author–Date Citation System. 본문 파일 `/read/1302723/33/` (21:46 KST). “Each work cited in the text must appear in the reference list, and each work in the reference list must be cited in the text.” 8.6 2차 출처는 드물게, 8.11 parenthetical/narrative는 같은 파일에서 짧게 확인.
 - 10.1 Periodicals; 10.2 Books and Reference Works; 10.3 도입 템플릿. 본문 파일 `/read/1302723/39/` (21:51 KST). 정기간행물 템플릿 Author/Date/Title/Source/Periodical information/DOI or URL. 빠진 권호쪽은 생략. 전자책 기기명은 참고문헌에 넣지 않음. A-REF의 DOI 마침표·출판사 소재지 문장은 이 창에서 찾지 못함.
-- 판권지·개별 절 인쇄쪽·7.6 이후·8.12 이후·10.4 이후·예 1–11 전문은 미확인.
+- 판권지·개별 절 인쇄쪽·7.7 이후·8.12 이후·10.4 이후·예 1–11 전문·한글 글꼴은 미확인.
 
 ## 2026-09-20 Sampling procedures 본문·이미지 대조
 
