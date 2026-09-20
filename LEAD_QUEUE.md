@@ -44,7 +44,7 @@ root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정�
 
 | 항목 | 담당 | 현재 증거 | 다음 조치 |
 | --- | --- | --- | --- |
-| 한국어 문장·능동/피동/사동·생략 주어 | 별도 실행자·채점자 | SKILL·examples·K5/K6(기존 통과, 합산 안 함); 항목 준거 `actor-responsibility-criteria.md`; 입력 K7·K8 | **K7·K8 미검증.** 다음: 격리 실행 후 별도 채점 |
+| 한국어 문장·능동/피동/사동·생략 주어 | 실행 기록 소유 | K5/K6 기존 통과(합산 안 함). K7·K8: `runs/round-4-k7-k8/` 2026-09-21 실행·채점 통과 | 스킬 전체 타당화·채점자 일치도는 다음 별도 설계. 문항 작성자와 채점자가 같은 세션인 한계는 status.md |
 | 논문근거 루브릭 | 평가 문서 소유 | three-axis.md; round-3-k5-k6 | 전체 타당화·채점자 일치도 미실시 |
 | PLD vs 통과 경계 | 평가 문서 소유 | three-axis PLD 칸 vs 축별 2점 내부 경계 vs Standards cut score 미설정. actor-responsibility-criteria는 항목 규칙 | 세 개념을 한 점수로 부르지 않음. 한국어 평가 논문 전문 미확보 |
 | AGENTS 정확인용 | 이 작업 트리 | AGENTS.md 근거 표; source-ledger | 미열람을 사실로 쓰지 않음. I'm not human 설치본 미발견 |
