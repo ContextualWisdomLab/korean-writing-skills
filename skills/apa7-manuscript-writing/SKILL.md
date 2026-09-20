@@ -5,7 +5,7 @@ description: APA 7을 적용하는 한국어 학술 논문의 작성·수정·�
 
 # APA 7 학술 논문 작성
 
-먼저 [근거 장부](references/source-ledger.md)의 확인 범위를 읽는다. JARS-Quant Table 1은 Appelbaum et al.(2018) task force report(S8)와 APA 공식 2024 표(A-JARSQ)에서 확인했다 — [jars-quant-table1.md](references/jars-quant-table1.md). 통계·참고문헌 안내서(A-NUM·A-REF)와 Manual 7판에서 직접 연 절(2.1·2.2·2.8·2.18–2.24, 6.36·6.44, 7.1·7.4·7.5·7.6, 8.4·8.10, 10.1–10.3 도입)만 세칙으로 쓴다. 학생 논문 안내(A-STU)만으로 투고본을 수용하지 않는다. 한글 글꼴·표 선(7.17)·개별 절 인쇄쪽은 미확인이다. 투고 서식·DOCX/HWPX 생성 점검은 [document-format-checklist.md](references/document-format-checklist.md)를 따른다. 이 스킬을 APA 7 전체 규칙이나 JARS 전체 적합성 인증으로 사용하지 않는다. 확인하지 못한 서식·쪽수·보고 의무는 원문을 확보한 뒤 적용한다.
+먼저 [근거 장부](references/source-ledger.md)의 확인 범위를 읽는다. JARS-Quant Table 1은 Appelbaum et al.(2018) task force report(S8)와 APA 공식 2024 표(A-JARSQ)에서 확인했다 — [jars-quant-table1.md](references/jars-quant-table1.md). 통계·참고문헌 안내서(A-NUM·A-REF)와 Manual 7판에서 직접 연 절(2.1·2.2·2.8·2.18–2.24, 6.36·6.44, 7.1·7.4·7.5·7.6·7.17·7.18, 8.4·8.10, 10.1–10.3 도입)만 세칙으로 쓴다. 학생 논문 안내(A-STU)만으로 투고본을 수용하지 않는다. 한글 글꼴·개별 절 인쇄쪽은 미확인이다. 투고 서식·DOCX/HWPX 생성 점검은 [document-format-checklist.md](references/document-format-checklist.md)를 따른다. 이 스킬을 APA 7 전체 규칙이나 JARS 전체 적합성 인증으로 사용하지 않는다. 확인하지 못한 서식·쪽수·보고 의무는 원문을 확보한 뒤 적용한다.
 
 ## 적용 범위를 정한다
 
