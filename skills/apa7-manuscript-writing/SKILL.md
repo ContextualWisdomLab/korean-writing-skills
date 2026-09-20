@@ -5,7 +5,7 @@ description: APA 7을 적용하는 한국어 학술 논문의 작성·수정·�
 
 # APA 7 학술 논문 작성
 
-먼저 [근거 장부](references/source-ledger.md)의 확인 범위를 읽는다. 현재 Publication Manual 7판과 JARS 원문은 접근 미완료다. 이 스킬을 APA 7 전체 규칙이나 JARS 적합성 인증으로 사용하지 않는다. 아래 작업 절차는 명시한 공식 근거 외에는 편집 판단이다. 확인하지 못한 서식·쪽수·보고 의무는 원문을 확보한 뒤 적용한다.
+먼저 [근거 장부](references/source-ledger.md)의 확인 범위를 읽는다. JARS-Quant Table 1은 Appelbaum et al.(2018) task force report(S8)에서 일부 확인했다 — [jars-quant-table1.md](references/jars-quant-table1.md). Publication Manual 7판 본문·apastyle JARS PDF·Zotero 소장본은 미완이다. 이 스킬을 APA 7 전체 규칙이나 JARS 전체 적합성 인증으로 사용하지 않는다. 아래 작업 절차는 명시한 공식 근거 외에는 편집 판단이다. 확인하지 못한 서식·쪽수·보고 의무는 원문을 확보한 뒤 적용한다.
 
 ## 적용 범위를 정한다
 
@@ -35,7 +35,7 @@ description: APA 7을 적용하는 한국어 학술 논문의 작성·수정·�
 
 ## 양적 연구 보고와 표시를 점검한다
 
-세부 작업에는 [보고·교정 절차](references/reporting-workflow.md)를 읽는다. JARS 원문을 확보하면 연구 설계에 맞는 공통표와 추가표를 선택하고 `원문 항목 | 원고 위치 | 근거 파일 | 충족/누락/해당 없음·이유`를 만든다. 아래 점검만으로 JARS 전체 충족을 주장하지 않는다.
+세부 작업에는 [보고·교정 절차](references/reporting-workflow.md)와 [JARS-Quant Table 1](references/jars-quant-table1.md)을 읽는다. 설계별 추가표는 S8 본문에서 해당할 때만 연다. 연구 설계에 맞는 공통표와 추가표를 선택하고 `원문 항목 | 원고 위치 | 근거 파일 | 충족/누락/해당 없음·이유`를 만든다. 아래 점검만으로 JARS 전체 충족을 주장하지 않는다.
 
 표·그림의 숫자는 분석 산출물과 대조한다. 본문에 없는 새 결과를 만들지 않는다. 인용·참고문헌은 실제 읽은 자료와 서지정보를 대조한다. 제목이나 DOI만 보고 그 문헌이 주장을 뒷받침한다고 판단하지 않는다.
 
