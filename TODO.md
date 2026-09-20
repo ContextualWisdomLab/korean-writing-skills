@@ -6,11 +6,12 @@
 
 | 트랙 | 담당 | 상태 | 다음 조치 | 완료 증거 | 의존성 |
 |------|------|------|-----------|-----------|--------|
-| 한국어 규범·퇴고 | korean-editing-worker | **완료** | — | validator + blind 4/4 | — |
+| 한국어 규범·퇴고 | writing-skills-lead | **보강(2차)** | K5·K6 blind eval | validator + KBS·피동·주어·KUPIS | — |
 | APA7 논문 작성 | apa7-manuscript-worker | **초안(실패 보고)** | Publication Manual·JARS 원문 | `skills/apa7-manuscript-writing/` | Zotero/elderly-gad |
 | 독립 평가 | independent-eval-worker | **완료** | — | `evaluations/runs/round-1-review.md` | — |
 | 강원국·김정선 | writing-skills-lead | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | writing-skills-lead | **반영** | — | U-KHU1–4, examples·validation | — |
+| KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
 | APA 원문 | — | **미완(완료 조건)** | Manual 7·JARS·Zotero | apa source-ledger | 접근 경로 |
 | 리드 검증 | writing-skills-lead | **진행** | PR merge | PR URL | APA 원문 |
 
