@@ -11,8 +11,8 @@ Air `ctx_a68eae315695`는 연구 run `run_de4c37377cf3`의 기존 작업이다. 
 | 작업 | 담당·소유 파일 | 증거 | 다음 조치·수용 조건 | 의존성 |
 | --- | --- | --- | --- | --- |
 | APA/JARS 원고 대조 | 기존 Air `ctx_a68eae315695`; 연구 저장소 작업 파일 | PR #237 `7d34241`; 쪽수 정정 `28c8c442` | 이 리드가 두 문서를 직접 읽고 Sampling procedures를 소장 PDF와 대조; 정확한 쪽수만 APA 스킬에 반영 | Manual 7·원고 고유 공백은 별도; Air lifecycle 종료 |
-| APA 스킬 통합 | 이 Codex; `skills/apa7-manuscript-writing/` 후속 수정 | 현재 PR의 source-ledger·validation | Manual 7 실제 본문, 공식 APA/JARS 및 개인·그룹 Zotero 조회 범위를 구분; 원고 고유 수치·설계·IRB를 공통 규칙에 복사하지 않음 | Air 결과와 별개로 부족한 본문은 직접 확보; 연구리드 승인 불필요 |
-| 한국어 원문 대조 | 이 Codex; `skills/korean-editing/references/` 후속 검토 | 기존 source-ledger의 국립국어원·대학·KBS·신문·강원국·김정선 항목 | 기존 기록을 새 열람으로 계산하지 않음; 발행기관·제목·판본·URL·쪽/절·확인일·제한 문장을 원문과 대조 | 원서 부분 확인과 미확인 논문 전문은 남은 조건 |
+| APA 스킬 통합 | 이 OpenCode; `skills/apa7-manuscript-writing/` 후속 수정 | 현재 PR의 source-ledger·validation + A-NUM(`6a1b2b67…`)·A-REF(`fc74e6a4…`)·A-JARSQ(`11c042b1…`) 직접 대조(`/tmp/apa-src-20260920/u02·u01·u07`) | Manual 7 실제 본문, Table 2–8·Qual/Mixed 본문, 원고 고유 수치·설계·IRB를 공통 규칙에 복사하지 않음; 영어 수사 규칙 한글 강제 금지 | Air 결과와 별개로 부족한 본문은 직접 확보; 연구리드 승인 불필요 |
+| 한국어 원문 대조 | 이 OpenCode; `skills/korean-editing/references/` 후속 검토 | 기존 source-ledger의 국립국어원·대학·KBS·신문·강원국·김정선 항목 + U-KHU4 간접 인용절 자구 재확인(2026-09-20) | 기존 기록을 새 열람으로 계산하지 않음; 발행기관·제목·판본·URL·쪽/절·확인일·제한 문장을 원문과 대조 | 원서 본문(J2·G1 퇴고 표)·미확인 논문 전문·KUPIS는 남은 조건 |
 | 주어·능동·피동·사동 | 이 Codex; 한국어 스킬 후속 검토 | SKILL.md와 K5/K6 입력·출력 | 행위자·대상·범위·책임·불확실성 보존; 생략 주어를 화자로 단정하지 않음 | 새로운 예문은 별도 실행자와 채점자 필요 |
 | PLD·판정준거 | 이 Codex; 평가 문서 | 근거 장부 ctx_812ff2c52f7e; standards-20260920/evidence.json | 개인·그룹 동일 PDF 해시와 원문·이미지 대조, 개념 구별 및 독립 검토 완료 | 척도 타당화·채점자 일치도·중대 오류 열거와 명시 제약 해석은 후속 |
 | 기존 평가 검증 | 이 Codex; manifest 읽기 전용 | round-3-k5-k6 manifest 8개 SHA-256 현재 바이트 일치 | 두 사례의 별도 점수만 수용; 전체 타당화·채점자 일치도·APA 준수로 확대하지 않음 | 전체 접근 감사는 아님 |
@@ -38,4 +38,4 @@ Air 결과의 주어 복원 후보는 연구 원고의 문맥에 한정한다. �
 
 root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정한다. Air dispatch의 completed/released, 원격 작업 트리의 깨끗한 `7d34241`, 활성 작성자 부재를 확인한 뒤 문서 한 개만 commit·push한다. [정정 commit 28c8c442](https://github.com/ContextualWisdomLab/[redacted-research-repo]/commit/28c8c4427e13f0bfdc4eb53bbe01234b78ed8762), [이슈 7 정정](https://github.com/ContextualWisdomLab/[redacted-research-repo]/issues/7#issuecomment-5749293598), [이슈 8 보완](https://github.com/ContextualWisdomLab/[redacted-research-repo]/issues/8#issuecomment-5749293705). 이슈 7의 ‘연구 기록 없이는 채울 수 있다’는 잘못된 문장도 후속 댓글에서 바로잡는다.
 
-후속 담당은 이 Codex와 root다. Manual 7 본문, 한국어 평가 논문 전문과 강원국·김정선 원서의 남은 부분, 정확한 I'm not human 설치본, 새 스킬 실행·별도 채점, PR #1 필수 검사·검토는 계속 남는다. 이번 원문 검토자는 `/root/standards_source_review`, 사례 채점자는 `/root/standards_case_scorer`이며 둘 다 지정 작업을 마친다. 연구리드의 반복 승인에 의존하지 않는다.
+후속 담당은 이 OpenCode와 root다. Manual 7 본문, JARS Table 2–8·Qual/Mixed 본문, 한국어 평가 논문 전문과 강원국·김정선 원서 본문, 정확한 I'm not human 설치본, 현 루브릭 재채점·새 스킬 실행·별도 채점, PR #1 필수 검사·검토는 계속 남는다. 이번 원문 검토자는 `/root/standards_source_review`, 사례 채점자는 `/root/standards_case_scorer`이며 둘 다 지정 작업을 마친다. 연구리드의 반복 승인에 의존하지 않는다.

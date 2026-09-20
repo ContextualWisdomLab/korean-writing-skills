@@ -61,6 +61,15 @@
 - Numbers and Statistics Guide 직접 HTTP 응답은 200이지만 212바이트 HTML(SHA-256 `d02032286070b4dd9d8fbd985a7bdca8af8edf52b89ff177db3bfcb2c8a9c43d`)이다. PDF를 읽었다고 처리하지 않는다.
 
 
+## 2026-09-20 공개 안내 PDF 직접 대조 · task_ff07a5046360
+
+담당: 단독 작성 OpenCode. 방법: 작업 트리 직접 HTTP는 3개 URL 모두 212바이트 차단 HTML(SHA-256 `d0203228…`)만 반환하므로, 같은 날 별도 세션이 저장한 기존 로컬 파일 `/tmp/apa-src-20260920/u01·u02·u07.body`를 `%PDF` 매직·SHA-256·`pdftotext -layout`으로 직접 대조했다. 아래 해시는 본 작성자가 계산한 값이다. Grok 보고서(`/tmp/writing-apa-source-20260920.md`)의 해시·쪽 주장과 일치함을 확인한 뒤에만 기록한다. 긴 인용은 옮기지 않는다.
+
+- A-REF: APA, *Reference Guide for Journal Articles, Books, and Edited Book Chapters*, 7th Edition, 2026-03-23 갱신. https://apastyle.apa.org/instructional-aids/reference-guide.pdf , SHA-256 `fc74e6a4…6c94f7` (99,646B, 2쪽). 확인: 영문 논문 제목 sentence case, 학술지명 주요 단어 대문자, 학술지명·권 기울임·호 비기울임, DOI 뒤 마침표 없음, 출판사 소재지 없음. 한계: Section 10.1–10.3 지시만 있고 Manual 10장 본문·미출판·재인용·한국어 표기는 미확인. 기존 S1의 Exa 추출 기록은 유지하고 쪽 있는 PDF 확인을 추가한다.
+- A-NUM: APA, *Number and Statistics Guide, APA Style 7th Edition*, 2024-09-11 갱신. https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf , SHA-256 `6a1b2b67…cd1dc86` (153,566B, 2쪽). 확인: 표·그림 정확 *p*(*p* < .001은 "<.001"), 1 초과 불가 통계의 선행 0 생략, 라틴 기호 기울임·그리스 문자 비기울임, *M*·*SD*·*p*·*N*·*n* 미정의·CI 등 다른 약어 정의, 표·본문 통계 중복 금지, 반올림 원칙, 본문 기호 대신 말 사용. 한계: Manual 6.32–6.45·Table 6.5 본문 미독, 숫자-단어 규칙(10 기준 등)은 영어 표기 관례이므로 한글 강제 아님. 기존 S6의 212B HTML 기록은 당시 기록으로 유지한다.
+- A-JARSQ: APA, *JARS-Quant Table 1*, © 2024. https://apastyle.apa.org/jars/quant-table-1.pdf , SHA-256 `11c042b1…97d60c2d` (3쪽). 확인: 표 제목 "New Data Collections", Sampling procedures(p.2, IRB·윤리·안전 모니터링 "Describe"형), 1차·2차·탐색 가설 구분, NHST 정확 *p*, 효과크기·CI(가능할 때), 2차 자료 분석 표시. 한계: Table 2–8·Module 미독, Qual/Mixed 표 미사용. 기존 S4의 212B HTML 기록은 당시 기록으로 유지한다.
+- S5 Manual 7판 본문은 여전히 미독이다. 위 안내서가 가리키는 절 번호를 Manual 열람으로 바꾸지 않는다.
+
 ## 2026-09-20 Sampling procedures 본문·이미지 대조
 
 담당: Codex `ctx_812ff2c52f7e`. Appelbaum 등(2018), *American Psychologist*, 73(1), 3–25, DOI `10.1037/amp0000191`, APA 발행. 기존 S8 소장본 중 개인 item `NWXTJ7QC` / attachment `MA5XB6VW` PDF를 직접 읽는다. SHA-256 `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`. 인쇄 p.6/PDF p.4의 Table 1 Sampling procedures에서 참여자와의 합의·보상과 IRB·윤리·안전 모니터링 항목을 확인하고 같은 쪽 렌더링과 자구를 대조한다. 짧은 원문: “Institutional Review Board agreements, ethical standards met, and safety monitoring”. PDF 4쪽의 머리글 인쇄 숫자는 6이다. 공개 원문 시작점: https://doi.org/10.1037/amp0000191.

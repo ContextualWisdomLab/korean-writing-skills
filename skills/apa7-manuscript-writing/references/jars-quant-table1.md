@@ -1,8 +1,8 @@
 # JARS-Quant Table 1 (확인 범위)
 
-근거: Appelbaum et al. (2018), *American Psychologist*, 73(1), 3–25. DOI 10.1037/amp0000191. [EQUATOR](https://www.equator-network.org/reporting-guidelines/journal-article-reporting-standards-for-quantitative-research-in-psychology-the-apa-publications-and-communications-board-task-force-report/) · [PDF](https://psycnet.apa.org/fulltext/2018-00750-002.pdf). 확인일 2026-09-20. Publication Manual 7판 대체 아님.
+근거: Appelbaum et al. (2018), *American Psychologist*, 73(1), 3–25. DOI 10.1037/amp0000191. [EQUATOR](https://www.equator-network.org/reporting-guidelines/journal-article-reporting-standards-for-quantitative-research-in-psychology-the-apa-publications-and-communications-board-task-force-report/) · [PDF](https://psycnet.apa.org/fulltext/2018-00750-002.pdf). APA 공식 2024 표: *JARS-Quant Table 1*, © 2024. https://apastyle.apa.org/jars/quant-table-1.pdf (SHA-256 `11c042b1…97d60c2d`, 3쪽, 2026-09-20 직접 대조). 확인일 2026-09-20. Publication Manual 7판 대체 아님.
 
-Table 1은 양적 실증 연구 공통 보고 항목이다. 설계별 추가표(Table 2–8, Module A–C)는 본문에서 해당 설계일 때만 연다.
+Table 1은 양적 실증 연구 공통 보고 항목이다. 2024 공식 표 제목은 새 자료 수집 원고용이며, 2차 자료 분석은 해당 항목만 선택한다. 위치: 2018 Table 1 인쇄 pp.6–8/PDF pp.4–6, 2024 표 p.1(Title·Abstract·Introduction)·p.2(Sampling procedures)·p.3(Analytic strategy·Results). 설계별 추가표(Table 2–8, Module A–C)는 본문에서 해당 설계일 때만 연다(미독).
 
 ## Title·Author note (원문 Table 1, 인쇄 p.6/PDF p.4)
 
