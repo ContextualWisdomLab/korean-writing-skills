@@ -49,7 +49,7 @@ root 지시 `msg_6af691cbeb9c`에 따라 연구 PR #237도 이 Codex가 정정�
 | PLD vs 통과 경계 | 평가 문서 소유 | three-axis PLD 칸 vs 축별 2점 내부 경계 vs Standards cut score 미설정. actor-responsibility-criteria는 항목 규칙 | 세 개념을 한 점수로 부르지 않음. 한국어 평가 논문 전문 미확보 |
 | AGENTS 정확인용 | 이 작업 트리 | AGENTS.md 근거 표; source-ledger | 미열람을 사실로 쓰지 않음. I'm not human 설치본 미발견 |
 | Manual 7 남은 절 | 원문 조사 | 2.1·2.8·2.18–2.24·7.6 확인(2026-09-21). 5.1 규칙 미채택 | 7.7 이후, 8.12 이후, 10.4 이후, 한글 글꼴, 개별 절 인쇄쪽 |
-| K7·K8 독립 채점 | 비Codex 별도 worker | 같은 세션 채점 통과는 `round-4-k7-k8/scoring.md`. 문항 작성자=채점자 한계 | 실행 출력만 보고 준거로 재채점. 합산·타당화 금지 |
+| K7·K8 독립 채점 | 별도 subagent 채점 기록 | `independent-scoring.md` 사례 통과. worker-start opencode는 consumer_fenced | 코디네이터가 OpenCode 워커를 띄울 수 있음. 타당화 아님 |
 | JARS Table 2–8 | 원문 조사 | Table 1만 S8·A-JARSQ | 설계별 표는 해당할 때만 원문 |
 | PR #1 검사 | root·이 트리 | MERGEABLE, head는 push 후 SHA로 갱신. 2026-09-20 23:26 조회 시 필수 검사 QUEUED | 필수 검사 성공 뒤에만 merge. 재실행 요청 안 함 |
 | 연구 원고 APA 적용 | 연구 담당 `run_de4c37377cf3` | 지침 `/tmp/writing-apa7-guidance-for-research-20260920.md` | 이 트리는 원고 파일을 고치지 않음 |
