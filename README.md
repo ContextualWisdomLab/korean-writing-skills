@@ -16,3 +16,10 @@
 ## 진행
 
 `TODO.md`, `LEAD-REPORT.md` 참고.
+
+## 설치 경로 구분
+
+이 저장소의 퇴고 스킬은 `skills/korean-editing/`이다. Claude superpowers 플러그인의 `writing-skills`(스킬 작성 TDD)와 이름이 비슷해도 다른 스킬이다. dogfood·운영 보고에는 아래 경로를 쓴다.
+
+- https://github.com/ContextualWisdomLab/korean-writing-skills/tree/seonghobae/writing-skills-lead/skills/korean-editing/
+- APA: `skills/apa7-manuscript-writing/`
