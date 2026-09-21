@@ -101,6 +101,14 @@
 - 2026-09-21 재접속. Edge 창은 RedShelf Reader였고 주소는 `https://platform.virdocs.com/read/1302723/15/#/4/2/14/2[ch02sec3]`였다. 본문은 “Your session timed out.”과 “Your session expired due to inactivity. To continue reading, please log back in and relaunch your book.” 로그인·책 재실행은 하지 않음. 그림 제목 위치, 표 주, continued 표지는 이 접속에서 열지 못했다.
 - 판권지·개별 절 인쇄쪽·7.7–7.16 본문 세칙·7.19 이후·8.12 이후·10.4 이후·예 1–11 전문·한글 글꼴은 미확인.
 
+## 2026-09-22 실사용(ec1d3635)에서 스킬에 반영한 편집 절차
+
+원고·참여자 자료를 writing-skills에 넣지 않았다. Manual 새 절을 열지 않았다. 아래는 기존 7.5·8.4·A-NUM 적용과 편집 판단이다.
+
+- reporting-workflow: 캡션만 있고 본문 callout이 없는 경우를 7.5 누락으로 본다. 직전 `표 N`/`그림 N` 뒤의 “이 표”·“이 그림”은 위치 표현 금지 예외. 국·영 초록의 analytic/`해석적` 대응은 닫힌형 대 interpretive를 구분(편집 판단). 법령·쪽·짧은 URL은 원문 확인 전 세칙 숫자로 확정하지 않음(8.4 적용 범위 안내).
+- SKILL.md 심사 응답: 원고·응답 표본 수·제외 수 교차 대조(편집 절차).
+- korean-editing: 학술 현재형 자기서술을 행위자 오류로 단정하지 않음; 원고·응답 교차·국영 대응.
+
 ## 2026-09-20 Sampling procedures 본문·이미지 대조
 
 담당: Codex `ctx_812ff2c52f7e`. Appelbaum 등(2018), *American Psychologist*, 73(1), 3–25, DOI `10.1037/amp0000191`, APA 발행. 기존 S8 소장본 중 개인 item `NWXTJ7QC` / attachment `MA5XB6VW` PDF를 직접 읽는다. SHA-256 `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`. 인쇄 p.6/PDF p.4의 Table 1 Sampling procedures에서 참여자와의 합의·보상과 IRB·윤리·안전 모니터링 항목을 확인하고 같은 쪽 렌더링과 자구를 대조한다. 짧은 원문: “Institutional Review Board agreements, ethical standards met, and safety monitoring”. PDF 4쪽의 머리글 인쇄 숫자는 6이다. 공개 원문 시작점: https://doi.org/10.1037/amp0000191.
