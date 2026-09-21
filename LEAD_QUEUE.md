@@ -1,6 +1,33 @@
 # 전담 리드 작업 원장
 
-확인일: 2026-09-20. 글쓰기 작업 트리 담당: Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1`, dispatch `ctx_325b127e6817`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 종료된 Codex 리드 `term_731b94a7`는 재시작하지 않는다. 연구 원고 파일은 연구 담당 소유다.
+확인일: 2026-09-21. **현 리드**: recovery worktree `writing-skills-lead-recovery-20260921`, terminal `term_6496a84a-aec1-402f-9f62-6efccd0a82aa`, dispatch `ctx_d8a9e643f75d`, task `task_1342050c2733`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 이전 Grok `term_e9fcf167`·Codex `term_731b94a7`·후속 `term_1c33634e`는 연결 해제되어 재시작하지 않는다. 연구 원고 파일은 late-life lead `term_8e77a233-6919-4b13-8d55-2ee97973efba` 소유다.
+
+## 2026-09-21 인수 스냅샷
+
+| 구분 | 상태 |
+| --- | --- |
+| 첫 실제 명령 | `git fetch origin seonghobae/writing-skills-lead` 후 `git merge origin/seonghobae/writing-skills-lead` (fast-forward → `8c13690`) |
+| 기존 산출물 | PR #1 OPEN, head `8c13690`; `skills/korean-editing/`, `skills/apa7-manuscript-writing/`, `evaluations/` 54파일 인수. 재작성 없음 |
+| 필수 CI | MERGEABLE·BLOCKED. 다수 pass, strix/CodeQL/opencode-review/noema-review/coverage/trivy/scorecard 등 pending·queued. 재실행 요청 안 함 |
+| 기존 실행자 | 한국어 스킬 task completed, APA 스킬 task failed(이후 Manual 부분 반영은 PR 커밋에 존재). 활성 writing-skills worker 없음 → 연구 우선순위 확인 후만 배정 |
+| dogfood | `~/.local/orca-watchdog/msgs/WRITING-SKILLS-DOGFOOD-20260921.md` — 전팀 실사용 피드백 수집·Issues 연결·재검증 지휘. 피드백만으로 완료 금지 |
+
+### 소유권 분담 (현 리드)
+
+| 트랙 | 소유 파일 | 다음 산출물 |
+| --- | --- | --- |
+| 한국어 원문·퇴고 | `skills/korean-editing/` | 미열람 원서(G1·J2)·KUPIS·논문 전문은 새 열람 증거 있을 때만 갱신. dogfood 사례를 Issue에 연결 |
+| APA7 작성 | `skills/apa7-manuscript-writing/` | Manual 7.7+/8.12+/10.4+, JARS Table 2–8은 해당 설계·쪽 확인 후만. 원고 수치·IRB 복사 금지 |
+| 독립 평가 | `evaluations/` | K7/K8 독립성 미확인 → 격리 Run만 blind. DOCX/HWPX 시각검토 보고는 연구 lead 통합용 수정안만 작성 |
+| 연구 원고·렌더 | late-life `term_8e77a233` | 이 트리는 원고·DOCX/HWPX **직접 수정 금지**. 교정·서식 권고만 전달 |
+
+### 연구 lead 협의 (요청 중)
+
+CO 인계(`CO-RESEARCH-HANDOFF-20260921T0934Z.md`) 기준 연구측 다음 조건: G7-7 숫자 셀 중간줄바꿈, DOCX/HWPX 시각검토+재추출, 현재 원고값 무단교체 금지. writing-skills는 우선 요구를 `term_8e77a233`에 직접 질의하고, 수정안만 작성해 연구 lead가 통합하도록 한다.
+
+---
+
+이전 확인일: 2026-09-20. 글쓰기 작업 트리 담당(당시): Grok `term_e9fcf167-27ac-4b49-bd51-6015d1f77ff1`, dispatch `ctx_325b127e6817`.
 
 ## 인수와 파일 소유
 
