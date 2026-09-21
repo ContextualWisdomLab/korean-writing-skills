@@ -1,6 +1,6 @@
 # 전담 리드 작업 원장
 
-확인일: 2026-09-21. **현 리드**: recovery worktree `writing-skills-lead-recovery-20260921`, terminal `term_6496a84a-aec1-402f-9f62-6efccd0a82aa`, dispatch `ctx_d8a9e643f75d`, task `task_1342050c2733`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 이전 Grok `term_e9fcf167`·Codex `term_731b94a7`·후속 `term_1c33634e`는 연결 해제되어 재시작하지 않는다. 연구 원고 파일은 late-life lead `term_8e77a233-6919-4b13-8d55-2ee97973efba` 소유다.
+확인일: 2026-09-21. **현 리드**: recovery worktree `writing-skills-lead-recovery-20260921`, terminal `term_e01c1d29-571e-4a91-9a37-a551a9335656`(2026-09-22 인수, 이전 `term_6496a84a` 종료), dispatch `ctx_d8a9e643f75d`, task `task_1342050c2733`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 이전 Grok `term_e9fcf167`·Codex `term_731b94a7`·후속 `term_1c33634e`는 연결 해제되어 재시작하지 않는다. 연구 원고 파일은 late-life lead `term_8e77a233-6919-4b13-8d55-2ee97973efba` 소유다.
 
 ## 2026-09-21 인수 스냅샷
 
