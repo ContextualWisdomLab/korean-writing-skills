@@ -46,3 +46,12 @@ git merge origin/seonghobae/writing-skills-lead
 ## dogfood
 
 지시: `~/.local/orca-watchdog/msgs/WRITING-SKILLS-DOGFOOD-20260921.md`. 소비자에 main 참모 `term_7dc986ed`, root 포함.
+추적 Issue: https://github.com/ContextualWisdomLab/korean-writing-skills/issues/2
+root run handoff: `msg_c9d260043713`.
+
+## late-life 협의
+
+- 직접 terminal send 2회: Enter `turn_start` 미관측 (`a1fc289a`, `e49233c8`).
+- `run_de4c37377cf3` 직송: `dispatch_run_mismatch`.
+- ask `msg_0123342f31df`: 300s 무응답 → escalation 전송.
+- 잠정 우선순위(CO 인계, 회신 전): G7-7 숫자셀 중간줄바꿈 · DOCX/HWPX 시각검토+재추출 · 원고값 무단교체 금지.

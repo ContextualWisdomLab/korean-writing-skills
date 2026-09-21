@@ -21,9 +21,13 @@
 | 독립 평가 | `evaluations/` | K7/K8 독립성 미확인 → 격리 Run만 blind. DOCX/HWPX 시각검토 보고는 연구 lead 통합용 수정안만 작성 |
 | 연구 원고·렌더 | late-life `term_8e77a233` | 이 트리는 원고·DOCX/HWPX **직접 수정 금지**. 교정·서식 권고만 전달 |
 
-### 연구 lead 협의 (요청 중)
+### 연구 lead 협의
 
-CO 인계(`CO-RESEARCH-HANDOFF-20260921T0934Z.md`) 기준 연구측 다음 조건: G7-7 숫자 셀 중간줄바꿈, DOCX/HWPX 시각검토+재추출, 현재 원고값 무단교체 금지. writing-skills는 우선 요구를 `term_8e77a233`에 직접 질의하고, 수정안만 작성해 연구 lead가 통합하도록 한다.
+CO 인계(`CO-RESEARCH-HANDOFF-20260921T0934Z.md`) 기준 연구측 다음 조건: G7-7 숫자 셀 중간줄바꿈, DOCX/HWPX 시각검토+재추출, 현재 원고값 무단교체 금지. `term_8e77a233` 직접 질의는 Enter turn_start 미관측 → root escalation. **잠정**으로 CO 인계 조건을 우선 요구로 쓰고, late-life 회신이 오면 교체한다. 수정안만 작성해 연구 lead가 통합한다.
+
+### dogfood
+
+Issue #2. root `msg_c9d260043713`. 피드백 수집 후 근거/사용성/선호 구분 수정·독립 재검증. 피드백만으로 완료하지 않음.
 
 ---
 
