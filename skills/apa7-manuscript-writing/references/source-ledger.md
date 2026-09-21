@@ -34,7 +34,7 @@
 
 ### Zotero 소장본 조회
 
-- 개인: `/Users/seonghobae/Zotero/zotero.sqlite`를 SQLite 읽기 전용 URI로 열었다. libraries 결과는 `(1, user)` 하나다. title 필드에서 `Publication Manual` 또는 `APA 7` 포함 검색은 0건이다. 이는 이 로컬 DB의 검색 결과이며 개인 클라우드 소장본 부재를 뜻하지 않는다.
+- 개인: `~/Zotero/zotero.sqlite`를 SQLite 읽기 전용 URI로 열었다. libraries 결과는 `(1, user)` 하나다. title 필드에서 `Publication Manual` 또는 `APA 7` 포함 검색은 0건이다. 이는 이 로컬 DB의 검색 결과이며 개인 클라우드 소장본 부재를 뜻하지 않는다.
 - 로컬 groups 테이블은 0행이다. elderly-gad가 로컬에 동기화되어 있다고 확인할 수 없다.
 - 개인 로컬 API `http://localhost:23119/api/users/0/items?q=publication%20manual&format=json`은 20초 시간 초과다.
 - 그룹 API `https://api.zotero.org/groups/6347780/items?q=publication%20manual&format=json`은 HTTP 403이다. 그룹 검색 미완료이며 소장본 없음으로 보고하지 않는다. 인증 정보는 파일이나 보고서에 넣지 않았다.

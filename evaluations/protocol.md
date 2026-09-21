@@ -28,7 +28,7 @@
 | 채점 | 독립 평가 워커 | 실제 출력 대조 | 사례별 판정·실패 근거 저장 | runs/의 평가 보고서 | 실행 출력 |
 | K7·K8 패킷 | 실행자 subagent + 채점(문항 작성 세션) | 스킬 복사본만 실행, 준거는 채점자만 | 출력·세 축 점수 | `runs/round-4-k7-k8/` | 2026-09-21 사례 통과. 합산·타당화 아님 |
 
-근거: /Users/seonghobae/.codex/skills/.system/skill-creator/SKILL.md의 Independent Forward-Testing 절을 직접 읽음(2026-09-20). 이 절의 현실적인 요청·최소 원자료·의도한 답 미제공·격리 실행 원칙을 따른다.
+근거: `${CODEX_SKILLS_ROOT:-$HOME/.codex/skills}/.system/skill-creator/SKILL.md`의 Independent Forward-Testing 절을 직접 읽음(2026-09-20). 이 절의 현실적인 요청·최소 원자료·의도한 답 미제공·격리 실행 원칙을 따른다.
 
 실행 후 보완(2026-09-20): 1회차는 분야별 묶음 실행이었고 A2에서 다른 사례의 설계가 섞인 것으로 의심되는 출력을 관찰했다. A2 단독 새 실행에서는 재현되지 않았다. 이후에는 서로 다른 연구 사례를 별도 대화에서 실행하거나 독립된 연구임을 명시한다. 이 보완은 원래 루브릭·시나리오나 최초 판정을 바꾸지 않는다. 실제 완료 상태와 잔여 의존성은 runs/round-1-review.md의 인계에 기록했다.
 

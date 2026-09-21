@@ -4,7 +4,7 @@
 
 ## 실행 검증
 
-- `python /Users/seonghobae/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/apa7-manuscript-writing` → exit 0, `Skill is valid!`
+- `python3 "${CODEX_SKILLS_ROOT:-$HOME/.codex/skills}/.system/skill-creator/scripts/quick_validate.py" skills/apa7-manuscript-writing` → exit 0, `Skill is valid!`
 - Markdown 상대 링크의 대상 존재 확인 → `Local reference links passed`.
 - `git diff --check` → exit 0. 새 파일은 아직 untracked이므로 이 명령은 새 파일 전체 검증이 아니다.
 - 원격 commit·push는 작성 worker가 수행하지 않았다. 조정자의 통합·원문 확인·원격 검증이 남아 있다.
