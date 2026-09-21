@@ -35,7 +35,7 @@
 
 - 제작자·공개 URL: 이 확인 범위에서 확정하지 않음. I’m not human이라는 명칭과 동일 제품인지도 확인되지 않음.
 - 설치본 제목: Humanize Korean — AI 한글 티 제거 오케스트레이터. frontmatter 버전 2.3.2.
-- 실제 경로: `/Users/seonghobae/.claude/skills/humanize-korean/SKILL.md`.
+- 실제 경로: `~/.claude/skills/humanize-korean/SKILL.md` (사용자 홈 기준; 작성자 절대 경로는 기록하지 않음).
 - SHA-256: `d54ac2805e82e1113f25fb594aee914fe97db86c74f0d908384e52ee2fc79c28`.
 - 읽은 절: 전 경로 공통 의미 앵커, Phase 2.4 서법 국소 복원, Phase 2.5 구조 게이트, 주의 사항. `references/rewriting-playbook.md`의 서법 보존·Do-NOT 목록도 대조했다.
 - 재사용: 교정 전 핵심 내용 확인, 결과와 원문 대조, 의미 손실 시 해당 수정 복원.
@@ -167,6 +167,7 @@ U1은 이 저장소 AGENTS.md의 문체 선호다. 불필요한 요약·자문�
 
 ## P-SONG2013 · 학술 — 생략 주어·담화특출성(성인)
 
+- 식별자 `P-SONG2013`: **출판연도가 아니라** 이 장부의 안정 레거시 ID다. 검증된 출처는 아래 **2007**년 논문이다(ID를 바꾸지 않고 매핑만 명시).
 - 저자: 송현주·윤정은.
 - 출처(2026-09-21 원문 재열람): *한국심리학회지: 실험*, 19(4), 383–400, **2007**. 제목 「생략된 주어가 있는 문장 처리에 담화특출성이 미치는 영향」. 이전 장부의 *한국인지과학* 2013·쪽 383–402는 **이 PDF와 불일치**하므로 쓰지 않는다.
 - URL: [PDF](https://accesson.kr/cogpsych/assets/pdf/17405/journal-19-4-383.pdf). SHA-256 `57ad46327b5c0bf7ab946c8b2b62b9c93086b7548442b008b3ef477b28c4de15`. 확인일 2026-09-21.

@@ -7,15 +7,17 @@
 
 ## 실제 확인
 
-`python3 /Users/seonghobae/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/korean-editing`
+전제: Codex skill-creator가 설치된 환경. 재현 명령(이식 가능):
 
-결과: exit 0, `Skill is valid!`. Markdown 상대 참조도 모두 존재함을 별도로 확인했다. 형식 검사로 교정 품질을 보증하지 않는다.
+`python3 "${CODEX_SKILLS_ROOT:-$HOME/.codex/skills}/.system/skill-creator/scripts/quick_validate.py" skills/korean-editing`
+
+작성자 환경에서의 실행 기록(2026-09-20): 위 스크립트로 exit 0, `Skill is valid!`. Markdown 상대 참조도 모두 존재함을 별도로 확인했다. 형식 검사로 교정 품질을 보증하지 않는다.
 
 CodeGraph 인덱스가 없어 소유 디렉터리에서 `codegraph init skills/korean-editing`을 실행했으며 `No files found to index`로 끝났다. 문서 전용 작업이라 코드 인덱스가 기여하지 않아 이번에 생긴 빈 `.codegraph/`를 제거했다. 다른 소유자의 파일은 수정하지 않았다.
 
 ## 독립 실행 평가
 
-평가자: 별도 에이전트 `/root/independent_korean_eval`, 이전 대화 전달 없음. `SKILL.md`와 `source-ledger.md`만 제공하고 작성자의 `examples.md` 및 다른 평가 자료는 열지 않도록 했다. 아래 가상 입력에 대한 실제 수정본을 받았으며, 작성자가 기대한 정답은 전달하지 않았다.
+평가자: 별도 에이전트(작성자 세션과 분리; 호스트 절대 경로는 재현 조건이 아님). 이전 대화 전달 없음. `SKILL.md`와 `source-ledger.md`만 제공하고 작성자의 `examples.md` 및 다른 평가 자료는 열지 않도록 했다. 아래 가상 입력에 대한 실제 수정본을 받았으며, 작성자가 기대한 정답은 전달하지 않았다.
 
 ### 입력 1 · 연구 보고
 
