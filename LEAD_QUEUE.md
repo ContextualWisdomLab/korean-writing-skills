@@ -1,6 +1,6 @@
 # 전담 리드 작업 원장
 
-확인일: 2026-09-21. **현 리드**: recovery worktree `writing-skills-lead-recovery-20260921`, terminal `term_0089273b-5418-4108-809d-6a028817d705`(2026-09-22 04:38Z `--resume` 승계, 이전 `term_e01c1d29`·`term_6496a84a` 종료), dispatch `ctx_d8a9e643f75d`, task `task_1342050c2733`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 이전 Grok `term_e9fcf167`·Codex `term_731b94a7`·후속 `term_1c33634e`는 연결 해제되어 재시작하지 않는다. 연구 원고 파일은 late-life lead `term_8e77a233-6919-4b13-8d55-2ee97973efba` 소유다.
+확인일: 2026-09-21. **현 리드**: recovery worktree `writing-skills-lead-recovery-20260921`, terminal `term_7ca31f1f-190c-4a60-b245-d8ff212a60b6`(2026-09-22 05:56Z 정식 탭 `--resume` 재개, 이전 `term_0089273b` orphaned·`term_e01c1d29`·`term_6496a84a` 종료), dispatch `ctx_d8a9e643f75d`, task `task_1342050c2733`, 조정자 `term_97546d94-0dc6-4649-8e87-8f6d226f5d9d`, root `run_b22de9a1c59d`. 이전 Grok `term_e9fcf167`·Codex `term_731b94a7`·후속 `term_1c33634e`는 연결 해제되어 재시작하지 않는다. 연구 원고 파일은 late-life lead `term_8e77a233-6919-4b13-8d55-2ee97973efba` 소유다.
 
 ## 2026-09-21 인수 스냅샷
 
