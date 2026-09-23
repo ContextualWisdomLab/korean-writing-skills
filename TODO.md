@@ -1,6 +1,6 @@
 # 한국어 글쓰기·APA7 스킬 개발 TODO
 
-> 현재 담당·수용 조건: [전담 리드 원장](LEAD_QUEUE.md). 아래 run·리드는 이전 작업 이력이다.
+> 현재 담당·수용 조건: [전담 리드 원장](LEAD_QUEUE.md). 아래 child run과 리드 식별자는 이전 작업 이력이며, root run `run_b22de9a1c59d`은 현재 리드 원장의 root run과 같다.
 
 > Orca child run: `run_58eacbe56521` · root run: `run_b22de9a1c59d` · 리드: `term_1c33634e-e367-4777-a76a-de0f1bde7dcf`
 
