@@ -16,7 +16,7 @@
 | KBS·신문·피동·주어 | writing-skills-lead | **반영** | KUPIS 기관 로그인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS SSO |
 | Rubric·PLD·Standards | writing-skills-lead | **반영(잠정)** | 한국어 평가 논문 전문 확보 | pld-and-standards-framework.md·rubric-source-ledger.md; round-2는 철회 이력 | Zotero API; Ahn PDF |
 | APA 원문 | 원문 조사 기록 | **부분 확인** | 판권지·개별 절 인쇄쪽 | source-ledger 2026-09-20 Manual 7 절 | 리더 파일 URL |
-| 리드 검증 | writing-skills-lead | **진행** | scoped commit·원격 HEAD·필수 검사 확인 | PR #1 | 원문 미확인과 CI 대기 구분 |
+| 리드 검증 | writing-skills-lead | **진행** | 현재 head의 필수 검사·비작성자 검토 확인 | PR #4(`seonghobae/writing-skills-clean-20260923`). PR #1·#3은 닫혔고 #4가 승계본이다 | 원문 미확인과 CI 대기 구분 |
 
 ## I'm not human 스킬
 

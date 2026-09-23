@@ -21,5 +21,7 @@
 
 이 저장소의 퇴고 스킬은 `skills/korean-editing/`이다. Claude superpowers 플러그인의 `writing-skills`(스킬 작성 TDD)와 이름이 비슷해도 다른 스킬이다. dogfood·운영 보고에는 아래 경로를 쓴다.
 
-- https://github.com/ContextualWisdomLab/korean-writing-skills/tree/seonghobae/writing-skills-lead/skills/korean-editing/
+- 한국어 퇴고: `skills/korean-editing/`
 - APA: `skills/apa7-manuscript-writing/`
+
+저장소 안 상대 경로로 가리킨다. 작업 브랜치를 가리키던 이전 링크는 그 브랜치가 삭제돼 더 이상 열리지 않는다.
