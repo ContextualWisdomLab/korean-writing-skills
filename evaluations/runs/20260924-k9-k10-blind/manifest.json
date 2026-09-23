@@ -10,11 +10,12 @@
   ],
   "blocked": [
    "evaluations/ 전체",
-   "작성자 답안·기대 정답",
-   "과거 채점 기록",
+   "다른 사례 입력·출력",
+   "작성자 해설",
    "연구 자료",
    "웹"
-  ]
+  ],
+  "not_blocked_in_practice": "skills/korean-editing/references/validation.md와 source-ledger.md에는 과거 평가의 입력·출력·통과 서술이 들어 있다. 두 파일은 스킬의 일부라 실행자에게 허용했으므로, 과거 평가 기록 전부가 차단됐다는 주장은 성립하지 않는다."
  },
  "scorer": {
   "allowed_reads": [
@@ -25,9 +26,10 @@
   ],
   "blocked": [
    "skills/ 전체",
-   "작성자 답안",
-   "다른 사례 출력",
-   "연구 자료"
+   "다른 사례 입력·출력",
+   "작성자 해설",
+   "연구 자료",
+   "웹"
   ]
  },
  "sha256": {
@@ -39,7 +41,11 @@
   "K9-output.md": "a9ad5c9ce6857131fed07cd80de9aaf6e07d14e1be0cc07fef2c81f00727b63c",
   "K9-scoring.md": "0c0e30ca9fb7e27134df156cbf0ed0a37c10dac5cc682a60021eb5e6d75d5dfe",
   "K10-output.md": "dd3a58217088950c9ff2bd6d74aa00c53c31cf5bca46ccb8a6dbcf11b480902c",
-  "K10-scoring.md": "b45d62b658b8ef6200115e4bb23f070ae2e84df7e9ee744324f1c5f880f08a3a"
+  "K10-scoring.md": "b45d62b658b8ef6200115e4bb23f070ae2e84df7e9ee744324f1c5f880f08a3a",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/scenarios/blind-inputs.md": "a1551e6d1a9e9428b59e1f0cfcca41331378c2280c0a9b47cebd9dfdd9a5a0e2"
  },
  "result": {
   "K9": {
@@ -60,5 +66,12 @@
   },
   "scope": "사례별 통과 2건. 표·각주 장르 전체 타당화 아님."
  },
- "note": "출력·채점 파일의 로컬 절대경로는 저장소 경계 규칙에 따라 상대 경로와 \"(격리 임시 디렉터리)\"로 바꾸었다. 위 sha256은 그 치환 뒤 파일 기준이며, 치환 전 원본 해시는 K9-output f62d16ca…, K9-scoring d0aabed3…, K10-output 6d256514…, K10-scoring 8102065d… 이다."
+ "note": "출력·채점 파일의 로컬 절대경로는 저장소 경계 규칙에 따라 상대 경로와 \"(격리 임시 디렉터리)\"로 바꾸었다. 위 sha256은 그 치환 뒤 파일 기준이며, 치환 전 원본 해시는 K9-output f62d16ca…, K9-scoring d0aabed3…, K10-output 6d256514…, K10-scoring 8102065d… 이다.",
+ "hash_timing": {
+  "pre_run": "K9.md, K10.md, SKILL.md, 두 루브릭의 해시는 첫 실행자 배정 전에 계산했다.",
+  "post_run": "실행자가 실제로 연 references 3개와 blind-inputs.md의 해시는 실행 뒤에 계산했다. 다만 d1a1467..c6ee1e6 구간에서 skills/·rubrics/·scenarios/에 커밋이 없어 실행 중 내용이 바뀌지 않았음은 git으로 확인된다.",
+  "record_written": "이 manifest 파일 자체는 K9 실행자 배정 뒤, K9 출력 산출 전에 작성됐다."
+ },
+ "protocol_compliance": "부분. 사전 동결 기록 파일이 실행 전에 커밋되지 않았고 참조 파일 해시가 사후 기록이므로, 이 회차를 프로토콜 준수 실행으로 집계하지 않는다.",
+ "input_provenance": "격리 입력 K9.md·K10.md는 저장소 밖 임시 디렉터리에 두었고 저장소에 보존하지 않았다. 다만 blind-inputs.md(a1551e6d…)에서 같은 방식으로 다시 추출하면 기록된 해시 b6448f52…·ba7ccc87…가 그대로 재현된다(2026-09-24 확인). 임시 사본 자체는 보존되지 않았다."
 }
