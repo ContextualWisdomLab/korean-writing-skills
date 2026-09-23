@@ -1,0 +1,22 @@
+{
+  "frozen_at_utc": "2026-09-23T15:39:45Z",
+  "purpose": "K9·K10 2회차 실행의 사전 동결 기록. 이 파일을 커밋한 뒤에 실행자를 배정한다.",
+  "base_commit": "c6ee1e6e02d7ce9534b37bd20b2f42d4dc0d4a22",
+  "cases": ["K9", "K10"],
+  "sha256": {
+    "skills/korean-editing/SKILL.md": "2c8432918cba2ccc76affc0d2eaeafc0572f8abcdf6594a6cb21e2f63c8df92a",
+    "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+    "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+    "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+    "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+    "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+    "evaluations/scenarios/blind-inputs.md": "a1551e6d1a9e9428b59e1f0cfcca41331378c2280c0a9b47cebd9dfdd9a5a0e2",
+    "K9.md (시나리오에서 추출한 격리 입력)": "b6448f52f75d8d218ccf7001775c67302e9af91ce4730da10b621b116998f34e",
+    "K10.md (시나리오에서 추출한 격리 입력)": "ba7ccc872393496983a6f0c67987c1520d7229cf43a27296685c25edd677b45e"
+  },
+  "access": {
+    "executor": {"allow": ["해당 사례 입력", "skills/korean-editing/SKILL.md와 references"], "block": ["evaluations/ 전체", "다른 사례 파일", "1회차 출력·채점", "작성자 해설", "연구 자료", "웹"]},
+    "scorer": {"allow": ["해당 사례 입력", "해당 사례 출력", "evaluations/rubrics/three-axis.md", "evaluations/rubrics/analytic-korean-editing.md"], "block": ["skills/ 전체", "다른 사례 파일", "1회차 출력·채점", "작성자 해설", "연구 자료", "웹"]}
+  },
+  "note": "1회차(20260924-k9-k10-blind)는 해시를 실행 직전에 계산했으나 기록 파일을 K9 실행자 배정 뒤에 썼고 실행자가 읽은 참조 파일 해시를 빠뜨렸다. 그래서 그 회차는 프로토콜 준수 실행으로 집계하지 않는다. 이 2회차는 이 파일을 커밋한 뒤에만 실행한다."
+}
