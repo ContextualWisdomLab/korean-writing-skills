@@ -33,19 +33,19 @@
   ]
  },
  "sha256": {
-  "K9.md": "b6448f52f75d8d218ccf7001775c67302e9af91ce4730da10b621b116998f34e",
-  "K10.md": "ba7ccc872393496983a6f0c67987c1520d7229cf43a27296685c25edd677b45e",
   "skills/korean-editing/SKILL.md": "2c8432918cba2ccc76affc0d2eaeafc0572f8abcdf6594a6cb21e2f63c8df92a",
-  "rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
-  "rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
   "K9-output.md": "a9ad5c9ce6857131fed07cd80de9aaf6e07d14e1be0cc07fef2c81f00727b63c",
   "K9-scoring.md": "0c0e30ca9fb7e27134df156cbf0ed0a37c10dac5cc682a60021eb5e6d75d5dfe",
   "K10-output.md": "dd3a58217088950c9ff2bd6d74aa00c53c31cf5bca46ccb8a6dbcf11b480902c",
-  "K10-scoring.md": "b45d62b658b8ef6200115e4bb23f070ae2e84df7e9ee744324f1c5f880f08a3a",
+  "K10-scoring.md": "afb3005d3c1486bfc719959f570dda27bf9a138fcf0171be35983a61c5e6b81a",
   "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
   "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
   "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
-  "evaluations/scenarios/blind-inputs.md": "a1551e6d1a9e9428b59e1f0cfcca41331378c2280c0a9b47cebd9dfdd9a5a0e2"
+  "evaluations/scenarios/blind-inputs.md": "a1551e6d1a9e9428b59e1f0cfcca41331378c2280c0a9b47cebd9dfdd9a5a0e2",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "K9.md (격리 입력, 저장소 미보존)": "b6448f52f75d8d218ccf7001775c67302e9af91ce4730da10b621b116998f34e",
+  "K10.md (격리 입력, 저장소 미보존)": "ba7ccc872393496983a6f0c67987c1520d7229cf43a27296685c25edd677b45e"
  },
  "result": {
   "K9": {
@@ -73,5 +73,16 @@
   "record_written": "이 manifest 파일 자체는 K9 실행자 배정 뒤, K9 출력 산출 전에 작성됐다."
  },
  "protocol_compliance": "부분. 사전 동결 기록 파일이 실행 전에 커밋되지 않았고 참조 파일 해시가 사후 기록이므로, 이 회차를 프로토콜 준수 실행으로 집계하지 않는다.",
- "input_provenance": "격리 입력 K9.md·K10.md는 저장소 밖 임시 디렉터리에 두었고 저장소에 보존하지 않았다. 다만 blind-inputs.md(a1551e6d…)에서 같은 방식으로 다시 추출하면 기록된 해시 b6448f52…·ba7ccc87…가 그대로 재현된다(2026-09-24 확인). 임시 사본 자체는 보존되지 않았다."
+ "input_provenance": "격리 입력 K9.md·K10.md는 저장소 밖 임시 디렉터리에 두었고 저장소에 보존하지 않았다. 다만 blind-inputs.md(a1551e6d…)에서 같은 방식으로 다시 추출하면 기록된 해시 b6448f52…·ba7ccc87…가 그대로 재현된다(2026-09-24 확인). 임시 사본 자체는 보존되지 않았다.",
+ "prior_hashes": {
+  "K10-scoring.md": {
+   "value": "b45d62b658b8ef6200115e4bb23f070ae2e84df7e9ee744324f1c5f880f08a3a",
+   "note": "2026-09-24 리드 정정(접근 이행 미확인 분리, 대체안 미제시 감점 근거 일치) 추가 전 파일의 해시. 채점자 본문은 그 정정에서 수정하지 않았다."
+  }
+ },
+ "verification": {
+  "checked_at_utc": "2026-09-24T00:5xZ",
+  "method": "각 키를 이 디렉터리 또는 저장소 루트 기준으로 찾아 sha256 재계산",
+  "result": "대조 대상 11개 전부 일치. 격리 입력 2개는 저장소에 보존하지 않아 대조 대상이 아니며, blind-inputs.md에서 재추출해 해시 재현만 확인했다."
+ }
 }
