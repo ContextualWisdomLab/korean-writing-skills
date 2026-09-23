@@ -1,0 +1,64 @@
+{
+ "date": "2026-09-24",
+ "base_commit": "d1a1467bc430572e398a16bee21bacef8818a9fa",
+ "scope": "K9·K10 사례별 독립 실행. 사례별 통과 판정만 산출하며 표·각주 장르 전체 타당화가 아니다.",
+ "execution": "사례마다 새 에이전트 대화 한 개씩 순차 실행. 동시 실행 없음.",
+ "executor": {
+  "allowed_reads": [
+   "K9.md 또는 K10.md",
+   "skills/korean-editing/SKILL.md와 그 references"
+  ],
+  "blocked": [
+   "evaluations/ 전체",
+   "작성자 답안·기대 정답",
+   "과거 채점 기록",
+   "연구 자료",
+   "웹"
+  ]
+ },
+ "scorer": {
+  "allowed_reads": [
+   "K9.md 또는 K10.md",
+   "해당 출력",
+   "evaluations/rubrics/three-axis.md",
+   "evaluations/rubrics/analytic-korean-editing.md"
+  ],
+  "blocked": [
+   "skills/ 전체",
+   "작성자 답안",
+   "다른 사례 출력",
+   "연구 자료"
+  ]
+ },
+ "sha256": {
+  "K9.md": "b6448f52f75d8d218ccf7001775c67302e9af91ce4730da10b621b116998f34e",
+  "K10.md": "ba7ccc872393496983a6f0c67987c1520d7229cf43a27296685c25edd677b45e",
+  "skills/korean-editing/SKILL.md": "2c8432918cba2ccc76affc0d2eaeafc0572f8abcdf6594a6cb21e2f63c8df92a",
+  "rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "K9-output.md": "a9ad5c9ce6857131fed07cd80de9aaf6e07d14e1be0cc07fef2c81f00727b63c",
+  "K9-scoring.md": "0c0e30ca9fb7e27134df156cbf0ed0a37c10dac5cc682a60021eb5e6d75d5dfe",
+  "K10-output.md": "dd3a58217088950c9ff2bd6d74aa00c53c31cf5bca46ccb8a6dbcf11b480902c",
+  "K10-scoring.md": "b45d62b658b8ef6200115e4bb23f070ae2e84df7e9ee744324f1c5f880f08a3a"
+ },
+ "result": {
+  "K9": {
+   "axes": [
+    3,
+    3,
+    3
+   ],
+   "verdict": "통과"
+  },
+  "K10": {
+   "axes": [
+    3,
+    2,
+    3
+   ],
+   "verdict": "통과"
+  },
+  "scope": "사례별 통과 2건. 표·각주 장르 전체 타당화 아님."
+ },
+ "note": "출력·채점 파일의 로컬 절대경로는 저장소 경계 규칙에 따라 상대 경로와 \"(격리 임시 디렉터리)\"로 바꾸었다. 위 sha256은 그 치환 뒤 파일 기준이며, 치환 전 원본 해시는 K9-output f62d16ca…, K9-scoring d0aabed3…, K10-output 6d256514…, K10-scoring 8102065d… 이다."
+}
