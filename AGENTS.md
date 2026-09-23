@@ -11,6 +11,25 @@
 - Orca 리드는 작업을 원문 조사·스킬 작성·독립 평가로 나누고 소유 파일을 구분한다. 작업 기록에는 담당자·다음 조치·완료 기준·증거·의존성을 적는다.
 - 실제 검증과 원격 commit을 확인한 뒤 완료를 보고한다. CI를 무의미하게 대량 생성하지 않는다.
 
+## 근거 대응 (확인일 2026-09-20)
+
+아래는 **실제 열람·확인 범위**와 AGENTS 원칙의 대응이다. 미열람·초록만·Zotero 미확인은 그대로 표기한다. 사용자 지시·저장소 운영 규칙을 논문이 입증한 주장처럼 쓰지 않는다.
+
+| AGENTS 원칙 | 근거 | 확인 위치·한계 |
+| --- | --- | --- |
+| 원문 조사·쪽·절 기록 | skill `references/source-ledger.md` | korean-editing K1·K2·N41–43 등 PDF; APA S1·S8·A-NUM·A-REF·A-JARSQ; Manual **직접 확인** 2.1·2.2·2.8·2.12·2.18–2.24·6.36·6.44·7.1·7.4–7.6·7.17·7.18·8.4·8.10·10.1–10.3 도입. 2026-09-21 14:31Z–14:45Z 재열람: 2.8 표지 금지·투고 원고 한정, 쪽번호는 본문이 Section 2.18로 가리킴, 문단 간격 문장은 `2.22 Margins` 앞(장 목록의 앞 이름은 2.21), 2.22 1인치. 2.1은 표제까지. 표 제목·본문 쪽 분리 금지는 미확인. 같은 날 재접속은 세션 만료라 그림 제목 위치·표 주·계속 표지를 열지 못했고, 그 셋은 APA 위반으로 채점하지 않는다. 개별 절 인쇄쪽·한글 글꼴 이름은 미확인; 7.7–7.16·7.19 이후·8.12 이후·10.4 이후는 미독 |
+| 어문 규정 vs 기관·저자·편집·선호 구분 | K1(공공언어), K2(맞춤법 해설), E1/U1 | 공공언어를 학술 전체 규범으로 확대 금지(K1) |
+| 의미·수치·인용·전문용어 보존 | korean-editing SKILL 채택 조건; P-SONG2013 | 담화·생략 주어는 **항상 화자** 아님(P-SONG2013 PDF) |
+| 피동·명사화·한자어 일괄 금지 | N-Q1·N-Q2(국립국어원 상담); M-HANI2 | 피동 **일반** 금지 아님(M-HANI2) |
+| 주어 생략·에이전트 보고 | P-SONG2013; examples.md | 운영 보고 담당자 명시 — **프로젝트 적용** |
+| 문단→문장→표기 순 | K1 pp.13–15; SKILL 퇴고 절차 | K1 순서는 **편집 설계** 참고 |
+| 독립 평가·블라인드 | evaluations/protocol.md; S-STD2014 ch.1(판단 수집) | 4/4 통과 ≠ 타당도; ICC/FACETS **미실시** |
+| PLD·루브릭·cut score 구분 | AERA/APA/NCME Standards 2014 | [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) + Zotero elderly-gad `GKX4IKDH` / `A9MHWYKV` Cut Scores 인쇄 p.100/PDF p.111; Standard 5.21 인쇄 pp.107–108/PDF pp.118–119; glossary 인쇄 pp.221, 223–224/PDF pp.232, 234–235; “Performance Level Criterion”은 확인한 2014판 용어집 표제어로 찾지 못함; 다른 문헌 전체로 일반화하지 않음 |
+| 분석적 퇴고 평가 설계 | R-KIM2010·R-AHN2026·R-KSL2015 | **초록·서지** 위주; L2 작문→학술 퇴고 **전이 한계** |
+| I'm not human | H1 source-ledger | 설치본 **미발견**; humanize-korean v2.3.2만 H1 |
+
+상세: `skills/korean-editing/references/source-ledger.md`, `evaluations/references/rubric-source-ledger.md`.
+
 ## APA 7 학술 논문 작성 작업
 - APA Publication Manual 7판과 APA 공식 Style/JARS 자료를 직접 열어 근거로 삼는다. 소장본은 개인 Zotero와 elderly-gad 그룹 양쪽을 검색한다. 읽지 않은 절·쪽수·규칙은 만들지 않는다.
 - 연구 질문과 주장-증거 연결, 초록·서론·방법·결과·논의 구성, JARS-Quant 보고, 표·그림, 통계 표기, 인용·참고문헌, 편견 없는 언어, 심사 응답의 작업 절차를 만든다.

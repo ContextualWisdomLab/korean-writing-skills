@@ -1,0 +1,33 @@
+{
+  "isolated_root": "/var/folders/vq/nxtc622x2lg1xq3jpdktymdw0000gn/T/writing-blind-dge3ylt1",
+  "status": "evaluation_complete",
+  "snapshot_at": "2026-09-20T06:00:02.605237+00:00",
+  "sha256": {
+    "korean/korean-editing/SKILL.md": "87cf3a922688f0925030bd1123c040ea2020e9aa18c03cc2c42aafd58814aa47",
+    "korean/korean-editing/references/examples.md": "6125d4eb4746bdfeb2be73914bcfb5107643d92bd07360776e351fd2e008be70",
+    "korean/korean-editing/references/source-ledger.md": "08b8b3febf4d410335458270166652f77b30331953c71db6c3b0df66711b9e41",
+    "korean/korean-editing/references/validation.md": "6f5f413b7c8965fe9651e7d203c8ecf88935619cca9d292a725c92caae887f3c",
+    "apa/apa7-manuscript-writing/SKILL.md": "efb13db70cdf9c3483414ac7f6dd7ca4ef7f58d8c4570de5f8b3b25121097dba",
+    "apa/apa7-manuscript-writing/references/reporting-workflow.md": "cec41f247972e89c5645f32a8bc8c5f0264b422943358dd22a5b681d4610364f",
+    "apa/apa7-manuscript-writing/references/source-ledger.md": "93324cc02c770388cd629b58568430e23b998bd8eadc6d22be5aafb51b2b1079",
+    "apa/apa7-manuscript-writing/references/validation.md": "43cd14d4984079fc6d340e374c8b34888a467ebbd245f1d0934532f21874c73d"
+  },
+  "ready_signal": "Coordinator authorized both blind runs; APA draft still being written and manual access incomplete.",
+  "outputs": {
+    "evaluations/runs/round-1-korean-output.md": "bb28cacac9557a169b146d3004927a9d45c14dfa6861e9288fc2671d29a9a7fa",
+    "evaluations/runs/round-1-apa-output.md": "9d52d44849d48eff1324e28cb2f396755497ad1f9169ac1e37dfa1606da8472f",
+    "evaluations/runs/a2-isolated-output.md": "73deed813fe406ebd7db75a58de89a05918624d65dc143ad4d05358c976aec25"
+  },
+  "changed_since_snapshot": [],
+  "agents": {
+    "korean": "/root/blind_korean",
+    "apa": "/root/blind_apa"
+  },
+  "supplemental_run": {
+    "agent": "/root/blind_a2_isolated",
+    "request_sha256": "3c9891ee75878555b73e2d216ec449666ab619ac4bf2e1dcf1d5822a04760311",
+    "skill_snapshot": "same APA files as round 1",
+    "reason": "Check standalone behavior after unsupported design premise in batched A2 output; prior output and suspicion were withheld from executor."
+  },
+  "completed_at": "2026-09-20T06:06:51.699091+00:00"
+}
