@@ -1,10 +1,8 @@
 {
   "date": "2026-09-20",
   "base_commit": "df5c6af85366be89e7e0e090d95ec452c1cc8f26",
-  "run_id": "run_58eacbe56521",
   "executor": {
-    "task": "task_7fa9c3e3a498",
-    "dispatch": "ctx_51619c900e64",
+    "role": "independent_executor",
     "allowed_reads": [
       "K5.md",
       "K6.md",
@@ -12,8 +10,7 @@
     ]
   },
   "scorer": {
-    "task": "task_1cc85e521eed",
-    "dispatch": "ctx_ede485b0f4c7",
+    "role": "independent_scorer",
     "allowed_reads": [
       "K5.md",
       "K6.md",
@@ -33,6 +30,6 @@
     "skills/korean-editing/SKILL.md": "a510af3c1e8f342221665b8ba8c7d4a66276a3af2564efcfb27eb120bb477080",
     "evaluations/rubrics/three-axis.md": "a6006a3047c044af4c255ff97b3ce666a0aac047c4fb4eb5f5284eec07923bcd"
   },
-  "temporary_workspace": "/tmp/korean-k56-ctx5fdd",
-  "isolation": "Explicit path allowlist in separate Orca sessions, not an OS sandbox; inherited AGENTS and general context remained visible."
+  "workspace": "ephemeral_path_allowlist_workspace",
+  "isolation": "Explicit path allowlist in separate agent sessions, not an OS sandbox; inherited repository instructions and general context remained visible."
 }
