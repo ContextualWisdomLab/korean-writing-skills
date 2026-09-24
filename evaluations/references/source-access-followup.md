@@ -1,6 +1,6 @@
 # 원문 접근 후속 조사
 
-확인일: 2026-09-20. 담당: 원문 조사 worker, task_3ac9c39fee07 / ctx_218e8a8c6371. 조사 시간은 배정 후 10분 이내로 제한했다. 소유 파일은 APA 근거 장부, 루브릭 근거 장부, 이 보고서다. 스킬 본문·평가 실행과 출력·commit·push는 다루지 않았다.
+확인일: 2026-09-20. 담당 역할: 원문 조사 worker. 조사 시간은 배정 후 10분 이내로 제한했다. 소유 파일은 APA 근거 장부, 루브릭 근거 장부, 이 보고서다. 스킬 본문·평가 실행과 출력·commit·push는 다루지 않았다.
 
 ## 실제 읽은 자료
 
@@ -8,7 +8,7 @@
 
 - 발행: American Psychological Association. Appelbaum, M., Cooper, H., Kline, R. B., Mayo-Wilson, E., Nezu, A. M., & Rao, S. (2018). *Journal article reporting standards for quantitative research in psychology: The APA Publications and Communications Board task force report*. *American Psychologist*, 73(1), 3–25. https://doi.org/10.1037/amp0000191
 - 판본: 원 논문 뒤에 정오표 https://doi.org/10.1037/amp0000389 가 붙은 24쪽 PDF. Zotero 개인 parent `NWXTJ7QC`/첨부 `MA5XB6VW`, elderly-gad 정오표 parent `W4AJRLSI`/첨부 `WTHXWQ32`에서 같은 바이트를 읽었다. 그룹 원 논문 parent `49XLUQAT`에는 첨부가 없었다.
-- 로컬 파일: `~/Documents/Zotero/storage/{MA5XB6VW,WTHXWQ32}/Appelbaum et al. - 2018 - “Journal article reporting standards for quantitative research in psychology The APA Publications and Commun.pdf`.
+- 로컬 저장 위치는 공개 재현 계약에서 제외한다. 개인·그룹 첨부 키와 아래 SHA-256을 동일 바이트 식별자로 사용한다.
 - 두 파일 SHA-256: `8e08c2fac20b64fa5f03ae8906c4ea1dc1c75275c8fbf8a9522828378c68777c`.
 - 직접 읽은 범위: 인쇄 p.3/PDF p.1(서지·초록), 인쇄 p.5/PDF p.3(적용 구조), Table 1 인쇄 pp.6–8/PDF pp.4–6, 마지막 정오표 PDF p.24. `pdftotext -layout` 텍스트 기준이며 이미지 대조는 하지 않았다. PDF쪽은 1부터 센다.
 - 짧은 구절: Table 1, Analytic strategy, 인쇄 p.7의 “Primary hypotheses”, “Secondary hypotheses”, “Exploratory hypotheses”. 방법에서 계획한 분석과 결과에서 실제 수행한 분석을 구분하는 근거다.
@@ -41,20 +41,20 @@ KCI iframe URL: https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiO
 
 ## 접근 범위와 미확인 항목
 
-- 현재 노출 도구 목록에서 Zotero·브라우저 전용 도구를 발견하지 못했다. 웹 도구와 읽기 전용 SQLite, 직접 HTTPS를 사용했다. `.codegraph/`가 없으며 이번 소유 범위는 문헌 장부뿐이므로 코드 색인은 생성하지 않았다.
-- `~/Zotero/zotero.sqlite`에는 개인 library 1만 있고 groups는 0행이었다. `~/Documents/Zotero/zotero.sqlite`에는 개인 1과 elderly-gad 2/group 6347780이 있었다. 두 DB를 혼동하면 그룹 소장 여부를 잘못 판단한다.
+- 당시 노출 도구 목록에서 Zotero·브라우저 전용 도구를 발견하지 못했다. 웹 도구와 읽기 전용 SQLite, 직접 HTTPS를 사용했다. `.codegraph/`가 없으며 이번 소유 범위는 문헌 장부뿐이므로 코드 색인은 생성하지 않았다.
+- 서로 다른 두 Zotero 로컬 DB를 확인했다. 한 DB에는 개인 library만, 다른 DB에는 개인 library와 elderly-gad group 6347780이 있었다. 구체적인 사용자 홈 경로는 공개 재현에 필요하지 않으므로 기록하지 않는다. 두 DB를 혼동하면 그룹 소장 여부를 잘못 판단한다.
 - 두 번째 DB는 일반 읽기 연결이 잠겼다. `mode=ro&immutable=1`로 **주 DB만** 읽었으므로 WAL과 최신 동기화 상태를 반영하지 않는다. DB나 Zotero 자료를 수정하지 않았다.
 - Manual 제목 `%publication%manual%`, `%APA%7%`, `%출판%매뉴얼%`와 세 한국어 논문의 제목 검색은 해당 개인·그룹 주 DB에서 0건이었다. 클라우드 소장본 부재를 뜻하지 않는다. Manual 7판의 본문·판권지·쪽·절은 미확인이다.
-- 개인 `http://localhost:23119/api/users/0/items?q=publication%20manual&format=json`은 15초 timeout, 그룹 `https://api.zotero.org/groups/6347780/items?q=publication%20manual&format=json`은 403이었다.
-- KUPIS https://kupis.kw.ac.kr/ 는 웹 도구 Internal Error, 직접 HTTPS는 기본 인증서 저장소와 `/etc/ssl/cert.pem` 모두 issuer 검증 실패였다. 인증서 검증을 끄지 않았다. 기존 Edge 기관 SSO 세션 접근 여부는 미확인이다. 계정을 만들지 않았다.
+- 개인 Zotero local API의 publication-manual 질의는 15초 timeout, 그룹 API `https://api.zotero.org/groups/6347780/items?q=publication%20manual&format=json`은 403이었다.
+- KUPIS https://kupis.kw.ac.kr/ 는 웹 도구 Internal Error, 직접 HTTPS는 기본 인증서 저장소에서도 issuer 검증 실패였다. 인증서 검증을 끄지 않았다. 기존 기관 SSO 세션 접근 여부는 미확인이다. 계정을 만들지 않았다.
 - https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf 는 HTTP 200 HTML이다. 표기 규칙 근거로 쓰지 않았다.
 
 ## 인계
 
 | 담당 | 다음 조치 | 완료 기준 | 증거·의존성 |
 | --- | --- | --- | --- |
-| 조정자·원문 접근 담당 | 기존 인증된 Zotero 또는 기관 SSO에서 Manual 7판과 한국어 논문 전문 확보 | 판권·제목·쪽/절을 직접 읽고 해시 기록 | 현재 DB 조회 한계와 접근 차단 해소 필요 |
-| 조정자 | 소유 범위 밖 R-KSL2019 참조의 연도·ID 일치 검토 | 2015년 서지와 대응 | KCI ART002002643 직접 열람 |
+| 원문 접근 담당 | 기존 인증된 Zotero 또는 기관 SSO에서 Manual 7판과 한국어 논문 전문 확보 | 판권·제목·쪽/절을 직접 읽고 해시 기록 | 현재 DB 조회 한계와 접근 차단 해소 필요 |
+| 저장소 유지 담당 | R-KSL2019 참조의 연도·ID 일치 검토 | 2015년 서지와 대응 | KCI ART002002643 직접 열람 |
 | APA 작성 담당 | 기존 JARS 근거와 이번 판본·쪽수·정오표 기록 연결 | Table 1 근거 범위 보존 | 두 Zotero 첨부의 동일 해시 |
 
 장부 링크·필수 식별자·해시 형식을 확인했다. 평가를 실행하거나 평가 출력에 접근하지 않았다. 원문 조사 범위 내 기록은 완료했으나 Manual·한국어 논문 전문 확인은 남아 있다.
