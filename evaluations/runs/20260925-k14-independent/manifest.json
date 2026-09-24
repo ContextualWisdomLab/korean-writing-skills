@@ -17,8 +17,39 @@
    "as_produced": "bb0250b72b0204c68b3f14e13072447beb9f339a292db905e936f60b1a33d4bb",
    "committed": "54a714350f09c5ef80270a6cc69db73fc3f311327224730b13c5531a343774de",
    "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트(as_produced)를 받는다."
+  },
+  "K14-scoring.md": {
+   "as_produced": "aab358b2c658c5bb46018bafd857d7c2304577c5a5f0a5e5c8e50b1fa48e923f",
+   "committed": "dd048f2981c000586fe87cc9bb96320241dfd175b4f128dbc5e007d109a3f5fe",
+   "note": "커밋본은 로컬 절대경로를 상대 경로와 괄호 표기로 바꾼 것"
   }
  },
- "scorer": "아직 없음. 이 커밋 뒤 별도 호스트(s1)에서 별도 Codex 채점자 1명.",
- "not_included": "리드가 쓴 답안·점수 없음"
+ "scorer": {
+  "agent": "Codex(Orca worker-start --agent codex)",
+  "host": "s1",
+  "run": "run_f5c59bfb8202",
+  "task": "task_6563937c180b",
+  "dispatch": "ctx_418d7c06aec6",
+  "workspace": "s1에 공개 저장소를 clone해 동결 커밋 e49178e로 detached 체크아웃(실행 후 변경 0)",
+  "inputs_sha256": {
+   "K14.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+   "K14-output.md(산출 당시)": "bb0250b72b0204c68b3f14e13072447beb9f339a292db905e936f60b1a33d4bb",
+   "criteria.md": "a22082d520630d3f5046eadd5949fb0ea0f062075b0be1485c10e550a72aaa1b",
+   "apa7-basis.md": "c561e7d491a7cc663f456d876d7c18a0f2526a8ed7dc033f260eaf218ea02c35",
+   "scorer-prompt.md": "7e76fb689eed657064e97a0adc80270ea5057014d324294e1c92aed1098e0cff"
+  },
+  "prompt": "evaluations/fixtures/K14/scorer-prompt.md 본문, {ISO}·{REPO}만 치환",
+  "worker_done": "2026-09-24T19:56:13Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)",
+  "submission_check": "transcript로 지시문 제출과 첫 도구 호출을 확인한 뒤 대기"
+ },
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "result_as_scored": {
+  "semantic_preservation": 1,
+  "naturalness": 3,
+  "overcorrection_restraint": 2,
+  "verdict": "실패",
+  "reason_by_scorer": "방법 문단의 '이전 학위논문 자료를 활용했다'는 출처 사실이 본문에서 빠지고 확인 요청으로도 옮겨지지 않음",
+  "access": "자기보고상 실행자·채점자 모두 허용 범위 안"
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
 }
