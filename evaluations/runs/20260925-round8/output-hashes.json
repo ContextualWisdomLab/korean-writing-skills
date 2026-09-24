@@ -1,0 +1,22 @@
+{
+ "regression/K12-output.md": {
+  "as_produced": "6f8ff4b0291962935cd9ab9e0eec0c8531b10cfb25dc866e560afcf4abf63e52",
+  "committed": "e584bdf273dd2469b0de8dedf3f7b33d40b7f87780ef347a57a48bc2c5223035"
+ },
+ "K11-output.md": {
+  "as_produced": "3325e6706cfa5307ef60c2eebe522147f535b7cded252e6cfd01369053fd8140",
+  "committed": "8f0114b2c105a16c36882846272fd1433e443bb97d6e64228e1df0a8ccbc4424"
+ },
+ "K11-scoring.md": {
+  "as_produced": "c3b4a086565c0512f77af868f98fe585fa36e0c945fc74da153aae23bcc94c17",
+  "committed": "fda4b59814d8f4c38b800d2cfb9a0cc7b4499ceff5e97c30a4e89760ec723321"
+ },
+ "K12-output.md": {
+  "as_produced": "b289cc81f88227cc89c5c8f8c845910d545fa6d85455a387114f7d7fda6477f8",
+  "committed": "c3511c17b92ec1ed5b0682dbb6b5bd4ea9c1cc64275e5632c98273d04d6f71d4"
+ },
+ "K12-scoring.md": {
+  "as_produced": "cea4fe1b4b092df2e1955cfe5a98a985da5fbb5faf0e0f578645e8f24f2d5d47",
+  "committed": "d3e96237701341d63ccef3c86c5a698ba284d004f856f5c0cb502834af555e17"
+ }
+}
