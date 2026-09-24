@@ -19,7 +19,32 @@
    "as_produced": "96f31de6e4dd176a0152dd7fa472a8ee6db12c936b7f3c0f22af32109345844c",
    "committed": "61e6acf9bb16aa8f128c79b9e2f497fc36f608c7328100f6b7914ba7cf97b8f7",
    "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  },
+  "K15-A-scoring.md": {
+   "as_produced": "0e75710b3ca65eca313a287308ee37fa5efaba69a9b8ae83d8e15aa7f5419b9e",
+   "committed": "e9bc6e011ea3f9059c92d71b78379c9927f4646e64f265900c66cfdd84f828e9",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것"
   }
  },
- "not_included": "리드가 쓴 답안·점수 없음"
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "scorer_A": {
+  "agent": "Codex(Orca worker-start --agent codex)",
+  "host": "s1",
+  "run": "run_f5c59bfb8202",
+  "task": "task_ad9d26b0b54c",
+  "dispatch": "ctx_74dfb89905d9",
+  "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
+  "prompt": "evaluations/fixtures/K15/scorer-prompt.md 본문, {ISO}·{REPO}만 치환",
+  "submission_check": "transcript로 지시문 제출과 첫 도구 호출을 확인",
+  "worker_done": "2026-09-24T20:06:25Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)"
+ },
+ "result_A_as_scored": {
+  "semantic_preservation": 3,
+  "naturalness": 3,
+  "overcorrection_restraint": 3,
+  "verdict": "통과",
+  "access": "자기보고상 실행자·채점자 모두 허용 범위 안",
+  "meaning": "수정 전 스킬에서 K14형 실패(출처 사실 삭제)가 재현되지 않았다. 따라서 K15만으로는 '수정 전 실패 / 수정 후 통과'를 보이지 못한다."
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
 }
