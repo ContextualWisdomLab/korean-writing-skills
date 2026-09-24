@@ -50,7 +50,33 @@
    "as_produced": "fe4686c548af5b231fdd606c9698c19f3866e5ac1a973dba7678d38b24f417cd",
    "committed": "abe1768745697a7166c36caa8679112616b851970642865e2035e9c116481e80",
    "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  },
+  "K14-scoring.md": {
+   "as_produced": "24552fafddb64a957f65e3ae1e66b82b849857c1b75790a8431bf0650900eb5a",
+   "committed": "53e4679ff0b521ae15f1d16b770039b7b1a1fa69a10b902542a1745d5c03feff",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것"
   }
  },
- "not_included": "리드가 쓴 답안·점수 없음"
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "scorer": {
+  "host": "s1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "low(세션 기록 확인)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_e5f415015794",
+  "dispatch": "ctx_5a1f77ef8a03",
+  "prompt": "K14 scorer-prompt.md 원문, {ISO}·{REPO}만 치환. errata.md는 주지 않았다(이전 K14 채점과 비교 가능하게).",
+  "first_tool_call": "transcript에서 확인",
+  "opened_by_commands": "허용된 여섯 파일만 cat",
+  "worker_done": "2026-09-24T20:42:20Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)"
+ },
+ "result_as_scored": {
+  "semantic_preservation": 3,
+  "naturalness": 3,
+  "overcorrection_restraint": 3,
+  "verdict": "통과",
+  "source_sentence": "“이 연구는 저자의 2022년 석사학위논문에서 사용한 자료를 활용한다.”(쪽수만 삭제)",
+  "access": "자기보고상, 그리고 세션 기록의 명령 기준으로도 허용 범위 안"
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
 }
