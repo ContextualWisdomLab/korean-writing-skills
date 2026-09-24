@@ -1,0 +1,35 @@
+{
+ "plan": "plan.json(사전 등록 커밋 f39042c)",
+ "executor": {
+  "host": "s1",
+  "codex_cli": "0.156.1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium(세션 기록 turn_context로 확인)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_b118ae6bcaca",
+  "dispatch": "ctx_a3d0556d6b02",
+  "skills": "680b6586c338c5039d60be364e77a1f67e60c31d",
+  "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
+  "input_sha256": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+  "prompt_as_received_normalized_sha256": "94842fa158f54e817a3e4ef0d187617fe91fc11dccdad965253e3fcf1184e729(원 K14 실행자와 같음)",
+  "first_tool_call": "transcript에서 K14.md cat 확인",
+  "worker_done": "2026-09-24T20:24:34Z outcome=succeeded",
+  "opened_by_commands": [
+   "K14.md",
+   "apa7 SKILL.md",
+   "apa7 references 6개 전부(document-format-checklist, jars-quant-table1, reporting-workflow, source-ledger, validation, verified-scope)",
+   "korean-editing SKILL.md",
+   "korean-editing references/examples.md, source-ledger.md",
+   "K14-output.md(쓰기)"
+  ],
+  "opened_note": "원 K14 실행자가 연 파일(reporting-workflow·examples 포함)을 모두 열었다. 자기보고 목록과 명령 기준 목록이 같다."
+ },
+ "output": {
+  "K14-output.md": {
+   "as_produced": "aaec9e2cf1e5ca6f6968fd6a04691475a5f34fef58da7f8d474d5c2c300faf5d",
+   "committed": "bfa9f825997537f03d2425ef771119b7289248a5addea327adccec7379dd0f1c",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  }
+ },
+ "not_included": "리드가 쓴 답안·점수 없음"
+}
