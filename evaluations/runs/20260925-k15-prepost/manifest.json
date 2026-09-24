@@ -1,0 +1,25 @@
+{
+ "fixture_commit": "680b6586c338c5039d60be364e77a1f67e60c31d",
+ "executor_A": {
+  "skills_version": "수정 전 42423b8f3209b11c1fdf802ca520d997b29dc863",
+  "agent": "Codex(Orca worker-start --agent codex)",
+  "host": "s1",
+  "run": "run_f5c59bfb8202",
+  "task": "task_0187c55db36a",
+  "dispatch": "ctx_d865dcd6e439",
+  "workspace": "s1의 42423b8 전용 체크아웃(실행 후 HEAD 42423b8, 변경 0)",
+  "input_sha256": "4753508283b0fd317905849e545bb57903a4cc346be09c5c9d4b9ab63369184d",
+  "prompt": "evaluations/fixtures/K15/executor-prompt.md 본문, {ISO}·{REPO}만 치환",
+  "submission_check": "transcript로 지시문 제출과 첫 도구 호출을 확인",
+  "worker_done": "2026-09-24T20:03:22Z outcome=succeeded",
+  "opened_files_self_report": "입력, apa7 SKILL.md·source-ledger·verified-scope·jars-quant-table1, korean-editing SKILL.md·source-ledger. reporting-workflow.md는 열지 않았다(자기보고상)."
+ },
+ "output": {
+  "K15-A-output.md": {
+   "as_produced": "96f31de6e4dd176a0152dd7fa472a8ee6db12c936b7f3c0f22af32109345844c",
+   "committed": "61e6acf9bb16aa8f128c79b9e2f497fc36f608c7328100f6b7914ba7cf97b8f7",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  }
+ },
+ "not_included": "리드가 쓴 답안·점수 없음"
+}
