@@ -19,7 +19,38 @@
    "as_produced": "de99fa63e48c75dbcc5b6bd819541c22a1135afb0b1b574ee3fb031fbad06b2e",
    "committed": "8a30e6b11f5d4d42b5913b9a194a151f5949a4117aaa502c32472a29ac1a088e",
    "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  },
+  "K14-scoring.md": {
+   "as_produced": "6f44c76143c34bef917cf2a116612a2799e4ad749bd992abcef7b8d99805ab15",
+   "committed": "2041086df4405f43569e1f2f05cf948b2a2ddf68833e2c2b85ab944e485d1f24",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것"
   }
  },
- "not_included": "리드가 쓴 답안·점수 없음"
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "scorer": {
+  "agent": "Codex(Orca worker-start --agent codex), 실행자와 다른 대화",
+  "host": "s1",
+  "run": "run_f5c59bfb8202",
+  "task": "task_37fb1b724622",
+  "dispatch": "ctx_d0ead9110307",
+  "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
+  "prompt": "evaluations/fixtures/K14/scorer-prompt.md 본문, {ISO}·{REPO}만 치환(원 K14 채점과 같은 문장·같은 여섯 파일)",
+  "inputs_sha256": {
+   "K14.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+   "K14-output.md(산출 당시)": "de99fa63e48c75dbcc5b6bd819541c22a1135afb0b1b574ee3fb031fbad06b2e",
+   "criteria.md": "a22082d520630d3f5046eadd5949fb0ea0f062075b0be1485c10e550a72aaa1b",
+   "apa7-basis.md": "c561e7d491a7cc663f456d876d7c18a0f2526a8ed7dc033f260eaf218ea02c35"
+  },
+  "first_tool_call": "transcript에서 K14.md·출력 cat 확인",
+  "worker_done": "2026-09-24T20:16:33Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)",
+  "opened_files_self_report": "허용된 여섯 파일(자기보고상)"
+ },
+ "result_as_scored": {
+  "semantic_preservation": 3,
+  "naturalness": 3,
+  "overcorrection_restraint": 3,
+  "verdict": "통과",
+  "access": "자기보고상 실행자·채점자 모두 허용 범위 안"
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
 }
