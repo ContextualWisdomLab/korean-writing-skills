@@ -1,0 +1,82 @@
+{
+ "purpose": "PR #4 현재 head a567c84(평가 뒤 바뀐 reporting-workflow 예문 포함)로 K14를 다시 돌린다. 코디네이터 msg_311274fdadeb. 680b658 평가는 이 head의 근거로 쓰지 않는다.",
+ "preregistration": "실행 전 root에 보낸 상태 메시지(2026-09-24T20:38Z 무렵)와 비공개 해시 파일로 등록했다. head를 옮기지 않으려고 커밋은 결과 뒤에 했다.",
+ "skills_version": "a567c845174b3345d9fbd37302213b39ad9ccfdb (s1 전용 clone, detached, 실행 전·후 변경 0)",
+ "sha256_at_a567c84": {
+  "(격리 디렉터리)/K14.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+  "skills/apa7-manuscript-writing/SKILL.md": "36a74c70cb2469a5c99736c1795566fd74f0b0eec9fcc432d8140a116e0826e8",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "7b78e6127ab452a1f9fe2b9ff046f831fc1a32a7848bd54c8c25a4dc01211a9d",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "966af466423e6dc34ab94f66c3cf26687c4a86b572ef1ca5785f3105335fac97",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/fixtures/K14/apa7-basis.md": "c561e7d491a7cc663f456d876d7c18a0f2526a8ed7dc033f260eaf218ea02c35",
+  "evaluations/fixtures/K14/criteria.md": "a22082d520630d3f5046eadd5949fb0ea0f062075b0be1485c10e550a72aaa1b",
+  "evaluations/fixtures/K14/errata.md": "4605289a1633638fc65bcc194e42e11d19bf5d7170770699f219e8ee499a638d",
+  "evaluations/fixtures/K14/executor-prompt.md": "e04de3802398699435bfb02aa6350b296c9b0955e4ad997c979e7b48f642071e",
+  "evaluations/fixtures/K14/input.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+  "evaluations/fixtures/K14/scorer-prompt.md": "7e76fb689eed657064e97a0adc80270ea5057014d324294e1c92aed1098e0cff",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5"
+ },
+ "executor": {
+  "host": "s1",
+  "codex_cli": "0.156.1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium(세션 기록 확인)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_c403de4ac7db",
+  "dispatch": "ctx_473be9ea826f",
+  "prompt_as_received_normalized_sha256": "94842fa158f54e817a3e4ef0d187617fe91fc11dccdad965253e3fcf1184e729(원 K14와 같음)",
+  "first_tool_call": "transcript에서 확인",
+  "worker_done": "2026-09-24T20:40:18Z outcome=succeeded",
+  "opened_by_commands": [
+   "K14.md",
+   "apa7 SKILL.md",
+   "apa7 references/jars-quant-table1, reporting-workflow, source-ledger, verified-scope",
+   "korean-editing SKILL.md",
+   "korean-editing references/examples, source-ledger",
+   "K14-output.md(쓰기)"
+  ],
+  "opened_example": "reporting-workflow.md(바뀐 예문)를 열었다."
+ },
+ "output": {
+  "K14-output.md": {
+   "as_produced": "fe4686c548af5b231fdd606c9698c19f3866e5ac1a973dba7678d38b24f417cd",
+   "committed": "abe1768745697a7166c36caa8679112616b851970642865e2035e9c116481e80",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  },
+  "K14-scoring.md": {
+   "as_produced": "24552fafddb64a957f65e3ae1e66b82b849857c1b75790a8431bf0650900eb5a",
+   "committed": "53e4679ff0b521ae15f1d16b770039b7b1a1fa69a10b902542a1745d5c03feff",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것"
+  }
+ },
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "scorer": {
+  "host": "s1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "low(세션 기록 확인)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_e5f415015794",
+  "dispatch": "ctx_5a1f77ef8a03",
+  "prompt": "K14 scorer-prompt.md 원문, {ISO}·{REPO}만 치환. errata.md는 주지 않았다(이전 K14 채점과 비교 가능하게).",
+  "first_tool_call": "transcript에서 확인",
+  "opened_by_commands": "허용된 여섯 파일만 cat",
+  "worker_done": "2026-09-24T20:42:20Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)"
+ },
+ "result_as_scored": {
+  "semantic_preservation": 3,
+  "naturalness": 3,
+  "overcorrection_restraint": 3,
+  "verdict": "통과",
+  "source_sentence": "“이 연구는 저자의 2022년 석사학위논문에서 사용한 자료를 활용한다.”(쪽수만 삭제)",
+  "access": "자기보고상, 그리고 세션 기록의 명령 기준으로도 허용 범위 안"
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
+}

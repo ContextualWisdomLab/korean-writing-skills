@@ -1,0 +1,61 @@
+{
+ "plan": "plan.json(사전 등록 커밋 f39042c)",
+ "executor": {
+  "host": "s1",
+  "codex_cli": "0.156.1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium(세션 기록 turn_context로 확인)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_b118ae6bcaca",
+  "dispatch": "ctx_a3d0556d6b02",
+  "skills": "680b6586c338c5039d60be364e77a1f67e60c31d",
+  "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
+  "input_sha256": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+  "prompt_as_received_normalized_sha256": "94842fa158f54e817a3e4ef0d187617fe91fc11dccdad965253e3fcf1184e729(원 K14 실행자와 같음)",
+  "first_tool_call": "transcript에서 K14.md cat 확인",
+  "worker_done": "2026-09-24T20:24:34Z outcome=succeeded",
+  "opened_by_commands": [
+   "K14.md",
+   "apa7 SKILL.md",
+   "apa7 references 6개 전부(document-format-checklist, jars-quant-table1, reporting-workflow, source-ledger, validation, verified-scope)",
+   "korean-editing SKILL.md",
+   "korean-editing references/examples.md, source-ledger.md",
+   "K14-output.md(쓰기)"
+  ],
+  "opened_note": "원 K14 실행자가 연 파일(reporting-workflow·examples 포함)을 모두 열었다. 자기보고 목록과 명령 기준 목록이 같다."
+ },
+ "output": {
+  "K14-output.md": {
+   "as_produced": "aaec9e2cf1e5ca6f6968fd6a04691475a5f34fef58da7f8d474d5c2c300faf5d",
+   "committed": "bfa9f825997537f03d2425ef771119b7289248a5addea327adccec7379dd0f1c",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것. 채점자는 산출 당시 바이트를 받는다."
+  },
+  "K14-scoring.md": {
+   "as_produced": "74e134fa8d78883a43a376cdb305e2054366e8e7c1f2633ff6adba447e8ca80f",
+   "committed": "ae581ff050ee5f600250b42532721f2b4f0eaee651bbd55872e2f44a3d873395",
+   "note": "커밋본은 로컬 절대경로를 상대 경로·'(격리 디렉터리)'로 바꾼 것"
+  }
+ },
+ "not_included": "리드가 쓴 답안·점수 없음",
+ "scorer": {
+  "host": "s1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "low(세션 기록으로 확인, 원 K14 채점자와 같음)",
+  "run": "run_f5c59bfb8202",
+  "task": "task_27580b315f0d",
+  "dispatch": "ctx_330d9cb2b600",
+  "prompt": "K14 scorer-prompt.md 본문, {ISO}·{REPO}만 치환",
+  "first_tool_call": "transcript에서 K14.md·출력·루브릭 cat 확인",
+  "opened_by_commands": "허용된 여섯 파일만 cat. skills/ 경로는 채점표를 쓰는 apply_patch 본문에만 나온다.",
+  "worker_done": "2026-09-24T20:27:13Z outcome=succeeded(채점 작업 완료의 뜻이며 평가 판정과 다름)"
+ },
+ "result_as_scored": {
+  "semantic_preservation": 3,
+  "naturalness": 3,
+  "overcorrection_restraint": 3,
+  "verdict": "통과",
+  "source_sentence": "“이 연구는 저자의 2022년 석사학위논문에서 사용한 자료를 사용한다.”(쪽수만 삭제)",
+  "access": "자기보고상, 그리고 세션 기록의 명령 기준으로도 허용 범위 안"
+ },
+ "scorer_by_lead": "리드는 점수·판정을 쓰거나 고치지 않았다. 위 값은 채점 파일에서 옮긴 것이다."
+}

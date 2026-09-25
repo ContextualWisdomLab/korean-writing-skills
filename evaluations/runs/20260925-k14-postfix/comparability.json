@@ -1,0 +1,19 @@
+{
+ "purpose": "원 K14 실행(수정 전)과 수정 후 재실행이 스킬 판본 말고도 달랐는지 대조한다. 코디네이터 msg_1a7376b5bd15. 쓰기 없이 Codex 세션 기록(rollout)과 Orca transcript에서 읽었다.",
+ "executor": {
+  "original_k14": {"host": "local", "codex_cli": "0.155.1", "model": "gpt-6-sol", "reasoning_effort": "medium", "sandbox": "danger-full-access", "approval": "never"},
+  "postfix_rerun": {"host": "s1", "codex_cli": "0.156.1", "model": "gpt-6-sol", "reasoning_effort": "low", "sandbox": "danger-full-access", "approval": "never"},
+  "prompt_as_received": "두 세션이 받은 실행자 지시문 본문은 격리·저장소 경로를 ISO·REPO로 바꾸면 바이트 단위로 같다(정규화 sha256 94842fa1…).",
+  "opened_by_commands": {
+   "original_k14": ["K14.md", "apa7 SKILL.md", "apa7 references/reporting-workflow.md", "apa7 references/source-ledger.md", "apa7 references/verified-scope.md", "korean-editing SKILL.md", "korean-editing references/examples.md", "korean-editing references/source-ledger.md", "K14-output.md(쓰기)"],
+   "postfix_rerun": ["K14.md", "apa7 SKILL.md", "apa7 references/reporting-workflow.md", "apa7 references/source-ledger.md", "apa7 references/verified-scope.md", "apa7 references/jars-quant-table1.md", "korean-editing SKILL.md", "korean-editing references/source-ledger.md", "K14-output.md(쓰기)"],
+   "note": "세션 기록의 실제 명령에서 뽑은 경로다. 둘 다 허용 목록 안이고 둘 다 reporting-workflow.md를 열었다. 차이: 원 실행만 examples.md, 재실행만 jars-quant-table1.md."
+  }
+ },
+ "scorer": {
+  "original_k14": {"host": "s1", "model": "gpt-6-sol", "reasoning_effort": "low"},
+  "postfix_rerun": {"host": "s1", "model": "gpt-6-sol", "reasoning_effort": "low"},
+  "prompt": "같은 동결 채점자 지시문, {ISO}·{REPO}만 치환"
+ },
+ "conclusion": "실행자 추론 강도(medium vs low)와 CLI 판이 달랐다. 모델·지시문·허용 파일은 같다. 그래서 수정 후 판본을 원 실행과 같은 추론 강도(medium)로 한 번 더 좁게 재현한다: ../20260925-k14-postfix-medium/plan.json"
+}
