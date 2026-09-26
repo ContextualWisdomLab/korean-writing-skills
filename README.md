@@ -1,5 +1,7 @@
 # 한국어 글쓰기·퇴고·APA7 스킬
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ContextualWisdomLab/korean-writing-skills)
+
 공신력 있는 원문에 근거하여 한국어다운 문장·글 구조 퇴고와 APA 7 학술 논문 작성을 돕는 에이전트 스킬 저장소.
 
 ## 스킬
