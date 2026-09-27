@@ -6,7 +6,7 @@
 
 - 발행: American Educational Research Association, American Psychological Association, National Council on Measurement in Education.
 - URL: [공식 PDF](https://testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf) — 확인일 2026-09-20.
-- Zotero elderly-gad: item `GKX4IKDH`, attachment `A9MHWYKV`, `9780935302356.pdf` (`~/Documents/Zotero/storage/A9MHWYKV/`). API `groups/6347780/items?q=Standards+for+Educational+and+Psychological+Testing&itemType=-attachment` (2026-09-20). 개인 parent는 아래 ctx_812ff2c52f7e 재확인 참조.
+- Zotero elderly-gad: item `GKX4IKDH`, attachment `A9MHWYKV`, `9780935302356.pdf` (Zotero 첨부 `A9MHWYKV`). API `groups/6347780/items?q=Standards+for+Educational+and+Psychological+Testing&itemType=-attachment` (2026-09-20). 개인 parent는 아래 원문·이미지 재대조 참조.
 - 직접 확인(인쇄 쪽, PDF 추출본 — 공식 PDF와 Zotero 소장본 **대조**):
   - ch.4 p.79: **scoring rubric** — 채점 기준·수준 수·판단 정도.
   - ch.5 pp.100–108: **cut scores**, **performance-level descriptors**(achievement-level descriptors 동의어), **standard-setting** 절차; Standard **5.21–5.23**.
@@ -59,18 +59,18 @@
 2026-09-20, 새 리드가 로컬 Zotero 첨부 `A9MHWYKV/9780935302356.pdf`를 `pdftotext -layout`으로 직접 읽었다. ch.5 Cut Scores는 인쇄 p.100 / PDF p.111, Standard 5.21은 인쇄 pp.107–108 / PDF pp.118–119, 5.22–5.23은 인쇄 p.108 / PDF p.119이다. 위 glossary 쪽을 정정했다. PDF쪽은 표지를 포함한 1부터 시작하는 쪽이다. 이번 재확인은 추출 텍스트 기준이며 페이지 이미지 대조와 개인·그룹 라이브러리 API 재조회는 하지 않았다. 공식 PDF 웹 도구는 접근 오류가 발생했으며 기존 공개본 대조 기록과 이번 로컬 열람을 구별한다.
 
 
-## 2026-09-20 접근 재확인 · task_3ac9c39fee07
+## 2026-09-20 접근 재확인
 
 담당: 원문 조사 worker. [접근 보고서](source-access-followup.md)에 응답 바이트 해시·경로·후속 작업을 기록했다.
 
 - R-AHN2026: earticle 서지·초록·목차를 다시 읽었다. 정식 제목은 *교실 기반 한국어 쓰기 평가 루브릭의 신뢰도와 타당도 검증*, 발행기관 국제한국언어문화학회, 23(1), 95–130, 2026.03이다. “일부 평가 준거에서는 문구의 구체화 필요성”은 웹 국문초록의 짧은 구절이며 본문의 표나 쪽을 읽었다는 뜻이 아니다. 첫 페이지 보기 링크는 `no_img_l.png`를 반환했다. 전문 미확보 상태를 유지한다.
 - R-KIM2010: KCI 서지와 영문초록을 다시 읽었다. 정식 제목은 *한국어 쓰기 능력 평가 방안- 종합적 채점과 분석적 채점 결과를 중심으로*, 이중언어학회, DOI https://doi.org/10.17296/korbil.2010..43.81. 공개 페이지의 원문 버튼 경로를 직접 호출했으나 “원문 직접 열람이 불가능합니다”라는 HTML 응답을 받았다. 본문·표는 미독이다.
 - R-KSL2015(이전 R-KSL2019): KCI 서지·국영문 초록·인용 내보내기 확인. 짧은 구절 “문장구조와 문체 및 맞춤법”은 국문초록에서 점수단계 변별 문제가 언급된 준거다. 논문 본문 pp.311–354를 열람했다고 기록하지 않는다.
-- Zotero `~/Documents/Zotero` 개인·elderly-gad 주 DB 제목에서 `%학문 목적 한국어 쓰기%`, `%한국어 쓰기 능력 평가%`, `%교실 기반 한국어%` 0건. 잠긴 DB를 immutable 읽기로 조회했으므로 WAL·클라우드 미반영 가능성이 있으며 소장본 부재의 확정 증거가 아니다.
+- 로컬 Zotero 저장소의 개인·elderly-gad 주 DB 제목에서 `%학문 목적 한국어 쓰기%`, `%한국어 쓰기 능력 평가%`, `%교실 기반 한국어%` 0건. 잠긴 DB를 immutable 읽기로 조회했으므로 WAL·클라우드 미반영 가능성이 있으며 소장본 부재의 확정 증거가 아니다.
 - U-KUPIS: 이번 web open은 Internal Error, 인증서 검증을 유지한 직접 HTTPS는 issuer 인증서 확인 실패였다. 기존 포털 HTML 200 기록과 다른 시도의 결과다. 브라우저·Zotero 전용 도구는 현재 노출 도구 목록에서 발견하지 못했으며 기존 Edge SSO 세션 접근은 확인하지 못했다. 계정 생성·인증 우회·평가 실행은 하지 않았다.
 
 
-## 원문·이미지 재대조 · ctx_812ff2c52f7e
+## 원문·이미지 재대조
 
 확인일 2026-09-20. 담당: Codex 전담 리드. AERA·APA·NCME 발행 *Standards for Educational and Psychological Testing*, 2014판. 위 공식 PDF URL은 이번 웹 열람에서 접근 오류를 반환한다. 아래 확인은 실제 로컬 소장 PDF에 근거한다.
 

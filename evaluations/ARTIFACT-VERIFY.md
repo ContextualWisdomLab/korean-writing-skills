@@ -33,7 +33,7 @@
 | title | Standards for educational and psychological testing |
 | date | 2014 |
 | attachment key | `A9MHWYKV` |
-| file | `~/Documents/Zotero/storage/A9MHWYKV/9780935302356.pdf` |
+| file | Zotero 첨부 `A9MHWYKV/9780935302356.pdf` |
 | 확인 본문 | 인쇄 p.100 부근 Cut Scores·**performance-level descriptors**; Standard **5.21** (Cluster 4 Cut Scores); glossary **performance-level descriptor** |
 | Performance Level Criterion | **용어 미확인** (전문 검색 0건) |
 

@@ -1,12 +1,12 @@
 # Round 4 K7·K8 채점 기록 (독립성 미확인)
 
-root `msg_df68845a5117`(2026-09-21): 채점자 ID·실행 세션·입력 묶음 해시·작성자 점수 차단 증거가 없으면 blind 독립평가로 수용하지 않음.
+리드의 2026-09-21 판정: 채점자 ID·실행 세션·입력 묶음 해시·작성자 점수 차단 증거가 없으면 blind 독립평가로 수용하지 않음.
 
 ## 독립성 — 미확인
 
 | 항목 | 있는 기록 | 없는 기록 |
 | --- | --- | --- |
-| 채점자 ID | subagent `01a0bfaf-80da-75f3-b9c7-1a2d1be76101`, 모델 grok-4.6, parent session `01a0be77-fee9-72d0-8544-8226838a48f1` | 문항 작성자와 다른 사람·다른 Run의 채점자 |
+| 채점자 ID | 별도 subagent, 모델 grok-4.6, 문항 작성자와 같은 parent 세션 | 문항 작성자와 다른 사람·다른 Run의 채점자 |
 | 실행 세션 | `meta.json` started 2026-09-20T16:39:05Z, completed 16:44:10Z, isolation **none**, cwd=같은 writing-skills-lead | OS 격리·별도 worktree·도구 호출별 읽기 감사 |
 | 입력 묶음 | 프롬프트가 K7.md·K8.md·output.md·three-axis.md·actor-responsibility-criteria.md 경로를 지정 | 채점 **시점**에 고정한 SHA. 아래 해시는 2026-09-21 02:01 KST **사후** 계산 |
 | 작성자 점수 차단 | 프롬프트에 scoring.md를 읽지 말라고 적음. 산출물 자기보고 “읽지 않음” | scoring.md가 같은 저장소에 있던 상태에서 미열람을 증명한 로그 |
@@ -15,7 +15,7 @@ root `msg_df68845a5117`(2026-09-21): 채점자 ID·실행 세션·입력 묶음 
 
 - K7.md `58981b65daa4117adb72d46e83c6e918b03b194767c9c342c426805f87ecd97e`
 - K8.md `f98d44c3cf72335f1f152f7838c2f3df465fffbf900c814df510d8d05fd74689`
-- output.md `6b59f5b18c91b0f865f6ac4c5d04b805af1530b4a3d5dfea7c80101e5ce026ba`
+- output.md 당시 원본 `6b59f5b18c91b0f865f6ac4c5d04b805af1530b4a3d5dfea7c80101e5ce026ba`. 공개 사본은 임시 경로·세션 식별자를 정리하여 `aab77471cae6184943ea350f5ff4c7013f0aa58f68fa625a46535e02519c57d6`이다.
 - three-axis.md `fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6`
 - actor-responsibility-criteria.md `cba4364673d121bee20a9c2300b49a28391f1b86dc97e2a49398660d8aad5a2c`
 - scoring.md(작성자 채점, 차단 미입증) `3ff5cd1e68b5a9d61cb75cd98deca864d6ff36fd45c002bd741cee8890dd96da`
