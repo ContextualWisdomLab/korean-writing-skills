@@ -1,12 +1,10 @@
 {
+ "public_session_note": "실행·채점 역할과 파일 해시는 공개하고 임시 run/task/dispatch 식별자는 제외했다. 세션 분리의 직접 운영 로그는 비공개 보관하며 공개 기록만으로 접근 격리를 증명하지 않는다.",
  "plan": "plan.json(사전 등록 커밋 807672d)",
  "executor": {
   "skills_version": "수정 후 680b6586c338c5039d60be364e77a1f67e60c31d",
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_e55314c847b2",
-  "dispatch": "ctx_6893bddfde1c",
   "workspace": "s1의 680b658 전용 체크아웃(실행 전 입력·스킬·기준·루브릭 해시가 plan.json과 일치, 실행 후 HEAD 680b658, 변경 0)",
   "input_sha256": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
   "prompt": "evaluations/fixtures/K14/executor-prompt.md 본문, {ISO}·{REPO}만 치환(원 K14 실행과 같은 문장·같은 허용 파일)",
@@ -30,9 +28,6 @@
  "scorer": {
   "agent": "Codex(Orca worker-start --agent codex), 실행자와 다른 대화",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_37fb1b724622",
-  "dispatch": "ctx_d0ead9110307",
   "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
   "prompt": "evaluations/fixtures/K14/scorer-prompt.md 본문, {ISO}·{REPO}만 치환(원 K14 채점과 같은 문장·같은 여섯 파일)",
   "inputs_sha256": {

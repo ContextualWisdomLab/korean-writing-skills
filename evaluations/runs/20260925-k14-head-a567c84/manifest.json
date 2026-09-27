@@ -1,5 +1,6 @@
 {
- "purpose": "PR #4 현재 head a567c84(평가 뒤 바뀐 reporting-workflow 예문 포함)로 K14를 다시 돌린다. 코디네이터 msg_311274fdadeb. 680b658 평가는 이 head의 근거로 쓰지 않는다.",
+ "public_session_note": "실행·채점 역할과 파일 해시는 공개하고 임시 run/task/dispatch 식별자는 제외했다. 세션 분리의 직접 운영 로그는 비공개 보관하며 공개 기록만으로 접근 격리를 증명하지 않는다.",
+ "purpose": "PR #4 현재 head a567c84(평가 뒤 바뀐 reporting-workflow 예문 포함)로 K14를 다시 돌린다. 코디네이터 비공개 조정 기록. 680b658 평가는 이 head의 근거로 쓰지 않는다.",
  "preregistration": "실행 전 root에 보낸 상태 메시지(2026-09-24T20:38Z 무렵)와 비공개 해시 파일로 등록했다. head를 옮기지 않으려고 커밋은 결과 뒤에 했다.",
  "skills_version": "a567c845174b3345d9fbd37302213b39ad9ccfdb (s1 전용 clone, detached, 실행 전·후 변경 0)",
  "sha256_at_a567c84": {
@@ -29,9 +30,6 @@
   "codex_cli": "0.156.1",
   "model": "gpt-6-sol",
   "reasoning_effort": "medium(세션 기록 확인)",
-  "run": "run_f5c59bfb8202",
-  "task": "task_c403de4ac7db",
-  "dispatch": "ctx_473be9ea826f",
   "prompt_as_received_normalized_sha256": "94842fa158f54e817a3e4ef0d187617fe91fc11dccdad965253e3fcf1184e729(원 K14와 같음)",
   "first_tool_call": "transcript에서 확인",
   "worker_done": "2026-09-24T20:40:18Z outcome=succeeded",
@@ -62,9 +60,6 @@
   "host": "s1",
   "model": "gpt-6-sol",
   "reasoning_effort": "low(세션 기록 확인)",
-  "run": "run_f5c59bfb8202",
-  "task": "task_e5f415015794",
-  "dispatch": "ctx_5a1f77ef8a03",
   "prompt": "K14 scorer-prompt.md 원문, {ISO}·{REPO}만 치환. errata.md는 주지 않았다(이전 K14 채점과 비교 가능하게).",
   "first_tool_call": "transcript에서 확인",
   "opened_by_commands": "허용된 여섯 파일만 cat",

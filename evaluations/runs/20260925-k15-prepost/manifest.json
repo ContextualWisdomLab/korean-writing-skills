@@ -1,12 +1,10 @@
 {
+ "public_session_note": "실행·채점 역할과 파일 해시는 공개하고 임시 run/task/dispatch 식별자는 제외했다. 세션 분리의 직접 운영 로그는 비공개 보관하며 공개 기록만으로 접근 격리를 증명하지 않는다.",
  "fixture_commit": "680b6586c338c5039d60be364e77a1f67e60c31d",
  "executor_A": {
   "skills_version": "수정 전 42423b8f3209b11c1fdf802ca520d997b29dc863",
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_0187c55db36a",
-  "dispatch": "ctx_d865dcd6e439",
   "workspace": "s1의 42423b8 전용 체크아웃(실행 후 HEAD 42423b8, 변경 0)",
   "input_sha256": "4753508283b0fd317905849e545bb57903a4cc346be09c5c9d4b9ab63369184d",
   "prompt": "evaluations/fixtures/K15/executor-prompt.md 본문, {ISO}·{REPO}만 치환",
@@ -40,9 +38,6 @@
  "scorer_A": {
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_ad9d26b0b54c",
-  "dispatch": "ctx_74dfb89905d9",
   "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
   "prompt": "evaluations/fixtures/K15/scorer-prompt.md 본문, {ISO}·{REPO}만 치환",
   "submission_check": "transcript로 지시문 제출과 첫 도구 호출을 확인",
@@ -61,9 +56,6 @@
   "skills_version": "수정 후 680b6586c338c5039d60be364e77a1f67e60c31d",
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_19b932917ac9",
-  "dispatch": "ctx_244ca705e421",
   "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
   "input_sha256": "4753508283b0fd317905849e545bb57903a4cc346be09c5c9d4b9ab63369184d",
   "prompt": "실행자 A와 같은 지시문, {ISO}·{REPO}만 다름",
@@ -74,9 +66,6 @@
  "scorer_B": {
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_1d66596955d5",
-  "dispatch": "ctx_dd8501494154",
   "workspace": "s1의 680b658 전용 체크아웃(실행 후 HEAD 680b658, 변경 0)",
   "prompt": "채점자 A와 같은 지시문, {ISO}만 다름",
   "submission_check": "transcript로 지시문 제출과 첫 도구 호출을 확인",

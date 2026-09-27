@@ -1,11 +1,9 @@
 {
+ "public_session_note": "실행·채점 역할과 파일 해시는 공개하고 임시 run/task/dispatch 식별자는 제외했다. 세션 분리의 직접 운영 로그는 비공개 보관하며 공개 기록만으로 접근 격리를 증명하지 않는다.",
  "fixture_commit": "e49178e51a92ea4a7bba446974dfc318ce784ce6",
  "executor": {
   "agent": "Codex(Orca worker-start --agent codex, model gpt-6-sol)",
   "host": "local",
-  "run": "run_f5c59bfb8202",
-  "task": "task_f1bc8651244b",
-  "dispatch": "ctx_12c05daf5b1e",
   "workspace": "동결 커밋 e49178e 체크아웃 전용 작업 트리(실행 후 HEAD e49178e, 변경 0)",
   "input_sha256": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
   "prompt": "evaluations/fixtures/K14/executor-prompt.md 본문, {ISO}·{REPO}만 치환",
@@ -27,9 +25,6 @@
  "scorer": {
   "agent": "Codex(Orca worker-start --agent codex)",
   "host": "s1",
-  "run": "run_f5c59bfb8202",
-  "task": "task_6563937c180b",
-  "dispatch": "ctx_418d7c06aec6",
   "workspace": "s1에 공개 저장소를 clone해 동결 커밋 e49178e로 detached 체크아웃(실행 후 변경 0)",
   "inputs_sha256": {
    "K14.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
