@@ -1,0 +1,35 @@
+{
+  "fixture_commit": "4b88350b3a3f88c1ba5ba873ef2c7c5e3d585deb",
+  "fixture_sha256": "16ca3f2e17a34cb4c56ad62321e7fdde842a324e76e8af59baf71612527cd72f",
+  "arms": {
+    "A": {
+      "skill_commit": "a8a6104677ec6da126574b4d53810a0d4c872b70",
+      "input_sha256": "05642f23306b458077c8246aff0139b66f603357f09e7f7566ae5fe0f82fc0a7",
+      "original_output_sha256": "b7600bfee05920ba5e75b79e87f8591c4de33e4f74e721be85388202477c0e36",
+      "original_scoring_sha256": "3212cbb9db42c5721a05907ff54432d2649b2f7b768ac4d3b615cc4ac6754529",
+      "public_output_sha256": "36267a06cbf158b34e3ec9dbacb4ca2032fdefccf72f9635dbe9c18fdd1cd22a",
+      "public_scoring_sha256": "495194c06c1d6009aafee598c0b2923ea0599a88af33b3d5a7234c901a83f9b2",
+      "score": {
+        "meaning": 3,
+        "naturalness": 3,
+        "overediting": 3
+      },
+      "decision": "pass"
+    },
+    "B": {
+      "skill_commit": "4b88350b3a3f88c1ba5ba873ef2c7c5e3d585deb",
+      "input_sha256": "05642f23306b458077c8246aff0139b66f603357f09e7f7566ae5fe0f82fc0a7",
+      "original_output_sha256": "4f94f0f75fe5e6d5402727fee7552439de28f815e08e3f1265918a06a5a8943f",
+      "original_scoring_sha256": "b1e998b667ca8b6008085d71b74b0aa6dc66c1b13685ff28e71b7f9344b29289",
+      "public_output_sha256": "a793637b279c03c9fb9b2c6ba722433d68a7fe173dd2266346cfbe7f342bfef5",
+      "public_scoring_sha256": "cd2718ffc98b8e073c1739fb7d8b3161bbcab0b27e8b51c4dd3ba7b092267f22",
+      "score": {
+        "meaning": 3,
+        "naturalness": 3,
+        "overediting": 3
+      },
+      "decision": "pass"
+    }
+  },
+  "public_copy_policy": "Only local absolute paths in the source files were replaced with role labels; original SHA-256 values refer to local immutable artifacts."
+}
