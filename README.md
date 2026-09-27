@@ -13,7 +13,7 @@
 
 ## 평가
 
-독립 평가 기록은 `evaluations/`에 둔다. `evaluations/runs/round-1-review.md`, `evaluations/runs/round-3-k5-k6/review.md`는 실행자·채점자 분리와 접근 범위의 한계를 함께 기록한다. 개별 사례 통과를 전체 타당화나 APA 준수의 증거로 확대하지 않는다.
+독립 평가 기록은 `evaluations/`에 둔다. `evaluations/runs/round-1-review.md`, `evaluations/runs/round-3-k5-k6/review.md`, K16의 실패·수정 후 재평가는 실행자·채점자 분리와 접근 범위의 한계를 함께 기록한다. 개별 사례 통과를 전체 타당화나 APA 준수의 증거로 확대하지 않는다.
 
 ## 진행
 
