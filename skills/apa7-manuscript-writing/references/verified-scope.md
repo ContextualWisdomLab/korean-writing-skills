@@ -13,7 +13,7 @@
 | APA 원고 서식 | APA 규정 | Manual 7판 2.1·2.2·2.8·2.12·2.18–2.24 | apa7 |
 | APA 숫자·약어 | APA 규정 | 6.36(선행 0), 6.44(통계 기호·약어 정의) | apa7 |
 | APA 표·그림 | APA 규정 | 7.1·7.4·7.5·7.6·7.17·7.18 | apa7 |
-| APA 인용·참고문헌 | APA 규정 | 8.4·8.10, 10.1–10.3 도입 | apa7 |
+| APA 인용·참고문헌 | APA 규정 | 8.4·8.10, 8.6의 2차 출처 권고 일부, 10.1–10.3 도입 | apa7 |
 | APA 공식 안내서 | APA 공식 안내(Manual 세칙과 구분) | A-NUM, A-REF, A-JARSQ | apa7, [jars-quant-table1.md](jars-quant-table1.md) |
 | 한국어 어문 규정 | 어문 규정 | 한글 맞춤법 제41·42·43항, 해설 PDF 인쇄 pp. 99–102 | korean-editing K2 |
 | 공공언어 | **기관 권고** | 『공공언어 바로 쓰기』 인쇄 pp. 9, 12–13, 19 | korean-editing K1 |
