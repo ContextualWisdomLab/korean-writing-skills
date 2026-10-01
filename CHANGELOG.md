@@ -9,5 +9,7 @@
   fail-closed 공개 hygiene 검사를 추가했다.
 - 독립 설치 단위 밖으로 나가는 Skill 상대 링크를 금지하고 평가 증거를 실행
   의존성과 분리했다.
+- 중앙 gitleaks가 적용되지 않는 문서·평가 repository 경계를 보완해 GitHub·OpenAI·AWS
+  credential과 private-key signature의 재유입을 fail-closed 검사한다.
 
 보호 브랜치 병합과 immutable release 전에는 배포 완료로 간주하지 않는다.
