@@ -64,6 +64,21 @@ for unsafe_fixture in \
   }
 done
 
+# RED fixtures: the current matcher must reject credential-shaped public content.
+for unsafe_credential_fixture in \
+  'ghp_'""'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' \
+  'github_pat_'""'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' \
+  'sk-proj-'""'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' \
+  'AKIA'""'ABCDEFGHIJKLMNOP' \
+  '-----BEGIN '""'PRIVATE KEY-----'; do
+  printf '%s\n' "$unsafe_credential_fixture" | rg -q \
+    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" || {
+    printf 'public hygiene matcher missed credential fixture: %s\n' \
+      "$unsafe_credential_fixture" >&2
+    exit 1
+  }
+done
+
 for safe_fixture in 'run_id' 'task_id' 'http://localhost:23119/api'; do
   if printf '%s\n' "$safe_fixture" | rg -q \
     -e "$absolute_path_pattern" -e "$ephemeral_id_pattern"; then
