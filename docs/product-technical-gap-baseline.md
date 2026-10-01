@@ -3,7 +3,7 @@
 기준 시점: 2026-10-01
 
 관찰 기준: `main@ca94600ed058c0e7448ac69a537b8453241d139b`, PR #4
-`1e7786f5dd05c4910f22b7acf05d44d0d702b803`에서 시작한 ordinary descendant
+`dfdaa730eb33f5f72f18f54d842af0f657d4fb43`의 credential-hygiene GREEN을 포함한 ordinary descendant
 
 상태: Proposed
 
@@ -30,8 +30,8 @@ release.
 - 근거 정책 경계: 각 skill의 `references/source-ledger.md`; 자동 traceability는 미구현.
 - 검증 경계: `evaluations/`, `tests/public_hygiene_test.sh`,
   `tests/skill_structure_test.py`.
-- 금지 경계: 사용자 원문·참여자 자료·비밀정보와 검사에 열거한 workstation
-  절대경로·ephemeral ID 형식.
+- 금지 경계: 사용자 원문·참여자 자료·비밀정보, 검사에 열거한 workstation
+  절대경로·ephemeral ID·GitHub/OpenAI/AWS credential·private-key signature.
 - 현재 실행 서비스, DB, UI, 인증, container와 network API는 없다.
 
 ## UML과 Context Map
@@ -62,15 +62,16 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 | Gap | Evidence | Action | Status |
 | --- | --- | --- | --- |
 | 보호 브랜치에 제품 구현이 없음 | `main@ca94600e…`, PR #4 | exact-head 검사·비작성자 review 후 ordinary merge | Blocked |
-| public hygiene가 수동 grep에 의존 | PR #4 본문과 과거 runtime artifact | `tests/public_hygiene_test.sh`를 필수 검증으로 실행 | In progress |
+| public hygiene가 중앙 gitleaks skip과 수동 확인에 의존 | PR #4 exact-head Security job과 과거 runtime artifact | RED credential fixture 뒤 `tests/public_hygiene_test.sh`에 GitHub/OpenAI/AWS credential·private-key signature를 fail-closed 통합 | Implemented on PR head |
 | Skill 독립 설치 시 repository 외부 문맥에 의존할 수 있음 | `skills/korean-editing/SKILL.md`의 평가 rubric 링크 | package 밖 상대 링크를 fail-closed 검사하고 평가 증거는 실행 의존성에서 분리 | Implemented on PR head |
 | 최신 head의 독립 review 부재 | 현재 review는 head 이전 COMMENTED | 새 head에서 review 재요청 | Blocked |
+| CodeQL 적용 언어 0건 | exact-head run의 세 job이 모두 `skipped` | 문서·shell 중심 경계를 기록하되 GREEN으로 승격하지 않고 향후 지원 언어 추가 시 재검증 | Not applicable, not GREEN |
 | outbound LICENSE 미정 | root LICENSE 없음 | 저작권·외부 자료 경계 확인 후 조직 소유자가 결정 | Open |
 | APA 원문 확인 범위 불완전 | `TODO.md`, APA source ledger | 필요한 절만 직접 확인하고 미확인은 유지 | In progress |
 | 평가의 일반화 근거 부족 | 사례별 1회·자기보고 한계 | 반복·독립 채점 설계를 별도 계획으로 확장 | Open |
 | 규칙↔source ID 추적이 수동 | source ledger와 SKILL.md | traceability validator 설계·fixture 추가 | Open |
 | immutable 배포 계약 부재 | release/tag 0개 | manifest·version·digest·SBOM·provenance·clean-install conformance·rollback 절차 정의 | Open |
-| Issue #2가 폐기된 PR #1을 가리킴 | Issue #2 본문 | PR #4 successor와 현재 acceptance를 기록 | In progress |
+| Issue #2가 폐기된 PR #1을 가리킴 | Issue #2 본문과 successor reconciliation comment | PR #4 successor와 현재 acceptance를 기록 | Implemented on PR head |
 
 ## Release gate
 
