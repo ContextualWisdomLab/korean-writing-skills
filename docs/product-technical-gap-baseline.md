@@ -63,6 +63,7 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 | --- | --- | --- | --- |
 | 보호 브랜치에 제품 구현이 없음 | `main@ca94600e…`, PR #4 | exact-head 검사·비작성자 review 후 ordinary merge | Blocked |
 | public hygiene가 수동 grep에 의존 | PR #4 본문과 과거 runtime artifact | `tests/public_hygiene_test.sh`를 필수 검증으로 실행 | In progress |
+| Skill 독립 설치 시 repository 외부 문맥에 의존할 수 있음 | `skills/korean-editing/SKILL.md`의 평가 rubric 링크 | package 밖 상대 링크를 fail-closed 검사하고 평가 증거는 실행 의존성에서 분리 | Implemented on PR head |
 | 최신 head의 독립 review 부재 | 현재 review는 head 이전 COMMENTED | 새 head에서 review 재요청 | Blocked |
 | outbound LICENSE 미정 | root LICENSE 없음 | 저작권·외부 자료 경계 확인 후 조직 소유자가 결정 | Open |
 | APA 원문 확인 범위 불완전 | `TODO.md`, APA source ledger | 필요한 절만 직접 확인하고 미확인은 유지 | In progress |

@@ -18,6 +18,7 @@ MARKDOWN_LINK = re.compile(r"\[[^]]*]\(([^)]+)\)")
 def validate_skill(skill_path: Path) -> list[str]:
     """Return structural errors for one public Agent Skill."""
     errors: list[str] = []
+    skill_root = skill_path.parent.resolve()
     text = skill_path.read_text(encoding="utf-8")
     lines = text.splitlines()
     if not lines or lines[0] != "---":
@@ -34,7 +35,13 @@ def validate_skill(skill_path: Path) -> list[str]:
         if target.startswith(("http://", "https://", "mailto:", "#")):
             continue
         relative_target = target.split("#", 1)[0]
-        if relative_target and not (skill_path.parent / relative_target).exists():
+        resolved_target = (skill_path.parent / relative_target).resolve()
+        try:
+            resolved_target.relative_to(skill_root)
+        except ValueError:
+            errors.append(f"{skill_path}: link leaves skill package {target}")
+            continue
+        if relative_target and not resolved_target.exists():
             errors.append(f"{skill_path}: broken local link {target}")
     return errors
 
