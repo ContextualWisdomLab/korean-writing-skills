@@ -50,6 +50,9 @@ absolute_path_pattern+='p|/var/folder'
 absolute_path_pattern+='s)/'
 ephemeral_id_pattern='\b(term|ctx|ta'
 ephemeral_id_pattern+='sk|run|msg)_[[:alnum:]-]{8,}\b'
+credential_pattern='(gh[pousr]_[[:alnum:]]{36,}|github_pat_[[:alnum:]_]{20,}'
+credential_pattern+='|sk-(proj-|svcacct-)?[[:alnum:]_-]{20,}|AKIA[[:upper:][:digit:]]{16}'
+credential_pattern+='|-----BEGIN ([[:upper:] ]+ )?PRIVATE KEY-----)'
 
 for unsafe_fixture in \
   '/User'""'s/example/work/file.md' \
@@ -58,7 +61,7 @@ for unsafe_fixture in \
   'term_'""'12345678' \
   'run_'""'deadbeef'; do
   printf '%s\n' "$unsafe_fixture" | rg -q \
-    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" || {
+    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" -e "$credential_pattern" || {
     printf 'public hygiene matcher missed fixture: %s\n' "$unsafe_fixture" >&2
     exit 1
   }
@@ -72,7 +75,7 @@ for unsafe_credential_fixture in \
   'AKIA'""'ABCDEFGHIJKLMNOP' \
   '-----BEGIN '""'PRIVATE KEY-----'; do
   printf '%s\n' "$unsafe_credential_fixture" | rg -q \
-    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" || {
+    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" -e "$credential_pattern" || {
     printf 'public hygiene matcher missed credential fixture: %s\n' \
       "$unsafe_credential_fixture" >&2
     exit 1
@@ -81,7 +84,7 @@ done
 
 for safe_fixture in 'run_id' 'task_id' 'http://localhost:23119/api'; do
   if printf '%s\n' "$safe_fixture" | rg -q \
-    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern"; then
+    -e "$absolute_path_pattern" -e "$ephemeral_id_pattern" -e "$credential_pattern"; then
     printf 'public hygiene matcher rejected stable fixture: %s\n' "$safe_fixture" >&2
     exit 1
   fi
@@ -91,11 +94,12 @@ scan_status=0
 scan_output="$(rg -n -I \
   -e "$absolute_path_pattern" \
   -e "$ephemeral_id_pattern" \
+  -e "$credential_pattern" \
   -- "${tracked_files[@]}")" || scan_status=$?
 case "$scan_status" in
 0)
   printf '%s\n' "$scan_output"
-  printf 'public tree contains a machine-local path or ephemeral identifier\n' >&2
+  printf 'public tree contains a machine-local path, ephemeral identifier, or credential signature\n' >&2
   exit 1
   ;;
 1) ;;
