@@ -15,6 +15,7 @@
 | Rubric·PLD·Standards | **반영(잠정)** | 한국어 평가 논문 전문 확보 | pld-and-standards-framework.md·rubric-source-ledger.md; round-2는 철회 이력 | Zotero/원문 접근 |
 | APA 원문 | **부분 확인** | 판권지·미확인 절과 필요한 인쇄쪽만 추가 확인 | source-ledger의 2026-09-20~21 확인 기록 | 소장본 접근 |
 | PR 검증 | **진행** | 현재 exact head의 적용 가능한 필수 검사와 비작성자 검토 확인 | PR #4 | 원문 미확인과 CI 실패·대기를 구분 |
+| 제품·기술 Gap baseline | **초안** | exact-head 증거와 release 상태를 계속 갱신 | `docs/product-technical-gap-baseline.md` | PR #4 보호 브랜치 통합 |
 
 ## I'm not human 스킬
 

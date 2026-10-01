@@ -19,6 +19,10 @@
 
 남은 원문 확인·평가·검증 항목은 `TODO.md`에서 관리한다. 터미널·dispatch·run 식별자와 연구 원고 인계 기록 같은 로컬 운영 상태는 공개 저장소의 제품 산출물이 아니므로 추적하지 않는다.
 
+제품 경계와 현재 Gap은 `ARCHITECTURE.md`와
+`docs/product-technical-gap-baseline.md`에서 관리한다. 공개 hygiene 계약은
+`bash tests/public_hygiene_test.sh`로 확인한다.
+
 ## 설치 경로 구분
 
 이 저장소의 퇴고 스킬은 `skills/korean-editing/`이다. Claude superpowers 플러그인의 `writing-skills`(스킬 작성 TDD)와 이름이 비슷해도 다른 스킬이다.
