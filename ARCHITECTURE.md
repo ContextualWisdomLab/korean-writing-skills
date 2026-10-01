@@ -22,8 +22,9 @@ flowchart TD
   작성과 점검 절차를 제공한다.
 - **Evaluation Evidence Context**: 동결 입력, 판본, 출력, 채점, 한계를
   기록한다. 개별 합성 사례의 통과를 전체 타당화로 승격하지 않는다.
-- **External Evidence ACL**: 국립국어원·APA·Zotero 등 외부 자료는 source
-  ledger의 확인 범위와 접근 상태를 통해서만 스킬 규칙으로 들어온다.
+- **External Evidence Policy Boundary**: 국립국어원·APA·Zotero 등 외부
+  자료는 source ledger에 확인 범위와 접근 상태를 먼저 기록한다. 현재 자동
+  traceability enforcement는 없으며 Gap으로 관리한다.
 
 ## 책임과 불변 조건
 

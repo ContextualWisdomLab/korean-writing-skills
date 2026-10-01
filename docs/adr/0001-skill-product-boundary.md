@@ -19,9 +19,10 @@ repository에는 한국어 퇴고, APA 7 원고 작성, 원문 조사, 합성 �
 ## 결정
 
 제품 경계를 `Korean Editing Skill`, `APA 7 Manuscript Skill`, `Evaluation
-Evidence` 세 Context로 제한한다. 외부 근거는 source ledger ACL을 거쳐
-들어오며, 로컬 실행 상태는 공개 계약에서 제외한다. 공개 hygiene 검사를
-repository test로 유지한다.
+Evidence` 세 Context로 제한한다. 외부 근거는 source ledger에 확인 범위와
+접근 상태를 기록한 뒤 사용한다. 이는 현재 정책 경계이며 자동 ACL은 아니다.
+로컬 실행 상태는 공개 계약에서 제외하고 공개 hygiene 검사를 repository
+test로 유지한다.
 
 ## 검토한 대안
 

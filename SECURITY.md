@@ -8,8 +8,10 @@
 ## 보고
 
 공개 Issue에 원문, 연구 참여자 정보, API key, 로컬 경로 또는 공격 payload를
-붙이지 않는다. ContextualWisdomLab의 비공개 보안 보고 경로로 재현 단계와
-영향 범위만 전달한다.
+붙이지 않는다. repository의 **Security → Report a vulnerability**가 제공되면
+그 비공개 양식으로 재현 단계와 영향 범위를 전달한다. 비공개 양식이 없으면
+민감정보 없는 영향 요약만 Issue로 남기고, maintainer가 지정하는 비공개
+채널로 세부 자료를 이동한다. 현재 별도 보안 이메일과 응답 SLA는 없다.
 
 ## 저장소 경계
 

@@ -8,6 +8,7 @@
 
 ```bash
 bash tests/public_hygiene_test.sh
+python3 tests/skill_structure_test.py
 ```
 
 로컬 절대경로, ephemeral Agent 식별자, 비밀정보, 연구 참여자 자료, 내부 작업

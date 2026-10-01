@@ -2,7 +2,8 @@
 
 기준 시점: 2026-10-01
 
-근거 revision: PR #4 exact head에서 갱신 중
+관찰 기준: `main@ca94600ed058c0e7448ac69a537b8453241d139b`, PR #4
+`1e7786f5dd05c4910f22b7acf05d44d0d702b803`에서 시작한 ordinary descendant
 
 상태: Proposed
 
@@ -26,9 +27,11 @@ release.
 ## TRD
 
 - 배포 단위: `skills/korean-editing/`, `skills/apa7-manuscript-writing/`.
-- 근거 경계: 각 skill의 `references/source-ledger.md`.
-- 검증 경계: `evaluations/`와 `tests/public_hygiene_test.sh`.
-- 금지 경계: 사용자 원문·참여자 자료·비밀정보·로컬 절대경로·ephemeral ID.
+- 근거 정책 경계: 각 skill의 `references/source-ledger.md`; 자동 traceability는 미구현.
+- 검증 경계: `evaluations/`, `tests/public_hygiene_test.sh`,
+  `tests/skill_structure_test.py`.
+- 금지 경계: 사용자 원문·참여자 자료·비밀정보와 검사에 열거한 workstation
+  절대경로·ephemeral ID 형식.
 - 현재 실행 서비스, DB, UI, 인증, container와 network API는 없다.
 
 ## UML과 Context Map
@@ -64,6 +67,8 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 | outbound LICENSE 미정 | root LICENSE 없음 | 저작권·외부 자료 경계 확인 후 조직 소유자가 결정 | Open |
 | APA 원문 확인 범위 불완전 | `TODO.md`, APA source ledger | 필요한 절만 직접 확인하고 미확인은 유지 | In progress |
 | 평가의 일반화 근거 부족 | 사례별 1회·자기보고 한계 | 반복·독립 채점 설계를 별도 계획으로 확장 | Open |
+| 규칙↔source ID 추적이 수동 | source ledger와 SKILL.md | traceability validator 설계·fixture 추가 | Open |
+| immutable 배포 계약 부재 | release/tag 0개 | manifest·version·digest·SBOM·provenance·clean-install conformance·rollback 절차 정의 | Open |
 | Issue #2가 폐기된 PR #1을 가리킴 | Issue #2 본문 | PR #4 successor와 현재 acceptance를 기록 | In progress |
 
 ## Release gate
