@@ -6,7 +6,7 @@
 
 ## 1. 본문을 읽고 확인한 근거
 
-근거 종류는 [korean-editing source-ledger](../../korean-editing/references/source-ledger.md)와 [apa7 source-ledger](source-ledger.md)의 분류를 그대로 따른다. **위반으로 채점하는 것은 「어문 규정」과 「APA 규정」 행뿐이다.** 「기관 권고」·「신문 교육 권고」·「학술 근거」는 참고 근거이며 규범으로 확대하지 않는다.
+근거 종류 중 APA 범위는 [apa7 source-ledger](source-ledger.md)의 분류를 따른다. 한국어 근거의 repository authority는 `skills/korean-editing/references/source-ledger.md`이며, 이 APA Skill의 실행 의존성은 아니다. **위반으로 채점하는 것은 「어문 규정」과 「APA 규정」 행뿐이다.** 「기관 권고」·「신문 교육 권고」·「학술 근거」는 참고 근거이며 규범으로 확대하지 않는다.
 
 | 영역 | 근거 종류 | 확인한 범위 | 장부 |
 | --- | --- | --- | --- |

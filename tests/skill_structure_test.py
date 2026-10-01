@@ -31,18 +31,20 @@ def validate_skill(skill_path: Path) -> list[str]:
     for field_name in ("name", "description"):
         if not re.search(rf"(?m)^{field_name}:\s*\S", frontmatter):
             errors.append(f"{skill_path}: missing {field_name} frontmatter")
-    for target in MARKDOWN_LINK.findall(text):
-        if target.startswith(("http://", "https://", "mailto:", "#")):
-            continue
-        relative_target = target.split("#", 1)[0]
-        resolved_target = (skill_path.parent / relative_target).resolve()
-        try:
-            resolved_target.relative_to(skill_root)
-        except ValueError:
-            errors.append(f"{skill_path}: link leaves skill package {target}")
-            continue
-        if relative_target and not resolved_target.exists():
-            errors.append(f"{skill_path}: broken local link {target}")
+    for document_path in skill_root.rglob("*.md"):
+        document_text = document_path.read_text(encoding="utf-8")
+        for target in MARKDOWN_LINK.findall(document_text):
+            if target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            relative_target = target.split("#", 1)[0]
+            resolved_target = (document_path.parent / relative_target).resolve()
+            try:
+                resolved_target.relative_to(skill_root)
+            except ValueError:
+                errors.append(f"{document_path}: link leaves skill package {target}")
+                continue
+            if relative_target and not resolved_target.exists():
+                errors.append(f"{document_path}: broken local link {target}")
     return errors
 
 

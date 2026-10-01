@@ -55,7 +55,7 @@
 
 ## 2026-09-20 추가 원문 조사
 
-담당: 원문 조사 worker. 상세 접근 기록은 [source-access-followup.md](../../../evaluations/references/source-access-followup.md). 이전 조회 DB와 실제 첨부가 있는 Zotero DB는 서로 다르다. 이전의 그룹 0행을 현재 소장 라이브러리 전체의 부재로 해석하지 않는다.
+담당: 원문 조사 worker. 상세 접근 기록은 repository 평가 증거인 `evaluations/references/source-access-followup.md`가 소유하며, 설치된 Skill의 실행 의존성은 아니다. 이전 조회 DB와 실제 첨부가 있는 Zotero DB는 서로 다르다. 이전의 그룹 0행을 현재 소장 라이브러리 전체의 부재로 해석하지 않는다.
 
 - 실제 첨부 DB의 `zotero.sqlite`: 일반 읽기 전용 연결은 `database is locked`. `mode=ro&immutable=1`로 주 DB만 조회하여 개인 library 1, elderly-gad library 2 / group 6347780을 확인했다. WAL을 반영하지 않으므로 최신 동기화 상태나 완전한 부재 판정에는 사용할 수 없다.
 - 개인 JARS-Quant parent `NWXTJ7QC` / 첨부 `MA5XB6VW`; 그룹 원 논문 parent `49XLUQAT`에는 첨부가 없고, 정오표 parent `W4AJRLSI` 아래 첨부 `WTHXWQ32`에 원 논문과 정오표를 합친 PDF가 있다. 첨부 이름이나 parent 제목만으로 본문을 정오표 단독으로 판단하면 안 된다.
