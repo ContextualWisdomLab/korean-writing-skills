@@ -67,7 +67,7 @@ for unsafe_fixture in \
   }
 done
 
-# RED fixtures: the current matcher must reject credential-shaped public content.
+# Credential contract fixtures retained from the RED reproduction.
 for unsafe_credential_fixture in \
   'ghp_'""'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' \
   'github_pat_'""'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' \
