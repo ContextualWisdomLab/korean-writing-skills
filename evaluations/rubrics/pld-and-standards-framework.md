@@ -73,4 +73,3 @@ Standards의 performance standards는 수준별 지식·기능 설명과 수준 
 
 - AGENTS.md 원칙 ↔ `skills/korean-editing/references/source-ledger.md` ↔ 본 PLD: [AGENTS.md](../../AGENTS.md) “근거 대응” 절.
 - APA 축은 Publication Manual 미확인 항목 **보류**(`three-axis.md` 점검 4).
-

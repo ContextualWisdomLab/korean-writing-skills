@@ -56,4 +56,3 @@
 - KUPIS 경유 **원문** 확보
 - APA Publication Manual 7 Zotero/elderly-gad 본문
 - PR #1 merge (CI pending)
-

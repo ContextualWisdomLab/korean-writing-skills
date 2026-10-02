@@ -1,7 +1,7 @@
 # K7·K8 실행 출력
 
 실행: 2026-09-21. 별도 실행자 세션.
-입력: 이 디렉터리 `K7.md`·`K8.md`.  
+입력: 이 디렉터리 `K7.md`·`K8.md`.\
 실행자에게 준 스킬: 격리된 스킬 사본 (SKILL + examples에서 K7 유출 행 2줄 제거 + source-ledger). `evaluations/`와 `actor-responsibility-criteria.md`는 주지 않음.
 
 원본 출력의 공개 사본은 이 파일에 기록했다.
