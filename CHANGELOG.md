@@ -3,7 +3,9 @@
 ## Unreleased
 
 - `main`의 실제 미보호 상태와 175-file review 한도를 Gap 기준선에 반영하고,
-  PR #4를 reviewable non-force stack이 마련될 때까지 Draft로 되돌렸다.
+  PR #4를 Draft로 되돌렸다.
+- 유효 delta를 보존한 채 175-file 변경을 PR #5(94 files) → PR #6(49 files)
+  → PR #4(32 files)의 reviewable non-force Draft stack으로 분할했다.
 - 한국어 퇴고와 APA 7 원고 작성 Agent Skill 초안을 추가했다.
 - 확인한 원문 범위와 미확인 범위를 source ledger에 분리했다.
 - 동결 입력·출력·채점·한계를 포함하는 제한된 합성 평가 증거를 추가했다.
