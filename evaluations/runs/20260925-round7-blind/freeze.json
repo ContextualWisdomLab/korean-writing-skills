@@ -1,0 +1,40 @@
+{
+ "purpose": "6회차와 같은 동결 파일·지시문·판정표로, 다른 모델의 새 실행자·채점자가 K11·K12를 한 번 더 실행하는 blind 재평가. 이 파일을 커밋·push한 뒤에만 실행자를 배정한다.",
+ "frozen_before_commit_utc": "2026-09-24T17:22:19Z",
+ "base_commit": "419671214587a554807a8c2f7b49ed02e5e5d9e0",
+ "reuses_freeze": "evaluations/runs/20260924-round6/freeze.json",
+ "reused_files_unchanged": "6회차 동결 20파일의 해시를 이 커밋 직전에 다시 계산해 모두 일치함을 확인했다. 스킬·루브릭·판정표·지시문·입력은 바꾸지 않는다.",
+ "what_differs_from_round6": {
+  "model": "실행자·채점자 모두 Claude Code Agent 도구의 model 재정의로 sonnet을 쓴다. 5·6회차는 부모 세션 모델(opus 계열)을 상속했다.",
+  "isolation_dir": "이전 회차 산출물이 없는 새 임시 디렉터리. 입력 2개만 둔다.",
+  "blind": "실행자·채점자에게 이전 회차의 존재·점수·스킬 수정 이력을 알리지 않는다. 동결 지시문 본문 외의 문장을 더하지 않는다."
+ },
+ "prompts": "6회차 executor-prompt.md·scorer-prompt.md 본문에서 {CASE}·{ISO}·{REPO}만 치환해 그대로 전달한다.",
+ "limits": [
+  "실행자·채점자를 배정하는 사람은 여전히 6회차와 같은 리드다. 다른 사람이 배정한 독립 평가가 아니다.",
+  "허용 목록의 스킬 파일(validation.md·source-ledger.md)에 과거 평가 서술이 있어 완전한 blind는 아니다.",
+  "접근 준수는 자기보고 기반이다."
+ ],
+ "sha256_reused_check": {
+  "skills/apa7-manuscript-writing/SKILL.md": "eda2a1c96dce74f5352eb701ee666f40936cfcca9e910d3393e50dd5f3af9e20",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "648e15c3ba09a64e09d08b132ecac8154dbf916f787b47c6ef66834767536f96",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff",
+  "evaluations/scenarios/blind-inputs.md": "069d6720058ff93e307024ab3de699c852761726c9f1a35611db90380fbd9894",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/runs/20260924-round6/criteria.md": "f51360d91143d698201a6ade1ab1642210b676f08ff26905fe7f1c5f21b7696e",
+  "evaluations/runs/20260924-round6/executor-prompt.md": "070dc4926eb42f522981a0b192091ef5e2445a10c86bc24bd938220e2004d131",
+  "evaluations/runs/20260924-round6/scorer-prompt.md": "73ab99d1763a79d36deb032e946f686761b742996ec7279e2aee2e7e017c25dd",
+  "evaluations/runs/20260924-round6/inputs/K11.md": "d15bb207a76f5403d4c35ab55a1bf1618b2ec5feb69e57b310d2f89e45f91a2b",
+  "evaluations/runs/20260924-round6/inputs/K12.md": "d5b4b90fe8a84060b1d9f7083d2cd99dac89c7a293d712e08c942a728a27f88d"
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "purpose": "K12 인과 확인 누락의 원인 수정 뒤, 회귀 검사 1회와 K11·K12 독립 재평가를 한다. 이 파일을 커밋·push한 뒤에만 실행자를 배정한다.",
+ "frozen_before_commit_utc": "2026-09-24T17:56:08Z",
+ "base_commit": "f4493413aef19aca0d9b3bab3cb4270d5edf6a86",
+ "skill_change": "skills/korean-editing/SKILL.md 퇴고 절차 2의 한 문장 뒤에, 원문이 이미 인과를 시사하는데 근거가 상관·횡단 관찰뿐이면 표현·강도는 두고 저자 확인 요청으로 남긴다는 규칙을 더했다. 다른 스킬 파일은 바꾸지 않았다.",
+ "diagnosis": "수정 전 스킬로 K12를 실행한 두 번(7회차, 재현 1회) 모두 korean-editing만 열고 인과 문장을 확인 요청 없이 두었다. 보존 규칙은 있었고 확인 요청 규칙이 없었다.",
+ "reused_unchanged": "6회차 실행자·채점자 지시문, 판정표, 입력 2개를 바꾸지 않고 쓴다.",
+ "steps": [
+  "회귀 검사: K12, 실행자만, 이진 판정(evaluations/regression/causal-hint-author-query.md)",
+  "K11 실행→채점",
+  "K12 실행→채점"
+ ],
+ "model_environment": {
+  "agents": "Agent 도구 general-purpose, model=sonnet 재정의(7회차와 같음), 사례·역할마다 새 대화",
+  "host": "로컬 macOS, 강제 격리 없음"
+ },
+ "limits": [
+  "배정자는 같은 리드다.",
+  "허용 스킬 파일에 과거 평가 서술이 있다.",
+  "접근 준수는 자기보고 기반이다.",
+  "수정과 재평가를 같은 리드가 했고 입력도 같으므로 일반 성능 근거가 아니다."
+ ],
+ "sha256": {
+  "skills/apa7-manuscript-writing/SKILL.md": "eda2a1c96dce74f5352eb701ee666f40936cfcca9e910d3393e50dd5f3af9e20",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "ecb98dc6991d2eb9ed958b0269a97f635618600546924771a3dfc4ae90724429",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff",
+  "evaluations/scenarios/blind-inputs.md": "069d6720058ff93e307024ab3de699c852761726c9f1a35611db90380fbd9894",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/regression/causal-hint-author-query.md": "27ff410b6eaded7d541219f075daf2481d7359c24400d66c2819c759289f7543",
+  "evaluations/runs/20260924-round6/executor-prompt.md": "070dc4926eb42f522981a0b192091ef5e2445a10c86bc24bd938220e2004d131",
+  "evaluations/runs/20260924-round6/scorer-prompt.md": "73ab99d1763a79d36deb032e946f686761b742996ec7279e2aee2e7e017c25dd",
+  "evaluations/runs/20260924-round6/criteria.md": "f51360d91143d698201a6ade1ab1642210b676f08ff26905fe7f1c5f21b7696e",
+  "evaluations/runs/20260924-round6/inputs/K11.md": "d15bb207a76f5403d4c35ab55a1bf1618b2ec5feb69e57b310d2f89e45f91a2b",
+  "evaluations/runs/20260924-round6/inputs/K12.md": "d5b4b90fe8a84060b1d9f7083d2cd99dac89c7a293d712e08c942a728a27f88d"
+ }
+}
