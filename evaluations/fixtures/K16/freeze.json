@@ -1,0 +1,52 @@
+{
+ "purpose": "외부 연구팀 원고 적용(dogfood #4)에서 드러난 범용 규칙 2개의 수정 전·후를 합성 사례 K16으로 확인한다. (1) 심사 응답의 위치·인용은 제출 파일 안에서 풀려야 한다(korean-editing SKILL.md). (2) 확인된 척도 정식 명칭을 문서 전체에서 한 가지로 쓰고, 이름이 겹치는 다른 개념·도구를 그 척도로 바꾸지 않는다(apa7 SKILL.md). 평가 답안·점수 없음.",
+ "frozen_before_commit_utc": "2026-09-25T15:18:30Z",
+ "pre_fix_commit": "a8a6104677ec6da126574b4d53810a0d4c872b70",
+ "post_fix": "이 동결 파일을 담은 커밋",
+ "changed_skill_files": [
+  "skills/apa7-manuscript-writing/SKILL.md",
+  "skills/korean-editing/SKILL.md"
+ ],
+ "plan": [
+  "s1 Codex 실행자 A: 수정 전 체크아웃, K16 → 출력 동결",
+  "s1 Codex 채점자 A",
+  "s1 Codex 실행자 B: 수정 후 체크아웃 → 출력 동결",
+  "s1 Codex 채점자 B",
+  "실행자 gpt-6-sol medium, 채점자 gpt-6-sol low(K14 재실행과 같은 설정). 각 워커의 worker_done·출력 해시 확인 뒤 다음 워커를 띄운다. 로컬 기동 없음."
+ ],
+ "limits_declared_in_advance": "판본마다 1회다. 수정 전 판본이 이미 통과하면 수정 효과의 증거로 쓰지 않는다(K15와 같은 처리).",
+ "sha256_fixture": {
+  "evaluations/fixtures/K16/input.md": "05642f23306b458077c8246aff0139b66f603357f09e7f7566ae5fe0f82fc0a7",
+  "evaluations/fixtures/K16/criteria.md": "1983ab18ef61f7536393b82136093228ca69dc7595108b8b308cb876baf1511d",
+  "evaluations/fixtures/K16/executor-prompt.md": "c4016dbbd4d08c1958ee5cfa08123c9253f08d08591e9daacb64b54c31aa0819",
+  "evaluations/fixtures/K16/scorer-prompt.md": "179ba398adb6f2c62ed8378d5e2f19dc84d23833ea81f0dabf718aa011817f71",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5"
+ },
+ "sha256_skills_pre_fix": {
+  "skills/apa7-manuscript-writing/SKILL.md": "36a74c70cb2469a5c99736c1795566fd74f0b0eec9fcc432d8140a116e0826e8",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "7b78e6127ab452a1f9fe2b9ff046f831fc1a32a7848bd54c8c25a4dc01211a9d",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "966af466423e6dc34ab94f66c3cf26687c4a86b572ef1ca5785f3105335fac97",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae"
+ },
+ "sha256_skills_post_fix": {
+  "skills/apa7-manuscript-writing/SKILL.md": "edbdca856ea5be5cf9dc5bd023f2ee62829d4738bc931b969b873b8923aa45ca",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "7b78e6127ab452a1f9fe2b9ff046f831fc1a32a7848bd54c8c25a4dc01211a9d",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "ffc942375ffc8cf4b02263902ef71e03b5e98c4ade44c2e1dfaeb6fc277ba889",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae"
+ }
+}

@@ -1,0 +1,79 @@
+{
+ "purpose": "6회차: 5회차에서 미달(K11)·보류(K12)된 두 사례를 스킬 후보 수정 뒤 새 독립 실행으로 재평가한다. 이 파일을 커밋·push한 뒤에만 실행자를 배정한다.",
+ "frozen_before_commit_utc": "2026-09-24T13:39:39Z",
+ "base_commit": "3b0f0be53897c058215b86d6099148bb75298919",
+ "cases": [
+  "K11",
+  "K12"
+ ],
+ "order": "K11 실행→K11 채점→K12 실행→K12 채점. 동시 실행 없음. 사례·역할마다 새 에이전트 대화 한 개.",
+ "prior_round": "5회차 기록(20260924-round5)은 그대로 보존한다. 5회차 K11(2/3/3)은 코디네이터 판정으로 미달, K12(3/3/3)는 허용 범위 밖 캐시 열람으로 통과 불가.",
+ "skill_change_before_freeze": "apa7 SKILL.md와 korean-editing SKILL.md에 '학위논문 경위를 빼더라도 이 연구의 사실(결과 미산출 진술, 같은 자료로 이미 수행한 분석)은 본문에 남기고 확인 요청으로만 옮기지 않는다'는 문장을 더했다(저자 요청 조건부 편집 지침, APA 보편 규칙 아님).",
+ "prompts_frozen": {
+  "executor": "evaluations/runs/20260924-round6/executor-prompt.md",
+  "scorer": "evaluations/runs/20260924-round6/scorer-prompt.md",
+  "substitution": "{CASE}만 사례마다 바꾼다. {ISO}·{REPO}는 실행 전에 한 번 정한 절대경로로 바꾸며 공개 기록에는 적지 않는다."
+ },
+ "model_environment": {
+  "agents": "Claude Code Agent 도구의 general-purpose 서브에이전트, 부모 세션 모델 상속(claude-opus-5-5), 모델 재정의 없음.",
+  "host": "로컬 macOS, OS 수준 격리 없음.",
+  "isolation": "프롬프트 지시와 자기보고로만 통제. 강제 격리·감사 로그 없음."
+ },
+ "executor": {
+  "allowed_files": [
+   "{ISO}/{CASE}.md",
+   "skills/apa7-manuscript-writing/SKILL.md",
+   "skills/apa7-manuscript-writing/references/document-format-checklist.md",
+   "skills/apa7-manuscript-writing/references/jars-quant-table1.md",
+   "skills/apa7-manuscript-writing/references/reporting-workflow.md",
+   "skills/apa7-manuscript-writing/references/source-ledger.md",
+   "skills/apa7-manuscript-writing/references/validation.md",
+   "skills/apa7-manuscript-writing/references/verified-scope.md",
+   "skills/korean-editing/SKILL.md",
+   "skills/korean-editing/references/examples.md",
+   "skills/korean-editing/references/source-ledger.md",
+   "skills/korean-editing/references/validation.md",
+   "{ISO}/{CASE}-output.md (쓰기)"
+  ],
+  "forbidden_examples": [
+   "evaluations/ 전체",
+   "다른 사례 입력·출력",
+   "도구 출력 캐시(~/.claude/ 아래 파일)",
+   "셸 명령으로 파일 읽기·목록 보기",
+   "웹"
+  ],
+  "known_leak": "skills/korean-editing/references/validation.md·source-ledger.md에는 과거 평가의 입력·출력·통과 서술이 있다. 허용 목록에 있으므로 blind를 주장하지 않는다."
+ },
+ "scorer": {
+  "allowed_files": [
+   "{ISO}/{CASE}.md",
+   "{ISO}/{CASE}-output.md",
+   "evaluations/rubrics/three-axis.md",
+   "evaluations/rubrics/analytic-korean-editing.md",
+   "evaluations/runs/20260924-round6/criteria.md"
+  ]
+ },
+ "verdict_rule": "실행자 자기보고 목록에 허용 목록 밖 경로가 있으면 내용과 관계없이 보류.",
+ "sha256": {
+  "skills/apa7-manuscript-writing/SKILL.md": "eda2a1c96dce74f5352eb701ee666f40936cfcca9e910d3393e50dd5f3af9e20",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "648e15c3ba09a64e09d08b132ecac8154dbf916f787b47c6ef66834767536f96",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff",
+  "evaluations/scenarios/blind-inputs.md": "069d6720058ff93e307024ab3de699c852761726c9f1a35611db90380fbd9894",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/runs/20260924-round6/criteria.md": "f51360d91143d698201a6ade1ab1642210b676f08ff26905fe7f1c5f21b7696e",
+  "evaluations/runs/20260924-round6/executor-prompt.md": "070dc4926eb42f522981a0b192091ef5e2445a10c86bc24bd938220e2004d131",
+  "evaluations/runs/20260924-round6/scorer-prompt.md": "73ab99d1763a79d36deb032e946f686761b742996ec7279e2aee2e7e017c25dd",
+  "evaluations/runs/20260924-round6/inputs/K11.md": "d15bb207a76f5403d4c35ab55a1bf1618b2ec5feb69e57b310d2f89e45f91a2b",
+  "evaluations/runs/20260924-round6/inputs/K12.md": "d5b4b90fe8a84060b1d9f7083d2cd99dac89c7a293d712e08c942a728a27f88d"
+ }
+}

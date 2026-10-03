@@ -1,0 +1,9 @@
+{
+  "frozen_at": "2026-09-20T05:53:03.213235+00:00",
+  "sha256": {
+    "evaluations/rubrics/three-axis.md": "0421a56900777a29eecc6ae03b8fceaa325af7195f8b4117025e62430d3c8a75",
+    "evaluations/scenarios/blind-inputs.md": "5423216c87d9031a180415574d53fe6a3fb14b1ac70f944d9f7867b61deaacbf"
+  },
+  "author_answer_read": false,
+  "draft_skill_body_read_by_grader": false
+}
