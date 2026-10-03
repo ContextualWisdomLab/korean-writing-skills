@@ -1,9 +1,10 @@
 # Product and Technical Gap Baseline
 
-기준 시점: 2026-10-01
+기준 시점: 2026-10-03
 
-관찰 기준: `main@ca94600ed058c0e7448ac69a537b8453241d139b`, PR #4
-`dfdaa730eb33f5f72f18f54d842af0f657d4fb43`의 credential-hygiene GREEN을 포함한 ordinary descendant
+관찰 기준: `main@ca94600ed058c0e7448ac69a537b8453241d139b`,
+Draft PR #4 `e59806d7abf3c7f13478e5997b4d0cbdb20f3ba6`. GitHub branch
+API는 `main`을 `protected:false`로 보고하며 repository ruleset은 없다.
 
 상태: Proposed
 
@@ -13,8 +14,8 @@
 원고 작성 Agent Skill을 독립적으로 설치·검토할 수 있게 한다.
 
 **Loop**: 원문 직접 확인 → source ledger 갱신 → 규칙 최소 수정 → 동결된 합성
-사례와 독립 채점 → 공개 hygiene·CI·review → 보호 브랜치 병합 → immutable
-release.
+사례와 독립 채점 → 공개 hygiene·CI·review → 유효한 default-branch 거버넌스
+확인 → ordinary merge → immutable release.
 
 ## PRD
 
@@ -61,11 +62,12 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 
 | Gap | Evidence | Action | Status |
 | --- | --- | --- | --- |
-| 보호 브랜치에 제품 구현이 없음 | `main@ca94600e…`, PR #4 | exact-head 검사·비작성자 review 후 ordinary merge | Blocked |
+| default branch에 제품 구현과 유효한 보호가 없음 | `main@ca94600e…`에는 `AGENTS.md`와 `README.md`만 있고 branch API는 `protected:false`; repository ruleset 없음 | `.github` canonical owner에서 유효한 조직/default-branch 보호를 입증한 뒤 exact-head 검사·비작성자 review와 ordinary merge | Blocked |
 | public hygiene가 중앙 gitleaks skip과 수동 확인에 의존 | PR #4 exact-head Security job과 과거 runtime artifact | RED credential fixture 뒤 `tests/public_hygiene_test.sh`에 GitHub/OpenAI/AWS credential·private-key signature를 fail-closed 통합 | Implemented on PR head |
 | Skill 독립 설치 시 repository 외부 문맥에 의존할 수 있음 | `skills/korean-editing/SKILL.md`의 평가 rubric 링크 | package 밖 상대 링크를 fail-closed 검사하고 평가 증거는 실행 의존성에서 분리 | Implemented on PR head |
-| 최신 head의 독립 review 부재 | 현재 review는 head 이전 COMMENTED | 새 head에서 review 재요청 | Blocked |
-| CodeQL 적용 언어 0건 | exact-head run의 세 job이 모두 `skipped` | 문서·shell 중심 경계를 기록하되 GREEN으로 승격하지 않고 향후 지원 언어 추가 시 재검증 | Not applicable, not GREEN |
+| 단일 PR이 hosted review 한도를 넘음 | base-to-head 175 files; CodeRabbit은 100-file 한도로 current-head review를 건너뜀 | 100-file 미만의 non-force stack으로 분할하고 각 exact head에서 review 재수행; 모든 유효 delta를 최종 descendant에 보존 | Open |
+| 최신 head의 독립 review 부재 | PR #4 current head 승인 0건, unresolved thread 0건 | reviewable stack과 유효한 거버넌스를 만든 뒤 current-head review 재요청 | Blocked |
+| CodeQL 적용 언어 0건 | exact-head CodeQL PR run `36966902575`는 `skipped`; SAST `36966902465`와 Security `36966902494`만 terminal success | CodeQL skip을 GREEN으로 승격하지 않고 향후 지원 언어 추가 시 재검증 | Not applicable, not GREEN |
 | outbound LICENSE 미정 | root LICENSE 없음 | 저작권·외부 자료 경계 확인 후 조직 소유자가 결정 | Open |
 | APA 원문 확인 범위 불완전 | `TODO.md`, APA source ledger | 필요한 절만 직접 확인하고 미확인은 유지 | In progress |
 | 평가의 일반화 근거 부족 | 사례별 1회·자기보고 한계 | 반복·독립 채점 설계를 별도 계획으로 확장 | Open |
@@ -75,6 +77,7 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 
 ## Release gate
 
-PR #4의 모든 유효 delta가 보호 브랜치에 통합되고, exact-head 검사와 독립
-review가 끝나며, release artifact가 생성되기 전에는 GitHub Pages 공개·제품
-완료·APA 준수·전체 타당화를 주장하지 않는다.
+PR #4의 모든 유효 delta가 reviewable non-force stack과 유효한 default-branch
+거버넌스를 거쳐 통합되고, exact-head 검사와 독립 review가 끝나며, release
+artifact가 생성되기 전에는 GitHub Pages 공개·제품 완료·APA 준수·전체
+타당화를 주장하지 않는다.
