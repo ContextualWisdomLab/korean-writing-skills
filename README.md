@@ -23,6 +23,12 @@
 `docs/product-technical-gap-baseline.md`에서 관리한다. 공개 hygiene 계약은
 `bash tests/public_hygiene_test.sh`로 확인한다.
 
+## 제한 범위 preview 사용
+
+설치·호출·입력·출력·업데이트·제거 절차는 [사용 안내](docs/usage.md)를 따른다. 두 ZIP과 SHA-256 manifest를 로컬에서 만들 수 있다. 기본 브랜치의 공식 출시본이나 APA 전체 인증은 아니다.
+
+현재 작업의 PR·Issue·요구사항·Gap 대응과 에이전트별 책임은 [실사용판 개발 계약](docs/usability-plan.md)에 기록한다. 합성 평가와 Issue #2가 요구한 실제 팀 사용은 따로 관리한다.
+
 ## 설치 경로 구분
 
 이 저장소의 퇴고 스킬은 `skills/korean-editing/`이다. Claude superpowers 플러그인의 `writing-skills`(스킬 작성 TDD)와 이름이 비슷해도 다른 스킬이다.

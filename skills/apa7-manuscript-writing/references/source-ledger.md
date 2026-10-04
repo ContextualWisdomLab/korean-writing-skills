@@ -1,6 +1,6 @@
 # 근거 장부
 
-확인일: 2026-09-21(Manual·공식 자료 열람). 편집 절차 반영 기록은 2026-09-22까지. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않는다. 본문을 얻은 자료와 접근 실패를 구별한다.
+확인일: 2026-09-21(기존 Manual·공식 자료 열람), 2026-10-04(A-SECONDARY-WEB·A-BIAS-WEB 공식 웹 본문 직접 확인). 기존 편집 절차 반영 기록은 2026-09-22까지. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않는다. 본문을 얻은 자료와 접근 실패를 구별한다.
 
 **확인한 절(확인 범위에서만 세칙으로 씀):** Manual 7 리더 2.1·2.2·2.8·2.12·2.18–2.24, 6.36·6.44, 7.1·7.4–7.6·7.17·7.18, 8.4·8.10, 10.1–10.3 도입; 8.6은 2차 출처를 드물게 쓰라는 대목만 짧게 확인; A-REF·A-NUM·A-JARSQ PDF; S8 Table 1. 장시작 목차 쪽을 절 쪽으로 쓰지 않는다.
 
@@ -14,6 +14,17 @@
 | --- | --- | --- | --- | --- |
 | S1 | American Psychological Association, Reference Guide for Journal Articles, Books, and Edited Book Chapters, 7th Edition, 2026-03-23 갱신 | https://apastyle.apa.org/instructional-aids/reference-guide.pdf | Journal Article; Book; Chapter in an Edited Book; 말미 갱신 정보. 추출본에는 페이지 경계가 없어 쪽수는 기록하지 않음 | web open은 차단되었으나 Exa URL 본문 추출에서 제목·세 자료 유형·갱신 정보까지 확인. 영문 참고문헌의 저자 순서, 제목 대문자, 기울임, DOI와 출판사 소재지 처리에 한정해 사용. 안내가 매뉴얼 10.1–10.3을 가리키지만 해당 매뉴얼 절 자체를 읽었다고 간주하지 않음. |
 | S2 | American Psychological Association, Tables and Figures, 2019, 웹 자료(판 표시 없음) | https://apastyle.apa.org/style-grammar-guidelines/tables-figures | Tables and Figures 본문 개요 | Exa URL 본문 추출로 효율적 전달·이해·접근성 목적 확인. 세부 표 선·주석 형식 근거로 확장하지 않음. 매뉴얼 7장 안내는 확인했지만 7장 자체는 미독. |
+
+## 2026-10-04 APA 공식 웹 최소 보강
+
+담당: APA 보강 worker. 아래 두 페이지의 반환 본문을 `web_extract`로 직접 읽었다. `web.open`은 두 URL 모두 iframe 1행만 반환하므로 본문 확인 근거로 쓰지 않는다. A-BIAS-WEB의 첫 추출은 Guideline 1 중간에서 끊겼고 다음 추출은 생략 표시가 있어 둘 다 불충분했다. 같은 공식 URL에 `#guideline-2`를 붙인 추출에서 Guideline 1·2와 말미 갱신일까지 확인한 뒤에만 채택했다. 검색 요약·부모의 열람 보고를 직접 열람으로 대체하지 않았다.
+
+| ID | 발행기관·제목·판본 | URL | 실제 읽은 절·확인일 | 적용 범위·한계 |
+| --- | --- | --- | --- | --- |
+| A-SECONDARY-WEB | American Psychological Association, *Secondary Sources*, APA Style 웹 안내(독립 판 표시 없음), 2019 생성·2022-07 갱신 | https://apastyle.apa.org/style-grammar-guidelines/citations/secondary-sources | 2차 출처 사용 권고·Follow these directions 이하의 목록/본문 인용·원자료 연도 유무·말미 갱신 정보; 2026-10-04 | 가능하면 원자료를 직접 읽고 인용. 재인용 시 참고문헌에는 실제 사용한 2차 자료만, 본문에는 원자료와 `as cited in` 연결. 원자료 연도는 알면 포함·모르면 생략. 한국어 표기는 학술지 규정을 우선하며 영어 문구를 강제하지 않음(언어 적용 판단). 페이지가 Manual 8.6을 가리킨다고 그 절의 세부를 직접 읽었다고 하지 않음. |
+| A-BIAS-WEB | American Psychological Association, *General Principles for Reducing Bias*, APA Style 웹 안내(독립 판 표시 없음), 2019 생성·2024-10 갱신 | https://apastyle.apa.org/style-grammar-guidelines/bias-free-language/general-principles | Guideline 1: 관련 특성·관련 차이·적절한 구체성; Guideline 2: 호칭·인간성 존중·거짓 위계 회피, 말미 갱신 정보; 2026-10-04 | 자기 호칭·집단 선호 존중, 상태명으로 사람을 환원하지 않음, 집단에 따라 사람 우선·정체성 우선 또는 양쪽 가능, ‘정상’ 집단을 보편 기준으로 삼지 않음. 페이지의 세부 주제 링크는 열지 않음. Manual 5.1·5.2 본문을 직접 읽었다고 하지 않음. |
+
+기존 S7 차단 기록과 Manual 8.6 일부 확인·5.1 본문 미확인 기록은 당시 이력으로 유지한다. 이번 추가는 위 웹 두 건뿐이다. 표·그림 세칙, JARS 추가표(특히 Table 3), 통계 규칙의 새 확인 범위는 추가하지 않으며 남은 미확인 항목으로 둔다.
 
 ## U-KHU · 대학 교육 자료(교차 참고, APA 규범 아님)
 

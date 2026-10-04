@@ -2,10 +2,15 @@
 
 ## Unreleased
 
+- 한국어 공식 상담을 규정 본문과 구분하고 `보여지다`의 문맥·사동 관계를 보존하도록 보강했다.
+- APA 공식 웹에서 직접 읽은 재인용과 편견 없는 언어 일반 원칙을 Manual 미확인 범위와 분리해 추가했다.
+- 독립 preview 패키저·결정적 ZIP·SHA-256 manifest·설치 안내를 추가했다. 참조 링크 검토 실패와 수정 후 회귀시험을 별도 기록으로 보존했다.
+- 새 합성 3사례에서 신구 판본별 실행·익명 독립 채점을 수행했다. 양쪽 3/3 통과·세 비교 동률이며 일반 성능 향상이나 실제 팀 사용 완료를 주장하지 않는다.
+
 - `main`의 실제 미보호 상태와 175-file review 한도를 Gap 기준선에 반영하고,
   PR #4를 Draft로 되돌렸다.
 - 유효 delta를 보존한 채 175-file 변경을 PR #5(94 files) → PR #6(49 files)
-  → PR #4(32 files)의 reviewable non-force Draft stack으로 분할했다.
+  → PR #4(34 files)의 reviewable non-force Draft stack으로 분할했다.
 - 한국어 퇴고와 APA 7 원고 작성 Agent Skill 초안을 추가했다.
 - 확인한 원문 범위와 미확인 범위를 source ledger에 분리했다.
 - 동결 입력·출력·채점·한계를 포함하는 제한된 합성 평가 증거를 추가했다.

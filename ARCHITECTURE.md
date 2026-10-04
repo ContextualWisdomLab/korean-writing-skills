@@ -34,6 +34,7 @@ flowchart TD
 | `skills/apa7-manuscript-writing/` | APA 7 원고 절차와 근거 | 미확인 절·쪽을 확인한 규칙처럼 쓰지 않음 |
 | `evaluations/` | 제한된 행동·회귀 증거 | 입력·판본·출력·채점·한계를 함께 보존 |
 | `tests/` | 공개 hygiene 계약 | 로컬 경로·ephemeral ID·운영 ledger 재유입 차단 |
+| `scripts/package_skills.py` | 제한 범위 preview ZIP과 해시 manifest 작성 | 원본 스킬·내부 링크 검증, 두 독립 패키지, 결정적 digest. 공식 release나 자동 교정 서비스가 아님 |
 
 별도 서비스, DB, UI, 인증, 네트워크 런타임은 없다. 그런 책임이 생기면 이
 repository에 억지로 넣지 말고 별도 운영 경계와 ADR을 먼저 정의한다.

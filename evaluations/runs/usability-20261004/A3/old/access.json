@@ -1,0 +1,18 @@
+{
+  "read_relative_paths": [
+    "input.md",
+    "skills/apa7-manuscript-writing/SKILL.md",
+    "skills/apa7-manuscript-writing/references/source-ledger.md",
+    "skills/apa7-manuscript-writing/references/reporting-workflow.md",
+    "skills/apa7-manuscript-writing/references/jars-quant-table1.md",
+    "skills/apa7-manuscript-writing/references/verified-scope.md"
+  ],
+  "external_lookup_performed": false,
+  "created_relative_paths": ["output.md", "access.json"],
+  "generated_artifact_reads_for_sha256": ["output.md", "access.json"],
+  "skill_files_modified": false,
+  "isolation_self_report": {
+    "scope": "지정된 old 작업공간에서 허용된 입력 파일 6개만 자료로 읽었다. repo, 다른 사례, 다른 판본, criteria, 검증 이력으로 이어지는 링크는 열지 않았다.",
+    "limitations": "격리는 도구 접근 범위의 자기 관리이며 OS 수준 샌드박스를 검증한 것은 아니다. 대화에 미리 제공된 지침과 프로젝트 문맥은 전달받았다. 허용된 근거 파일 자체에 과거 확인 범위 및 검증 기록 언급이 있었지만 링크 대상은 읽지 않았고 평가기준이나 기대 정답으로 사용하지 않았다. 생성한 파일 2개는 요청된 SHA256 계산을 위해 바이트열로 읽는다."
+  }
+}

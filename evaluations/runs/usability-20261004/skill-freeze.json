@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-04",
+  "baseline_commit": "d7cade69f30ffc580cdb468152ed82dc21c2c4ef",
+  "state": "후보 스킬 바이트 동결; 독립 실행·채점 결과와 원격 배포는 별도",
+  "files": {
+    "skills/apa7-manuscript-writing/SKILL.md": "3f9d477984e1f726f7fc79d922f04547f66bdd2bce2104b58fe7436b02b4d096",
+    "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+    "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+    "skills/apa7-manuscript-writing/references/reporting-workflow.md": "ccaf8281ac5b2af92427d424aa0c17a53b31905c2d304c37d7b07ee1c11576de",
+    "skills/apa7-manuscript-writing/references/source-ledger.md": "56f1d486137a638db570dbf877df9d54ee29378200fff0b2bf7889ffc8250f1a",
+    "skills/apa7-manuscript-writing/references/validation.md": "3da4b12a96d5bd4a49e53f1a8179ce99f0a4774f522d8a83be98ba7f888a26c4",
+    "skills/apa7-manuscript-writing/references/verified-scope.md": "c83d109356fab2623ef7e2dcedcd4ce44487d2edb8104f9b7ab7cf13ebcecb60",
+    "skills/korean-editing/SKILL.md": "a37694593b5f97b439f0d9f1610fa83bf4be72281d7028f5cca040bfe2bea99c",
+    "skills/korean-editing/references/examples.md": "c862ed9fe7f9d52f9ccbce34bc8c1b0ce22c7b4a07ab8559c9c8df2601c3e997",
+    "skills/korean-editing/references/source-ledger.md": "214f8040dd966d09ca94356a94f565bcf6f4b4ff84458cc64346358980c2c00c",
+    "skills/korean-editing/references/validation.md": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688"
+  },
+  "executor_access": "사례·판본별 별도 복사본; SKILL.md와 필요한 근거만 제공. validation.md·새 criteria.md·다른 출력은 제외",
+  "limits": [
+    "해시 동일성은 실제 파일 접근통제를 보증하지 않는다",
+    "실행자는 동일 기본 모델을 상속할 수 있으며 이종 모델 비교가 아니다",
+    "사례별 신구 판본 각 1회 실행은 일반 성능·인과적 개선·APA 전체 준수 증거가 아니다"
+  ]
+}

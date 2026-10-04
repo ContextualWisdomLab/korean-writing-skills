@@ -16,6 +16,8 @@
 | APA 원문 | **부분 확인** | 판권지·미확인 절과 필요한 인쇄쪽만 추가 확인 | source-ledger의 2026-09-20~21 확인 기록 | 소장본 접근 |
 | PR 검증 | **진행** | 현재 exact head의 적용 가능한 필수 검사와 비작성자 검토 확인 | PR #4 | 원문 미확인과 CI 실패·대기를 구분 |
 | 제품·기술 Gap baseline | **초안** | exact-head 증거와 release 상태를 계속 갱신 | `docs/product-technical-gap-baseline.md` | PR #4 보호 브랜치 통합 |
+| 제한 범위 preview | **로컬 검증·독립 검토 통과** | 승인된 별도 브랜치에 commit·push 후 원격 ref 확인 | `docs/usability-plan.md`, `docs/usage.md`, `evaluations/runs/usability-20261004/review.md`, 같은 run의 `package-review-accepted.json` | 29시험·알려진 8우회 거부·안전 대조 8건·반복 빌드·설치 발견 통과. hosted CI·승인·release는 별도 |
+| Issue #2 실제 팀 사용 | **미완료** | 사용한 스킬 digest·작업 유형·비식별 전후 예문·도움·어색함·의미손실·과잉교정·지연·수정 여부와 독립 재검증 수집 | 과거 dogfood 1건은 `skills/korean-editing/references/validation.md`; 새 합성 평가와 구분 | 실제 사용자의 피드백, 비공개 원문 보호 |
 
 ## I'm not human 스킬
 
