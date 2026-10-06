@@ -295,6 +295,15 @@ class TraceabilityContracts(unittest.TestCase):
         identifiers, end, malformed = trace._expand("P-SONG2013·2008·2009", len("P-SONG2013"), "P-SONG", "2013")
         self.assertEqual("descending range P-SONG2013–2008", malformed)
 
+    # Review 28a5fd7: a zero-padded end keeps its width, so the next step is
+    # not expanded through the unpadded numbers.
+    def test_zero_padded_steps_keep_their_width(self):
+        for text in ("S100·0001–0051", "S50·0040–0090"):
+            with self.subTest(text=text):
+                head = text[:text.index("·")]
+                identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
+                self.assertLessEqual(len(identifiers), 3, (identifiers, malformed))
+
     # Review 8363a6a (B): an ID defined only by a heading must be recognized
     # in its own skill's prose, not only by the other skill's cross-check.
     def test_heading_defined_ids_are_recognized_in_their_own_prose(self):

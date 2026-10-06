@@ -196,14 +196,16 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             identifiers = [family + str(n) for n in range(start, stop + 1)]
     listed = re.compile(LIST_TAIL.format(family=escaped))
     ranged_after = re.compile(RANGE_TAIL.format(family=escaped))
-    previous = int(identifiers[-1][len(family):])
+    previous_text = identifiers[-1][len(family):]
+    previous = int(previous_text)
     errors: list[str] = []
     while True:
         year_tail = re.match(r"[·/](\d{4,})(?![A-Za-z0-9_]|\.\d)", prose[end:])
         if year_tail and int(year_tail.group(1)) < previous:
             errors.append(f"descending range {family}{previous}–{year_tail.group(1)}")
             identifiers.append(family + year_tail.group(1))
-            previous = int(year_tail.group(1))
+            previous_text = year_tail.group(1)
+            previous = int(previous_text)
             end += year_tail.end()
             continue
         item = listed.match(prose, end)
@@ -222,14 +224,14 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         if stop < previous:
             errors.append(f"descending range {family}{previous}–{number}")
             identifiers.append(family + number)
-        elif len(number) >= 4 and len(str(previous)) >= 4:
+        elif len(number) >= 4 and len(previous_text) >= 4 and int(number) >= previous:
             identifiers.append(family + number)
         elif stop - previous > MAX_RANGE:
             errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")
             identifiers.append(family + number)
         else:
             identifiers.extend(family + str(n) for n in range(previous + 1, stop + 1))
-        previous = stop
+        previous, previous_text = stop, number
     return identifiers, end, "; ".join(errors) or None
 
 
