@@ -284,6 +284,17 @@ class TraceabilityContracts(unittest.TestCase):
         self.assertRejected(apa_text="korean-editing P-SONG2013·2008")
         self.assertAccepted(apa_text="korean-editing P-SONG2008·2013")
 
+    # Review 8026892: after a descending year step, the next step is judged
+    # against that step's end, not against the first year.
+    def test_year_step_updates_the_previous_end(self):
+        text = "P-SONG2013·2008–2010"
+        identifiers, end, malformed = trace._expand(text, len("P-SONG2013"), "P-SONG", "2013")
+        self.assertEqual(len(text), end)
+        self.assertEqual(["P-SONG2013", "P-SONG2008", "P-SONG2010"], identifiers)
+        self.assertEqual("descending range P-SONG2013–2008", malformed)
+        identifiers, end, malformed = trace._expand("P-SONG2013·2008·2009", len("P-SONG2013"), "P-SONG", "2013")
+        self.assertEqual("descending range P-SONG2013–2008", malformed)
+
     # Review 8363a6a (B): an ID defined only by a heading must be recognized
     # in its own skill's prose, not only by the other skill's cross-check.
     def test_heading_defined_ids_are_recognized_in_their_own_prose(self):

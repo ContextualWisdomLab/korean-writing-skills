@@ -203,6 +203,7 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         if year_tail and int(year_tail.group(1)) < previous:
             errors.append(f"descending range {family}{previous}–{year_tail.group(1)}")
             identifiers.append(family + year_tail.group(1))
+            previous = int(year_tail.group(1))
             end += year_tail.end()
             continue
         item = listed.match(prose, end)
