@@ -15,7 +15,7 @@
 | Rubric·PLD·Standards | **반영(잠정)** | 한국어 평가 논문 전문 확보 | pld-and-standards-framework.md·rubric-source-ledger.md; round-2는 철회 이력 | Zotero/원문 접근 |
 | APA 원문 | **부분 확인** | 판권지·미확인 절과 필요한 인쇄쪽만 추가 확인 | source-ledger의 2026-09-20~21 확인 기록 | 소장본 접근 |
 | PR 검증 | **진행** | 현재 exact head의 적용 가능한 필수 검사와 비작성자 검토 확인 | PR #4 | 원문 미확인과 CI 실패·대기를 구분 |
-| 출처 ID 추적 | **ID 대응 자동 검사** | 규칙 내용과 원문 대응은 사람 검토 유지 | `tests/source_traceability_test.py`, `tests/test_source_traceability.py` | 장부 정의 형식(제목 `ID ·`, 표 첫 칸, `- ID:`) |
+| 출처 ID 추적 | **ID 대응 자동 검사** | 규칙 내용과 원문 대응은 사람 검토 유지 | `tests/source_traceability_test.py`, `tests/test_source_traceability.py` | 장부 정의 형식(제목 첫 `ID ·`와 `과/와 ID ·`, 표 첫 칸, `- ID:`)과 `ARCHITECTURE.md`의 인식 형식 |
 | 제품·기술 Gap baseline | **초안** | exact-head 증거와 release 상태를 계속 갱신 | `docs/product-technical-gap-baseline.md` | PR #4 보호 브랜치 통합 |
 | 제한 범위 preview | **범위를 구분한 역사 검증·게시; 후속 검토 진행** | 현재 successor의 source·한정 회귀·비작성자 검토와 exact-head hosted 검사를 따로 확인 | 2026-10-04 패키저 6파일 독립 검토·합성 3사례는 `evaluations/runs/usability-20261004/review.md`와 `package-review-accepted.json`; 2026-10-05 전체 45경로 증분 검토·게시와 후속 정산은 `docs/review-followup-20261005.md` | 기존 29시험·8우회 거부·8안전 대조·반복 빌드·설치 발견은 해당 역사 범위만 통과. 후속 작업에서 재실행하지 않음. 게시·한정 독립 검토는 hosted 승인·release가 아님 |
 | Issue #2 실제 팀 사용 | **미완료** | 사용한 스킬 digest·작업 유형·비식별 전후 예문·도움·어색함·의미손실·과잉교정·지연·수정 여부와 독립 재검증 수집 | 과거 dogfood 1건은 `skills/korean-editing/references/validation.md`; 새 합성 평가와 구분 | 실제 사용자의 피드백, 비공개 원문 보호 |

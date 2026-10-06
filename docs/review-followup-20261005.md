@@ -15,8 +15,8 @@
 | --- | --- | --- |
 | 4179819746 | 유효. 175는 diff 파일 수, 검토 한도는 100 | CHANGELOG에서 두 수치를 구분 |
 | 4179819765 | 유효한 기준 모호함. K16은 두 필수 지점 누락 시 실패라고 하면서 2점 이하라고 적음 | 동결 기준은 보존. 아래 E-1에 향후 판정 해석과 한계 기록 |
-| 4179819770 | 현재 source에서 이미 해결. `status.md`와 세 기록이 모두 추적되어 있고 blind 수용 조건·독립성 미확인이 명시됨 | PR #5 head `f5de042`에는 실제로 없었고 후속 stack의 `2b0d86c`부터 추적됨. 현재 source 기준의 작성자 초기 부재 판단만 철회. 원본과 정상 locator 보존; E-2는 판단 오류 정정 |
-| 4179819773 | PR #5 head `f5de042`에는 부재, 후속 stack에서 추가되어 현재 source에서 해결. 지적의 4개 출력 경로가 모두 존재 | 링크·출력 파일을 삭제하거나 미포함으로 바꾸지 않음 |
+| 4179819770 | 현재 source에서 이미 해결. `status.md`와 세 기록이 모두 추적되어 있고 blind 수용 조건·독립성 미확인이 명시됨 | PR #5 head `f5de042`에는 실제로 없었다. 파일은 `2b0d86c`에서 처음 추가된 PR #4 쪽 이력이 merge `6070799`로 합쳐지면서 `8aa89922`에 들어왔다. 현재 source 기준의 작성자 초기 부재 판단만 철회. 원본과 정상 locator 보존; E-2는 판단 오류 정정 |
+| 4179819773 | PR #5 head `f5de042`에는 부재. 출력 파일은 PR #4 쪽 이력에서 추가되어 merge `6070799`로 현재 source에 들어왔으므로 해결. 지적의 4개 출력 경로가 모두 존재 | 링크·출력 파일을 삭제하거나 미포함으로 바꾸지 않음 |
 | 4179819777 | 유효. 분석 루브릭의 `1–2处`는 오타 | 원본 보존. E-3에 `1–2곳` 해석 기록 |
 | 4179819782 | 유효한 판정 요약 누락. 1점도 통과하지 않음 | 원본 보존. E-4에서 각 축 2점 이상 기준 확인 |
 | 4179819786 | 유효한 출처 보존 결함. 쪽수 제외 요청은 학위논문 출처·2023년 삭제 허가가 아님 | K11 기준·출력·점수는 보존. E-5에서 과거 통과 주장의 사용 범위 제한 |
@@ -96,4 +96,4 @@
 
 ## 실행 의존성 근거
 
-초기 초안에 선기입한 공식 문서 열람 주장은 근거에서 제외한다. 2026-10-05 동일 세션 복구 후 실제 web.run으로 다음 공식 본문을 직접 열었다. 이는 늦은 확인이며 초안 작성 전 열람이나 과거 기록을 소급 인증하지 않는다. [PyYAML Documentation의 Loading YAML](https://pyyaml.org/wiki/PyYAMLDocumentation)은 일반 load의 객체 생성 위험과 safe_load의 제한을 설명한다. 이 validator는 safe_load를 사용하고 결과의 타입을 따로 검사한다. [markdown-it-py Using](https://markdown-it-py.readthedocs.io/en/latest/using.html)의 token·environment 구조를 사용한다. [Git ls-files의 -z/OUTPUT](https://git-scm.com/docs/git-ls-files)은 NUL 구분과 파일명 인용 없는 출력을 설명한다. 이 열람은 실행 helper의 근거이지 APA 원문 재열람이나 과거 기록의 소급 인증이 아니다.
+2026-10-05에 다음 공식 문서를 열람했다(확인일). [PyYAML Documentation의 Loading YAML](https://pyyaml.org/wiki/PyYAMLDocumentation)은 일반 load의 객체 생성 위험과 safe_load의 제한을 설명한다. 이 validator는 safe_load를 사용하고 결과의 타입을 따로 검사한다. [markdown-it-py Using](https://markdown-it-py.readthedocs.io/en/latest/using.html)의 token·environment 구조를 사용한다. [Git ls-files의 -z/OUTPUT](https://git-scm.com/docs/git-ls-files)은 NUL 구분과 파일명 인용 없는 출력을 설명한다. 이 열람은 실행 helper의 근거이며 APA 원문 재열람이 아니다.

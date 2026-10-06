@@ -15,7 +15,7 @@
 ```bash
 uv sync --locked --python 3.14
 uv run --locked python scripts/package_skills.py --output "$HOME/skill-preview-output"
-uv run --locked python -m unittest discover -s tests -p 'test_package_skills.py' -v
+uv run --locked python -m unittest discover -s tests -p 'test_*.py' -v
 uv run --locked python tests/skill_structure_test.py
 uv run --locked python tests/source_traceability_test.py
 bash tests/public_hygiene_test.sh

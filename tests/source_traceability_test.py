@@ -1,71 +1,72 @@
 #!/usr/bin/env python3
-"""Check that every source ID cited by a shipped skill is defined in a ledger.
+"""Check that source IDs cited by a shipped skill are defined in a ledger.
 
 Each skill is packaged independently, so its source IDs must resolve in its own
 ``references/source-ledger.md``. A pointer to the other skill's ledger is
-allowed only when the IDs are immediately qualified with that skill name, e.g.
-``korean-editing K2``. Run: uv run --locked python tests/source_traceability_test.py
+allowed only when the IDs are qualified with that skill name in the same prose
+run, e.g. ``korean-editing K2`` or ``korean-editing M-HANI1–4, M-HEO1``.
+Run: uv run --locked python tests/source_traceability_test.py
 
-This is a citation-to-ledger gate. It does not prove that a ledger entry was
-read correctly or that a rule is supported by its source.
+Recognized citation forms (prose only; CommonMark code, HTML, link
+destinations and bare URLs are skipped, and prose runs break at line ends):
+
+- a ledger family followed by a number, e.g. ``N-Q3``, ``S8``, ``P-SONG2008``.
+  Families are derived from the IDs the two ledgers define;
+- an atomic ledger name, e.g. ``A-REF``, or an unknown name with a registered
+  atomic prefix, e.g. ``A-STU``;
+- an unknown hyphenated family with a number, e.g. ``B-NEW1``;
+- ranges with ``–``, ``-``, ``~`` or ``—`` (optionally spaced) and lists with
+  ``·`` or ``/``. Descending ranges and ranges longer than 50 are rejected;
+  four-digit numbers (years) are endpoints, not expanded.
+
+Unknown single-letter tokens such as ``A4`` or ``X9`` are not recognized, and
+unqualified ``H`` numbers in the APA skill are read as hypotheses. This is a
+citation-to-ledger gate for the forms above. It does not prove that a ledger
+entry was read correctly or that a rule is supported by its source.
 """
 from __future__ import annotations
 
 import re
 from pathlib import Path
 
+from markdown_it import MarkdownIt
+
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ("korean-editing", "apa7-manuscript-writing")
 
-# ID families owned by each skill. Single letters need a number; hyphenated
-# families may appear bare (for example ``M-HANI``) as a family reference.
-MULTI_FAMILIES = {
-    "korean-editing": ("M-HANI", "M-HEO", "B-KBS", "U-KUPIS", "U-KHU", "P-SONG", "E-AKS", "N-Q"),
-    "apa7-manuscript-writing": ("U-KHU",),
-}
-SINGLE_FAMILIES = {
-    "korean-editing": ("K", "H", "G", "J", "E", "U", "N"),
-    "apa7-manuscript-writing": ("S",),
-}
-# APA guide IDs are atomic uppercase names such as A-REF or A-SECONDARY-WEB.
-APA_NAME = r"A-[A-Z]+(?:-[A-Z]+)*"
 # Abbreviations whose definition sentence must stay in the named ledger entry.
 ALIASES = {
     "korean-editing": {"N41": "K2", "N42": "K2", "N43": "K2"},
 }
 ALIAS_DEFINITION_TEXT = {("korean-editing", "K2"): "N41·N42·N43"}
-# In APA prose H1–H5 normally means hypotheses, not the Korean ledger's H1.
-EXCLUDED_SINGLE = {"apa7-manuscript-writing": {"H"}}
+# In APA prose an unqualified H1–H5 normally means hypotheses.
+EXCLUDED_UNQUALIFIED_FAMILIES = {"apa7-manuscript-writing": {"H"}}
+MAX_RANGE = 50
 
 # A ledger ID has a number (S1, N-Q3) or a hyphenated family name (A-REF,
-# U-KHU). Field labels such as ``- URL:`` or ``- SHA-256:`` are not
-# definitions: every hyphenated segment of an ID must contain a letter.
+# U-KHU). Field labels such as ``URL`` or ``SHA-256`` are not definitions:
+# every hyphenated segment of an ID must contain a letter.
 ID_NAME = r"(?:[A-Z][A-Z0-9]*(?:-[A-Z0-9]*[A-Z][A-Z0-9]*)+|[A-Z]+\d+)"
-HEADING_DEFINITION = re.compile(rf"({ID_NAME})\s+·")
+HEADING_DEFINITION = re.compile(rf"^##\s+({ID_NAME})\s+·")
+# Only an explicit 과/와 joiner adds a second ID to the same heading.
+HEADING_JOINED_DEFINITION = re.compile(rf"(?:과|와)\s+({ID_NAME})\s+·")
 TABLE_DEFINITION = re.compile(rf"^\|\s*({ID_NAME})\s*\|")
 BULLET_DEFINITION = re.compile(rf"^-\s+({ID_NAME}):")
 
+# A bare name must not continue as ``-digits`` (SHA-256, UTF-8, COVID-19).
+TOKEN = re.compile(
+    r"(?<![A-Za-z0-9_%/.#-])(?P<name>[A-Z]+(?:-[A-Z]+)*)(?P<digits>\d+)?"
+    r"(?(digits)(?![A-Za-z0-9_])|(?![A-Za-z0-9_]|-[A-Za-z0-9]))"
+)
+RANGE_TAIL = r"[ \t]?[–~—-][ \t]?(?:{family})?(\d+)(?![A-Za-z0-9_]|\.\d)"
+LIST_TAIL = r"[·/](?:{family})?(\d+)(?![A-Za-z0-9_]|\.\d)"
+CARRY_GAP = re.compile(r"[ \t]*[·,][ \t]*")
+QUALIFIER_BEFORE = re.compile(r"(?:^|[^A-Za-z0-9-])(korean-editing|apa7-manuscript-writing)[ \t]+$")
+URL = re.compile(r"<?https?://[^\s)>|]+>?")
 
-def _token_pattern(skill: str) -> re.Pattern[str]:
-    multi = set(MULTI_FAMILIES["korean-editing"]) | set(MULTI_FAMILIES["apa7-manuscript-writing"])
-    single = set(SINGLE_FAMILIES["korean-editing"]) | set(SINGLE_FAMILIES["apa7-manuscript-writing"])
-    single -= EXCLUDED_SINGLE.get(skill, set())
-    multi_alt = "|".join(sorted((re.escape(f) for f in multi), key=len, reverse=True))
-    single_alt = "|".join(sorted(single))
-    return re.compile(
-        rf"(?<![A-Za-z0-9_%/.#-])(?:(?P<apa>{APA_NAME})|(?P<multi>{multi_alt})(?P<mdigits>\d*)"
-        rf"|(?P<single>{single_alt})(?P<sdigits>\d+))(?![A-Za-z0-9_])"
-    )
 
-
-def _strip_non_prose(text: str) -> str:
-    """Blank code, link destinations and URLs while keeping line positions."""
-    blank = lambda match: re.sub(r"[^\n]", " ", match.group(0))
-    text = re.sub(r"(?ms)^(```|~~~).*?^\1[^\n]*$", blank, text)
-    text = re.sub(r"`[^`\n]*`", blank, text)
-    text = re.sub(r"\]\([^)\n]*\)", blank, text)
-    text = re.sub(r"<?https?://[^\s)>|]+>?", blank, text)
-    return text
+def family_of(identifier: str) -> str:
+    return re.sub(r"\d+$", "", identifier)
 
 
 def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
@@ -75,11 +76,13 @@ def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
     for number, line in enumerate(ledger_text.splitlines(), 1):
         found: list[str] = []
         if line.startswith("## "):
-            found = HEADING_DEFINITION.findall(line)
+            first = HEADING_DEFINITION.match(line)
+            if first:
+                found = [first.group(1), *HEADING_JOINED_DEFINITION.findall(line, first.end())]
         else:
             for pattern in (TABLE_DEFINITION, BULLET_DEFINITION):
                 match = pattern.match(line)
-                if match and match.group(1) != "ID":
+                if match:
                     found.append(match.group(1))
         for identifier in found:
             if identifier in defined:
@@ -92,91 +95,166 @@ def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
 def _ledger_section(ledger_text: str, identifier: str) -> str:
     lines = ledger_text.splitlines()
     for index, line in enumerate(lines):
-        if line.startswith("## ") and identifier in HEADING_DEFINITION.findall(line):
+        match = HEADING_DEFINITION.match(line)
+        if match and match.group(1) == identifier:
             end = next((j for j in range(index + 1, len(lines)) if lines[j].startswith("## ")), len(lines))
             return "\n".join(lines[index:end])
     return ""
 
 
-def cited_ids(text: str, skill: str) -> list[tuple[int, str, str | None]]:
-    """Return (line, ID, qualifier skill or None) for every source-ID citation."""
-    prose = _strip_non_prose(text)
-    pattern = _token_pattern(skill)
-    results: list[tuple[int, str, str | None]] = []
-    previous_end = 0
-    qualifier: str | None = None
-    for match in pattern.finditer(prose):
-        gap = prose[previous_end:match.start()]
-        if qualifier and re.fullmatch(r"[\s·,]*", gap):
-            pass
+def prose_segments(text: str) -> list[tuple[int, str]]:
+    """Return (one-based line, text) prose runs from CommonMark inline text.
+
+    Runs break at line ends, code, HTML, link boundaries and bare URLs, so a
+    qualifier cannot carry across them.
+    """
+    lines = text.split("\n")
+    if lines and lines[0].strip() == "---":
+        closing = next((i for i in range(1, len(lines)) if lines[i].strip() == "---"), None)
+        if closing is not None:
+            lines[: closing + 1] = [""] * (closing + 1)
+    segments: list[tuple[int, str]] = []
+    for token in MarkdownIt("commonmark").parse("\n".join(lines)):
+        if token.type != "inline" or token.map is None:
+            continue
+        line = token.map[0] + 1
+        buffer: list[str] = []
+
+        def flush() -> None:
+            joined = "".join(buffer)
+            buffer.clear()
+            segments.extend((line, part) for part in URL.split(joined) if part.strip())
+
+        for child in token.children or []:
+            if child.type == "text":
+                buffer.append(child.content)
+            elif child.type in {"softbreak", "hardbreak"}:
+                flush()
+                line += 1
+            elif child.type in {"em_open", "em_close", "strong_open", "strong_close"}:
+                continue
+            else:
+                flush()
+        flush()
+    return segments
+
+
+class _Index:
+    """Defined IDs and numbered families derived from both ledgers."""
+
+    def __init__(self, ledgers: dict[str, dict[str, int]]):
+        self.defined = ledgers
+        self.numbered: dict[str, set[str]] = {}
+        self.atomic_prefixes: set[str] = set()
+        for skill, defined in ledgers.items():
+            names = set(defined) | set(ALIASES.get(skill, {}))
+            self.numbered[skill] = {family_of(name) for name in names if re.search(r"\d$", name)}
+            self.atomic_prefixes |= {name.split("-")[0] for name in names if "-" in name and not re.search(r"\d$", name)}
+        self.all_numbered = set().union(*self.numbered.values())
+
+    def is_defined(self, skill: str, identifier: str) -> bool:
+        return ALIASES.get(skill, {}).get(identifier, identifier) in self.defined.get(skill, {})
+
+
+def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], int, str | None]:
+    """Expand a range or list that follows ``family+digits`` at ``end``."""
+    identifiers = [family + digits]
+    escaped = re.escape(family)
+    ranged = re.compile(RANGE_TAIL.format(family=escaped)).match(prose, end)
+    if ranged:
+        stop_digits = ranged.group(1)
+        start, stop = int(digits), int(stop_digits)
+        end = ranged.end()
+        if len(digits) >= 4 or len(stop_digits) >= 4:
+            identifiers.append(family + stop_digits)
+        elif stop < start:
+            return identifiers, end, f"descending range {family}{digits}–{stop_digits}"
+        elif stop - start > MAX_RANGE:
+            return identifiers, end, f"range {family}{digits}–{stop_digits} is longer than {MAX_RANGE}"
         else:
-            qualified = re.search(r"(korean-editing|apa7-manuscript-writing)\s+$", gap)
-            qualifier = qualified.group(1) if qualified else None
-        line = prose.count("\n", 0, match.start()) + 1
-        if match.group("apa"):
-            identifiers = [match.group("apa")]
-        else:
-            family = match.group("multi") or match.group("single")
-            digits = match.group("mdigits") if match.group("multi") else match.group("sdigits")
-            identifiers = [family + digits] if digits or match.group("multi") else []
-            end = match.end()
+            identifiers = [family + str(n) for n in range(start, stop + 1)]
+    listed = re.compile(LIST_TAIL.format(family=escaped))
+    while item := listed.match(prose, end):
+        identifiers.append(family + item.group(1))
+        end = item.end()
+    return identifiers, end, None
+
+
+def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]]:
+    """Return (line, message) errors for one skill document."""
+    errors: list[tuple[int, str]] = []
+    excluded = EXCLUDED_UNQUALIFIED_FAMILIES.get(skill, set())
+    for line, prose in prose_segments(text):
+        carry: str | None = None
+        position = 0
+        for match in TOKEN.finditer(prose):
+            if match.start() < position:
+                continue
+            family, digits = match.group("name"), match.group("digits") or ""
+            qualified = QUALIFIER_BEFORE.search(prose, 0, match.start())
+            if qualified:
+                owner: str | None = qualified.group(1)
+            elif (
+                carry
+                and CARRY_GAP.fullmatch(prose[position:match.start()])
+                and family in index.numbered.get(carry, set()) | set(index.defined.get(carry, {}))
+            ):
+                owner = carry
+            else:
+                owner = None
+            context = owner or skill
             if digits:
-                family_ref = re.escape(family)
-                span = re.compile(rf"[–-](?:{family_ref})?(\d+)(?![A-Za-z0-9_.])")
-                listed = re.compile(rf"·(?:{family_ref})?(\d+)(?![A-Za-z0-9_.])")
-                ranged = span.match(prose, end)
-                if ranged and int(ranged.group(1)) > int(digits):
-                    identifiers = [family + str(n) for n in range(int(digits), int(ranged.group(1)) + 1)]
-                    end = ranged.end()
-                while item := listed.match(prose, end):
-                    identifiers.append(family + item.group(1))
-                    end = item.end()
-            previous_end = end
-        if match.group("apa"):
-            previous_end = match.end()
-        results.extend((line, identifier, qualifier) for identifier in identifiers)
-    return results
+                known = family in index.all_numbered
+                if (known and owner is None and family in excluded) or (not known and "-" not in family):
+                    position, carry = match.end(), None
+                    continue
+                identifiers, position, malformed = _expand(prose, match.end(), family, digits)
+                if malformed:
+                    errors.append((line, f"malformed source ID {malformed}"))
+            else:
+                position = match.end()
+                if "-" in family and family in index.numbered.get(context, set()):
+                    carry = owner  # bare family reference such as M-HANI
+                    continue
+                atomic = family.split("-")[0] in index.atomic_prefixes and re.fullmatch(r"[A-Z]+(?:-[A-Z]{2,})+", family)
+                if not (atomic or family in index.defined.get(context, {})):
+                    carry = None
+                    continue
+                identifiers = [family]
+            carry = owner
+            for identifier in identifiers:
+                if index.is_defined(context, identifier):
+                    continue
+                if owner is None and any(index.is_defined(other, identifier) for other in SKILLS if other != skill):
+                    errors.append((line, f"{identifier} belongs to another skill ledger; qualify it with that skill name"))
+                else:
+                    errors.append((line, f"source ID {identifier} is not defined in {context} ledger"))
+    return errors
 
 
 def validate_repository(root: Path) -> list[str]:
     """Validate both skills under ``root`` and return human-readable errors."""
-    ledgers: dict[str, tuple[str, dict[str, int]]] = {}
+    texts: dict[str, str] = {}
+    ledgers: dict[str, dict[str, int]] = {}
     errors: list[str] = []
     for skill in SKILLS:
         ledger_path = root / "skills" / skill / "references" / "source-ledger.md"
         if not ledger_path.is_file():
             errors.append(f"{skill}: missing references/source-ledger.md")
             continue
-        text = ledger_path.read_text(encoding="utf-8")
-        defined, duplicate_errors = ledger_definitions(text)
+        texts[skill] = ledger_path.read_text(encoding="utf-8")
+        ledgers[skill], duplicate_errors = ledger_definitions(texts[skill])
         errors.extend(f"{skill}: {error}" for error in duplicate_errors)
-        ledgers[skill] = (text, defined)
-    for skill, (ledger_text, defined) in ledgers.items():
+    for skill, ledger_text in texts.items():
         for alias, target in ALIASES.get(skill, {}).items():
-            required = ALIAS_DEFINITION_TEXT[(skill, target)]
-            if required not in _ledger_section(ledger_text, target):
+            if ALIAS_DEFINITION_TEXT[(skill, target)] not in _ledger_section(ledger_text, target):
                 errors.append(f"{skill}: alias {alias} lost its definition in ledger entry {target}")
+    index = _Index(ledgers)
     for skill in ledgers:
         for document in sorted((root / "skills" / skill).rglob("*.md")):
             relative = document.relative_to(root)
-            for line, identifier, qualifier in cited_ids(document.read_text(encoding="utf-8"), skill):
-                owner = qualifier or skill
-                if owner not in ledgers:
-                    continue
-                ledger_text, defined = ledgers[owner]
-                target = ALIASES.get(owner, {}).get(identifier, identifier)
-                family_members = [name for name in defined if name.startswith(identifier)]
-                bare_family = identifier in MULTI_FAMILIES.get(owner, ()) and family_members
-                if target in defined or bare_family:
-                    continue
-                where = f"{relative}:{line}"
-                if qualifier is None and any(
-                    ALIASES.get(other, {}).get(identifier, identifier) in data[1]
-                    for other, data in ledgers.items() if other != skill
-                ):
-                    errors.append(f"{where}: {identifier} belongs to another skill ledger; qualify it with that skill name")
-                else:
-                    errors.append(f"{where}: source ID {identifier} is not defined in {owner} ledger")
+            for line, message in check_document(document.read_text(encoding="utf-8"), skill, index):
+                errors.append(f"{relative}:{line}: {message}")
     return errors
 
 

@@ -122,6 +122,77 @@ class TraceabilityContracts(unittest.TestCase):
     def test_bare_family_name_is_accepted_when_a_member_exists(self):
         self.assertAccepted(korean_text="M-HANI·M-HEO 권고")
 
+    # Review 94385d6 D1: a qualifier must not leak past a line, blank line,
+    # link, URL or code span, nor onto another skill's family.
+    def test_qualifier_does_not_leak(self):
+        for text in (
+            "korean-editing G1\n\nE1 규칙을 적용한다.",
+            "korean-editing G1\nE1 규칙",
+            "[korean-editing G1](https://example.org) E1",
+            "korean-editing G1 https://example.org E1",
+            "korean-editing G1 `x`, E1",
+            "korean-editing G1 그리고 E1",
+        ):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+
+    def test_qualifier_does_not_capture_own_family(self):
+        self.assertAccepted(apa_text="korean-editing G1, S2")
+        self.assertAccepted(apa_text="korean-editing M-HANI1–2, M-HEO1")
+
+    # D2: sentence-final ranges and lists must keep their end.
+    def test_sentence_final_ranges_and_lists_are_checked(self):
+        for text in ("상담 N-Q1–5.", "칼럼 M-HANI1·5.", "근거는 N-Q1–N-Q4. 끝"):
+            with self.subTest(text=text):
+                self.assertRejected(korean_text=text)
+        for text in ("근거는 S1-S12.", "S1–S3. 끝"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertAccepted(korean_text="상담 N-Q1–3. 칼럼 M-HANI1·2.")
+
+    # D3: other range separators, and malformed descending ranges.
+    def test_other_range_separators_and_descending_ranges(self):
+        for text in ("S1~12", "S1—12", "S1 – 12", "S1/S12", "S2–S1"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertAccepted(apa_text="S1~2, S1 – 2, S1/S2")
+
+    # D4: families come from the ledgers; qualified tokens use the owner's families.
+    def test_families_are_derived_from_ledgers(self):
+        ledger = KOREAN_LEDGER + "\n## R-NIKL1 · 새 자료\n"
+        self.assertRejected(korean_text="R-NIKL9 근거", korean_ledger=ledger)
+        self.assertAccepted(korean_text="R-NIKL1 근거", korean_ledger=ledger)
+
+    def test_unregistered_hyphenated_ids_are_rejected(self):
+        for text in ("B-NEW1 근거", "M-KBS1 근거"):
+            with self.subTest(text=text):
+                self.assertRejected(korean_text=text)
+        self.assertAccepted(korean_text="SHA-256, UTF-8, COVID-19, K-ANX")
+
+    def test_qualified_hypothesis_family_uses_owner_ledger(self):
+        self.assertRejected(apa_text="korean-editing H7 참고")
+        self.assertAccepted(apa_text="korean-editing H1 참고")
+
+    # D5: heading definitions are anchored, with an explicit 과/와 joiner.
+    def test_heading_definitions_are_anchored(self):
+        self.assertEqual({"K3"}, set(trace.ledger_definitions("## K3 · 자료 (K9 · 메모)\n")[0]))
+        self.assertEqual({"E1", "U1"}, set(trace.ledger_definitions("## E1 · 편집 판단과 U1 · 사용자 선호\n")[0]))
+
+    # D6: heading and table labels are not definitions either.
+    def test_heading_and_table_labels_are_not_definitions(self):
+        self.assertEqual({}, trace.ledger_definitions("## URL · x\n## SHA-256 · y\n| URL | z |\n| SHA-256 | w |\n- DOI: v\n")[0])
+
+    # D7: CommonMark code spans, comments and invalid link destinations.
+    def test_code_comments_and_invalid_link_destinations(self):
+        self.assertAccepted(apa_text="``S99`` and <!-- S98 -->")
+        self.assertRejected(apa_text="[주의](S12 참조)")
+        self.assertAccepted(korean_text="A-B 비교")
+
+    # D8: bounded expansion and year-like IDs.
+    def test_large_ranges_are_rejected_and_year_ids_are_endpoints(self):
+        self.assertRejected(apa_text="S1–10000000")
+        self.assertAccepted(korean_text="P-SONG2008–2013")
+
     def test_shipped_skills_are_traceable(self):
         self.assertEqual([], trace.validate_repository(ROOT))
 
