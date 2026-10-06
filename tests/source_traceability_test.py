@@ -74,8 +74,8 @@ RANGE_TAIL = (
     + r"|(?<=[ \t])(\d+)(?:" + BARE_NUMBER_END + r"))"
 )
 LIST_TAIL = (
-    r"(?:[·/](?:{family})?(\d+)" + NUMBER_END + r"|,[ \t]*{family}(\d+)" + NUMBER_END
-    + r"|,[ \t]*(\d+)(?:" + BARE_NUMBER_END + r"))"
+    r"(?:[·/](?:{family})?(\d+)" + NUMBER_END + r"|,(?![ \t]*(?:[A-Z]+(?:-[A-Z]+)*\d+)?[ \t]*[–~—-])[ \t]*(?:{family}(\d+)" + NUMBER_END
+    + r"|(\d+)(?:" + BARE_NUMBER_END + r")))"
 )
 CARRY_GAP = re.compile(r"[ \t\u00a0]*[·,][ \t\u00a0]*")
 QUALIFIER_BEFORE = re.compile(r"(?<![A-Za-z0-9-])(korean-editing|apa7-manuscript-writing)[ \t\u00a0]+$")
@@ -105,8 +105,7 @@ def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
         for identifier in found:
             if identifier in defined:
                 errors.append(f"duplicate ledger ID {identifier} at lines {defined[identifier]} and {number}")
-            else:
-                defined[identifier] = number
+            defined[identifier] = number
     return defined, errors
 
 
@@ -198,15 +197,18 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
     errors: list[str] = []
     listed = re.compile(LIST_TAIL.format(family=escaped))
     ranged_after = re.compile(RANGE_TAIL.format(family=escaped))
+    previous = int(digits)
     while item := listed.match(prose, end) or ranged_after.match(prose, end):
         number = next(group for group in item.groups() if group)
-        start, stop = int(digits), int(number)
+        stop = int(number)
+        expanding = ranged_after.match(prose, end) is not None and listed.match(prose, end) is None
         end = item.end()
-        if len(digits) < 4 and len(number) < 4 and stop < start:
-            errors.append(f"descending range {family}{digits}–{number}")
-        elif len(digits) < 4 and len(number) < 4 and stop - start > MAX_RANGE:
-            errors.append(f"range {family}{digits}–{number} is longer than {MAX_RANGE}")
+        if expanding and len(number) < 4 and stop < previous:
+            errors.append(f"descending range {family}{previous}–{number}")
+        elif expanding and len(number) < 4 and stop - previous > MAX_RANGE:
+            errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")
         identifiers.append(family + number)
+        previous = stop
     return identifiers, end, "; ".join(errors) or None
 
 

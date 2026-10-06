@@ -252,6 +252,23 @@ class TraceabilityContracts(unittest.TestCase):
         self.assertRejected(korean_text="N-Q1·N-Q2-N-Q9 참고")
         self.assertAccepted(apa_text="S1·2 참고")
 
+    # Review 8363a6a (A): a descending range after a list is malformed even
+    # when every endpoint is defined, and the reported span is the actual
+    # last step, not the list's first item.
+    def test_descending_range_after_a_list_is_malformed(self):
+        for text in ("S1·S2–1 참고", "S1·2–1 참고"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(errors)
+                self.assertTrue(any("descending range S2–1" in error for error in errors), errors)
+
+    # Review 8363a6a (B): an ID defined only by a heading must be recognized
+    # in its own skill's prose, not only by the other skill's cross-check.
+    def test_heading_defined_ids_are_recognized_in_their_own_prose(self):
+        self.assertAccepted(korean_text="E1 규칙.")
+        self.assertAccepted(korean_text="E1·U1 참고")
+        self.assertRejected(apa_text="E1 규칙.")
+
     # Regression 95710f4: checking a year range must not change who owns it,
     # so a valid year range qualified to another skill's ledger stays valid.
     def test_qualified_year_ranges_keep_their_owner(self):
