@@ -10,13 +10,14 @@
 
 ## Preview 패키지 만들기
 
-저장소 루트에서 Python 3.10 이상과 `uv`를 사용한다. 링크 검사에는 버전과 해시를 잠근 `markdown-it-py` 의존성이 필요하다. API key는 필요하지 않다. 아래 명령은 에이전트의 `terminal` 도구로도 실행할 수 있다.
+저장소 루트에서 Python 3.10 이상과 `uv`를 사용한다. 링크 검사에는 버전과 해시를 잠근 `markdown-it-py`, 구조 검사의 YAML frontmatter 파싱에는 `PyYAML` 의존성이 필요하다. API key는 필요하지 않다. 아래 명령은 에이전트의 `terminal` 도구로도 실행할 수 있다.
 
 ```bash
 uv sync --locked --python 3.14
 uv run --locked python scripts/package_skills.py --output "$HOME/skill-preview-output"
 uv run --locked python -m unittest discover -s tests -p 'test_package_skills.py' -v
 uv run --locked python tests/skill_structure_test.py
+uv run --locked python tests/source_traceability_test.py
 bash tests/public_hygiene_test.sh
 ```
 

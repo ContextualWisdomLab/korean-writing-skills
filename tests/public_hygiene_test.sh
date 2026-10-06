@@ -38,9 +38,9 @@ for removed_artifact in "${removed_runtime_artifacts[@]}"; do
 done
 
 tracked_files=()
-while IFS= read -r tracked_file; do
+while IFS= read -r -d '' tracked_file; do
   tracked_files+=("$tracked_file")
-done < <(git ls-files)
+done < <(git ls-files -z)
 
 absolute_path_pattern='(^|[[:space:]`"'"'"'=(]|file://)(/User'
 absolute_path_pattern+='s|/roo'
