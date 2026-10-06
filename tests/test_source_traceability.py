@@ -262,6 +262,28 @@ class TraceabilityContracts(unittest.TestCase):
                 self.assertTrue(errors)
                 self.assertTrue(any("descending range S2–1" in error for error in errors), errors)
 
+    # Review 4a7d82a R1: a range after a range is judged against the end of
+    # the first range, not against its start.
+    def test_range_after_a_range_is_judged_against_its_end(self):
+        errors = self.check(apa_text="S1–S4-1 참고")
+        self.assertTrue(errors)
+        self.assertTrue(any("descending range S4–1" in error for error in errors), errors)
+
+    # R2: a range after a list expands every ID between its ends.
+    def test_range_after_a_list_expands_its_middle(self):
+        self.assertRejected(apa_text="S1·S2-S9 참고")
+        korean = self.check(korean_text="G1·G2-G5")
+        self.assertTrue(any("G3" in error and "G4" in error and "G5" in error for error in korean) or
+                        {"G3", "G4", "G5"} <= {token for error in korean for token in error.split()}, korean)
+        self.assertEqual(3, sum("source ID G" in error for error in korean), korean)
+
+    # R3: a four-digit list end is checked for order too.
+    def test_year_list_end_is_checked_for_order(self):
+        errors = self.check(korean_text="P-SONG2013·2008")
+        self.assertTrue(any("descending range P-SONG2013–2008" in error for error in errors), errors)
+        self.assertRejected(apa_text="korean-editing P-SONG2013·2008")
+        self.assertAccepted(apa_text="korean-editing P-SONG2008·2013")
+
     # Review 8363a6a (B): an ID defined only by a heading must be recognized
     # in its own skill's prose, not only by the other skill's cross-check.
     def test_heading_defined_ids_are_recognized_in_their_own_prose(self):

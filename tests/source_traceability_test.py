@@ -194,20 +194,40 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             return identifiers, end, f"range {family}{digits}–{stop_digits} is longer than {MAX_RANGE}"
         else:
             identifiers = [family + str(n) for n in range(start, stop + 1)]
-    errors: list[str] = []
     listed = re.compile(LIST_TAIL.format(family=escaped))
     ranged_after = re.compile(RANGE_TAIL.format(family=escaped))
-    previous = int(digits)
-    while item := listed.match(prose, end) or ranged_after.match(prose, end):
-        number = next(group for group in item.groups() if group)
+    previous = int(identifiers[-1][len(family):])
+    errors: list[str] = []
+    while True:
+        year_tail = re.match(r"[·/](\d{4,})(?![A-Za-z0-9_]|\.\d)", prose[end:])
+        if year_tail and int(year_tail.group(1)) < previous:
+            errors.append(f"descending range {family}{previous}–{year_tail.group(1)}")
+            identifiers.append(family + year_tail.group(1))
+            end += year_tail.end()
+            continue
+        item = listed.match(prose, end)
+        if item:
+            number = next(group for group in item.groups() if group)
+            identifiers.append(family + number)
+            previous = int(number)
+            end = item.end()
+            continue
+        nxt = ranged_after.match(prose, end)
+        if nxt is None:
+            break
+        number = next(group for group in nxt.groups() if group)
         stop = int(number)
-        expanding = ranged_after.match(prose, end) is not None and listed.match(prose, end) is None
-        end = item.end()
-        if expanding and len(number) < 4 and stop < previous:
+        end = nxt.end()
+        if stop < previous:
             errors.append(f"descending range {family}{previous}–{number}")
-        elif expanding and len(number) < 4 and stop - previous > MAX_RANGE:
+            identifiers.append(family + number)
+        elif len(number) >= 4 and len(str(previous)) >= 4:
+            identifiers.append(family + number)
+        elif stop - previous > MAX_RANGE:
             errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")
-        identifiers.append(family + number)
+            identifiers.append(family + number)
+        else:
+            identifiers.extend(family + str(n) for n in range(previous + 1, stop + 1))
         previous = stop
     return identifiers, end, "; ".join(errors) or None
 
