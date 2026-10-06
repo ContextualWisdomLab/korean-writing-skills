@@ -212,7 +212,7 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         if item:
             number = next(group for group in item.groups() if group)
             identifiers.append(family + number)
-            previous = int(number)
+            previous, previous_text = int(number), number
             end = item.end()
             continue
         nxt = ranged_after.match(prose, end)
@@ -221,10 +221,12 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         number = next(group for group in nxt.groups() if group)
         stop = int(number)
         end = nxt.end()
-        if stop < previous:
+        if stop == previous:
+            identifiers.append(family + number)
+        elif stop < previous:
             errors.append(f"descending range {family}{previous}–{number}")
             identifiers.append(family + number)
-        elif len(number) >= 4 and len(previous_text) >= 4 and int(number) >= previous:
+        elif (number.startswith("0") or previous_text.startswith("0") or len(number) >= 4) and int(number) >= previous:
             identifiers.append(family + number)
         elif stop - previous > MAX_RANGE:
             errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")

@@ -304,6 +304,21 @@ class TraceabilityContracts(unittest.TestCase):
                 identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
                 self.assertLessEqual(len(identifiers), 3, (identifiers, malformed))
 
+    # Review 811551c (high): the next range uses the list item's own width,
+    # not the width of the first ID.
+    def test_list_item_keeps_its_own_width(self):
+        for text in ("S12·5678–5680", "S1000·100–0102"):
+            with self.subTest(text=text):
+                head = text[:text.index("·")]
+                identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
+                self.assertEqual(3, len(identifiers), (identifiers, malformed))
+
+    # (medium): a range end equal to the ID before it is still recorded.
+    def test_repeated_range_end_is_kept(self):
+        text = "S12·1000–1000"
+        identifiers, end, malformed = trace._expand(text, len("S12"), "S", "12")
+        self.assertEqual(["S12", "S1000", "S1000"], identifiers, malformed)
+
     # Review 8363a6a (B): an ID defined only by a heading must be recognized
     # in its own skill's prose, not only by the other skill's cross-check.
     def test_heading_defined_ids_are_recognized_in_their_own_prose(self):
