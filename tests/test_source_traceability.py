@@ -193,6 +193,58 @@ class TraceabilityContracts(unittest.TestCase):
         self.assertRejected(apa_text="S1–10000000")
         self.assertAccepted(korean_text="P-SONG2008–2013")
 
+    # Review 7e3c8a4 code N1: deleting a whole family from a ledger must not
+    # make its citations invisible.
+    def test_deleting_a_baseline_family_keeps_its_citations_checked(self):
+        self.assertRejected(apa_text="근거 S1", apa_ledger="# 근거 장부\n- A-REF: 안내\n")
+        no_g = KOREAN_LEDGER.replace("## G1 · 저자\n## G2 · 저자\n", "")
+        self.assertRejected(korean_text="저자 G1 참고", korean_ledger=no_g)
+
+    # N2: qualifier lookup must not rescan the whole run for every token.
+    # Measure the scanned span, not wall-clock time, so CI load cannot flake it.
+    def test_qualifier_lookup_scans_a_bounded_window(self):
+        spans = []
+        original = trace.QUALIFIER_BEFORE
+
+        class Recorder:
+            def search(self, text, start, end):
+                spans.append(end - start)
+                return original.search(text, start, end)
+
+        trace.QUALIFIER_BEFORE = Recorder()
+        try:
+            self.assertAccepted(apa_text="가나다라마 S1 " * 4000)
+        finally:
+            trace.QUALIFIER_BEFORE = original
+        self.assertGreaterEqual(len(spans), 4000)
+        self.assertLessEqual(max(spans), trace.QUALIFIER_WINDOW)
+
+    def test_qualifier_accepts_no_break_space(self):
+        self.assertAccepted(apa_text="korean-editing\u00a0G1 참고")
+
+    # N3: a bare number after a comma continues the list.
+    def test_comma_number_lists_are_checked(self):
+        for text in ("S1, 12", "S1,12"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertRejected(korean_text="N-Q1, 9")
+        self.assertAccepted(apa_text="S1, 2")
+
+    # N4: endpoint-only expansion is limited to ascending year pairs.
+    def test_four_digit_ranges_are_endpoints_only_when_both_are_years(self):
+        self.assertRejected(korean_text="P-SONG2013–2008")
+        self.assertRejected(apa_text="S1–S1000")
+
+    # N5: a spaced dash followed by an ordinary word is prose, not a range.
+    def test_spaced_dash_before_a_word_is_not_a_range(self):
+        self.assertAccepted(korean_text="K2 – 9개 조항, G1 - 2023년 개정")
+        self.assertRejected(apa_text="S1 – 12.")
+
+    # N6 / content N2: image alt text is prose and is checked.
+    def test_image_alt_text_is_checked(self):
+        self.assertRejected(apa_text="![S99 그림](x.png)")
+        self.assertAccepted(apa_text="![S2 그림](x.png)")
+
     def test_shipped_skills_are_traceable(self):
         self.assertEqual([], trace.validate_repository(ROOT))
 

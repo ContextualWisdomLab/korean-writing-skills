@@ -11,15 +11,20 @@ Recognized citation forms (prose only; CommonMark code, HTML, link
 destinations and bare URLs are skipped, and prose runs break at line ends):
 
 - a ledger family followed by a number, e.g. ``N-Q3``, ``S8``, ``P-SONG2008``.
-  Families are derived from the IDs the two ledgers define;
+  Families are derived from the IDs the two ledgers define, plus the committed
+  ``BASELINE_FAMILIES``, so deleting a whole family does not hide its citations;
 - an atomic ledger name, e.g. ``A-REF``, or an unknown name with a registered
   atomic prefix, e.g. ``A-STU``;
 - an unknown hyphenated family with a number, e.g. ``B-NEW1``;
-- ranges with ``–``, ``-``, ``~`` or ``—`` (optionally spaced) and lists with
-  ``·`` or ``/``. Descending ranges and ranges longer than 50 are rejected;
-  four-digit numbers (years) are endpoints, not expanded.
+- ranges with ``–``, ``-``, ``~`` or ``—`` and lists with ``·``, ``/`` or
+  ``,``. A spaced range (``S1 – 12``) or a comma item (``S1, 12``) without the
+  family name counts only when the number is not followed by a Hangul word
+  other than a particle, so ``K2 – 9개`` and ``G1, 2023년`` stay prose.
+  Descending ranges and ranges longer than 50 are rejected; an ascending range
+  whose two ends both have four digits (years) is checked at its ends only.
 
-Unknown single-letter tokens such as ``A4`` or ``X9`` are not recognized, and
+Prose includes link text and image alt text. Unknown families without a
+hyphen, such as ``A4``, ``X9``, ``KS9`` or ``PDF1``, are not recognized, and
 unqualified ``H`` numbers in the APA skill are read as hypotheses. This is a
 citation-to-ledger gate for the forms above. It does not prove that a ledger
 entry was read correctly or that a rule is supported by its source.
@@ -42,6 +47,8 @@ ALIAS_DEFINITION_TEXT = {("korean-editing", "K2"): "N41·N42·N43"}
 # In APA prose an unqualified H1–H5 normally means hypotheses.
 EXCLUDED_UNQUALIFIED_FAMILIES = {"apa7-manuscript-writing": {"H"}}
 MAX_RANGE = 50
+# Unhyphenated families that stay recognized even if a ledger loses them all.
+BASELINE_FAMILIES = frozenset({"E", "G", "H", "J", "K", "N", "S", "U"})
 
 # A ledger ID has a number (S1, N-Q3) or a hyphenated family name (A-REF,
 # U-KHU). Field labels such as ``URL`` or ``SHA-256`` are not definitions:
@@ -58,10 +65,21 @@ TOKEN = re.compile(
     r"(?<![A-Za-z0-9_%/.#-])(?P<name>[A-Z]+(?:-[A-Z]+)*)(?P<digits>\d+)?"
     r"(?(digits)(?![A-Za-z0-9_])|(?![A-Za-z0-9_]|-[A-Za-z0-9]))"
 )
-RANGE_TAIL = r"[ \t]?[–~—-][ \t]?(?:{family})?(\d+)(?![A-Za-z0-9_]|\.\d)"
-LIST_TAIL = r"[·/](?:{family})?(\d+)(?![A-Za-z0-9_]|\.\d)"
-CARRY_GAP = re.compile(r"[ \t]*[·,][ \t]*")
-QUALIFIER_BEFORE = re.compile(r"(?:^|[^A-Za-z0-9-])(korean-editing|apa7-manuscript-writing)[ \t]+$")
+NUMBER_END = r"(?![A-Za-z0-9_]|\.\d)"
+# A bare number in a spaced range or comma list must not start a Hangul word
+# (9개, 2023년); a following particle (12에서, 12은) is allowed.
+BARE_NUMBER_END = NUMBER_END + r"(?![가-힣])|(?=[은는이가을를과와의에도로만])"
+RANGE_TAIL = (
+    r"(?:[–~—-]|[ \t][–~—-]|[–~—-][ \t]|[ \t][–~—-][ \t])(?:{family}(\d+)" + NUMBER_END + r"|(?<=[–~—-])(\d+)" + NUMBER_END
+    + r"|(?<=[ \t])(\d+)(?:" + BARE_NUMBER_END + r"))"
+)
+LIST_TAIL = (
+    r"(?:[·/](?:{family})?(\d+)" + NUMBER_END + r"|,[ \t]*{family}(\d+)" + NUMBER_END
+    + r"|,[ \t]*(\d+)(?:" + BARE_NUMBER_END + r"))"
+)
+CARRY_GAP = re.compile(r"[ \t\u00a0]*[·,][ \t\u00a0]*")
+QUALIFIER_BEFORE = re.compile(r"(?<![A-Za-z0-9-])(korean-editing|apa7-manuscript-writing)[ \t\u00a0]+$")
+QUALIFIER_WINDOW = 64
 URL = re.compile(r"<?https?://[^\s)>|]+>?")
 
 
@@ -133,6 +151,10 @@ def prose_segments(text: str) -> list[tuple[int, str]]:
                 line += 1
             elif child.type in {"em_open", "em_close", "strong_open", "strong_close"}:
                 continue
+            elif child.type == "image":
+                flush()
+                buffer.append("".join(c.content for c in child.children or [] if c.type == "text"))
+                flush()
             else:
                 flush()
         flush()
@@ -150,7 +172,7 @@ class _Index:
             names = set(defined) | set(ALIASES.get(skill, {}))
             self.numbered[skill] = {family_of(name) for name in names if re.search(r"\d$", name)}
             self.atomic_prefixes |= {name.split("-")[0] for name in names if "-" in name and not re.search(r"\d$", name)}
-        self.all_numbered = set().union(*self.numbered.values())
+        self.all_numbered = set().union(BASELINE_FAMILIES, *self.numbered.values())
 
     def is_defined(self, skill: str, identifier: str) -> bool:
         return ALIASES.get(skill, {}).get(identifier, identifier) in self.defined.get(skill, {})
@@ -162,10 +184,10 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
     escaped = re.escape(family)
     ranged = re.compile(RANGE_TAIL.format(family=escaped)).match(prose, end)
     if ranged:
-        stop_digits = ranged.group(1)
+        stop_digits = next(group for group in ranged.groups() if group)
         start, stop = int(digits), int(stop_digits)
         end = ranged.end()
-        if len(digits) >= 4 or len(stop_digits) >= 4:
+        if len(digits) >= 4 and len(stop_digits) >= 4 and start <= stop:
             identifiers.append(family + stop_digits)
         elif stop < start:
             return identifiers, end, f"descending range {family}{digits}–{stop_digits}"
@@ -175,7 +197,7 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             identifiers = [family + str(n) for n in range(start, stop + 1)]
     listed = re.compile(LIST_TAIL.format(family=escaped))
     while item := listed.match(prose, end):
-        identifiers.append(family + item.group(1))
+        identifiers.append(family + next(group for group in item.groups() if group))
         end = item.end()
     return identifiers, end, None
 
@@ -191,7 +213,7 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
             if match.start() < position:
                 continue
             family, digits = match.group("name"), match.group("digits") or ""
-            qualified = QUALIFIER_BEFORE.search(prose, 0, match.start())
+            qualified = QUALIFIER_BEFORE.search(prose, max(0, match.start() - QUALIFIER_WINDOW), match.start())
             if qualified:
                 owner: str | None = qualified.group(1)
             elif (
