@@ -195,11 +195,19 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             return identifiers, end, f"range {family}{digits}–{stop_digits} is longer than {MAX_RANGE}"
         else:
             identifiers = [family + str(n) for n in range(start, stop + 1)]
+    errors: list[str] = []
     listed = re.compile(LIST_TAIL.format(family=escaped))
-    while item := listed.match(prose, end):
-        identifiers.append(family + next(group for group in item.groups() if group))
+    ranged_after = re.compile(RANGE_TAIL.format(family=escaped))
+    while item := listed.match(prose, end) or ranged_after.match(prose, end):
+        number = next(group for group in item.groups() if group)
+        start, stop = int(digits), int(number)
         end = item.end()
-    return identifiers, end, None
+        if len(digits) < 4 and len(number) < 4 and stop < start:
+            errors.append(f"descending range {family}{digits}–{number}")
+        elif len(digits) < 4 and len(number) < 4 and stop - start > MAX_RANGE:
+            errors.append(f"range {family}{digits}–{number} is longer than {MAX_RANGE}")
+        identifiers.append(family + number)
+    return identifiers, end, "; ".join(errors) or None
 
 
 def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]]:

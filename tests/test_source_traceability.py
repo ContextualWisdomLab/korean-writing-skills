@@ -245,6 +245,22 @@ class TraceabilityContracts(unittest.TestCase):
         self.assertRejected(apa_text="![S99 그림](x.png)")
         self.assertAccepted(apa_text="![S2 그림](x.png)")
 
+    # Review 95710f4 N1: a range that follows a list must still be expanded.
+    def test_ranges_after_lists_are_expanded(self):
+        self.assertRejected(apa_text="S1·S2-S12 참고")
+        self.assertRejected(apa_text="S1·2–12 참고")
+        self.assertRejected(korean_text="N-Q1·N-Q2-N-Q9 참고")
+        self.assertAccepted(apa_text="S1·2 참고")
+
+    # Regression 95710f4: checking a year range must not change who owns it,
+    # so a valid year range qualified to another skill's ledger stays valid.
+    def test_qualified_year_ranges_keep_their_owner(self):
+        self.assertAccepted(apa_text="korean-editing P-SONG2008–2013 참고")
+
+    def test_unqualified_cross_skill_ids_are_still_rejected(self):
+        self.assertRejected(apa_text="E1 규칙.")
+        self.assertRejected(apa_text="P-SONG2008–2013 참고")
+
     def test_shipped_skills_are_traceable(self):
         self.assertEqual([], trace.validate_repository(ROOT))
 
