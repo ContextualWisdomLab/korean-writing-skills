@@ -335,6 +335,57 @@ class TraceabilityContracts(unittest.TestCase):
         self.assertRejected(apa_text="E1 규칙.")
         self.assertRejected(apa_text="P-SONG2008–2013 참고")
 
+    # Whole-candidate review F1: padded literal endpoints must not turn into
+    # unpadded, defined IDs merely because they occur in an initial range.
+    def test_initial_padded_range_preserves_literal_endpoints(self):
+        for text in ("S01–S02", "S01–02", "S01 – S02"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(any("source ID S01 " in error for error in errors), errors)
+                self.assertTrue(any("source ID S02 " in error for error in errors), errors)
+                identifiers, end, malformed = trace._expand(text, 3, "S", "01")
+                self.assertEqual(["S01", "S02"], identifiers)
+                self.assertEqual(len(text), end)
+                self.assertIsNone(malformed)
+        self.assertAccepted(apa_text="S1–S2")
+        self.assertRejected(apa_text="S01, S02")
+
+    # Whole-candidate review F2: breaks inside image alt text separate IDs
+    # and owner scopes just as ordinary inline soft/hard breaks do.
+    def test_multiline_image_alt_preserves_breaks(self):
+        for text in ("![S10\nS11](image.png)", "![S10  \nS11](image.png)"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(any("source ID S10 " in error for error in errors), errors)
+                self.assertTrue(any("source ID S11 " in error for error in errors), errors)
+        self.assertAccepted(apa_text="![S1\nS2](image.png)")
+        self.assertRejected(apa_text="![korean-editing G1\nE1](image.png)")
+
+    # Whole-candidate review F3: example blocks and comments cannot define
+    # sources; real heading, table-first-cell and bullet definitions still do.
+    def test_examples_cannot_manufacture_ledger_definitions(self):
+        for example in (
+            "\n```markdown\n## S99 · 예시\n```\n",
+            "\n~~~\n| S99 | 예시 |\n- S98: 예시\n~~~\n",
+            "\n<!--\n## S99 · 예시\n| S98 | 예시 |\n- S97: 예시\n-->\n",
+            "\n    ## S99 · 들여쓴 코드\n",
+        ):
+            with self.subTest(example=example):
+                self.assertRejected(apa_text="S99 근거", apa_ledger=APA_LEDGER + example)
+                defined, errors = trace.ledger_definitions(APA_LEDGER + example)
+                self.assertNotIn("S99", defined)
+                self.assertNotIn("S98", defined)
+                self.assertNotIn("S97", defined)
+                self.assertEqual([], errors)
+        for entry in (
+            "\n## S99 · 실제 항목\n",
+            "\n| ID | 자료 |\n| --- | --- |\n| S99 | 실제 항목 |\n",
+            "\n- S99: 실제 항목\n",
+        ):
+            with self.subTest(entry=entry):
+                self.assertAccepted(apa_text="S99 근거", apa_ledger=APA_LEDGER + entry)
+        self.assertRejected(apa_text="S99 근거")
+
     def test_shipped_skills_are_traceable(self):
         self.assertEqual([], trace.validate_repository(ROOT))
 

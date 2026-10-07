@@ -88,24 +88,39 @@ def family_of(identifier: str) -> str:
 
 
 def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
-    """Return defined IDs with their one-based line and duplicate errors."""
+    """Return definitions from rendered CommonMark blocks, with line numbers."""
     defined: dict[str, int] = {}
     errors: list[str] = []
-    for number, line in enumerate(ledger_text.splitlines(), 1):
-        found: list[str] = []
-        if line.startswith("## "):
-            first = HEADING_DEFINITION.match(line)
-            if first:
-                found = [first.group(1), *HEADING_JOINED_DEFINITION.findall(line, first.end())]
+    tokens = MarkdownIt("commonmark").enable("table").parse(ledger_text)
+    for token in tokens:
+        if token.type == "fence" or token.type == "html_block" or token.map is None:
+            continue
+        if token.type == "heading_open" and token.tag == "h2":
+            line = ledger_text.splitlines()[token.map[0]]
+            match = HEADING_DEFINITION.match(line)
+            found = [match.group(1), *HEADING_JOINED_DEFINITION.findall(line, match.end())] if match else []
+        elif token.type == "inline" or token.type == "paragraph_open":
+            continue
+        elif token.type == "paragraph_close":
+            continue
+        elif token.type == "table_open" or token.type == "bullet_list_open":
+            continue
+        elif token.type == "tr_open" and token.map is not None:
+            row = ledger_text.splitlines()[token.map[0]]
+            match = TABLE_DEFINITION.match(row)
+            found = [match.group(1)] if match else []
+        elif token.type == "list_item_open" and token.map is not None:
+            line = ledger_text.splitlines()[token.map[0]]
+            match = BULLET_DEFINITION.match(line)
+            found = [match.group(1)] if match else []
         else:
-            for pattern in (TABLE_DEFINITION, BULLET_DEFINITION):
-                match = pattern.match(line)
-                if match:
-                    found.append(match.group(1))
+            continue
         for identifier in found:
+            line_number = (token.map[0] + 1) if token.map else 0
             if identifier in defined:
-                errors.append(f"duplicate ledger ID {identifier} at lines {defined[identifier]} and {number}")
-            defined[identifier] = number
+                errors.append(f"duplicate ledger ID {identifier} at lines {defined[identifier]} and {line_number}")
+            else:
+                defined[identifier] = line_number
     return defined, errors
 
 
@@ -142,20 +157,24 @@ def prose_segments(text: str) -> list[tuple[int, str]]:
             buffer.clear()
             segments.extend((line, part) for part in URL.split(joined) if part.strip())
 
-        for child in token.children or []:
-            if child.type == "text":
-                buffer.append(child.content)
-            elif child.type in {"softbreak", "hardbreak"}:
-                flush()
-                line += 1
-            elif child.type in {"em_open", "em_close", "strong_open", "strong_close"}:
-                continue
-            elif child.type == "image":
-                flush()
-                buffer.append("".join(c.content for c in child.children or [] if c.type == "text"))
-                flush()
-            else:
-                flush()
+        def consume(children) -> None:
+            nonlocal line
+            for child in children:
+                if child.type == "text":
+                    buffer.append(child.content)
+                elif child.type in {"softbreak", "hardbreak"}:
+                    flush()
+                    line += 1
+                elif child.type in {"em_open", "em_close", "strong_open", "strong_close"}:
+                    continue
+                elif child.type == "image":
+                    flush()
+                    consume(child.children or [])
+                    flush()
+                else:
+                    flush()
+
+        consume(token.children or [])
         flush()
     return segments
 
@@ -190,6 +209,8 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             identifiers.append(family + stop_digits)
         elif stop < start:
             return identifiers, end, f"descending range {family}{digits}–{stop_digits}"
+        elif digits.startswith("0") or stop_digits.startswith("0"):
+            identifiers.append(family + stop_digits)
         elif stop - start > MAX_RANGE:
             return identifiers, end, f"range {family}{digits}–{stop_digits} is longer than {MAX_RANGE}"
         else:
