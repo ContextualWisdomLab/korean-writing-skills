@@ -1,3 +1,8 @@
 
 # Research manuscript handoffs must stay out of this PUBLIC repo
 deliverables/
+
+# Local preview-tool environments and caches
+.venv/
+.uv-cache/
+__pycache__/

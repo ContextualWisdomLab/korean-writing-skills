@@ -1,0 +1,14 @@
+{
+  "read_relative_paths": [
+    "input.md",
+    "skills/korean-editing/SKILL.md",
+    "skills/korean-editing/references/source-ledger.md"
+  ],
+  "external_lookup_performed": false,
+  "isolation_limits_self_report": "허용된 세 파일만 읽었다. examples.md, 저장소, 다른 사례·판본, 평가기준, 검증이력 및 출처 장부의 외부 링크는 열지 않았다. 세션에 사전 제공된 프로젝트 지침과 도구 지침은 이미 보이는 맥락이므로 별도 파일 접근과 구분한다. 격리는 접근 범위를 스스로 제한한 방식이며 운영체제 수준의 샌드박스 검증은 수행하지 않았다. 생성한 output.md와 access.json의 SHA256 계산을 위해 두 산출물의 바이트를 읽는다.",
+  "generated_artifacts_read_for_hash_only": [
+    "output.md",
+    "access.json"
+  ],
+  "skill_files_modified": false
+}

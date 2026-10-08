@@ -1,0 +1,394 @@
+"""RED/GREEN contracts for the rule-to-source traceability gate."""
+from __future__ import annotations
+
+import importlib.util
+import tempfile
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location("source_traceability", ROOT / "tests/source_traceability_test.py")
+trace = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(trace)
+
+KOREAN_LEDGER = """# 출처 장부
+
+## K2 · 어문 규정
+이 셋을 N41·N42·N43으로 예문에서 표시한다.
+
+## E1 · 편집 판단과 U1 · 사용자 선호
+
+## H1 · 설치본 참고
+
+## N-Q1 · 상담
+## N-Q2 · 상담
+## N-Q3 · 상담
+## M-HANI1 · 신문
+## M-HANI2 · 신문
+## M-HEO1 · 신문
+## U-KHU2 · 대학
+## U-KHU3 · 대학
+## P-SONG2008 · 학술
+## P-SONG2013 · 학술
+## G1 · 저자
+## G2 · 저자
+"""
+
+APA_LEDGER = """# 근거 장부
+
+| ID | 자료 |
+| --- | --- |
+| S1 | 안내 |
+| S2 | 안내 |
+| A-BIAS-WEB | 웹 |
+
+- A-REF: 안내
+- A-NUM: 안내
+
+## U-KHU · 대학 교육 자료
+"""
+
+
+class TraceabilityContracts(unittest.TestCase):
+    def check(self, korean_text="", apa_text="", korean_ledger=KOREAN_LEDGER, apa_ledger=APA_LEDGER):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for skill, ledger, text in (
+                ("korean-editing", korean_ledger, korean_text),
+                ("apa7-manuscript-writing", apa_ledger, apa_text),
+            ):
+                references = root / "skills" / skill / "references"
+                references.mkdir(parents=True)
+                (references / "source-ledger.md").write_text(ledger, encoding="utf-8")
+                (root / "skills" / skill / "SKILL.md").write_text(
+                    "---\nname: sample\ndescription: valid\n---\n" + text, encoding="utf-8"
+                )
+            return trace.validate_repository(root)
+
+    def assertRejected(self, **documents):
+        self.assertTrue(self.check(**documents), documents)
+
+    def assertAccepted(self, **documents):
+        self.assertEqual([], self.check(**documents))
+
+    # RED: an undefined source ID must fail.
+    def test_undefined_korean_ids_are_rejected(self):
+        for text in ("규정(N44)", "N-Q4", "U-KHU5", "E-AKS2", "N-Q1–4", "M-HANI2·5"):
+            with self.subTest(text=text):
+                self.assertRejected(korean_text=text)
+
+    def test_undefined_apa_ids_are_rejected(self):
+        for text in ("S10", "A-FOO", "A-STU"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+
+    def test_unqualified_cross_skill_id_is_rejected(self):
+        for text in ("M-HANI1", "| G1 | 저자 |"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+
+    def test_qualified_cross_skill_id_must_exist_in_owner_ledger(self):
+        self.assertRejected(apa_text="korean-editing G3")
+
+    def test_alias_drift_is_rejected(self):
+        ledger = KOREAN_LEDGER.replace("이 셋을 N41·N42·N43으로 예문에서 표시한다.", "")
+        self.assertRejected(korean_text="N41", korean_ledger=ledger)
+
+    def test_field_labels_are_not_definitions(self):
+        ledger = KOREAN_LEDGER + "\n- URL: https://example.org\n- SHA-256: `abc`\n- SHA-256: `def`\n"
+        self.assertAccepted(korean_ledger=ledger)
+        self.assertNotIn("SHA-256", trace.ledger_definitions(ledger)[0])
+
+    def test_duplicate_definition_is_rejected(self):
+        self.assertRejected(korean_ledger=KOREAN_LEDGER + "\n## G1 · 다른 저자\n")
+
+    # GREEN controls.
+    def test_ranges_lists_and_aliases_are_accepted(self):
+        self.assertAccepted(
+            korean_text="N41–43, N41·N42, N-Q1–3, G1–G2, U-KHU2·3, P-SONG2008·2013, E1, U1, 출처 장부의 H1",
+            apa_text="S1-S2, S1–2, A-REF·A-NUM, A-BIAS-WEB, U-KHU",
+        )
+
+    def test_qualified_cross_skill_ids_are_accepted(self):
+        self.assertAccepted(apa_text="| korean-editing G1 | 저자 |\nkorean-editing N-Q1·N-Q2, korean-editing U-KHU2·3")
+
+    def test_non_source_tokens_are_ignored(self):
+        self.assertAccepted(
+            korean_text="2.18–2.24, 7.17, Table 2–8, A4, SHA-256, `#2091은`, `W2091`, `d54ac2805e`, *N*, *SD*, "
+            "[원문](https://example.org/a%B3%A0K9.pdf), https://doi.org/10.1037/amp0000191\n\n```\nN-Q9\n```\n",
+            apa_text="H1: 가설 예시. H5도 가설이다.",
+        )
+
+    def test_bare_family_name_is_accepted_when_a_member_exists(self):
+        self.assertAccepted(korean_text="M-HANI·M-HEO 권고")
+
+    # Review 94385d6 D1: a qualifier must not leak past a line, blank line,
+    # link, URL or code span, nor onto another skill's family.
+    def test_qualifier_does_not_leak(self):
+        for text in (
+            "korean-editing G1\n\nE1 규칙을 적용한다.",
+            "korean-editing G1\nE1 규칙",
+            "[korean-editing G1](https://example.org) E1",
+            "korean-editing G1 https://example.org E1",
+            "korean-editing G1 `x`, E1",
+            "korean-editing G1 그리고 E1",
+        ):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+
+    def test_qualifier_does_not_capture_own_family(self):
+        self.assertAccepted(apa_text="korean-editing G1, S2")
+        self.assertAccepted(apa_text="korean-editing M-HANI1–2, M-HEO1")
+
+    # D2: sentence-final ranges and lists must keep their end.
+    def test_sentence_final_ranges_and_lists_are_checked(self):
+        for text in ("상담 N-Q1–5.", "칼럼 M-HANI1·5.", "근거는 N-Q1–N-Q4. 끝"):
+            with self.subTest(text=text):
+                self.assertRejected(korean_text=text)
+        for text in ("근거는 S1-S12.", "S1–S3. 끝"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertAccepted(korean_text="상담 N-Q1–3. 칼럼 M-HANI1·2.")
+
+    # D3: other range separators, and malformed descending ranges.
+    def test_other_range_separators_and_descending_ranges(self):
+        for text in ("S1~12", "S1—12", "S1 – 12", "S1/S12", "S2–S1"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertAccepted(apa_text="S1~2, S1 – 2, S1/S2")
+
+    # D4: families come from the ledgers; qualified tokens use the owner's families.
+    def test_families_are_derived_from_ledgers(self):
+        ledger = KOREAN_LEDGER + "\n## R-NIKL1 · 새 자료\n"
+        self.assertRejected(korean_text="R-NIKL9 근거", korean_ledger=ledger)
+        self.assertAccepted(korean_text="R-NIKL1 근거", korean_ledger=ledger)
+
+    def test_unregistered_hyphenated_ids_are_rejected(self):
+        for text in ("B-NEW1 근거", "M-KBS1 근거"):
+            with self.subTest(text=text):
+                self.assertRejected(korean_text=text)
+        self.assertAccepted(korean_text="SHA-256, UTF-8, COVID-19, K-ANX")
+
+    def test_qualified_hypothesis_family_uses_owner_ledger(self):
+        self.assertRejected(apa_text="korean-editing H7 참고")
+        self.assertAccepted(apa_text="korean-editing H1 참고")
+
+    # D5: heading definitions are anchored, with an explicit 과/와 joiner.
+    def test_heading_definitions_are_anchored(self):
+        self.assertEqual({"K3"}, set(trace.ledger_definitions("## K3 · 자료 (K9 · 메모)\n")[0]))
+        self.assertEqual({"E1", "U1"}, set(trace.ledger_definitions("## E1 · 편집 판단과 U1 · 사용자 선호\n")[0]))
+
+    # D6: heading and table labels are not definitions either.
+    def test_heading_and_table_labels_are_not_definitions(self):
+        self.assertEqual({}, trace.ledger_definitions("## URL · x\n## SHA-256 · y\n| URL | z |\n| SHA-256 | w |\n- DOI: v\n")[0])
+
+    # D7: CommonMark code spans, comments and invalid link destinations.
+    def test_code_comments_and_invalid_link_destinations(self):
+        self.assertAccepted(apa_text="``S99`` and <!-- S98 -->")
+        self.assertRejected(apa_text="[주의](S12 참조)")
+        self.assertAccepted(korean_text="A-B 비교")
+
+    # D8: bounded expansion and year-like IDs.
+    def test_large_ranges_are_rejected_and_year_ids_are_endpoints(self):
+        self.assertRejected(apa_text="S1–10000000")
+        self.assertAccepted(korean_text="P-SONG2008–2013")
+
+    # Review 7e3c8a4 code N1: deleting a whole family from a ledger must not
+    # make its citations invisible.
+    def test_deleting_a_baseline_family_keeps_its_citations_checked(self):
+        self.assertRejected(apa_text="근거 S1", apa_ledger="# 근거 장부\n- A-REF: 안내\n")
+        no_g = KOREAN_LEDGER.replace("## G1 · 저자\n## G2 · 저자\n", "")
+        self.assertRejected(korean_text="저자 G1 참고", korean_ledger=no_g)
+
+    # N2: qualifier lookup must not rescan the whole run for every token.
+    # Measure the scanned span, not wall-clock time, so CI load cannot flake it.
+    def test_qualifier_lookup_scans_a_bounded_window(self):
+        spans = []
+        original = trace.QUALIFIER_BEFORE
+
+        class Recorder:
+            def search(self, text, start, end):
+                spans.append(end - start)
+                return original.search(text, start, end)
+
+        trace.QUALIFIER_BEFORE = Recorder()
+        try:
+            self.assertAccepted(apa_text="가나다라마 S1 " * 4000)
+        finally:
+            trace.QUALIFIER_BEFORE = original
+        self.assertGreaterEqual(len(spans), 4000)
+        self.assertLessEqual(max(spans), trace.QUALIFIER_WINDOW)
+
+    def test_qualifier_accepts_no_break_space(self):
+        self.assertAccepted(apa_text="korean-editing\u00a0G1 참고")
+
+    # N3: a bare number after a comma continues the list.
+    def test_comma_number_lists_are_checked(self):
+        for text in ("S1, 12", "S1,12"):
+            with self.subTest(text=text):
+                self.assertRejected(apa_text=text)
+        self.assertRejected(korean_text="N-Q1, 9")
+        self.assertAccepted(apa_text="S1, 2")
+
+    # N4: endpoint-only expansion is limited to ascending year pairs.
+    def test_four_digit_ranges_are_endpoints_only_when_both_are_years(self):
+        self.assertRejected(korean_text="P-SONG2013–2008")
+        self.assertRejected(apa_text="S1–S1000")
+
+    # N5: a spaced dash followed by an ordinary word is prose, not a range.
+    def test_spaced_dash_before_a_word_is_not_a_range(self):
+        self.assertAccepted(korean_text="K2 – 9개 조항, G1 - 2023년 개정")
+        self.assertRejected(apa_text="S1 – 12.")
+
+    # N6 / content N2: image alt text is prose and is checked.
+    def test_image_alt_text_is_checked(self):
+        self.assertRejected(apa_text="![S99 그림](x.png)")
+        self.assertAccepted(apa_text="![S2 그림](x.png)")
+
+    # Review 95710f4 N1: a range that follows a list must still be expanded.
+    def test_ranges_after_lists_are_expanded(self):
+        self.assertRejected(apa_text="S1·S2-S12 참고")
+        self.assertRejected(apa_text="S1·2–12 참고")
+        self.assertRejected(korean_text="N-Q1·N-Q2-N-Q9 참고")
+        self.assertAccepted(apa_text="S1·2 참고")
+
+    # Review 8363a6a (A): a descending range after a list is malformed even
+    # when every endpoint is defined, and the reported span is the actual
+    # last step, not the list's first item.
+    def test_descending_range_after_a_list_is_malformed(self):
+        for text in ("S1·S2–1 참고", "S1·2–1 참고"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(errors)
+                self.assertTrue(any("descending range S2–1" in error for error in errors), errors)
+
+    # Review 4a7d82a R1: a range after a range is judged against the end of
+    # the first range, not against its start.
+    def test_range_after_a_range_is_judged_against_its_end(self):
+        errors = self.check(apa_text="S1–S4-1 참고")
+        self.assertTrue(errors)
+        self.assertTrue(any("descending range S4–1" in error for error in errors), errors)
+
+    # R2: a range after a list expands every ID between its ends.
+    def test_range_after_a_list_expands_its_middle(self):
+        self.assertRejected(apa_text="S1·S2-S9 참고")
+        korean = self.check(korean_text="G1·G2-G5")
+        self.assertTrue(any("G3" in error and "G4" in error and "G5" in error for error in korean) or
+                        {"G3", "G4", "G5"} <= {token for error in korean for token in error.split()}, korean)
+        self.assertEqual(3, sum("source ID G" in error for error in korean), korean)
+
+    # R3: a four-digit list end is checked for order too.
+    def test_year_list_end_is_checked_for_order(self):
+        errors = self.check(korean_text="P-SONG2013·2008")
+        self.assertTrue(any("descending range P-SONG2013–2008" in error for error in errors), errors)
+        self.assertRejected(apa_text="korean-editing P-SONG2013·2008")
+        self.assertAccepted(apa_text="korean-editing P-SONG2008·2013")
+
+    # Review 8026892: after a descending year step, the next step is judged
+    # against that step's end, not against the first year.
+    def test_year_step_updates_the_previous_end(self):
+        text = "P-SONG2013·2008–2010"
+        identifiers, end, malformed = trace._expand(text, len("P-SONG2013"), "P-SONG", "2013")
+        self.assertEqual(len(text), end)
+        self.assertEqual(["P-SONG2013", "P-SONG2008", "P-SONG2010"], identifiers)
+        self.assertEqual("descending range P-SONG2013–2008", malformed)
+        identifiers, end, malformed = trace._expand("P-SONG2013·2008·2009", len("P-SONG2013"), "P-SONG", "2013")
+        self.assertEqual("descending range P-SONG2013–2008", malformed)
+
+    # Review 28a5fd7: a zero-padded end keeps its width, so the next step is
+    # not expanded through the unpadded numbers.
+    def test_zero_padded_steps_keep_their_width(self):
+        for text in ("S100·0001–0051", "S50·0040–0090"):
+            with self.subTest(text=text):
+                head = text[:text.index("·")]
+                identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
+                self.assertLessEqual(len(identifiers), 3, (identifiers, malformed))
+
+    # Review 811551c (high): the next range uses the list item's own width,
+    # not the width of the first ID.
+    def test_list_item_keeps_its_own_width(self):
+        for text in ("S12·5678–5680", "S1000·100–0102"):
+            with self.subTest(text=text):
+                head = text[:text.index("·")]
+                identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
+                self.assertEqual(3, len(identifiers), (identifiers, malformed))
+
+    # (medium): a range end equal to the ID before it is still recorded.
+    def test_repeated_range_end_is_kept(self):
+        text = "S12·1000–1000"
+        identifiers, end, malformed = trace._expand(text, len("S12"), "S", "12")
+        self.assertEqual(["S12", "S1000", "S1000"], identifiers, malformed)
+
+    # Review 8363a6a (B): an ID defined only by a heading must be recognized
+    # in its own skill's prose, not only by the other skill's cross-check.
+    def test_heading_defined_ids_are_recognized_in_their_own_prose(self):
+        self.assertAccepted(korean_text="E1 규칙.")
+        self.assertAccepted(korean_text="E1·U1 참고")
+        self.assertRejected(apa_text="E1 규칙.")
+
+    # Regression 95710f4: checking a year range must not change who owns it,
+    # so a valid year range qualified to another skill's ledger stays valid.
+    def test_qualified_year_ranges_keep_their_owner(self):
+        self.assertAccepted(apa_text="korean-editing P-SONG2008–2013 참고")
+
+    def test_unqualified_cross_skill_ids_are_still_rejected(self):
+        self.assertRejected(apa_text="E1 규칙.")
+        self.assertRejected(apa_text="P-SONG2008–2013 참고")
+
+    # Whole-candidate review F1: padded literal endpoints must not turn into
+    # unpadded, defined IDs merely because they occur in an initial range.
+    def test_initial_padded_range_preserves_literal_endpoints(self):
+        for text in ("S01–S02", "S01–02", "S01 – S02"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(any("source ID S01 " in error for error in errors), errors)
+                self.assertTrue(any("source ID S02 " in error for error in errors), errors)
+                identifiers, end, malformed = trace._expand(text, 3, "S", "01")
+                self.assertEqual(["S01", "S02"], identifiers)
+                self.assertEqual(len(text), end)
+                self.assertIsNone(malformed)
+        self.assertAccepted(apa_text="S1–S2")
+        self.assertRejected(apa_text="S01, S02")
+
+    # Whole-candidate review F2: breaks inside image alt text separate IDs
+    # and owner scopes just as ordinary inline soft/hard breaks do.
+    def test_multiline_image_alt_preserves_breaks(self):
+        for text in ("![S10\nS11](image.png)", "![S10  \nS11](image.png)"):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text)
+                self.assertTrue(any("source ID S10 " in error for error in errors), errors)
+                self.assertTrue(any("source ID S11 " in error for error in errors), errors)
+        self.assertAccepted(apa_text="![S1\nS2](image.png)")
+        self.assertRejected(apa_text="![korean-editing G1\nE1](image.png)")
+
+    # Whole-candidate review F3: example blocks and comments cannot define
+    # sources; real heading, table-first-cell and bullet definitions still do.
+    def test_examples_cannot_manufacture_ledger_definitions(self):
+        for example in (
+            "\n```markdown\n## S99 · 예시\n```\n",
+            "\n~~~\n| S99 | 예시 |\n- S98: 예시\n~~~\n",
+            "\n<!--\n## S99 · 예시\n| S98 | 예시 |\n- S97: 예시\n-->\n",
+            "\n    ## S99 · 들여쓴 코드\n",
+        ):
+            with self.subTest(example=example):
+                self.assertRejected(apa_text="S99 근거", apa_ledger=APA_LEDGER + example)
+                defined, errors = trace.ledger_definitions(APA_LEDGER + example)
+                self.assertNotIn("S99", defined)
+                self.assertNotIn("S98", defined)
+                self.assertNotIn("S97", defined)
+                self.assertEqual([], errors)
+        for entry in (
+            "\n## S99 · 실제 항목\n",
+            "\n| ID | 자료 |\n| --- | --- |\n| S99 | 실제 항목 |\n",
+            "\n- S99: 실제 항목\n",
+        ):
+            with self.subTest(entry=entry):
+                self.assertAccepted(apa_text="S99 근거", apa_ledger=APA_LEDGER + entry)
+        self.assertRejected(apa_text="S99 근거")
+
+    def test_shipped_skills_are_traceable(self):
+        self.assertEqual([], trace.validate_repository(ROOT))
+
+
+if __name__ == "__main__":
+    unittest.main()
