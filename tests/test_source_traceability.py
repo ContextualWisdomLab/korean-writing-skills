@@ -313,6 +313,14 @@ class TraceabilityContracts(unittest.TestCase):
                 identifiers, end, malformed = trace._expand(text, len(head), head.rstrip("0123456789"), head[len(head.rstrip("0123456789")):])
                 self.assertEqual(3, len(identifiers), (identifiers, malformed))
 
+    # Review adbe4bd: a four-digit chained range end is endpoint-only only
+    # when the previous endpoint is also four digits.
+    def test_mixed_width_range_after_list_is_still_range_checked(self):
+        ledger = APA_LEDGER + "\n- S1000: endpoint\n"
+        errors = self.check(apa_text="S1·S2–S1000", apa_ledger=ledger)
+        self.assertTrue(any("range S2–1000 is longer than 50" in error for error in errors), errors)
+        self.assertAccepted(apa_text="S1·S2008–S2013", apa_ledger=APA_LEDGER + "\n- S2008: first year\n- S2013: second year\n")
+
     # (medium): a range end equal to the ID before it is still recorded.
     def test_repeated_range_end_is_kept(self):
         text = "S12·1000–1000"

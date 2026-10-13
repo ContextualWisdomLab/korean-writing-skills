@@ -247,7 +247,7 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         elif stop < previous:
             errors.append(f"descending range {family}{previous}–{number}")
             identifiers.append(family + number)
-        elif (number.startswith("0") or previous_text.startswith("0") or len(number) >= 4) and int(number) >= previous:
+        elif (number.startswith("0") or previous_text.startswith("0") or (len(previous_text) >= 4 and len(number) >= 4)) and int(number) >= previous:
             identifiers.append(family + number)
         elif stop - previous > MAX_RANGE:
             errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")
