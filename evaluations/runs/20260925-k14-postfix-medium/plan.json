@@ -1,0 +1,40 @@
+{
+ "purpose": "K14 수정 후 재실행을 원 K14 실행자와 같은 추론 강도(medium)로 한 번 더 한다. 나머지(입력·지시문·허용 파일·스킬 판본·채점 설정)는 20260925-k14-postfix와 같다.",
+ "preregistered_utc": "2026-09-24T20:22:22Z",
+ "executor": {
+  "host": "s1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium(worker-start --model gpt-6-sol --effort medium)",
+  "skills": "680b6586c338c5039d60be364e77a1f67e60c31d"
+ },
+ "scorer": {
+  "host": "s1",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "low(원 K14·재실행 채점자와 같음)"
+ },
+ "remaining_difference": "Codex CLI 0.155.1(원, 로컬) vs 0.156.1(s1). 설치 금지라 맞추지 않는다.",
+ "sha256_fixture": {
+  "evaluations/fixtures/K14/input.md": "e6f81f5be4a11d59e8dee13f2d3098ed8943a3b3f50a3b5138ec1bd854e384e8",
+  "evaluations/fixtures/K14/criteria.md": "a22082d520630d3f5046eadd5949fb0ea0f062075b0be1485c10e550a72aaa1b",
+  "evaluations/fixtures/K14/apa7-basis.md": "c561e7d491a7cc663f456d876d7c18a0f2526a8ed7dc033f260eaf218ea02c35",
+  "evaluations/fixtures/K14/executor-prompt.md": "e04de3802398699435bfb02aa6350b296c9b0955e4ad997c979e7b48f642071e",
+  "evaluations/fixtures/K14/scorer-prompt.md": "7e76fb689eed657064e97a0adc80270ea5057014d324294e1c92aed1098e0cff",
+  "evaluations/fixtures/K14/freeze.json": "86eaadaea61935aefee54540701599a11119febc382ef50b0a195805b2f8a44c",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5"
+ },
+ "sha256_skills_post_fix": {
+  "skills/apa7-manuscript-writing/SKILL.md": "36a74c70cb2469a5c99736c1795566fd74f0b0eec9fcc432d8140a116e0826e8",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "dcac967cb24039e616925b05a40f0b497e42c3d81b21bdcd6359a136b6ec6759",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "966af466423e6dc34ab94f66c3cf26687c4a86b572ef1ca5785f3105335fac97",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae"
+ },
+ "limits_declared_in_advance": "이것도 1회다. 통과해도 반복 표본이 아니며, 실패하면 수정이 이 설정에서 충분하지 않다는 뜻으로 기록한다."
+}

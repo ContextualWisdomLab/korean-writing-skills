@@ -1,0 +1,38 @@
+{
+ "purpose": "완전히 합성한 원고·심사 응답 사례(K13)로 (1) 척도 약어 첫 등장 풀어쓰기 (2) 같은 기호 W의 방법요인·회귀 변수 충돌 (3) 새 방법요인 RD 첫 등장 정의를 read-only로 독립 평가한다. 이 파일을 커밋·push한 뒤에만 실행자를 배정한다.",
+ "frozen_before_commit_utc": "2026-09-24T18:46:10Z",
+ "base_commit": "b0068551734f7472a874c2d95eb7b90f2bc98026",
+ "skill_version": "PR #4 head b0068551734f7472a874c2d95eb7b90f2bc98026의 두 스킬(아래 해시). 이번 평가에서 스킬을 바꾸지 않는다.",
+ "input": "inputs/K13.md. 저자 정보·원고·심사 응답 모두 리드가 지어낸 합성 예문이며 실제 연구 원고·참여자 자료를 쓰지 않는다.",
+ "evaluators": {
+  "executor": "Agent 도구 general-purpose, model=sonnet 재정의, 새 대화 1개. 6회차 executor-prompt.md 본문을 {CASE}=K13과 경로만 치환해 전달.",
+  "scorer": "같은 방식, model=sonnet, 새 대화 1개. 이 회차 scorer-prompt.md 본문을 치환해 전달."
+ },
+ "decision_rule": "판정표의 중대 오류나 세 항목 중 하나라도 실패로 나오고, 실행 로그로 스킬 규칙의 부재·충돌이 원인임이 확인되면 규칙 결함으로 보고 최소 수정·회귀 검사로 진행한다. 실행자 한 번의 변동만으로는 결함으로 확정하지 않는다.",
+ "limits": [
+  "배정자는 같은 리드다.",
+  "허용 스킬 파일에 과거 평가 서술이 있다.",
+  "접근 준수는 자기보고 기반이다."
+ ],
+ "sha256": {
+  "skills/apa7-manuscript-writing/SKILL.md": "eda2a1c96dce74f5352eb701ee666f40936cfcca9e910d3393e50dd5f3af9e20",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "ecb98dc6991d2eb9ed958b0269a97f635618600546924771a3dfc4ae90724429",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff",
+  "evaluations/scenarios/blind-inputs.md": "cb5d7423fa8c2a296b8db3f269b2382622054e43a5ed5898666a4b349127eb7c",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/runs/20260924-round6/executor-prompt.md": "070dc4926eb42f522981a0b192091ef5e2445a10c86bc24bd938220e2004d131",
+  "evaluations/runs/20260925-round9/scorer-prompt.md": "3ef9bdbcaf036b41e730691d0eaad4a400cf4c9355d1eaa6c27b6579149f4998",
+  "evaluations/runs/20260925-round9/criteria.md": "3caaf38cd00e50ea69e341e1bf7ff5caa025f8112cb67c6fc97f792b98dfd6b0",
+  "evaluations/runs/20260925-round9/inputs/K13.md": "94c7296215a0f988ded00a6106f0c2bff835c0e08782a8722c3ba88c4d6f6600"
+ }
+}
