@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-04",
+  "baseline_commit": "d7cade69f30ffc580cdb468152ed82dc21c2c4ef",
+  "candidate_skill_freeze": "skill-freeze.json",
+  "input_and_criteria_freeze": "../../fixtures/usability-20261004/freeze.json",
+  "runs": [
+    {
+      "case": "K17",
+      "variant": "new",
+      "output": "K17/new/output.md",
+      "output_sha256": "958550ca3104826f7fc27a735a77af44e84491924c2d21c34087b7c6a60efd15",
+      "access": "K17/new/access.json",
+      "reported_duration_seconds": 83.52
+    },
+    {
+      "case": "K17",
+      "variant": "old",
+      "output": "K17/old/output.md",
+      "output_sha256": "35db20d9846e9d5f04e022ee014d955fe00798261f06dd78b85145525e943e62",
+      "access": "K17/old/access.json",
+      "reported_duration_seconds": 106.89
+    },
+    {
+      "case": "K18",
+      "variant": "new",
+      "output": "K18/new/output.md",
+      "output_sha256": "88dd8b272ff1ad68a3a254e39aa5d7262c18d6e4006fe61c56764e5286683d51",
+      "access": "K18/new/access.json",
+      "reported_duration_seconds": 88.88
+    },
+    {
+      "case": "K18",
+      "variant": "old",
+      "output": "K18/old/output.md",
+      "output_sha256": "f0104ddcb55322c3184371ebe462f31cdd8ae7c65bafdcc4e3aa25266350cd5f",
+      "access": "K18/old/access.json",
+      "reported_duration_seconds": 74.62
+    },
+    {
+      "case": "A3",
+      "variant": "new",
+      "output": "A3/new/output.md",
+      "output_sha256": "953d1e2580d11b736a3c25bb381c0d9b4ff4056cbd06821c0f8662e01b476248",
+      "access": "A3/new/access.json",
+      "reported_duration_seconds": 151.09
+    },
+    {
+      "case": "A3",
+      "variant": "old",
+      "output": "A3/old/output.md",
+      "output_sha256": "ba5e3cf4f71deb6ea0295b682de6bdbe02d4e47c5cbfc9aa8c8d4984a6b874e2",
+      "access": "A3/old/access.json",
+      "reported_duration_seconds": 165.72
+    }
+  ],
+  "blind_label_mapping": {
+    "K17": {
+      "A": "old",
+      "B": "new"
+    },
+    "K18": {
+      "A": "old",
+      "B": "new"
+    },
+    "A3": {
+      "A": "new",
+      "B": "old"
+    }
+  },
+  "grading_state": "새 판본 3/3·기존 판본 3/3 제한 사례 통과; 세 맹검 비교 모두 동률",
+  "isolation": "각 사례·판본 실행과 채점은 새 context와 별도 디렉터리에서 수행했다. 채점자에게 신구 매핑을 주지 않았다. OS 수준 접근 통제는 아니며 접근 보고는 자기보고다.",
+  "limits": [
+    "각 사례·판본 1회, 동일 기본 모델 상속 가능, 일반 성능·이종 모델 비교·효과 개선 인과 추론 불가",
+    "기간은 완료 알림이 보고한 실행 시간이며 순수 추론시간 또는 사용자 교정 지연이 아니다. token 수는 알림에 없어 기록하지 않는다",
+    "합성 평가로 실제 팀 dogfood Issue #2를 닫지 않는다",
+    "출력 해시는 부모가 실제 파일에서 재계산하고 대조했으며 스킬·입력은 실행 전 동결했다"
+  ],
+  "grading_files": {
+    "K17/grading.json": "7b9bb35498123e3ff3f3b6e8bc18f1a186bf990262a8602bed6ddb8e0d20fea3",
+    "K18/grading.json": "102ed8f63f4de859a2c6beeda4908f764ac59a9df5a237fa79ac0942d3df6e35",
+    "A3/grading.json": "478bda3437fd5fc0adb1ec37be64552035a5cff10d6a3f65582ea71cd1dbd0fb"
+  },
+  "grading_original_sha256": {
+    "K17/grading.json": "fd2aefe2a9f417f3301daf53bb09a8223ad33bf574baf9fe8e7bdf3d441acdd9",
+    "A3/grading.json": "431cf7445aa8fcb75abada6f304d070e7e8614e96bb2c9cc8d18326bfc91e744"
+  },
+  "public_normalization": "hygiene 검사가 일반 JSON 필드 이름을 임시 식별자처럼 잡아 K17·A3의 요청 수행 필드명만 request_completion으로 바꾸었다. 원본 해시와 공개본 해시를 분리하고 그 두 키의 치환 외에는 실제 바이트 동일성을 확인했다. 점수·판정·근거·출력·기준은 변경하지 않았다"
+}
