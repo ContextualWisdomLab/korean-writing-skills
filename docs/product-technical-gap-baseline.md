@@ -9,6 +9,14 @@
 `6070799af53ed730d90e48b1c1e011eb9ecfdd17`. GitHub branch API는
 `main`을 `protected:false`로 보고하며 repository ruleset은 없다.
 
+2026-10-04 재확인: Git 원격·공개 PR 본문에서 PR #4의 descendant
+`d7cade69f30ffc580cdb468152ed82dc21c2c4ef`와 PR #5/#6/#4의
+94/49/34-file 스택을 확인했다. 위 보호·CI·승인 수치는 과거 관찰이며
+이번 `gh` 인증 실패 상태에서 현재 API 값으로 재검증한 것이 아니다.
+이번 제한 범위 작업과 수용 기준은 [실사용판 개발 계약](usability-plan.md)에 둔다.
+새 Python 패키저가 추가되는 경우 CodeQL 적용 언어를 다시 판단해야 하며,
+아래의 과거 skip을 새 head의 성공이나 비적용 판정으로 이어받지 않는다.
+
 상태: Proposed
 
 ## Goal과 Loop
@@ -27,13 +35,16 @@
 | 한국어 저자·편집자 | 의미를 보존하며 문장·문단 퇴고 | 수치·불확실성·인용 보존, 과잉 교정 방지 | Proposed |
 | 학술 저자 | 확인된 APA 7·JARS 범위로 원고 점검 | 확인 절·쪽과 미확인 범위를 구분 | Proposed |
 | 검토자 | 평가 주장의 근거와 한계를 재구성 | 입력·판본·출력·채점·hash·한계 연결 | Partial |
+| 실제 사용자·팀 | 실업무에서 설치·호출하고 피드백 제공 | 사용한 스킬 digest·작업 유형·비식별 예문·도움·어색함·의미손실·과잉교정·지연·수정·독립 재검증. 미사용은 미사용으로 기록 | Open — 합성 평가와 별도 |
 
 ## TRD
 
 - 배포 단위: `skills/korean-editing/`, `skills/apa7-manuscript-writing/`.
-- 근거 정책 경계: 각 skill의 `references/source-ledger.md`; 자동 traceability는 미구현.
+- 근거 정책 경계: 각 skill의 `references/source-ledger.md`. 출처 ID 인용↔장부 정의
+  대응은 `tests/source_traceability_test.py`로 검사한다. 규칙 내용의 원문 적합성은
+  여전히 사람 검토 대상이다.
 - 검증 경계: `evaluations/`, `tests/public_hygiene_test.sh`,
-  `tests/skill_structure_test.py`.
+  `tests/skill_structure_test.py`, `tests/source_traceability_test.py`.
 - 금지 경계: 사용자 원문·참여자 자료·비밀정보, 검사에 열거한 workstation
   절대경로·ephemeral ID·GitHub/OpenAI/AWS credential·private-key signature.
 - 현재 실행 서비스, DB, UI, 인증, container와 network API는 없다.
@@ -68,13 +79,13 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 | default branch에 제품 구현과 유효한 보호가 없음 | `main@ca94600e…`에는 `AGENTS.md`와 `README.md`만 있고 branch API는 `protected:false`; repository ruleset 없음 | `.github` canonical owner에서 유효한 조직/default-branch 보호를 입증한 뒤 exact-head 검사·비작성자 review와 ordinary merge | Blocked |
 | public hygiene가 중앙 gitleaks skip과 수동 확인에 의존 | PR #4 exact-head Security job과 과거 runtime artifact | RED credential fixture 뒤 `tests/public_hygiene_test.sh`에 GitHub/OpenAI/AWS credential·private-key signature를 fail-closed 통합 | Implemented on PR head |
 | Skill 독립 설치 시 repository 외부 문맥에 의존할 수 있음 | `skills/korean-editing/SKILL.md`의 평가 rubric 링크 | package 밖 상대 링크를 fail-closed 검사하고 평가 증거는 실행 의존성에서 분리 | Implemented on PR head |
-| 단일 PR이 hosted review 한도를 넘음 | 기존 base-to-head 175 files; CodeRabbit은 100-file 한도로 review를 건너뜀 | PR #5(94 files) → PR #6(49 files) → PR #4(32 files) non-force stack을 유지하고 각 exact head에서 review 수행; 모든 유효 delta는 PR #4 최종 descendant에 보존 | Implemented in PR stack |
-| 최신 head의 독립 review 부재 | PR #5/#6/#4 exact head 승인 0건, unresolved thread 0건; 각 head의 PR workflow run 0건, CodeRabbit status만 success | 유효한 거버넌스를 만든 뒤 세 current head의 적용 가능한 hosted Checks와 독립 review를 확보 | Blocked |
-| CodeQL 적용 언어 0건 | exact-head CodeQL PR run `36966902575`는 `skipped`; SAST `36966902465`와 Security `36966902494`만 terminal success | CodeQL skip을 GREEN으로 승격하지 않고 향후 지원 언어 추가 시 재검증 | Not applicable, not GREEN |
+| 단일 PR이 hosted review 한도를 넘음 | 기존 base-to-head 175 files; CodeRabbit은 100-file 한도로 review를 건너뜀 | PR #5(94 files) → PR #6(49 files) → PR #4(34 files) non-force stack을 유지하고 각 exact head에서 review 수행; 모든 유효 delta는 PR #4 최종 descendant에 보존 | Implemented in PR stack |
+| 최신 head의 독립 review 부재 | 2026-10-03 관찰: PR #5/#6/#4 exact head 승인 0건, 각 head의 PR workflow run 0건, CodeRabbit status만 success. 2026-10-06 GraphQL 재조회: PR #5 inline thread 12건과 PR #6 3건이 모두 미해결이며 판정은 `docs/review-followup-20261005.md`에 기록 | 유효한 거버넌스를 만든 뒤 세 current head의 적용 가능한 hosted Checks와 독립 review를 확보 | Blocked |
+| **역사 관찰:** 당시 CodeQL 적용 언어 0건 | 당시 head의 CodeQL PR run `36966902575`는 `skipped`; SAST `36966902465`와 Security `36966902494`만 terminal success | 현재 후보에는 Python이 있으므로 canonical CI 담당자가 현재 exact-head 언어 admission·필수 검사 결과를 별도 확인. 과거 skip을 현재 PASS·비적용으로 승계하지 않음 | Historical skip only; current applicability/check unverified |
 | outbound LICENSE 미정 | root LICENSE 없음 | 저작권·외부 자료 경계 확인 후 조직 소유자가 결정 | Open |
 | APA 원문 확인 범위 불완전 | `TODO.md`, APA source ledger | 필요한 절만 직접 확인하고 미확인은 유지 | In progress |
 | 평가의 일반화 근거 부족 | 사례별 1회·자기보고 한계 | 반복·독립 채점 설계를 별도 계획으로 확장 | Open |
-| 규칙↔source ID 추적이 수동 | source ledger와 SKILL.md | traceability validator 설계·fixture 추가 | Open |
+| 규칙↔source ID 추적이 수동 | source ledger와 SKILL.md. 2026-10-06 첫 실행에서 정의 없는 `A-STU` 3곳과 APA 요약의 한국어 장부 ID 무표시 인용(U-KHU1–4·G1·G2·J1·J2)을 검출. N-Q3은 검사기가 아니라 DOC-1 요약 동기화로 추가한 항목 | RED/GREEN 대조 시험 뒤 `tests/source_traceability_test.py` 추가. 미정의 `A-STU` 표기 제거, 다른 스킬 장부 ID는 `korean-editing …`로 소유 스킬 명시 | Implemented on PR head — 인식한 ID 형식의 정의 대응만(형식 목록은 `ARCHITECTURE.md`). 규칙 내용의 원문 적합성 자동 판정은 Open |
 | immutable 배포 계약 부재 | release/tag 0개 | manifest·version·digest·SBOM·provenance·clean-install conformance·rollback 절차 정의 | Open |
 | Issue #2가 폐기된 PR #1을 가리킴 | Issue #2 본문과 successor reconciliation comment | PR #4 successor와 현재 acceptance를 기록 | Implemented on PR head |
 
