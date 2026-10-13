@@ -1,0 +1,13 @@
+{
+  "read_paths": [
+    "input.md",
+    "skills/korean-editing/SKILL.md",
+    "skills/korean-editing/references/source-ledger.md"
+  ],
+  "external_lookup": false,
+  "isolation_limits": "허용된 세 파일만 내용 열람에 사용했다. examples.md, 저장소, 다른 사례·판본, 평가 기준, 검증 이력은 열람하지 않았다. 외부 조회는 하지 않았다. 접근 통제 샌드박스를 별도로 설정한 것은 아니므로 격리는 도구 사용 범위에 대한 자기보고다. 상위 메시지에 제공된 프로젝트 지침은 이미 문맥에 있었으나 해당 파일을 직접 열지 않았다. 생성한 output.md와 access.json은 요청된 SHA256 계산을 위해 바이트로 읽는다.",
+  "artifact_hash_reads": [
+    "output.md",
+    "access.json"
+  ]
+}

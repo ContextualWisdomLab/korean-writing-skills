@@ -1,0 +1,18 @@
+{
+  "read_paths": [
+    "input.md",
+    "skills/apa7-manuscript-writing/SKILL.md",
+    "skills/apa7-manuscript-writing/references/source-ledger.md",
+    "skills/apa7-manuscript-writing/references/reporting-workflow.md",
+    "skills/apa7-manuscript-writing/references/jars-quant-table1.md",
+    "skills/apa7-manuscript-writing/references/verified-scope.md"
+  ],
+  "external_lookup_performed": false,
+  "created_paths": ["output.md", "access.json"],
+  "artifact_reads_for_sha256": ["output.md", "access.json"],
+  "skill_files_modified": false,
+  "isolation_self_report": {
+    "scope": "지정된 A3/new 안의 입력과 허용된 스킬 문서만 내용 참조에 사용했다. 저장소, 다른 사례, 다른 판본, criteria, 검증 이력의 별도 파일은 열지 않았다.",
+    "limitations": "운영체제 수준의 샌드박스 강제는 확인하지 않았다. 격리는 명시된 경로로 제한한 도구 호출에 의존한다. 프롬프트로 제공된 프로젝트 문맥과 허용된 스킬 문서 안의 기록은 이미 읽은 범위에 포함된다. 생성한 output.md와 access.json은 해시 계산을 위해 추가로 읽으며 그 경로는 artifact_reads_for_sha256에 별도로 기록했다."
+  }
+}

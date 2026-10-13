@@ -1,0 +1,18 @@
+{
+  "algorithm": "SHA-256",
+  "scope": "합성 사례 3개 입력과 별도 채점기준의 실제 파일 바이트",
+  "state": "후속 실행 전 설계 동결; 제작 단계의 실행·채점은 미실시",
+  "files": {
+    "evaluations/fixtures/usability-20261004/K17-input.md": "afa9715d6169e6e28c679a3360d8f216b56bc26a7910392bf27ebcef5e6aa975",
+    "evaluations/fixtures/usability-20261004/A3-input.md": "10de0cf7b4d1284e8e87d7072f13a8b86cce7483254f6ed7c9e676f976cf9d46",
+    "evaluations/fixtures/usability-20261004/K18-input.md": "da4fc3679385be1c34b8dda4801c9c2ecc9a558d1b37c4e77777c85e09a36ea7",
+    "evaluations/fixtures/usability-20261004/criteria.md": "0e1c1cc043347b0d2f3e1ca105d45760b148731d88f6bdc3e517bcc4894d04d6"
+  },
+  "verification_contract": "후속 운영자는 각 사례 실행 직전에 네 파일의 SHA-256을 재검증한다. 불일치하면 실행을 보류하고 새 판본을 별도로 동결한다. 실행 후 기준을 바꾸어 기존 판정을 통과시키지 않는다.",
+  "limits": [
+    "파일 내용 동일성 대조이며 타임스탬프 공증이나 변경 불가능한 보관을 보증하지 않는다.",
+    "스킬·근거·출력 해시와 원격 커밋 확인은 포함하지 않는다.",
+    "실제 블라인드 접근 통제·독립성·실사용성·효과·타당도·채점자 일치도를 입증하지 않는다.",
+    "실제 팀 사용 평가 Issue 2와 별개인 제한 범위 합성 평가 설계다."
+  ]
+}
