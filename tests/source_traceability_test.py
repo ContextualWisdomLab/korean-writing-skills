@@ -60,15 +60,15 @@ HEADING_JOINED_DEFINITION = re.compile(rf"(?:과|와)\s+({ID_NAME})\s+·")
 TABLE_DEFINITION = re.compile(rf"^\|\s*({ID_NAME})\s*\|")
 BULLET_DEFINITION = re.compile(rf"^-\s+({ID_NAME}):")
 
-# A bare name must not continue as ``-digits`` (SHA-256, UTF-8, COVID-19).
-TOKEN = re.compile(
-    r"(?<![A-Za-z0-9_%/.#-])(?P<name>[A-Z]+(?:-[A-Z]+)*)(?P<digits>\d+)?"
-    r"(?(digits)(?![A-Za-z0-9_])|(?![A-Za-z0-9_]|-[A-Za-z0-9]))"
-)
+# Consume the complete definition grammar before deciding whether it is a
+# source ID; in particular U-KHU2-UNKNOWN9 must not become U-KHU2.
+TOKEN = re.compile(rf"(?<![A-Za-z0-9_%/.#-])({ID_NAME}|[A-Z]+)(?![A-Za-z0-9_])")
+# Recheck only an unconsumed slash after a source citation, never a path start.
+SLASH_ENDPOINT = re.compile(rf"({ID_NAME})(?![A-Za-z0-9_])")
 NUMBER_END = r"(?![A-Za-z0-9_]|\.\d)"
 # A bare number in a spaced range or comma list must not start a Hangul word
-# (9개, 2023년); a following particle (12에서, 12은) is allowed.
-BARE_NUMBER_END = NUMBER_END + r"(?![가-힣])|(?=[은는이가을를과와의에도로만])"
+# (9개, 3가지); accept only complete particles, not their first syllable.
+BARE_NUMBER_END = NUMBER_END + r"(?![가-힣])|(?=(?:은|는|이|가|을|를|과|와|의|에|에서|도|로|으로|만)(?![가-힣]))"
 RANGE_TAIL = (
     r"(?:[–~—-]|[ \t][–~—-]|[–~—-][ \t]|[ \t][–~—-][ \t])(?:{family}(\d+)" + NUMBER_END + r"|(?<=[–~—-])(\d+)" + NUMBER_END
     + r"|(?<=[ \t])(\d+)(?:" + BARE_NUMBER_END + r"))"
@@ -92,13 +92,18 @@ def ledger_definitions(ledger_text: str) -> tuple[dict[str, int], list[str]]:
     defined: dict[str, int] = {}
     errors: list[str] = []
     tokens = MarkdownIt("commonmark").enable("table").parse(ledger_text)
-    for token in tokens:
+    for position, token in enumerate(tokens):
         if token.type == "fence" or token.type == "html_block" or token.map is None:
             continue
         if token.type == "heading_open" and token.tag == "h2":
-            line = ledger_text.splitlines()[token.map[0]]
-            match = HEADING_DEFINITION.match(line)
-            found = [match.group(1), *HEADING_JOINED_DEFINITION.findall(line, match.end())] if match else []
+            # Reuse the prose run boundaries, not raw code/comment/destination
+            # bytes. A non-text inline token cannot join two definition halves.
+            match = HEADING_DEFINITION.match(ledger_text.splitlines()[token.map[0]])
+            runs = prose_segments("## " + tokens[position + 1].content)
+            found = [match.group(1)] if match else []
+            if match:
+                for _, run in runs:
+                    found.extend(HEADING_JOINED_DEFINITION.findall(run))
         elif token.type == "inline" or token.type == "paragraph_open":
             continue
         elif token.type == "paragraph_close":
@@ -200,12 +205,21 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
     """Expand a range or list that follows ``family+digits`` at ``end``."""
     identifiers = [family + digits]
     escaped = re.escape(family)
-    ranged = re.compile(RANGE_TAIL.format(family=escaped)).match(prose, end)
+    compound_tail = re.compile(r"-[A-Z0-9]*[A-Z]")
+    same_family_tail = re.compile(rf"(?:-{escaped}\d+)+(?![A-Za-z0-9_-])")
+
+    def tail_match(pattern):
+        matched = pattern.match(prose, end)
+        if matched and compound_tail.match(prose, matched.end()) and not same_family_tail.match(prose, matched.end()):
+            return None  # Do not consume a complete ID's numeric prefix.
+        return matched
+
+    ranged = tail_match(re.compile(RANGE_TAIL.format(family=escaped)))
     if ranged:
         stop_digits = next(group for group in ranged.groups() if group)
         start, stop = int(digits), int(stop_digits)
         end = ranged.end()
-        if len(digits) >= 4 and len(stop_digits) >= 4 and start <= stop:
+        if len(digits) == 4 and len(stop_digits) == 4 and start <= stop:
             identifiers.append(family + stop_digits)
         elif stop < start:
             return identifiers, end, f"descending range {family}{digits}–{stop_digits}"
@@ -229,14 +243,14 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
             previous = int(previous_text)
             end += year_tail.end()
             continue
-        item = listed.match(prose, end)
+        item = tail_match(listed)
         if item:
             number = next(group for group in item.groups() if group)
             identifiers.append(family + number)
             previous, previous_text = int(number), number
             end = item.end()
             continue
-        nxt = ranged_after.match(prose, end)
+        nxt = tail_match(ranged_after)
         if nxt is None:
             break
         number = next(group for group in nxt.groups() if group)
@@ -247,7 +261,7 @@ def _expand(prose: str, end: int, family: str, digits: str) -> tuple[list[str], 
         elif stop < previous:
             errors.append(f"descending range {family}{previous}–{number}")
             identifiers.append(family + number)
-        elif (number.startswith("0") or previous_text.startswith("0") or (len(previous_text) >= 4 and len(number) >= 4)) and int(number) >= previous:
+        elif (number.startswith("0") or previous_text.startswith("0") or (len(previous_text) == 4 and len(number) == 4)) and int(number) >= previous:
             identifiers.append(family + number)
         elif stop - previous > MAX_RANGE:
             errors.append(f"range {family}{previous}–{number} is longer than {MAX_RANGE}")
@@ -265,13 +279,28 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
     for line, prose in prose_segments(text):
         carry: str | None = None
         position = 0
-        for match in TOKEN.finditer(prose):
+        matches = iter(TOKEN.finditer(prose))
+        pending = None
+        while (match := pending or next(matches, None)) is not None:
+            slash_endpoint = pending is not None
+            pending = None
             if match.start() < position:
                 continue
-            family, digits = match.group("name"), match.group("digits") or ""
+            identifier = match.group(1)
+            # Repeated same-family ASCII steps remain ranges, not compound IDs.
+            ranged_name = re.fullmatch(r"([A-Z]+(?:-[A-Z]+)*)(\d+)(?:-\1\d+)+", identifier)
+            if ranged_name and not any(identifier in defined for defined in index.defined.values()):
+                family, digits = ranged_name.groups()
+                token_end = match.start() + len(family) + len(digits)
+            else:
+                family = family_of(identifier)
+                digits = identifier[len(family):]
+                token_end = match.end()
             qualified = QUALIFIER_BEFORE.search(prose, max(0, match.start() - QUALIFIER_WINDOW), match.start())
             if qualified:
                 owner: str | None = qualified.group(1)
+            elif slash_endpoint:
+                owner = carry  # The same list keeps its explicitly qualified owner.
             elif (
                 carry
                 and CARRY_GAP.fullmatch(prose[position:match.start()])
@@ -286,7 +315,7 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
                 if (known and owner is None and family in excluded) or (not known and "-" not in family):
                     position, carry = match.end(), None
                     continue
-                identifiers, position, malformed = _expand(prose, match.end(), family, digits)
+                identifiers, position, malformed = _expand(prose, token_end, family, digits)
                 if malformed:
                     errors.append((line, f"malformed source ID {malformed}"))
             else:
@@ -295,7 +324,8 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
                     carry = owner  # bare family reference such as M-HANI
                     continue
                 atomic = family.split("-")[0] in index.atomic_prefixes and re.fullmatch(r"[A-Z]+(?:-[A-Z]{2,})+", family)
-                if not (atomic or family in index.defined.get(context, {})):
+                compound = re.search(r"\d", family) and re.fullmatch(ID_NAME, family)
+                if not (atomic or compound or family in index.defined.get(context, {})):
                     carry = None
                     continue
                 identifiers = [family]
@@ -307,6 +337,8 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
                     errors.append((line, f"{identifier} belongs to another skill ledger; qualify it with that skill name"))
                 else:
                     errors.append((line, f"source ID {identifier} is not defined in {context} ledger"))
+            if prose[position:position + 1] == "/":
+                pending = SLASH_ENDPOINT.match(prose, position + 1)
     return errors
 
 

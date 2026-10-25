@@ -121,6 +121,26 @@ class PackageSkillsTests(unittest.TestCase):
             with self.subTest(text=text):
                 (self.root / "skills" / NAMES[0] / "SKILL.md").write_text(text, encoding="utf-8")
                 self.assert_rejected()
+    def test_yaml_frontmatter_values_are_validated_before_packaging(self):
+        document = self.root / "skills" / NAMES[0] / "SKILL.md"
+        descriptions = ('[', '[one, two]', 'null', 'false', '123', '" "')
+        for index, description in enumerate(descriptions):
+            with self.subTest(description=description):
+                self.output = self.base / ("yaml-denied-" + str(index))
+                document.write_text(
+                    "---\nname: korean-editing\ndescription: " + description + "\n---\nbody\n",
+                    encoding="utf-8",
+                )
+                self.assert_rejected()
+
+    def test_valid_yaml_quoted_name_and_block_description_are_preserved(self):
+        document = self.root / "skills" / NAMES[0] / "SKILL.md"
+        text = '---\nname: "korean-editing"\ndescription: |\n  Preview fixture.\n---\nbody\n'
+        document.write_text(text, encoding="utf-8")
+        self.module().package_skills(self.root, self.output)
+        with zipfile.ZipFile(self.output / (NAMES[0] + "-preview.zip")) as archive:
+            self.assertEqual(archive.read(NAMES[0] + "/SKILL.md"), text.encode("utf-8"))
+
     def test_malicious_or_missing_links_are_fail_closed(self):
         document = self.root / "skills" / NAMES[1] / "references" / "source-ledger.md"
         payloads = (

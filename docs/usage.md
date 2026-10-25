@@ -10,7 +10,7 @@
 
 ## Preview 패키지 만들기
 
-저장소 루트에서 Python 3.10 이상과 `uv`를 사용한다. 링크 검사에는 버전과 해시를 잠근 `markdown-it-py`, 구조 검사의 YAML frontmatter 파싱에는 `PyYAML` 의존성이 필요하다. API key는 필요하지 않다. 아래 명령은 에이전트의 `terminal` 도구로도 실행할 수 있다.
+저장소 루트에서 Python 3.10 이상과 `uv`를 사용한다. 아래 전체 검증에는 Git, Bash, ripgrep(`rg`)도 필요하다. 링크 검사에는 버전과 해시를 잠근 `markdown-it-py`, 구조 검사와 패키징의 YAML frontmatter 파싱에는 `PyYAML` 의존성이 필요하다. API key는 필요하지 않다. 아래 명령은 에이전트의 `terminal` 도구로도 실행할 수 있다.
 
 ```bash
 uv sync --locked --python 3.14

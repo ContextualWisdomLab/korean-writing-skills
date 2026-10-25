@@ -61,7 +61,7 @@ class StructureFollowupTests(unittest.TestCase):
 
 
 class HygieneFollowupTests(unittest.TestCase):
-    def invoke(self, filename, content):
+    def invoke(self, filename, content, *, initialize_git=True, stage_files=True):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "tests").mkdir()
@@ -72,11 +72,33 @@ class HygieneFollowupTests(unittest.TestCase):
                 p.parent.mkdir(parents=True, exist_ok=True)
                 p.write_text("public fixture\n", encoding="utf-8")
             (root / filename).write_text(content, encoding="utf-8")
+            temporary = root / "temporary"
+            temporary.mkdir()
             env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
-            env.update(GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull)
-            subprocess.run(["git", "init", "-q", str(root)], env=env, check=True, capture_output=True)
-            subprocess.run(["git", "-C", str(root), "add", "--", "."], env=env, check=True, capture_output=True)
-            return subprocess.run(["bash", "tests/public_hygiene_test.sh"], cwd=root, env=env, capture_output=True, text=True, timeout=10)
+            env.update(
+                GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull,
+                GIT_CEILING_DIRECTORIES=str(root.parent), TMPDIR=str(temporary),
+            )
+            if initialize_git:
+                subprocess.run(["git", "init", "-q", str(root)], env=env, check=True, capture_output=True)
+                if stage_files:
+                    subprocess.run(["git", "-C", str(root), "add", "--", "."], env=env, check=True, capture_output=True)
+            result = subprocess.run(["bash", "tests/public_hygiene_test.sh"], cwd=root, env=env, capture_output=True, text=True, timeout=10)
+            self.assertEqual([], list(temporary.iterdir()), "hygiene temporary files were not removed")
+            return result
+
+    def test_git_failure_propagates_its_exit_status(self):
+        for content in ("public fixture\n", "/" + "Users/example/private.md\n"):
+            with self.subTest(content=content):
+                result = self.invoke(".hidden.md", content, initialize_git=False)
+                self.assertEqual(128, result.returncode, (result.stdout, result.stderr))
+                self.assertIn("fatal:", result.stderr)
+                self.assertNotIn("public hygiene contract: ok", result.stdout)
+
+    def test_empty_tracked_list_does_not_scan_untracked_files(self):
+        result = self.invoke("untracked.md", "/" + "Users/example/private.md\n", stage_files=False)
+        self.assertEqual(0, result.returncode, (result.stdout, result.stderr))
+        self.assertIn("public hygiene contract: ok", result.stdout)
 
     def test_korean_filename_is_scanned_without_quoting(self):
         result = self.invoke("한국어 예문.md", "public fixture\n")
@@ -88,6 +110,11 @@ class HygieneFollowupTests(unittest.TestCase):
 
     def test_unsafe_content_in_korean_filename_is_rejected(self):
         result = self.invoke("한국어.md", "/" + "Users/example/private.md\n")
+        self.assertEqual(1, result.returncode, result.stderr)
+        self.assertIn("public tree contains", result.stderr)
+
+    def test_unsafe_content_in_newline_filename_is_rejected(self):
+        result = self.invoke("한국어\n예문.md", "/" + "Users/example/private.md\n")
         self.assertEqual(1, result.returncode, result.stderr)
         self.assertIn("public tree contains", result.stderr)
 

@@ -18,7 +18,7 @@ import hashlib
 import html
 import io
 import json
-import re
+import yaml
 import shutil
 import stat
 import sys
@@ -279,9 +279,16 @@ def package_skills(repository_root: Path, output_directory: Path) -> dict:
             raise PackagingError("invalid frontmatter: " + name)
         closing = lines.index("---", 1)
         frontmatter = "\n".join(lines[1:closing])
-        if not re.search(r"(?m)^name:\s*" + re.escape(name) + r"\s*$", frontmatter):
+        try:
+            metadata = yaml.safe_load(frontmatter)
+        except yaml.YAMLError:
+            raise PackagingError("invalid YAML frontmatter: " + name) from None
+        if not isinstance(metadata, dict):
+            raise PackagingError("frontmatter must be a mapping: " + name)
+        if metadata.get("name") != name:
             raise PackagingError("invalid skill name: " + name)
-        if not re.search(r"(?m)^description:\s*\S", frontmatter) or not "\n".join(lines[closing + 1:]).strip():
+        description = metadata.get("description")
+        if not isinstance(description, str) or not description.strip() or not "\n".join(lines[closing + 1:]).strip():
             raise PackagingError("missing description or body: " + name)
         documents = {path.resolve() for path in snapshots[name]}
         for path, data in snapshots[name].items():

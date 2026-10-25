@@ -37,10 +37,18 @@ for removed_artifact in "${removed_runtime_artifacts[@]}"; do
   }
 done
 
+# Keep the NUL-delimited inventory and its producer's exit status.
+tracked_file_list="$(mktemp)"
+trap 'rm -f -- "$tracked_file_list"' EXIT
+git ls-files -z > "$tracked_file_list" || exit "$?"
 tracked_files=()
 while IFS= read -r -d '' tracked_file; do
   tracked_files+=("$tracked_file")
-done < <(git ls-files -z)
+done < "$tracked_file_list"
+if ((${#tracked_files[@]} == 0)); then
+  printf 'public hygiene contract: ok\n'
+  exit 0
+fi
 
 absolute_path_pattern='(^|[[:space:]`"'"'"'=(]|file://)(/User'
 absolute_path_pattern+='s|/roo'

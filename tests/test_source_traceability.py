@@ -394,6 +394,150 @@ class TraceabilityContracts(unittest.TestCase):
                 self.assertAccepted(apa_text="S99 근거", apa_ledger=APA_LEDGER + entry)
         self.assertRejected(apa_text="S99 근거")
 
+    # PR5 F-SKILLS-1: a complete ID cannot borrow a defined numeric prefix.
+    def test_complete_ids_do_not_resolve_to_numbered_prefixes(self):
+        for identifier in ("U-KHU2-UNKNOWN", "U-KHU2-UNKNOWN9", "N-Q3-UNKNOWN", "N-Q3-UNKNOWN9"):
+            for documents in ({"korean_text": identifier}, {"apa_text": "korean-editing " + identifier}):
+                with self.subTest(identifier=identifier, documents=documents):
+                    errors = self.check(**documents)
+                    self.assertTrue(any(f"source ID {identifier} is not defined in korean-editing ledger" in error
+                                        for error in errors), errors)
+        self.assertAccepted(korean_text="U-KHU2, N-Q1-3, G1-G2")
+
+    def test_defined_compound_ids_keep_their_complete_names(self):
+        identifiers = ("U-KHU2-UNKNOWN", "U-KHU2-UNKNOWN9", "N-Q3-UNKNOWN", "R2-NIKL1")
+        ledger = KOREAN_LEDGER + "\n" + "\n".join(f"- {identifier}: 실제 항목" for identifier in identifiers) + "\n"
+        text = ", ".join(identifiers)
+        self.assertAccepted(korean_text=text, korean_ledger=ledger)
+        self.assertAccepted(apa_text="korean-editing " + text, korean_ledger=ledger)
+        self.assertRejected(apa_text="R2-NIKL1", korean_ledger=ledger)
+
+    def test_range_and_list_ends_do_not_truncate_compound_ids(self):
+        for text in ("N-Q1–N-Q3-UNKNOWN9", "N-Q1·N-Q3-UNKNOWN9", "N-Q1, N-Q3-UNKNOWN9"):
+            with self.subTest(text=text):
+                errors = self.check(korean_text=text)
+                self.assertTrue(any("source ID N-Q3-UNKNOWN9 " in error for error in errors), errors)
+        ledger = KOREAN_LEDGER + "\n- N-Q3-UNKNOWN9: 실제 항목\n"
+        self.assertAccepted(korean_text="N-Q1, N-Q3-UNKNOWN9", korean_ledger=ledger)
+        self.assertAccepted(korean_text="N-Q1-N-Q2-N-Q3")
+
+    # F-FINAL-TRACE-1: a slash-list endpoint is a whole ID, not its prefix.
+    def test_slash_lists_check_complete_compound_endpoints(self):
+        for identifier in ("N-Q3-UNKNOWN", "N-Q3-UNKNOWN9"):
+            for head in ("N-Q1/", "N-Q1/N-Q2/"):
+                for documents in (
+                    {"korean_text": head + identifier},
+                    {"apa_text": "korean-editing " + head + identifier},
+                ):
+                    with self.subTest(identifier=identifier, documents=documents):
+                        errors = self.check(**documents)
+                        self.assertTrue(any(f"source ID {identifier} is not defined in korean-editing ledger" in error
+                                            for error in errors), errors)
+
+    def test_slash_list_controls_preserve_whole_ids_and_qualified_owner(self):
+        for text in ("N-Q1/N-Q3", "N-Q1/3", "N-Q1/N-Q2/N-Q3"):
+            with self.subTest(text=text):
+                self.assertAccepted(korean_text=text)
+                self.assertAccepted(apa_text="korean-editing " + text)
+        for identifier in ("N-Q4", "N-Q3-UNKNOWN", "N-Q3-UNKNOWN9"):
+            for text in (identifier, "N-Q1/" + identifier):
+                for documents in ({"korean_text": text}, {"apa_text": "korean-editing " + text}):
+                    with self.subTest(documents=documents):
+                        errors = self.check(**documents)
+                        self.assertTrue(any(f"source ID {identifier} is not defined in korean-editing ledger" in error
+                                            for error in errors), errors)
+        for identifier in ("N-Q3-UNKNOWN", "N-Q3-UNKNOWN9"):
+            ledger = KOREAN_LEDGER + f"\n- {identifier}: 실제 항목\n"
+            for text in (identifier, "N-Q1/" + identifier):
+                with self.subTest(text=text):
+                    self.assertAccepted(korean_text=text, korean_ledger=ledger)
+                    self.assertAccepted(apa_text="korean-editing " + text, korean_ledger=ledger)
+            errors = self.check(apa_text="N-Q1/" + identifier, korean_ledger=ledger,
+                                apa_ledger=APA_LEDGER + "\n- N-Q1: 자체 문헌\n")
+            self.assertTrue(any(f"{identifier} belongs to another skill ledger" in error for error in errors), errors)
+
+    def test_slash_endpoint_recheck_does_not_scan_urls_paths_or_nonprose(self):
+        for text in (
+            "https://example.org/N-Q1/N-Q3-UNKNOWN9",
+            "[원문](https://example.org/N-Q1/N-Q3-UNKNOWN9)",
+            "[자료](references/N-Q1/N-Q3-UNKNOWN9.md)",
+            "/N-Q1/N-Q3-UNKNOWN9", "references/N-Q1/N-Q3-UNKNOWN9",
+            "./N-Q1/N-Q3-UNKNOWN9", "../N-Q1/N-Q3-UNKNOWN9",
+            "`N-Q1/N-Q3-UNKNOWN9`", "<!-- N-Q1/N-Q3-UNKNOWN9 -->",
+        ):
+            with self.subTest(text=text):
+                self.assertAccepted(korean_text=text)
+                self.assertAccepted(apa_text=text)
+
+    # PR5 F-SKILLS-2: only visible inline text can define a joined source.
+    def test_inline_examples_cannot_define_joined_sources(self):
+        for suffix in (
+            "`과 S99 · 예시`",
+            "<!-- 과 S99 · 예시 -->",
+            "[원문](<https://example.org/과 S99 · 예시>)",
+            "과 `예시` S99 · 메모",
+            "과 <!-- 예시 --> S99 · 메모",
+        ):
+            with self.subTest(suffix=suffix):
+                ledger = "# 근거 장부\n\n## S1 · 실제 문헌 " + suffix + "\n"
+                self.assertEqual(({"S1": 3}, []), trace.ledger_definitions(ledger))
+                errors = self.check(apa_text="S99 근거", apa_ledger=ledger)
+                self.assertTrue(any("source ID S99 is not defined" in error for error in errors), errors)
+        for heading in ("## S1 · 실제 문헌과 S99 · 다른 문헌", "## S1 · 실제 문헌과 **S99** · 다른 문헌"):
+            with self.subTest(heading=heading):
+                ledger = "# 근거 장부\n\n" + heading + "\n"
+                self.assertEqual(({"S1": 3, "S99": 3}, []), trace.ledger_definitions(ledger))
+                self.assertAccepted(apa_text="S1, S99 근거", apa_ledger=ledger)
+        self.assertAccepted(korean_text="E1·U1")
+
+    def test_inline_boundaries_cannot_manufacture_primary_heading_ids(self):
+        for heading in (
+            "## S99`예시` · 메모", "## S99<!-- 예시 --> · 메모", "## `S99` · 메모",
+            "## `예시` S99 · 메모", "## <!-- 예시 --> S99 · 메모", "## [S99](https://example.org) · 메모",
+        ):
+            with self.subTest(heading=heading):
+                self.assertEqual(({}, []), trace.ledger_definitions(heading + "\n"))
+                self.assertRejected(apa_text="S99 근거", apa_ledger=heading + "\n")
+
+    # PR5 F-SKILLS-3: five or more digits do not receive the year exception.
+    def test_non_year_ranges_check_missing_interior_ids(self):
+        ledger = APA_LEDGER + "\n- S10000: 시작\n- S10002: 끝\n- S100000: 시작\n- S100002: 끝\n"
+        for text, missing in (
+            ("S10000–S10002", "S10001"), ("S1·S10000–S10002", "S10001"),
+            ("S1·10000–10002", "S10001"), ("S100000–S100002", "S100001"),
+        ):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text, apa_ledger=ledger)
+                self.assertTrue(any(f"source ID {missing} is not defined" in error for error in errors), errors)
+        complete = ledger + "\n- S10001: 중간\n- S100001: 중간\n"
+        self.assertAccepted(apa_text="S10000–S10002, S1·10000–10002, S100000–S100002", apa_ledger=complete)
+
+    def test_non_year_ranges_still_obey_the_size_limit(self):
+        ledger = APA_LEDGER + "\n- S9999: 시작\n- S10000: 시작\n- S20000: 끝\n"
+        for text, span in (
+            ("S10000–S20000", "S10000–20000"), ("S1·S10000–S20000", "S10000–20000"),
+            ("S1·10000–20000", "S10000–20000"), ("S9999–S20000", "S9999–20000"),
+            ("S1·9999–20000", "S9999–20000"),
+        ):
+            with self.subTest(text=text):
+                errors = self.check(apa_text=text, apa_ledger=ledger)
+                self.assertTrue(any(f"range {span} is longer than 50" in error for error in errors), errors)
+        self.assertAccepted(korean_text="P-SONG2008–2013")
+        self.assertAccepted(apa_text="korean-editing P-SONG2008–2013")
+        self.assertAccepted(apa_text="S1·2008–2013", apa_ledger=APA_LEDGER + "\n- S2008: 시작\n- S2013: 끝\n")
+
+    # OBS-SKILLS-1: a particle's first syllable is not a whole Hangul word.
+    def test_bare_numeric_prose_does_not_start_with_a_particle(self):
+        for word in ("가지", "가정", "이상", "의견", "도로", "만큼"):
+            for separator in (" – ", ", "):
+                with self.subTest(word=word, separator=separator):
+                    self.assertAccepted(korean_text="K2" + separator + "3" + word + " 조항")
+        for particle in ("은", "에서", "으로"):
+            for separator in (" – ", ", "):
+                with self.subTest(particle=particle, separator=separator):
+                    errors = self.check(korean_text="K2" + separator + "3" + particle + " 근거 ID다")
+                    self.assertTrue(any("source ID K3 is not defined" in error for error in errors), errors)
+
     def test_shipped_skills_are_traceable(self):
         self.assertEqual([], trace.validate_repository(ROOT))
 

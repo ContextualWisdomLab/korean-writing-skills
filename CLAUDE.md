@@ -7,8 +7,11 @@
 완료 보고 전 다음을 실행한다.
 
 ```bash
+uv sync --locked --python 3.14
+uv run --locked python -m unittest discover -s tests -p 'test_*.py' -v
+uv run --locked python tests/skill_structure_test.py
+uv run --locked python tests/source_traceability_test.py
 bash tests/public_hygiene_test.sh
-python3 tests/skill_structure_test.py
 ```
 
 로컬 절대경로, ephemeral Agent 식별자, 비밀정보, 연구 참여자 자료, 내부 작업
