@@ -1,0 +1,9 @@
+{
+  "read_relative_paths": [
+    "input.md",
+    "skills/korean-editing/SKILL.md",
+    "skills/korean-editing/references/source-ledger.md"
+  ],
+  "external_lookup": false,
+  "isolation_self_report": "작업공간의 허용된 세 파일만 읽었습니다. 저장소, 다른 사례·판본, 평가 기준, 검증 이력은 열지 않았고 외부 조회도 하지 않았습니다. 이는 이 실행에서의 자기보고이며, 별도의 시스템 수준 접근 감사는 수행하지 않았습니다."
+}
