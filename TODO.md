@@ -6,9 +6,9 @@
 
 | 트랙 | 상태 | 다음 조치 | 완료 증거 | 의존성 |
 |------|------|-----------|-----------|--------|
-| 한국어 규범·퇴고 | **보강(3차)** | 일반화·추가 사례는 별도 검증 | round-3-k5-k6 + validator | — |
+| 한국어 규범·퇴고 | **규정·문단 판단 보강(2026-10-26)** | 일반화·추가 사례와 실제 사용은 별도 검증 | 제41–50항·문장 부호 선택 절·서강대·장경희 자료: `skills/korean-editing/references/source-ledger.md`; 최종 합성 3사례 통과: `evaluations/runs/norms-20261026/review.md` | 확인한 원문 범위·판본·해시 |
 | APA7 논문 작성 | **부분 확인** | 7.7 이후·8.12 이후·10.4 이후·JARS Table 2–8 중 해당 범위 원문 확인 | `skills/apa7-manuscript-writing/` | 확인한 원문 절·쪽 기록 |
-| 독립 평가 | **사례별 채점 기록 축적** | 개별 사례 통과와 전체 타당화를 계속 구분 | `evaluations/runs/round-3-k5-k6/review.md`; K16의 실패·수정 후 재평가 | 입력·스킬·출력 SHA-256 |
+| 독립 평가 | **사례별 채점 기록 축적** | 개별 사례 통과와 전체 타당화를 계속 구분 | `evaluations/runs/round-3-k5-k6/review.md`; K16의 실패·수정 후 재평가; `evaluations/runs/norms-20261026/review.md`의 신구 비교·최종 3사례와 보존된 실패 | 입력·스킬·출력 SHA-256 |
 | 강원국·김정선 | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
 | 경희대·대학 교육 | **반영** | — | U-KHU1–4, examples·validation | — |
 | KBS·신문·피동·주어 | **반영** | KUPIS 접근이 실제 가능할 때 관련 원문 확인 | N-Q·M-HANI·M-HEO·B-KBS·P-SONG | KUPIS 접근 |

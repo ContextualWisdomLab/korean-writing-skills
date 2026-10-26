@@ -1,0 +1,135 @@
+{
+  "v1": {
+    "outputs": 6,
+    "anchors": 110,
+    "checks": 36,
+    "passed": 5
+  },
+  "v2": {
+    "outputs": 3,
+    "anchors": 55,
+    "checks": 18,
+    "passed": 3
+  },
+  "package_members_verified": 13,
+  "historical_files_unchanged": 177,
+  "review": {
+    "v1": "NONPASS: 2 findings",
+    "v2": "bounded PASS: both resolved",
+    "v2_files": [
+      {
+        "file": "SKILL.md",
+        "sha256": "823fb0e8e5e84d6882c86808e1d2016d37c0833d0b2e29cc191e9b634cc631af"
+      },
+      {
+        "file": "references/examples.md",
+        "sha256": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2"
+      },
+      {
+        "file": "references/orthography-decisions.md",
+        "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac"
+      },
+      {
+        "file": "references/paragraph-revision.md",
+        "sha256": "889fa5923f5f4bddc7310530252cd7a873467a52bd2ec098d5f63e843dc8434a"
+      },
+      {
+        "file": "references/source-ledger.md",
+        "sha256": "a1360b36ca6112e955dc816c11eddd9fe3abe4a4050b11553eaa09a509c53676"
+      },
+      {
+        "file": "references/validation.md",
+        "sha256": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688"
+      }
+    ]
+  },
+  "packages": {
+    "limitations": [
+      "not an official release",
+      "not APA 7 certification"
+    ],
+    "packages": [
+      {
+        "artifact": "apa7-manuscript-writing-preview.zip",
+        "files": [
+          {
+            "path": "apa7-manuscript-writing/SKILL.md",
+            "sha256": "2875302a81d41174c50f058b6f2560ce9978146fbc62c4e16d787b995d297f9c",
+            "size": 10572
+          },
+          {
+            "path": "apa7-manuscript-writing/references/document-format-checklist.md",
+            "sha256": "8f8be094d88cbc1ab16479cc2b4895c72c9137d72db235ce37da22e477c2311c",
+            "size": 11438
+          },
+          {
+            "path": "apa7-manuscript-writing/references/jars-quant-table1.md",
+            "sha256": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+            "size": 3846
+          },
+          {
+            "path": "apa7-manuscript-writing/references/reporting-workflow.md",
+            "sha256": "ccaf8281ac5b2af92427d424aa0c17a53b31905c2d304c37d7b07ee1c11576de",
+            "size": 17830
+          },
+          {
+            "path": "apa7-manuscript-writing/references/source-ledger.md",
+            "sha256": "f948eed46f002f1195cc6150ca07457971d0d23b6b69b31d905872b8d98dd286",
+            "size": 27692
+          },
+          {
+            "path": "apa7-manuscript-writing/references/validation.md",
+            "sha256": "3da4b12a96d5bd4a49e53f1a8179ce99f0a4774f522d8a83be98ba7f888a26c4",
+            "size": 2813
+          },
+          {
+            "path": "apa7-manuscript-writing/references/verified-scope.md",
+            "sha256": "6bf45a19dfcbfddc8225f0f87fb0bb7f71f09aaa0a5195b73b2626799d47cba7",
+            "size": 6064
+          }
+        ],
+        "sha256": "931ee058eb88470515abb9f83f41e664795f2f63543ad926af6c9efa3b73bdf9",
+        "skill": "apa7-manuscript-writing"
+      },
+      {
+        "artifact": "korean-editing-preview.zip",
+        "files": [
+          {
+            "path": "korean-editing/SKILL.md",
+            "sha256": "823fb0e8e5e84d6882c86808e1d2016d37c0833d0b2e29cc191e9b634cc631af",
+            "size": 16834
+          },
+          {
+            "path": "korean-editing/references/examples.md",
+            "sha256": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+            "size": 14938
+          },
+          {
+            "path": "korean-editing/references/orthography-decisions.md",
+            "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+            "size": 12162
+          },
+          {
+            "path": "korean-editing/references/paragraph-revision.md",
+            "sha256": "889fa5923f5f4bddc7310530252cd7a873467a52bd2ec098d5f63e843dc8434a",
+            "size": 6211
+          },
+          {
+            "path": "korean-editing/references/source-ledger.md",
+            "sha256": "a1360b36ca6112e955dc816c11eddd9fe3abe4a4050b11553eaa09a509c53676",
+            "size": 32109
+          },
+          {
+            "path": "korean-editing/references/validation.md",
+            "sha256": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688",
+            "size": 5762
+          }
+        ],
+        "sha256": "5e61c23308cbccfe4046d48a6f21e02bf9bd9f32e14a2e00e504125ee2c1fe8d",
+        "skill": "korean-editing"
+      }
+    ],
+    "schema_version": 1,
+    "status": "preview"
+  }
+}
