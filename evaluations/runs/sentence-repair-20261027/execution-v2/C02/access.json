@@ -1,0 +1,78 @@
+{
+  "case_id": "C02",
+  "applied_snapshot": {
+    "path": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+    "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+    "note": "이번 실행은 제공된 candidate-v2 최종 스냅샷과 아래 허용 참조 파일을 적용했다. 각 항목의 대상문만 교정했으며 문맥은 해석에만 사용했다. 문단 구조 수정은 수행하지 않았다."
+  },
+  "read_files": [
+    {
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "sha256": "a37694593b5f97b439f0d9f1610fa83bf4be72281d7028f5cca040bfe2bea99c",
+      "role": "상위 필수 로딩 지침에 따른 설치본 노출",
+      "access_via": ["skill_view: 본문 전체 및 메타데이터", "python3: SHA-256 계산을 위한 바이트 읽기"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "role": "실행에 적용한 최종 스킬",
+      "access_via": ["read_file: 전체", "python3: SHA-256 계산을 위한 바이트 읽기"]
+    },
+    {
+      "path": "evaluation-workspace/eval-design/C02.md",
+      "sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+      "role": "교정 요청·문맥·대상문",
+      "access_via": ["read_file: 전체", "python3: SHA-256 계산을 위한 바이트 읽기"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "role": "문장 수리 절차",
+      "access_via": ["read_file: 전체", "python3: SHA-256 계산을 위한 바이트 읽기"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "role": "표기 판단 절차와 인용 보존",
+      "access_via": ["read_file: 전체", "python3: SHA-256 계산을 위한 바이트 읽기"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "role": "제공된 근거 장부와 확인 범위",
+      "access_via": ["read_file: 전체", "python3: SHA-256 계산을 위한 바이트 읽기"],
+      "note": "장부에 실린 출처 URL이나 다른 파일 경로는 열지 않았다. 장부의 기존 조사 기록을 이번 실행의 직접 조사로 간주하지 않았다."
+    }
+  ],
+  "installed_skill_exposure": {
+    "occurred": true,
+    "required_by_higher_priority_instruction": true,
+    "tool": "skill_view",
+    "name": "korean-editing",
+    "path": "installed-skills/korean-editing/SKILL.md",
+    "scope": "본문 전체와 설명·경로·연결 파일 목록 등의 도구 메타데이터가 노출되었다. 설치본 참조 파일의 본문은 열지 않았다.",
+    "handling": "설치본 로딩 뒤 제공된 candidate-v2 최종 스냅샷을 직접 읽고 이번 실행 기준으로 적용했다. 설치본 미노출 실행이라고 주장하지 않는다."
+  },
+  "prompt_only_context": [
+    "상위 지침과 제공된 스킬 목록",
+    "위임 작업의 접근 제한 및 실행 요청",
+    "메시지에 재현된 AGENTS.md 프로젝트 지침; 저장소 파일 자체는 열지 않음"
+  ],
+  "restrictions_observed": {
+    "external_search_or_fetch_performed": false,
+    "criteria_or_other_design_files_read": false,
+    "other_case_inputs_or_outputs_read": false,
+    "examples_md_or_validation_md_read": false,
+    "research_or_scoring_files_read": false,
+    "repository_files_read": false,
+    "repository_modified": false,
+    "installation_commit_or_publication_performed": false,
+    "self_scoring_performed": false,
+    "note": "설치 스킬의 필수 로딩 노출은 위에 별도로 기록했다. 파일 내용 열람과 해시 계산은 read_files에 열거한 여섯 파일로 한정했다."
+  },
+  "handled_item_ids": ["C02-01", "C02-02", "C02-03", "C02-04"],
+  "created_files": [
+    "evaluation-workspace/execution-v2/C02/output.md",
+    "evaluation-workspace/execution-v2/C02/access.json"
+  ]
+}

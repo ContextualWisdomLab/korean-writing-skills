@@ -1,0 +1,61 @@
+{
+  "task": "C03 동결 한국어 스킬 교정 실행",
+  "language": "ko",
+  "read_accesses": [
+    {
+      "tool": "skill_view",
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "scope": "설치본 전체 본문 및 연결 파일 목록",
+      "note": "상위 지침의 관련 스킬 로드 요구에 따라 첫 도구 묶음에서 동결본·C03 입력 읽기와 병렬로 로드했다. 지정된 동결 입력 외 설치본의 본문이 노출되었다. 설치본의 reference 파일은 열지 않았다."
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/candidate-v1/korean-editing/SKILL.md"
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/eval-design/C03.md"
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/source-ledger.md"
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/sentence-repair.md"
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/orthography-decisions.md"
+    },
+    {
+      "tool": "read_file",
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/paragraph-revision.md"
+    }
+  ],
+  "installed_skill_preexposure": {
+    "catalog_name_and_description_preloaded": true,
+    "full_installed_skill_loaded": true,
+    "full_text_load_timing": "첫 도구 묶음에서 동결 SKILL.md 및 C03 입력 읽기와 병렬로 실행",
+    "installed_references_loaded": false,
+    "disclosure": "교정에는 지정 동결본 절차를 적용했으나 설치본 전체도 노출되었으므로 설치본 미노출 실행이라고 주장하지 않는다."
+  },
+  "other_preloaded_context": [
+    "상위 메시지에 제공된 프로젝트 AGENTS.md 발췌",
+    "상위 메시지에 제공된 설치 스킬 목록과 설명"
+  ],
+  "access_limits": {
+    "examples_md_read": false,
+    "validation_md_read": false,
+    "criteria_files_read": false,
+    "other_eval_design_files_read": false,
+    "other_inputs_or_outputs_read": false,
+    "repository_files_read_with_tools": false,
+    "external_search_or_fetch_performed": false,
+    "self_scoring_performed": false
+  },
+  "created_files": [
+    "evaluation-workspace/execution/C03/output.md",
+    "evaluation-workspace/execution/C03/access.json"
+  ]
+}
