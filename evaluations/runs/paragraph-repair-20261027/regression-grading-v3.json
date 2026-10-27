@@ -1,0 +1,368 @@
+{
+  "title": "기존 비문 회귀 출력(regression-v3) 독립 채점",
+  "grader": "독립 채점 서브에이전트 (실행자·설계자 아님)",
+  "graded_at": "2026-10-27 KST",
+  "criteria_schema_version": "1.0",
+  "input_hashes_verified": {
+    "C01.md": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+    "C02.md": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+    "C03.md": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+    "criteria.json": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7"
+  },
+  "graded_output_hashes": {
+    "C01": {
+      "output.md": "826e2afe2ae041fb87f2f413dd26212eb6a004ce23fd455045b351ecb19c3579",
+      "access.json": "33a24b6b9df868c051b6e88d83d9baf669000ddcf528208ea781480e6a8befaf"
+    },
+    "C02": {
+      "output.md": "27fe1ef1b69568ccb265f6473be160e246d847d99db081b1c8d27e9c8a309195",
+      "access.json": "f2875de01c881062a36cb509fd8eac279f94ea5a1d3bbbae65428d59d63ebac7"
+    },
+    "C03": {
+      "output.md": "cc3ea56d97ddf6d371f134495d05fb3988bf1b608871c43113ff1bc0a7ac4139",
+      "access.json": "b3ccab6e15442d54b2df9d6a5b22e401101e978b4f9acd02a7bbac39a2fee5a9"
+    }
+  },
+  "skill_version_declared_by_executor": "candidate-v3 (access.json 자기기재; 미검증)",
+  "missing_items": [],
+  "cases": [
+    {
+      "id": "C01-01",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+      ],
+      "evidence_source": "regression-v3/C01/output.md",
+      "rationale": "'-다는 것이다'로 장점 주제와 서술부 호응 수리. 자동 급수기·간격·세 단계·가능성(수 있다) 보존, 급수량 등으로 치환 없음."
+    },
+    {
+      "id": "C01-02",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "관람객들은 안전 안내 방송에 귀를 기울였다."
+      ],
+      "evidence_source": "regression-v3/C01/output.md",
+      "rationale": "조사 '을'→'에' 최소 수리. 행위자·대상·과거 주의 행위 보존, 수칙 준수 등 결과 추가 없음."
+    },
+    {
+      "id": "C01-03",
+      "action": "maintain",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "## C01-03 — 유지",
+        "규정문 문체의 명사화도 그대로 둔다"
+      ],
+      "evidence_source": "regression-v3/C01/output.md",
+      "rationale": "정상 명사 서술 구조 인정·원문 유지. 필요조건을 충분조건으로 강화하지 않음."
+    },
+    {
+      "id": "C01-04",
+      "action": "hold",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 2,
+        "overcorrection_restraint": 3
+      },
+      "total": 11,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M03",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "## C01-04 — 확인 필요(원문 유지)",
+        "안내원을 꾸미는지(배지를 단 안내원 → 그 동료) 동료를 꾸미는지",
+        "배지를 단 사람이 안내원인지 동료인지 알려 주시면"
+      ],
+      "evidence_source": "regression-v3/C01/output.md",
+      "rationale": "두 수식 범위를 구분하고 원문 유지·확정 보류; 수령자는 '안내원의 동료'로 유지. 대안은 '안내원이면/동료이면' 조건부로 명시되어 M03 아님. 자연스러움 2: 동료 해석용 쉼표 대안('배지를 단, 안내원의 동료에게')은 중의성 해소력이 약하고 다소 어색함."
+    },
+    {
+      "id": "C02-01",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+      ],
+      "evidence_source": "regression-v3/C02/output.md",
+      "rationale": "문맥의 두 업무(점검/응답)를 각각의 서술어로 복원. 결과(양호·전부 해결)·선후 관계 추가 없음. '점검하고'의 연결은 순서 확정이라기보다 나열로 읽힘."
+    },
+    {
+      "id": "C02-02",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+      ],
+      "evidence_source": "regression-v3/C02/output.md",
+      "rationale": "문맥(고정·완료)으로 서술어 복원, 완결 서술문. 행위자·대상·위치·나사 세 개·완료 보존, 시각·이름 추가 없음."
+    },
+    {
+      "id": "C02-03",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M05",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 설명했다."
+      ],
+      "evidence_source": "regression-v3/C02/output.md",
+      "rationale": "바깥 주어·서술어 호응 수리('설명은…말했다'→'시연자는…설명했다'). 보호 구간 바이트 일치, 발언자·조건·절반·가능성 보존. M05 없음."
+    },
+    {
+      "id": "C02-04",
+      "action": "maintain",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "## C02-04 — 유지",
+        "행위자를 만들어 능동으로 바꾸지 않았다"
+      ],
+      "evidence_source": "regression-v3/C02/output.md",
+      "rationale": "정상 피동 인정·원문 유지, 미상 행위자 보충 없음."
+    },
+    {
+      "id": "C03-01",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용의 검토를 마쳤다."
+      ],
+      "evidence_source": "regression-v3/C03/output.md",
+      "rationale": "'내용이'→'내용의'로 검토 대상화, 관장=검토 행위자. 방문객·직원·관장 역할과 보고 귀속·검토 완료 보존, 승인·사실 확인 추가 없음. 중첩절 잔존은 기준상 감점 사유 아님('직원이 방문객이'의 연속 주격은 읽기 부담이 약간 있으나 역할 추적 가능)."
+    },
+    {
+      "id": "C03-02",
+      "action": "repair",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M04",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+      ],
+      "evidence_source": "regression-v3/C03/output.md",
+      "rationale": "'2건에'→'2건을' 최소 수리. 조건 부정·주절 부정·8건 중 2건 보존, 나머지 6건·역조건 명제 추가 없음."
+    },
+    {
+      "id": "C03-03",
+      "action": "maintain",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 3,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 12,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "## C03-03 — 유지",
+        "생략된 주어는 문맥상 방문객으로 분명하다"
+      ],
+      "evidence_source": "regression-v3/C03/output.md",
+      "rationale": "정상 수신자 주어 생략 인정·원문 유지, 주어를 안내원으로 채우지 않음."
+    },
+    {
+      "id": "C03-04",
+      "action": "hold",
+      "scores": {
+        "meaning_preservation": 3,
+        "repair_resolution": 2,
+        "naturalness": 3,
+        "overcorrection_restraint": 3
+      },
+      "total": 11,
+      "critical_errors": [],
+      "critical_watch_checked": [
+        "M01",
+        "M02",
+        "M03",
+        "M06"
+      ],
+      "pass": true,
+      "evidence_quotes": [
+        "## C03-04 — 확인 필요(원문 유지)",
+        "`받다`와 `전달하다`의 대상이 빠져 있고 앞뒤 문맥도 없다",
+        "`검토자는 제출자에게 [대상]을 받은 뒤 담당자에게 전달했다.`",
+        "문맥에 없는 대상은 임의로 채우지 않았다"
+      ],
+      "evidence_source": "regression-v3/C03/output.md",
+      "rationale": "목적물 미정을 특정하고 원문 유지·확정 보류; 자리표시자 템플릿은 조건부. '서류, 파일'은 확인 질문 안의 예시일 뿐 교정문에 넣지 않아 M02/M03 아님. 비문해소 2: 수령 대상과 전달 대상의 동일 여부를 확인 대상으로 드러내지 않고 템플릿이 단일 대상(동일)을 암묵 전제함; 목적어 생략 일반 금지 여부를 명시적으로 구분하지는 않음(일반 금지를 선언하지도 않음)."
+    }
+  ],
+  "axis_distribution": {
+    "meaning_preservation": {
+      "3": 12
+    },
+    "repair_resolution": {
+      "3": 11,
+      "2": 1
+    },
+    "naturalness": {
+      "3": 11,
+      "2": 1
+    },
+    "overcorrection_restraint": {
+      "3": 12
+    }
+  },
+  "pass_by_action": {
+    "repair": {
+      "n": 7,
+      "pass": 7
+    },
+    "maintain": {
+      "n": 3,
+      "pass": 3
+    },
+    "hold": {
+      "n": 2,
+      "pass": 2
+    }
+  },
+  "cases_passed": 12,
+  "critical_errors_total": 0,
+  "total_score": 142,
+  "maximum_total": 144,
+  "total_is_auxiliary": true,
+  "limitations": [
+    "단일 채점자 판정; 채점자 간 일치도·판정 대조 미실시.",
+    "익명화·무작위 라벨 없음: 출력 경로와 access.json이 candidate-v3임을 드러냄. 쌍대 비교 아님(기존판 출력 미열람).",
+    "상위 실행 지침에 설치 스킬 목록(korean-editing 설명 포함)이 노출됨. 스킬 본문·예문·기존 채점은 열람하지 않음.",
+    "출력 디렉터리 확인 중 regression-v3 상위 디렉터리 파일명 목록(ls)이 표시됨; 다른 파일의 내용은 읽지 않음.",
+    "설계 자체가 평가 대상 스킬에 대한 완전 무노출 블라인드가 아님(design.md §2). 실행 격리는 지시 기반이며 access.json 자기보고는 검증하지 않음.",
+    "통과 문턱(전 축≥2, 중대오류 없음)은 운영값이며 검증된 절단점 아님. 12/12 통과는 일반적 타당성이나 개선의 증거가 아님.",
+    "인용 검증은 Python 부분문자열 일치로 수행; 자연스러움 등 언어 판단은 프로그램으로 검증되지 않음."
+  ]
+}

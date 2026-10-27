@@ -1,0 +1,40 @@
+{
+  "case": "C01",
+  "skill_version": "candidate-v3",
+  "reads": [
+    {
+      "path": "<evaluation-workspace>/candidate-v3/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v3/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"
+    },
+    {
+      "path": "<sentence-evaluation-workspace>/eval-design/C01.md",
+      "sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6"
+    }
+  ],
+  "not_read": [
+    "references/examples.md",
+    "references/validation.md",
+    "other references (source-ledger, paragraph-revision, orthography-decisions) — not needed for this input",
+    "criteria/design files, other inputs, prior outputs, scoring, repository, installed skills"
+  ],
+  "directory_listing": false,
+  "external_search": false,
+  "self_scoring": false,
+  "installs": false,
+  "repository_writes": false,
+  "prompt_exposure": "Delegation prompt exposed only: allowed read paths, input path, output paths, and restrictions (no directory listing; no criteria/design/other inputs/prior outputs/scoring/repo/installed skills; no external search, self-scoring, installs, repo writes). No expected answers or rubric content were in the prompt. Workspace AGENTS.md project context was injected by the runtime.",
+  "writes": [
+    {
+      "path": "<evaluation-workspace>/regression-v3/C01/output.md",
+      "sha256": "826e2afe2ae041fb87f2f413dd26212eb6a004ce23fd455045b351ecb19c3579"
+    },
+    {
+      "path": "<evaluation-workspace>/regression-v3/C01/access.json",
+      "sha256": "self (not computable)"
+    }
+  ]
+}

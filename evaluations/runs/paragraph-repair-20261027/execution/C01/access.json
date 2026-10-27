@@ -1,0 +1,101 @@
+{
+  "case_id": "C01",
+  "task": "장문교정 실제 실행",
+  "root": "<evaluation-workspace>",
+  "hash_algorithm": "SHA-256",
+  "hash_observed_at_utc": "2026-10-27T08:01:12.148799+00:00",
+  "actual_file_reads": [
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "bytes": 17177,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/eval-design/C01.md",
+      "sha256": "a10e81de9244554f550127afbcda304a92f727e4f9c627a8773c2197986f977b",
+      "bytes": 2715,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "bytes": 32690,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+      "bytes": 10507,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "bytes": 6798,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "bytes": 12162,
+      "methods": ["read_file: full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": true
+    },
+    {
+      "path": "<installed-skills>/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "bytes": 17177,
+      "methods": ["skill_view(name=korean-editing): full content", "terminal: read_bytes for SHA-256"],
+      "within_delegated_read_allowlist": false
+    }
+  ],
+  "installed_skill_exposure": {
+    "occurred": true,
+    "name": "korean-editing",
+    "path": "<installed-skills>/korean-editing/SKILL.md",
+    "full_skill_content_exposed": true,
+    "reason": "상위 개발자 지침이 관련 스킬을 skill_view로 반드시 읽도록 요구하여 설치 스킬 본문이 노출되었다. 해당 파일의 해시 확인을 위한 추가 바이트 읽기도 수행했다.",
+    "candidate_skill_sha256_equal": true,
+    "installed_reference_contents_read": false,
+    "installed_reference_names_exposed_as_metadata_only": [
+      "references/examples.md",
+      "references/source-ledger.md",
+      "references/orthography-decisions.md",
+      "references/validation.md",
+      "references/paragraph-revision.md",
+      "references/sentence-repair.md"
+    ],
+    "strict_candidate_only_isolation": false
+  },
+  "preexisting_prompt_exposure": {
+    "project_context_supplied_in_prompt": "AGENTS.md 내용과 근거 대응 표가 위임 메시지에 이미 포함되어 있었다. 저장소의 AGENTS.md 파일을 별도로 열지 않았다.",
+    "installed_skill_catalog_supplied_in_prompt": true,
+    "filesystem_hash_for_prompt_only_context": null
+  },
+  "restrictions": {
+    "external_search_performed": false,
+    "external_source_fetch_performed": false,
+    "self_scoring_performed": false,
+    "installation_performed": false,
+    "repository_files_read_via_tools": false,
+    "repository_writes_performed": false,
+    "other_case_inputs_or_outputs_read": false,
+    "criteria_or_other_design_files_read": false,
+    "examples_or_validation_file_contents_read": false,
+    "other_research_files_read": false
+  },
+  "outputs_written": [
+    "<evaluation-workspace>/execution/C01/output.md",
+    "<evaluation-workspace>/execution/C01/access.json"
+  ],
+  "output_contents": "최소 교정 전문, 재구성 전문, 수정 범위 설명 두 문장. 입력은 합성 문단으로만 취급했으며 가상 설정을 실제 자료의 근거로 사용하지 않았다.",
+  "issues": [
+    "설치 스킬 본문이 허용 읽기 목록 밖에서 노출되어 엄격한 후보본 단독 읽기는 성립하지 않는다. 설치본과 후보본 SKILL.md의 실제 SHA-256은 동일했다."
+  ]
+}

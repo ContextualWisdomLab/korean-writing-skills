@@ -1,0 +1,104 @@
+{
+  "case_id": "C02",
+  "task": "장문교정 실제 실행",
+  "root": "<evaluation-workspace>",
+  "read_files": [
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "bytes": 17177,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/eval-design/C02.md",
+      "sha256": "f87f9559ff575982382c0585285b1cedd4a5abe062e80d4ec909d795ec290fd4",
+      "bytes": 2532,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "bytes": 32690,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+      "bytes": 10507,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "bytes": 6798,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "bytes": 12162,
+      "content_access": "read_file 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": true
+    },
+    {
+      "path": "<installed-skills>/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "bytes": 17177,
+      "content_access": "skill_view(name='korean-editing') 전문",
+      "hash_access": "terminal의 Python hashlib로 파일 바이트 읽음",
+      "within_task_allowlist": false,
+      "reason": "상위 개발자 지침의 관련 스킬 필수 로드 요구를 따르기 위해 설치본을 로드함. 작업별 허용읽기 범위 밖의 노출이므로 별도로 기록함."
+    }
+  ],
+  "installed_skill_exposure": {
+    "catalog_exposed_in_developer_prompt": true,
+    "catalog_scope": "available_skills의 이름과 설명",
+    "loaded_skill": "korean-editing",
+    "path": "<installed-skills>/korean-editing/SKILL.md",
+    "loaded_full_content": true,
+    "same_sha256_as_candidate_skill": true,
+    "installed_reference_contents_read": false,
+    "other_installed_skill_bodies_loaded": false,
+    "linked_file_names_exposed": [
+      "references/examples.md",
+      "references/source-ledger.md",
+      "references/orthography-decisions.md",
+      "references/validation.md",
+      "references/paragraph-revision.md",
+      "references/sentence-repair.md"
+    ],
+    "note": "skill_view가 링크 파일명도 반환했지만 설치본의 링크 파일은 열지 않았다. examples.md와 validation.md는 후보본에서도 열지 않았다."
+  },
+  "inherited_context_exposure": {
+    "project_context_text_received": true,
+    "description": "개발자 메시지에 재현된 AGENTS.md와 근거 대응 설명은 작업 시작 시 이미 제공되었다. 저장소의 AGENTS.md나 해당 메시지에서 언급한 파일을 별도로 열지 않았다."
+  },
+  "scope_record": {
+    "task_allowlist_only": false,
+    "exception": "설치된 korean-editing/SKILL.md를 상위 지침에 따라 로드하고 해당 파일의 SHA-256을 계산했다. 후보본 SKILL.md와 해시가 같았다.",
+    "evaluation_criteria_or_other_design_files_read": false,
+    "other_case_inputs_or_outputs_read": false,
+    "research_materials_opened": false,
+    "repository_files_read_via_tools": false,
+    "external_search_or_network_used": false,
+    "self_scoring_performed": false,
+    "installation_performed": false,
+    "repository_writes_performed": false
+  },
+  "agent_requested_writes": [
+    "<evaluation-workspace>/execution/C02/output.md",
+    "<evaluation-workspace>/execution/C02/access.json"
+  ],
+  "output_note": "수정 전문과 마지막 문장 '두 장의 상태'의 의미를 묻는 질문 한 개를 작성했다. 채점이나 합격 판정은 작성하지 않았다."
+}

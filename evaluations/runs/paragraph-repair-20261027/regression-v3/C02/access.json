@@ -1,0 +1,19 @@
+{
+  "case": "C02",
+  "skill_version": "candidate-v3",
+  "date": "2026-10-27",
+  "reads": [
+    {"path": "<evaluation-workspace>/candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "<evaluation-workspace>/candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "<sentence-evaluation-workspace>/eval-design/C02.md", "sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7"}
+  ],
+  "not_read": ["references/examples.md", "references/validation.md", "references/source-ledger.md", "references/paragraph-revision.md", "references/orthography-decisions.md", "criteria/design files", "other inputs/outputs/scores", "repository", "installed skills"],
+  "directory_listing": false,
+  "external_search": false,
+  "self_scoring": false,
+  "prompt_exposure": "Subagent task context only: allowed paths, prohibition list, output paths, and workspace AGENTS.md project context (includes general korean-editing principles and source-ledger summary table). No criteria, expected answers, or prior outputs were exposed.",
+  "writes": [
+    "<evaluation-workspace>/regression-v3/C02/output.md",
+    "<evaluation-workspace>/regression-v3/C02/access.json"
+  ]
+}
