@@ -170,7 +170,7 @@
     "quote_verification_by": "grounded-citations sources.py attach_quote / quote_in_evidence",
     "citation_storage_mode": "load/save/lock 입출력만 메모리 어댑터로 대체했다. 허용된 두 산출물 외에 장부·잠금 파일을 만들지 않았다.",
     "python_observed": "3.14.5; 환경 설명의 3.14.7이 아니라 실측값을 기록했다.",
-    "initial_tmpdir_observed": "/var/folders/vq/nxtc622x2lg1xq3jpdktymdw0000gn/T/",
+    "initial_tmpdir_observed": "<system-tmpdir>",
     "subsequent_tmpdir_explicitly_set": "<evaluation-workspace>",
     "initial_tmpdir_note": "초기 해시·Git 읽기에서 환경 설명과 실제 TMPDIR가 다른 것을 관찰했다. 이후 명령은 허용 scratch를 명시했다. 초기 명령은 임시 파일을 생성하는 작업이 아니었다."
   },

@@ -1,5 +1,5 @@
 {
-  "normalization": "Private path prefixes replaced with fixed markers outside frozen eval-design; no scores, criteria or outputs rewritten.",
+  "normalization": "Private path prefixes replaced with fixed markers outside frozen eval-design; no scores, criteria or outputs rewritten. System temporary directory paths replaced with <system-tmpdir>.",
   "files": [
     {
       "path": "eval-design/C01.md",
@@ -169,7 +169,7 @@
     {
       "path": "content-review.json",
       "original_sha256": "fca29c7b9be4faf825786accd7f96eb81493cb7432c1a6f6fa459c16eaeb63e1",
-      "public_sha256": "5f4da37ee350237abea39417958ffe35d9c70c4168c38687a600a738626c0189"
+      "public_sha256": "86969ecf4e8dc31b452650e5ec185c9ac3f9055348096fc5277d27922f42eeaf"
     },
     {
       "path": "content-review-v2.json",
