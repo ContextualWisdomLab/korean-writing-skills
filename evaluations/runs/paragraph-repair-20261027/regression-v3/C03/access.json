@@ -1,0 +1,20 @@
+{
+  "case": "C03",
+  "skill_version": "candidate-v3",
+  "run_date": "2026-10-27",
+  "files_read": [
+    {"path": "<evaluation-workspace>/candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "<evaluation-workspace>/candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "<sentence-evaluation-workspace>/eval-design/C03.md", "sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c"}
+  ],
+  "files_not_read": "Other references (source-ledger, paragraph-revision, orthography-decisions) were linked but not opened; examples/validation excluded by instruction. No directory listings, criteria, design, other inputs, prior outputs, scoring, repository, or installed skills were read.",
+  "files_written": [
+    "<evaluation-workspace>/regression-v3/C03/output.md",
+    "<evaluation-workspace>/regression-v3/C03/access.json"
+  ],
+  "prompt_exposure": "Delegation prompt included the task context and workspace AGENTS.md project context (korean-writing-skills/turbot), and the system-prompt skill list descriptions. No expected answers, criteria, or scoring were exposed in the prompt.",
+  "external_search": false,
+  "self_scoring": false,
+  "installs": false,
+  "repository_writes": false
+}

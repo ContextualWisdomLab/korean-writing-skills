@@ -1,0 +1,27 @@
+{
+  "case": "C02",
+  "root": "<evaluation-workspace>",
+  "files_read": [
+    {"path": "candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "candidate-v3/korean-editing/references/paragraph-revision.md", "sha256": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2"},
+    {"path": "candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "candidate-v3/korean-editing/references/orthography-decisions.md", "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac"},
+    {"path": "eval-design/C02.md", "sha256": "f87f9559ff575982382c0585285b1cedd4a5abe062e80d4ec909d795ec290fd4"}
+  ],
+  "files_not_read": [
+    "candidate-v3/korean-editing/references/examples.md (excluded by instruction)",
+    "candidate-v3/korean-editing/references/validation.md (excluded by instruction)",
+    "candidate-v3/korean-editing/references/source-ledger.md (linked but not opened)"
+  ],
+  "directory_listings": "none",
+  "files_written": [
+    "execution-v3/C02/output.md",
+    "execution-v3/C02/access.json"
+  ],
+  "sha256_method": "shasum -a 256 run after reading; one terminal command, read-only",
+  "external_search": false,
+  "self_scoring": false,
+  "installs_or_repo_writes": false,
+  "system_prompt_exposure": "The executor's system prompt included the Hermes agent instructions, the list of installed skill names and one-line descriptions (including an installed 'korean-editing' entry, whose content was NOT loaded), and the workspace AGENTS.md (Korean writing project guidelines and a source-mapping table). The installed korean-editing skill, criteria, design, other cases, outputs, and scoring files were not opened.",
+  "notes": "Output contains the revised full text, change notes, and two author questions (scope of '점심 전에'; meaning of '상태' in the final sentence)."
+}

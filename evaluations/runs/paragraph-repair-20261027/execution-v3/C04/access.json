@@ -1,0 +1,31 @@
+{
+  "case": "C04",
+  "run": "execution-v3",
+  "date": "2026-10-27",
+  "root": "<evaluation-workspace>",
+  "files_read": [
+    {"path": "candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "candidate-v3/korean-editing/references/paragraph-revision.md", "sha256": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2"},
+    {"path": "candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "candidate-v3/korean-editing/references/orthography-decisions.md", "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac"},
+    {"path": "eval-design/C04.md", "sha256": "478c83b2186f250628baed856a2a0661f80cb029ce90e47e7a701289a31afef8"}
+  ],
+  "files_not_read": [
+    "candidate-v3/korean-editing/references/source-ledger.md (referenced but not opened)",
+    "candidate-v3/korean-editing/references/examples.md (excluded)",
+    "candidate-v3/korean-editing/references/validation.md (excluded)"
+  ],
+  "other_filesystem_operations": [
+    "shasum -a 256 on the five files above",
+    "test -e execution-v3/C04 (existence check only; result: did not exist)"
+  ],
+  "directory_listings": "none",
+  "files_written": [
+    "execution-v3/C04/output.md",
+    "execution-v3/C04/access.json"
+  ],
+  "external_search": false,
+  "self_scoring": false,
+  "installs_or_repo_writes": false,
+  "system_prompt_exposure": "The executor's system prompt included the Hermes installed-skill catalog (names and one-line descriptions, including the installed korean-editing skill description) and workspace AGENTS.md project context (user style preferences, source-mapping table). No installed skill file, criteria, design, other case, or output was opened. The task context message named the allowed paths."
+}
