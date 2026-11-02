@@ -26,6 +26,8 @@ def test_drafting_guidance_preserves_uncertainty_and_source_scope():
         "인용 귀속",
         "정규식으로 일괄 치환하지 않는다",
         "유의한",
+        "N-EXAMPLES",
+        "외래어·로마자·고유명사 게이트",
         "신뢰구간",
     ):
         assert phrase in text
