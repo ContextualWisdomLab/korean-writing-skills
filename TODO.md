@@ -6,7 +6,7 @@
 
 | 트랙 | 상태 | 다음 조치 | 완료 증거 | 의존성 |
 |------|------|-----------|-----------|--------|
-| 한국어 규범·퇴고 | **규정·문단 판단·초안 예방 점검 보강(2026-11-02)** | 새 초안 점검표의 독립·블라인드 평가와 실제 팀 사용은 별도 검증 | `skills/korean-editing/references/source-ledger.md`; `references/drafting-checklist.md`; 기존 최종 3사례 | 확인한 원문 범위·판본·해시 |
+| 한국어 규범·퇴고 | **규정·문단 판단·초안 예방 점검 보강(2026-11-02)** | 새 초안 점검표의 독립·블라인드 평가와 실제 팀 사용은 별도 검증 | `skills/korean-editing/references/source-ledger.md`; `skills/korean-editing/references/drafting-checklist.md`; 기존 최종 3사례 | 확인한 원문 범위·판본·해시 |
 | APA7 논문 작성 | **부분 확인** | 7.7 이후·8.12 이후·10.4 이후·JARS Table 2–8 중 해당 범위 원문 확인 | `skills/apa7-manuscript-writing/` | 확인한 원문 절·쪽 기록 |
 | 독립 평가 | **사례별 채점 기록 축적** | 개별 사례 통과와 전체 타당화를 계속 구분 | `evaluations/runs/round-3-k5-k6/review.md`; K16의 실패·수정 후 재평가; `evaluations/runs/norms-20261026/review.md`의 신구 비교·최종 3사례와 보존된 실패 | 입력·스킬·출력 SHA-256 |
 | 강원국·김정선 | **반영(부분)** | 원서 본문 추가 확인 | source-ledger G1–J2 | — |
