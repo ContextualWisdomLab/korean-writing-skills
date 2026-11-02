@@ -25,6 +25,8 @@ def test_drafting_guidance_preserves_uncertainty_and_source_scope():
         "아직 없다",
         "인용 귀속",
         "정규식으로 일괄 치환하지 않는다",
+        "유의한",
+        "신뢰구간",
     ):
         assert phrase in text
 
