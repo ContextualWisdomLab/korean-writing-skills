@@ -39,6 +39,19 @@ class ReportGuidanceTests(unittest.TestCase):
         self.assertNotIn('미확인`, `확인 불가`', text)
         self.assertNotIn('완료 아님`', text)
 
+    def test_achievement_baseline_targets_and_followthrough(self):
+        """Keep the four report obligations; semantic behavior is reviewed separately."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        for term in ['달성 수/전체 대상 수', '분자와 분모', '기준 시점',
+                     '변경 전', '변경 후', '기존 상태', '호스트명',
+                     '병합 후', '배포', '재검증', '0건', '중복']:
+            self.assertIn(term, text)
+        self.assertIn('관측하지 못한 대상을 실패나 미달성 0건으로 세지 않는다', text)
+        self.assertIn('점검·설치·운영 적용·검증을 서로 다른 단계로 집계한다', text)
+        skill = read_utf8('skills/korean-editing/SKILL.md')
+        for term in ['달성 수/전체 대상 수', '변경 전후', '대상 식별자', '병합 후']:
+            self.assertIn(term, skill)
+
     def test_everyday_korean_scope(self):
         """Everyday generation uses the principles without imposing document workflows."""
         skill = read_utf8('skills/korean-editing/SKILL.md')
