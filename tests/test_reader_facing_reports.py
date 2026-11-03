@@ -17,9 +17,12 @@ class ReportGuidanceTests(unittest.TestCase):
         path = ROOT / 'skills/korean-editing/references/reader-facing-reports.md'
         self.assertTrue(path.exists(), 'reader-facing report procedure missing')
         text = path.read_text()
-        for term in ['원자료', '담당자', '접근', '의사결정', '담당·기한',
-                     '임의로', '부정 표현', '공정률', '작업 노트', '실적 → 남은 작업 → 조치 계획']:
+        for term in ['원자료', '담당자', '접근', '의사결정', '실적 → 남은 작업 → 조치 계획',
+                     '초안 작성 전에 확인을 마친다', '합의된 산정 기준']:
             self.assertIn(term, text)
+        self.assertNotIn('버릴 표현', text)
+        self.assertNotIn('## 4. 문장 전환 예시', text)
+        self.assertNotIn('| 주어진 사실 |', text)
 
     def test_checklist_does_not_ship_placeholders(self):
         text = (ROOT / 'skills/korean-editing/references/drafting-checklist.md').read_text()
