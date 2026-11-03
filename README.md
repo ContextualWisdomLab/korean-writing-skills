@@ -17,7 +17,7 @@
 - 초안 작성 전·중 점검: 주장·근거·범위·행위자·시점·불확실성 점검
 - 문단·문장 퇴고: 최소 교정과 구조 재구성 구분, 조건·예외·인용 귀속 보존
 - 표기 판단: 확인된 규정·사전·공식 상담의 적용 범위와 허용형 구분
-- 출처 장부와 실전 예문: `references/source-ledger.md`, `references/examples.md`
+- 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
 - 범위 라우팅과 검증 자료: 표준어·어휘·외래어·로마자·장르 질문을 적절한 근거로 보냄
 
 현재 한국어 스킬은 한글 맞춤법 제41–50항과 문장 부호의 확인된 선택 절을 중심으로 하며, 그 밖의 표기는 실제 교정 때 현행 공식 원문이나 사전에서 다시 확인합니다. 개별 사례 평가 통과는 전체 규범 타당화나 실제 팀 사용 검증을 뜻하지 않습니다.
@@ -59,10 +59,10 @@ IRB·동의·표본 제외 기준이 없으면 [확인 필요]로 남겨 주세�
 
 설치·호출·입력·출력·업데이트·제거 절차는 [사용 안내](docs/usage.md)를 따릅니다. 두 스킬은 서로 독립적인 ZIP과 SHA-256 `manifest.json`으로 preview 패키징할 수 있습니다.
 
-저장소 루트에서 Python 3.10 이상과 `uv`를 사용합니다.
+저장소 루트에서 Python 3.10 이상과 `uv`를 사용합니다. 아래 명령은 지원 하한인 Python 3.10으로 실행합니다.
 
 ```bash
-uv sync --locked --python 3.14
+uv sync --locked --python 3.10
 uv run --locked python scripts/package_skills.py --output "$HOME/skill-preview-output"
 ```
 
