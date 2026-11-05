@@ -40,6 +40,9 @@ class ReportGuidanceTests(unittest.TestCase):
         self.assertNotIn('완료 아님`', text)
         self.assertIn('조판 검증은 텍스트 추출과 별도로 한다', text)
         self.assertIn('(report-layout-verification.md)', text)
+        self.assertIn('불필요한 부정 대비를 피한다', text)
+        self.assertIn('담당자가 공용망 접근을 차단했다', text)
+        self.assertIn('부재·실패·불확실성을 전달하는 부정', text)
         layout = read_utf8('skills/korean-editing/references/report-layout-verification.md')
         for term in ['모든 쪽을 이미지로 본다', '머리행을 반복한다',
                      '캡션은 도식에 실제로 있는 범위를 말한다', '직전 채택본과 대조한다']:
