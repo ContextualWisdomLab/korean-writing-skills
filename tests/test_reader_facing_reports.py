@@ -37,7 +37,7 @@ class ReportGuidanceTests(unittest.TestCase):
         self.assertNotIn('## 4. 문장 전환 예시', text)
         self.assertNotIn('| 주어진 사실 |', text)
         self.assertNotIn('미확인`, `확인 불가`', text)
-        self.assertNotIn('완료 아님`', text)
+        self.assertIn('조판 검증은 텍스트 추출과 별도로 한다', text)
 
     def test_everyday_korean_scope(self):
         """Everyday generation uses the principles without imposing document workflows."""
