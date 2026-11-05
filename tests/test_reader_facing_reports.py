@@ -37,7 +37,13 @@ class ReportGuidanceTests(unittest.TestCase):
         self.assertNotIn('## 4. 문장 전환 예시', text)
         self.assertNotIn('| 주어진 사실 |', text)
         self.assertNotIn('미확인`, `확인 불가`', text)
+        self.assertNotIn('완료 아님`', text)
         self.assertIn('조판 검증은 텍스트 추출과 별도로 한다', text)
+        self.assertIn('(report-layout-verification.md)', text)
+        layout = read_utf8('skills/korean-editing/references/report-layout-verification.md')
+        for term in ['모든 쪽을 이미지로 본다', '머리행을 반복한다',
+                     '캡션은 도식에 실제로 있는 범위를 말한다', '직전 채택본과 대조한다']:
+            self.assertIn(term, layout)
 
     def test_everyday_korean_scope(self):
         """Everyday generation uses the principles without imposing document workflows."""
