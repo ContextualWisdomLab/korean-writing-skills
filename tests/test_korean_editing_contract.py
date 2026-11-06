@@ -51,6 +51,7 @@ def test_common_confusions_are_meaning_based():
 
 
 def load_tests(loader, tests, pattern):
+    """Include the existing function contracts in unittest discovery."""
     return unittest.TestSuite(
         unittest.FunctionTestCase(test)
         for name, test in globals().items()

@@ -33,6 +33,7 @@ def test_drafting_evaluation_packet_covers_application_limits():
 
 
 def load_tests(loader, tests, pattern):
+    """Include the existing function contracts in unittest discovery."""
     return unittest.TestSuite(
         unittest.FunctionTestCase(test)
         for name, test in globals().items()
