@@ -1,0 +1,25 @@
+{
+  "snapshot": "Q/korean-editing",
+  "source_commit": "0c2e6958961d73c2e78ce011fe564b9da0a00ff8",
+  "source_tree": "92b859ef28d441e6443fe14eef9a1f29e2ac8087",
+  "captured_at_utc": "2026-11-06T15:25:31.926699+00:00",
+  "excluded": [
+    "references/validation.md"
+  ],
+  "files": {
+    "SKILL.md": "29cbb15d46f2b8b08f24226deb38906710d6b3c4b2eb61619102e1694b12791d",
+    "references/drafting-checklist.md": "48aa271f62f01a2098be9daffd35b246972e9a4af57158b5fcf9b59eba68aa29",
+    "references/engaging-sentences.md": "963accbb49c230fc899946229ea5805c72b8795d595aad6f06b0556ee6c0664c",
+    "references/examples.md": "758c1ebc319e123716967f1db4189ab46345004330b5c086b1f2a43661ad9552",
+    "references/orthography-decisions.md": "ead3343b188acaf69b9cd9d56652e738293809c29cfde9563022b2b2b04788a6",
+    "references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "references/reader-facing-reports.md": "e0cf80d90b1c98f3d83e578f08bea85cede01509e35ef5947cab1a41201a8276",
+    "references/report-layout-verification.md": "c183857465b23864b43b3308e937c980c5b21c217e749f37cc87c13b0040b156",
+    "references/resume-writing.md": "e6e9748245ad728b0b9001df43bf96e2f46e47b3505bee7d09e9ba634ec68dd8",
+    "references/scope-routing.md": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+    "references/sentence-repair.md": "17ab6f920b42c68431b2a83daf0457010ab6308fc227d2775e357d2099044451",
+    "references/source-ledger.md": "7962aca52db9f33ea5c45df9346ebf5a529601ec1a69d1db965607287597a495",
+    "references/voice-and-causation.md": "e38456e629cde8d2b304bcc62916b523521e72eabddc42f56b1a7c47d0f98655"
+  },
+  "content_review": "In progress at snapshot time; do not modify this snapshot. Any material source change requires a new version."
+}
