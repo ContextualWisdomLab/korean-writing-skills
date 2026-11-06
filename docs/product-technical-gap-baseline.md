@@ -89,7 +89,17 @@ DB를 소유하지 않으므로 ERD는 적용하지 않는다. 파일 기반 근
 | immutable 배포 계약 부재 | release/tag 0개 | manifest·version·digest·SBOM·provenance·clean-install conformance·rollback 절차 정의 | Open |
 | Issue #2가 폐기된 PR #1을 가리킴 | Issue #2 본문과 successor reconciliation comment | PR #4 successor와 현재 acceptance를 기록 | Implemented on PR head |
 
-## Release gate
+## 2026-11-06: Issue #23 범위 갱신
+
+이 절은 아래 과거 release gate나 기존 Gap의 완료 판정을 바꾸지 않는다. 기준은 `main@f0c73fb095b2adf88a3057d529a535caf2126006`과 [Issue #23](https://github.com/ContextualWisdomLab/korean-writing-skills/issues/23)이다.
+
+| Gap | Evidence | Action | Status |
+| --- | --- | --- | --- |
+| REPORT-23: 리더가 비용 등 증감의 규모를 상세 내역보다 먼저 파악해야 함 | 기존 보고서 지침에는 기존 대비 증감 요약 순서가 없음. Issue #23 사용자 피드백 | `korean-editing`의 보고서 지침·진입점·출처 장부에 상단 요약, 같은 기준의 전후 값·차이·비율, 추정 보존과 계산 예외를 연결. 정적 회귀 계약 및 [합성 7사례 사전 점검·4사례 회귀](../evaluations/runs/report-change-summary-20261106/review.md) | 후보 구현·로컬 검사 완료. 정식 독립 평가·실제 보고서 적용은 미실시. 원격 head·Checks·병합 결과는 해당 PR에서 확인 |
+
+담당 경계는 이 저장소의 `skills/korean-editing/`이며 APA·설치 도구·외부 소비 저장소 변경은 필요하지 않다. 수용 조건은 같은 기준의 기존 대비 방향·대략적 규모를 상단에 먼저 제시하고, 상세 수치·예상·조건을 보존하며 기준값이 없거나 0일 때 비율을 만들지 않는 것이다. Python 3.14와 hosted CI는 로컬 Python 3.12 검사로 완료 처리하지 않는다.
+
+## 과거 Release gate
 
 PR #5 → PR #6 → PR #4의 모든 유효 delta가 유효한 default-branch
 거버넌스를 거쳐 순서대로 통합되고, 각 exact-head 검사와 독립 review가 끝나며,
