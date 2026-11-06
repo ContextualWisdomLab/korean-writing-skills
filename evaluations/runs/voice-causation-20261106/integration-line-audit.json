@@ -1,0 +1,7 @@
+{
+  "authored_skill_delta_files": 6,
+  "main_skill_delta_files": 7,
+  "authored_nonblank_line_delta_mismatches": [],
+  "main_nonblank_line_delta_mismatches": [],
+  "scope": "Compares multisets of added and removed nonblank lines in skill-file diffs; not a semantic or ordering proof."
+}

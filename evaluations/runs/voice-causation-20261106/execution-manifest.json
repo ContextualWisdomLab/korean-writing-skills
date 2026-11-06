@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "assembled_at_utc": "2026-11-06T16:22:31.763806+00:00",
+  "source_versions": {
+    "baseline": {
+      "snapshot": "P",
+      "commit": "0cd3281e075a5644498cf25f85d5563a2ea5ee67",
+      "freeze": "baseline-freeze.json"
+    },
+    "candidate_initial": {
+      "snapshot": "Q",
+      "commit": "0c2e6958961d73c2e78ce011fe564b9da0a00ff8",
+      "freeze": "candidate-freeze.json"
+    },
+    "candidate_revised": {
+      "snapshot": "R",
+      "commit": "9bed9a94a390fb7d545ccfe73b72f4372944748c",
+      "freeze": "final-freeze.json"
+    },
+    "integrated": {
+      "commit": "4439a2183fe564494278d7ee809d06375f2cb79a",
+      "freeze": "integrated-freeze.json",
+      "scope": "Current main integrated after R execution snapshots were frozen; no behavioral run on the complete integrated snapshot. Structural, package, and integration review evidence is separate."
+    }
+  },
+  "input_and_criteria_freeze": "freeze.json",
+  "execution_protocol": "execution-protocol.md",
+  "model_setup": "Same configured session model with no per-agent override; a fresh context for each input and version.",
+  "grader_scope": "One new evaluator graded the original four anonymous outputs; another independent evaluator graded the two revised-version outputs. Each read only frozen criteria, rubric copies, inputs, and assigned anonymous outputs. Version mapping disclosed after all grading.",
+  "rater_limit": "The revised-version pair and the original four outputs have different accepted graders. Scores are per-output acceptance evidence, not a controlled same-rater estimate of version effects or inter-rater reliability.",
+  "initial_grading_protocol": {
+    "record": "blind-grading.json",
+    "status": "hold",
+    "eligible_for_final_acceptance": false,
+    "reason": "Out-of-scope completion metadata seen during a collaboration-list query; preserved and excluded from final acceptance."
+  },
+  "accepted_grading_records": [
+    "clean-grading.json",
+    "final-grading.json"
+  ],
+  "access_limit": "Instruction boundary and participant self-reports; no operating-system isolation or independent access telemetry.",
+  "runs": [
+    {
+      "input": "input-1.md",
+      "output": "report-A.md",
+      "version": "candidate_initial",
+      "snapshot_id": "Q",
+      "output_integrity": {
+        "sha256": "592682a6cfa54349158b5676f947bed4d00751e5e56293f52343d5675e04fd7b",
+        "bytes": 2501
+      },
+      "input_integrity": {
+        "sha256": "484cead1fe1af693aa32a8440c6a57a6a9754d5661f1c3de6e09045363eb0f9b",
+        "bytes": 1896
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/reader-facing-reports.md",
+        "references/voice-and-causation.md",
+        "references/sentence-repair.md",
+        "references/orthography-decisions.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true
+    },
+    {
+      "input": "input-1.md",
+      "output": "report-B.md",
+      "version": "baseline",
+      "snapshot_id": "P",
+      "output_integrity": {
+        "sha256": "c9355fe8f969a5d1d042ecdc3cccd2a324075e1f993bc3019a07c2155a48298d",
+        "bytes": 2339
+      },
+      "input_integrity": {
+        "sha256": "484cead1fe1af693aa32a8440c6a57a6a9754d5661f1c3de6e09045363eb0f9b",
+        "bytes": 1896
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/reader-facing-reports.md",
+        "references/sentence-repair.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true
+    },
+    {
+      "input": "input-2.md",
+      "output": "grammar-A.md",
+      "version": "baseline",
+      "snapshot_id": "P",
+      "output_integrity": {
+        "sha256": "44ccde124916cc57330c22c85cc107cff9f6ed2b3196cbccaae5d4c4bad37036",
+        "bytes": 15935
+      },
+      "input_integrity": {
+        "sha256": "27eb408577eecd49f9bf15ceaa4054328bdee52a884e586bebf23b41d2dee275",
+        "bytes": 2807
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/source-ledger.md",
+        "references/drafting-checklist.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true
+    },
+    {
+      "input": "input-2.md",
+      "output": "grammar-B.md",
+      "version": "candidate_initial",
+      "snapshot_id": "Q",
+      "output_integrity": {
+        "sha256": "3c37f5eddc551c32b5c052fd5804327baf60fb6c0d9872a3a0ade48d848f561a",
+        "bytes": 11894
+      },
+      "input_integrity": {
+        "sha256": "27eb408577eecd49f9bf15ceaa4054328bdee52a884e586bebf23b41d2dee275",
+        "bytes": 2807
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/voice-and-causation.md",
+        "references/sentence-repair.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true,
+      "execution_control": "Interrupted once for a progress check after a prolonged run, then resumed in the same context to finish using already permitted materials. No answer feedback, rubric, version mapping, or new source was supplied."
+    },
+    {
+      "input": "input-1.md",
+      "output": "report-C.md",
+      "version": "candidate_revised",
+      "snapshot_id": "R",
+      "output_integrity": {
+        "sha256": "f29cf063b3137ac940b4c8054737e9e69e9b6a510ff9e9df8e14113cae2e2640",
+        "bytes": 2386
+      },
+      "input_integrity": {
+        "sha256": "484cead1fe1af693aa32a8440c6a57a6a9754d5661f1c3de6e09045363eb0f9b",
+        "bytes": 1896
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/reader-facing-reports.md",
+        "references/sentence-repair.md",
+        "references/voice-and-causation.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true
+    },
+    {
+      "input": "input-2.md",
+      "output": "grammar-C.md",
+      "version": "candidate_revised",
+      "snapshot_id": "R",
+      "output_integrity": {
+        "sha256": "f0a5180b80927f92425d2fde2849f3afd14c505ad7ac4467ad96019fc1c4359a",
+        "bytes": 19861
+      },
+      "input_integrity": {
+        "sha256": "27eb408577eecd49f9bf15ceaa4054328bdee52a884e586bebf23b41d2dee275",
+        "bytes": 2807
+      },
+      "skill_files_read": [
+        "SKILL.md",
+        "references/voice-and-causation.md",
+        "references/source-ledger.md"
+      ],
+      "access_report": "Assigned input and snapshot only; no criteria, other inputs, other outputs, repository, validation history, or external search; self-reported.",
+      "raw_output_unchanged": true
+    }
+  ],
+  "grading": {
+    "partial-report-grading.json": {
+      "sha256": "1534050129e9b886c5be4b32757c880641e6e8d3e7b7b2688796bdefd64d009e",
+      "bytes": 11285
+    },
+    "blind-grading.md": {
+      "sha256": "a75f7c8cb5a62220da313d3e31d58a22bc28be5c9180baeb2569fa03c0efaec1",
+      "bytes": 22739
+    },
+    "blind-grading.json": {
+      "sha256": "fe8d03d46500457ef002c08139aef2b073e0befc4d11cdc1b339dec0b9a1f4b6",
+      "bytes": 29137
+    },
+    "clean-grading.md": {
+      "sha256": "4937b30487dd35feb4e3526c972427b67286180975e2aae33f14b89d756bad69",
+      "bytes": 12067
+    },
+    "clean-grading.json": {
+      "sha256": "6290069e8c3a59a739f627639b78080b9df8588999835c3ae61c8425176dd521",
+      "bytes": 15628
+    },
+    "final-grading.md": {
+      "sha256": "1dc69bb7d05e33c371f8968283a132d74f03a638788a9137250f8b90c99fc3d2",
+      "bytes": 4286
+    },
+    "final-grading.json": {
+      "sha256": "73778d6827e79ec5657bbaded23fd2711a90c8ab10049e16824f9f1171a7a218",
+      "bytes": 5832
+    }
+  },
+  "manifest_scope": "Hashes raw output copies and grading artifacts; source snapshots and frozen inputs are recorded in separate linked manifests. This manifest does not hash itself."
+}

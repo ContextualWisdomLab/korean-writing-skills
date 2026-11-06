@@ -20,6 +20,7 @@
 - [이력서·경력기술서·자기소개서](skills/korean-editing/references/resume-writing.md): 경력의 중심 설정, 직무와 실제 경험 연결, 개인 기여·팀 결과·산출물·효과 구분, 의미를 보존하는 압축과 제출본 점검
 - [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
 - [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
+- [능동·피동과 주동·사동](skills/korean-editing/references/voice-and-causation.md): 문법적 지위, 문맥별로 적극 권할 표현과 고칠 표현, 상태 변화·사동 단계·행위자 보존
 - 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
 - 범위 라우팅과 검증 자료: 표준어·어휘·외래어·로마자·장르 질문을 적절한 근거로 보냄
 
@@ -92,6 +93,8 @@ Hermes에 수동 설치할 때는 manifest와 파일별 digest를 먼저 확인�
 2026-11-06의 이력서·보고서·제품 문구 3사례에서는 기준 동결 후 판본별 새 실행과 익명 독립 채점을 수행했습니다. 기존판 2/3, 보강 v2 3/3이 기준을 충족했습니다. 유형별 한 사례의 결과이며 일반 성능 향상을 입증하지 않습니다. 원본 출력·최초 판정·내용 검토 수정·최종 보고서 재점검은 [장르별 작성 평가 기록](evaluations/runs/writing-guides-20261106/review.md)에 있습니다.
 
 2026-11-07에는 경력자 지원 문서와 분기 보고의 합성 두 과제로 경력 구조·기여 귀속·관점 보존·성과 범위를 점검했습니다. 입력과 기준을 고정하고 최종 스킬로 새 문맥에서 작성했으며, 각 과제를 별도 평가자가 채점해 두 과제 모두 통과했습니다. 실제 채용 효과·일반 성능 향상·문서 조판 검증으로 확대하지 않습니다. [최초 출력과 독립 판정](evaluations/runs/career-evidence-20261107/review.md)을 보존했습니다.
+
+능동·피동·사동 보강은 합성 보고서·문법 메모 두 사례로 점검했습니다. 기존판 2/2, 초기 보강판 1/2, 후속 보강판 2/2 통과이며, 시간적 선후를 원인으로 강화한 최초 실패를 보존하고 수정 이유·선택안에도 인과 보존 조건을 적용하도록 보강했습니다. [판본별 출력·독립 채점·후속 검증](evaluations/runs/voice-causation-20261106/review.md)에 평가 절차상 보류와 새 평가자의 재채점, 평가자 차이, 동시 main 통합 범위를 구분해 기록했습니다. 응답 점수는 각 실행 스냅샷에 한정하며, 소수 사례의 결과를 일반 성능 향상으로 해석하지 않습니다.
 
 ## 문서와 현재 한계
 
