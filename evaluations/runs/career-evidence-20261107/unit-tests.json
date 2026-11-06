@@ -1,0 +1,19 @@
+{
+  "command": [
+    "uv",
+    "run",
+    "--locked",
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 37.46,
+  "python": "CPython 3.11.17",
+  "scope": "Existing repository unit suite on the final skill snapshot"
+}

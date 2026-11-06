@@ -17,7 +17,7 @@
 - 초안 작성 전·중 점검: 주장·근거·범위·행위자·시점·불확실성 점검
 - 문단·문장 퇴고: 최소 교정과 구조 재구성 구분, 조건·예외·인용 귀속 보존
 - 표기 판단: 확인된 규정·사전·공식 상담의 적용 범위와 허용형 구분
-- [이력서·경력기술서](skills/korean-editing/references/resume-writing.md): 직무 요구와 실제 경험 연결, 개인 기여·팀 성과·수치의 범위 확인
+- [이력서·경력기술서·자기소개서](skills/korean-editing/references/resume-writing.md): 경력의 중심 설정, 직무와 실제 경험 연결, 개인 기여·팀 결과·산출물·효과 구분, 의미를 보존하는 압축과 제출본 점검
 - [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
 - [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
 - 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
@@ -90,6 +90,8 @@ Hermes에 수동 설치할 때는 manifest와 파일별 digest를 먼저 확인�
 그 평가에서 확인된 `유의한` 등 통계적 의미를 근거 없이 추가하지 않는 후속 guard도 반영했습니다. 이 결과는 5사례의 제한된 증거이며 전체 타당화가 아닙니다. 평가 설계·결과·남은 항목은 [`TODO.md`](TODO.md)와 [`evaluations/runs/drafting-preflight-20261102/`](evaluations/runs/drafting-preflight-20261102/)에서 확인할 수 있습니다.
 
 2026-11-06의 이력서·보고서·제품 문구 3사례에서는 기준 동결 후 판본별 새 실행과 익명 독립 채점을 수행했습니다. 기존판 2/3, 보강 v2 3/3이 기준을 충족했습니다. 유형별 한 사례의 결과이며 일반 성능 향상을 입증하지 않습니다. 원본 출력·최초 판정·내용 검토 수정·최종 보고서 재점검은 [장르별 작성 평가 기록](evaluations/runs/writing-guides-20261106/review.md)에 있습니다.
+
+2026-11-07에는 경력자 지원 문서와 분기 보고의 합성 두 과제로 경력 구조·기여 귀속·관점 보존·성과 범위를 점검했습니다. 입력과 기준을 고정하고 최종 스킬로 새 문맥에서 작성했으며, 각 과제를 별도 평가자가 채점해 두 과제 모두 통과했습니다. 실제 채용 효과·일반 성능 향상·문서 조판 검증으로 확대하지 않습니다. [최초 출력과 독립 판정](evaluations/runs/career-evidence-20261107/review.md)을 보존했습니다.
 
 ## 문서와 현재 한계
 
