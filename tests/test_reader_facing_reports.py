@@ -92,6 +92,12 @@ class ReportGuidanceTests(unittest.TestCase):
         self.assertIn('환산 근거가 없으면 차이도 계산하지 않는다', text)
         self.assertNotIn('기준값이 음수이거나 비교 범위가 다르면', text)
 
+    def test_first_year_total_needs_a_total_baseline(self):
+        """Recurring-only history cannot establish a total-cost growth rate."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        self.assertIn('기존 총비용의 포함 항목도 확인한다', text)
+        self.assertIn('총비용 증가율을 단정하지 않는다', text)
+
     def test_checklist_does_not_ship_placeholders(self):
         """The drafting checklist never tells agents to write placeholder markers."""
         text = read_utf8('skills/korean-editing/references/drafting-checklist.md')
