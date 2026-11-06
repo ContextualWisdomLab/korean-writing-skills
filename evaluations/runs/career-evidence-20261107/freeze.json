@@ -1,0 +1,28 @@
+{
+  "frozen_before_execution": true,
+  "recorded_at": "2026-11-06T15:19:39.486764+00:00",
+  "base_commit": "0cd3281e075a5644498cf25f85d5563a2ea5ee67",
+  "criteria_sha256": "9a75bb16a43cc333e498b8b8bee7be50c3d5b76a2a6a17e8d0c6d45b35250c6d",
+  "inputs": {
+    "resume-input.md": "2c07f205a4a0cc01c2f19b506b2f45c6d255a6eb73a835974a3994f3071df46f",
+    "report-input.md": "5115e7f5acad9f1011d5572b29013b335bf59b1e7df0e9e2476e349923c88955"
+  },
+  "skill_files": {
+    "SKILL.md": "16684837229b34cd43ab81c0edf39d3aedeace07049254c4f64c08c1996e8768",
+    "references/drafting-checklist.md": "48aa271f62f01a2098be9daffd35b246972e9a4af57158b5fcf9b59eba68aa29",
+    "references/engaging-sentences.md": "9be973786ca01193ec292d51a52b6b824ee0dbbc5247f11f7c95eb65626080ef",
+    "references/examples.md": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+    "references/orthography-decisions.md": "ead3343b188acaf69b9cd9d56652e738293809c29cfde9563022b2b2b04788a6",
+    "references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "references/reader-facing-reports.md": "ceb0fe0020814275297c186d2c2a12332659bedc8b1cecd6e3b35db0a7a83f80",
+    "references/report-layout-verification.md": "3466abe0bde45bbe02377abc4765517cfa531664e2fa2f1a22dc0eebd4562ada",
+    "references/resume-writing.md": "a4d48f09a511c45ee9639c78a96f8f10c9c377a8ef3a36c530437babba00798a",
+    "references/scope-routing.md": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+    "references/sentence-repair.md": "54ef718e25ce8d892e0bc7edc4e613b4293bbc5fe3b1eb7ac670823239189be3",
+    "references/source-ledger.md": "346c0822b59f8ed42afea2c3a2a837ce7f0dcf001c0375edea42d8e900fe4fb8"
+  },
+  "excluded": [
+    "references/validation.md"
+  ],
+  "limits": "Single candidate, two synthetic text tasks; no baseline comparison or document rendering."
+}

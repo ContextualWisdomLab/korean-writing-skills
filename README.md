@@ -17,7 +17,7 @@
 - 초안 작성 전·중 점검: 주장·근거·범위·행위자·시점·불확실성 점검
 - 문단·문장 퇴고: 최소 교정과 구조 재구성 구분, 조건·예외·인용 귀속 보존
 - 표기 판단: 확인된 규정·사전·공식 상담의 적용 범위와 허용형 구분
-- [이력서·경력기술서](skills/korean-editing/references/resume-writing.md): 직무 요구와 실제 경험 연결, 개인 기여·팀 성과·수치의 범위 확인
+- [이력서·경력기술서·자기소개서](skills/korean-editing/references/resume-writing.md): 경력의 중심 설정, 직무와 실제 경험 연결, 개인 기여·팀 결과·산출물·효과 구분, 의미를 보존하는 압축과 제출본 점검
 - [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
 - [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
 - 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
