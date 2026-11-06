@@ -1,0 +1,46 @@
+{
+  "frozen_at_utc": "2026-11-06T13:59:13.271323+00:00",
+  "base_commit": "f00ab66634d6b0d1496b7ff4d724e0dc0168927b",
+  "criteria_sha256": "bd9b7fb0f2b72f8414bff3d012ec6a526e96e410ac3a73b7556feb63d2c29302",
+  "inputs": {
+    "report-input.md": "24215b6eab2cc31ee227594fc6a0565d13e8b4c35e8c89a23365532b4777c409",
+    "resume-input.md": "edbe02172127c9ee82c9c952391cf5fb4ee98e4dd9daaabbb4d2c1e69c788a20",
+    "sentences-input.md": "154fda03cd39bbd9c0eb0ac3bf8843bd609a3761024795b971a55faec296851d"
+  },
+  "baseline_skill": {
+    "SKILL.md": "b395bc0053cd216b3c58f7e4d149b0cba398cd4c06eb417062c77d21d81ed15d",
+    "references/drafting-checklist.md": "48aa271f62f01a2098be9daffd35b246972e9a4af57158b5fcf9b59eba68aa29",
+    "references/examples.md": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+    "references/orthography-decisions.md": "ead3343b188acaf69b9cd9d56652e738293809c29cfde9563022b2b2b04788a6",
+    "references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "references/reader-facing-reports.md": "407166459b47eec1e30c3d94dbef692391f517384e6e13eac873a3c24ca3b0fe",
+    "references/report-layout-verification.md": "c183857465b23864b43b3308e937c980c5b21c217e749f37cc87c13b0040b156",
+    "references/scope-routing.md": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+    "references/sentence-repair.md": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+    "references/source-ledger.md": "1f0467369ea7a4b66a6181eedf1981bfba309661ba6cae24d2dd90401f7b02bb"
+  },
+  "candidate_skill": {
+    "SKILL.md": "ff0b3800b7684ac3c244431ef52fba4df96b44d732033fd7f2f54d1830dc47a8",
+    "references/drafting-checklist.md": "48aa271f62f01a2098be9daffd35b246972e9a4af57158b5fcf9b59eba68aa29",
+    "references/engaging-sentences.md": "5868a462b7c72b931d159657936009740c6b79787f562acbc02295c53b27dcc1",
+    "references/examples.md": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+    "references/orthography-decisions.md": "ead3343b188acaf69b9cd9d56652e738293809c29cfde9563022b2b2b04788a6",
+    "references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "references/reader-facing-reports.md": "50f804ac71f167161fce215b6fa5f7f58a46f44d41bca99323a7c17ff6d165ad",
+    "references/report-layout-verification.md": "c183857465b23864b43b3308e937c980c5b21c217e749f37cc87c13b0040b156",
+    "references/resume-writing.md": "e6e9748245ad728b0b9001df43bf96e2f46e47b3505bee7d09e9ba634ec68dd8",
+    "references/scope-routing.md": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+    "references/sentence-repair.md": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+    "references/source-ledger.md": "e2831816202ceea36f9e1cd28fe6300e2f27045723316fdb4ef483f10bb3e901"
+  },
+  "excluded_evaluation_reference": "references/validation.md",
+  "exploratory_outputs_before_criteria_freeze": {
+    "baseline-report-output.md": "4a7c235e4499bdd904f318bf17c2bf53aa97380ae3bfeeffd23ff37ec270f346",
+    "baseline-resume-output.md": "cd73564e750554f661dd82d5fa8903bab6e270b8fed66f7c7c2bcc14fbe08a42",
+    "baseline-sentences-output.md": "66aa097129eafaa037c38071db8580d339c85cbaddb878be3dcbbaf729ee49df"
+  },
+  "comparison_protocol": "Fresh execution per task and version after this freeze; no rubric or output provided to executors; independent scorer receives anonymous outputs. Earlier exploratory outputs are retained separately and do not count as the frozen comparison.",
+  "revision": "v2: remove unsupported interview-to-classification relationship in synthetic résumé example; clarify unconfirmed causality.",
+  "previous_freeze": "comparison-freeze.json",
+  "candidate_v1_resume_execution": "May complete against the immutable v1 snapshot; retained as pre-review output and excluded from the final v2 comparison."
+}

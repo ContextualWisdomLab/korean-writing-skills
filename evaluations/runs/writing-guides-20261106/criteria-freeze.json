@@ -1,0 +1,42 @@
+{
+  "protocol_version": "1.0",
+  "frozen_at_utc": "2026-11-06T13:51:43Z",
+  "hash_algorithm": "SHA-256",
+  "paths_relative_to": "writing-evaluation",
+  "evaluation_design_outputs_inspected": false,
+  "final_comparison_requires_post_freeze_runs": true,
+  "criteria": {
+    "path": "criteria.md",
+    "sha256": "bd9b7fb0f2b72f8414bff3d012ec6a526e96e410ac3a73b7556feb63d2c29302",
+    "bytes": 9086
+  },
+  "inputs": [
+    {
+      "path": "resume-input.md",
+      "sha256": "edbe02172127c9ee82c9c952391cf5fb4ee98e4dd9daaabbb4d2c1e69c788a20",
+      "bytes": 1025
+    },
+    {
+      "path": "report-input.md",
+      "sha256": "24215b6eab2cc31ee227594fc6a0565d13e8b4c35e8c89a23365532b4777c409",
+      "bytes": 1189
+    },
+    {
+      "path": "sentences-input.md",
+      "sha256": "154fda03cd39bbd9c0eb0ac3bf8843bd609a3761024795b971a55faec296851d",
+      "bytes": 682
+    }
+  ],
+  "original_rubrics": [
+    {
+      "path": "../korean-writing-update/evaluations/rubrics/three-axis.md",
+      "sha256": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+      "bytes": 4127
+    },
+    {
+      "path": "../korean-writing-update/evaluations/rubrics/analytic-korean-editing.md",
+      "sha256": "0d42c968dc51887afebc053e039597da6448c0baeb4db9b570991863edcd65a3",
+      "bytes": 4594
+    }
+  ]
+}

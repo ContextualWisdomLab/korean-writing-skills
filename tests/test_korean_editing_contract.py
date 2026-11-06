@@ -17,6 +17,7 @@ def test_drafting_checklist_is_linked_and_scope_is_explicit():
 
 
 def test_drafting_guidance_preserves_uncertainty_and_source_scope():
+    """Keep unresolved work outside drafts while retaining stated uncertainty."""
     text = CHECKLIST.read_text(encoding="utf-8")
     for phrase in (
         "에이전트 자신의 작업 노트·할 일 관리에 기록",
