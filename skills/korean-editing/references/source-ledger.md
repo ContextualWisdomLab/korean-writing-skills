@@ -1,6 +1,6 @@
 # 출처 장부
 
-최초 확인일: 2026-09-20. 재열람·정정: 2026-10-04, 추가 확인: 2026-10-26·2026-10-29·2026-11-02(각 항목에 범위 기록). 최초 작성자: Orca 한국어 스킬 담당 worker; N-LEX1–2·N-Q4–5 보강: 한국어 스킬 편집 담당. 검색 결과는 원문을 찾는 데만 사용했다. 아래 쪽수는 인쇄면이며 PDF 페이지는 표지부터 1로 센다. 전문 파일은 배포하지 않고 직접 쓴 예문과 링크를 제공한다.
+최초 확인일: 2026-09-20. 재열람·정정: 2026-10-04, 추가 확인: 2026-10-26·2026-10-29·2026-11-02·2026-11-06(각 항목에 범위 기록). 최초 작성자: Orca 한국어 스킬 담당 worker; N-LEX1–2·N-Q4–5 보강: 한국어 스킬 편집 담당. 검색 결과는 원문을 찾는 데만 사용했다. 아래 쪽수는 인쇄면이며 PDF 페이지는 표지부터 1로 센다. 전문 파일은 배포하지 않고 직접 쓴 예문과 링크를 제공한다.
 
 ## K1 · 기관 권고
 
@@ -382,3 +382,83 @@ U1은 이 저장소 AGENTS.md의 문체 선호다. 불필요한 요약·자문�
 - URL: [kupis.kw.ac.kr](https://kupis.kw.ac.kr/), 확인일 2026-09-20.
 - 결과: 포털 HTML(200)만 확인. **기관 로그인·프록시 없이** 논문 원문 검색·PDF 미확보. 개인 Zotero SQLite에서 주어·피동·담화 관련 제목 0건.
 - 다음: Edge 기관 SSO 경로로 KUPIS·elderly-gad 재시도. 공개 KCI·accesson 논문(P-SONG2008·2013)으로 우선 보강.
+
+## W-CV1 · Harvard Mignone Center — 이력서 작성 기관 권고
+
+- 발행기관·제목: Harvard Mignone Center for Career Success, *HES: Create Impactful Resumes and Cover Letters*. 발행일은 페이지에서 확인하지 못했다.
+- [공식 원문](https://careerservices.fas.harvard.edu/resources/hes-create-impactful-resumes-and-cover-letters/), 확인일 2026-11-06.
+- 직접 확인: 웹 본문의 Getting Started, Resume Tips, Resume Language Should Be, Do, 해외 지원 시 관행 확인 안내.
+- 확인 내용: 지원 직무에 맞는 경험 선택, 구체적이고 사실에 근거한 표현, 일관된 구성·연대기, 읽기 쉬운 제출본 점검.
+- 적용·한계: 이력서 편집에 참고하는 **기관 권고**다. 실험으로 검증된 합격 공식이 아니며, 미국의 사진·개인정보·분량 관행을 모든 한국 채용에 강제하지 않는다. 채용처의 실제 제출 양식을 우선한다.
+
+## W-CV2 · MIT CAPD — 경험을 근거로 기술하는 기관 권고
+
+- 발행기관·제목: MIT Career Advising & Professional Development, *Resumes: Writing about your skills*. 발행일은 페이지에서 확인하지 못했다.
+- [공식 원문](https://capd.mit.edu/resources/resumes-writing-about-your-skills/), 확인일 2026-11-06.
+- 직접 확인: PAR Statements, Using numbers to show impact, 경험을 표현하는 방법에 관한 웹 본문.
+- 확인 내용: 경험의 맥락·행동·결과를 연결하고, 실제 수량이나 범위로 기여를 설명하며 지원 역할과 관련된 역량을 드러낸다.
+- 적용·한계: **기관 권고**다. 숫자나 성과를 새로 만들라는 지침이 아니다. 영어 동사를 앞세우는 작성법을 한국어의 고정 어순으로 옮기지 않는다. 개인·팀 기여 구분과 인과 점검은 이 저장소의 E1 편집 판단을 함께 적용한다. 채용 담당자의 고정된 검토 시간은 원연구를 확인하지 않아 규칙에 채택하지 않았다.
+
+## W-CV3 · Wiles·Munyikwa·Horton — 이력서 글쓰기 보조 연구
+
+- 서지: Wiles, E., Munyikwa, Z., & Horton, J. (2025). *Algorithmic Writing Assistance on Jobseekers’ Resumes Increases Hires*. Management Science, 71(12), 10144–10164.
+- DOI: [10.1287/mnsc.2024.04528](https://doi.org/10.1287/mnsc.2024.04528). [출판사 원문 페이지](https://pubsonline.informs.org/doi/10.1287/mnsc.2024.04528), 확인일 2026-11-06. 온라인 출판일 2025-04-18.
+- 직접 확인: 출판사 페이지의 서지와 **초록**. 방법·분석 전문은 이번 확인 범위에 포함하지 않는다. [2023년 arXiv 전고](https://arxiv.org/abs/2301.08083)는 같은 연구 계열이며 독립된 재현 연구로 세지 않는다.
+- 확인 내용: 온라인 노동시장에서 비생성형 알고리즘 글쓰기 보조를 제공한 현장 실험에서 채용 결과 차이를 보고했다.
+- 적용·한계: **학술 연구**다. 표현의 명료성을 점검할 이유를 제공하지만, 한국어 이력서·특정 문장 공식·생성형 AI의 경력 작성 효과를 검증하지 않는다. 이 스킬의 합격률이나 효과 크기로 제시하지 않는다.
+
+## W-RPT1 · NARA — 쉬운 공공문서 점검표
+
+- 발행기관·제목: U.S. National Archives and Records Administration, *Plain Writing Checklist*.
+- [공식 원문](https://www.archives.gov/open/plain-writing/checklist.html), 확인일 2026-11-06. 페이지의 마지막 검토일은 2019-07-02이며 최초 발행일과 구별한다.
+- 직접 확인: Organization, Words, Sentences, Design을 포함한 웹 점검표.
+- 확인 내용: 독자에게 필요한 핵심을 먼저 제시하고, 유용한 제목·일상어·문법·시각적 구성을 점검한다.
+- 적용·한계: 미국 공공문서의 **기관 권고**다. 한국어 어문 규정이나 효과를 검증한 실험으로 인용하지 않으며, 능동문·짧은 문장을 모든 문맥에 강제하지 않는다.
+
+## W-RPT2 · GSA Digital.gov — 정보 배열 지침
+
+- 발행기관·제목: U.S. General Services Administration, Digital.gov, *Principles of plain language: Organize the information*. 발행일은 확인한 본문에서 확정하지 않았다.
+- [공식 원문](https://digital.gov/guides/plain-language/principles/organize), 확인일 2026-11-06.
+- 직접 확인: Guide them through the information, Make it easy to follow, Process order, General first 관련 웹 본문.
+- 확인 내용: 목적과 핵심 정보를 앞에 두고 독자의 질문에 맞게 배열한다. 절차 설명은 시간 순서, 일반 설명은 일반 사항을 먼저 제시하는 등 목적에 따라 구성을 달리한다.
+- 적용·한계: **기관 권고**다. 모든 보고서의 고정 목차나 한국어 독해 효과의 실험 근거가 아니다. 핵심 주장 곁에 중요한 조건·예외를 남기는 절차는 E1 편집 판단이다.
+
+## W-RPT3 · van der Bles 등 — 불확실성 전달과 신뢰 연구
+
+- 서지: van der Bles, A. M., van der Linden, S., Freeman, A. L. J., & Spiegelhalter, D. J. (2020). *The effects of communicating uncertainty on public trust in facts and numbers*. Proceedings of the National Academy of Sciences, 117(14), 7672–7683.
+- DOI: [10.1073/pnas.1913678117](https://doi.org/10.1073/pnas.1913678117). [출판사 원문](https://www.pnas.org/doi/10.1073/pnas.1913678117), 확인일 2026-11-06.
+- 직접 확인: 출판사 본문의 Significance, Abstract, Experiments 1–2 관련 절과 [PubMed 서지·초록](https://pubmed.ncbi.nlm.nih.gov/32205438/). 모든 실험의 상세 방법·보충자료를 검토했다고 주장하지 않는다.
+- 확인 내용: 다섯 실험에서 불확실성 전달은 인식된 불확실성을 높였고, 신뢰 감소는 작으며 주로 언어적 표현에서 나타났다. 수치적 표현의 영향은 상대적으로 작았다.
+- 적용·한계: 공적 사실·수치의 전달을 다룬 **학술 연구**다. 불확실성 표시가 항상 신뢰를 높인다는 주장이나 한국어 경영 보고서의 효과 보장으로 사용하지 않는다. 연구를 근거로 자료에 없는 신뢰구간·확률을 만들지 않는다.
+
+## W-RPT4 · Broad Institute Communication Lab — 정책 메모 작성 권고
+
+- 발행기관·제목: Broad Institute of MIT and Harvard Communication Lab, *Policy Memo*. 발행일은 페이지에서 확인하지 못했다.
+- [공식 원문](https://mitcommlab.mit.edu/broad/commkit/policy-memo/), 확인일 2026-11-06.
+- 직접 확인: Criteria for Success, Purpose, 독자·구성·표와 그림에 관한 웹 본문.
+- 확인 내용: 권고를 앞에 두고, 판단에 필요한 배경·근거·대안의 장단점·실행 내용을 독자에 맞게 조직한다.
+- 적용·한계: 정책 메모의 **기관 권고**다. 실제 대안을 동일 기준으로 비교하는 업무 보고서 절차에 참고한다. 현행 유지가 실제 선택지인지 확인하는 규칙은 E1 편집 판단이며, 모든 보고서를 한 쪽으로 제한하거나 이 구성이 실험으로 검증되었다고 주장하지 않는다.
+
+## W-SENT1 · Oppenheimer — 불필요한 어휘 복잡성과 인상 연구
+
+- 서지: Oppenheimer, D. M. (2006). *Consequences of erudite vernacular utilized irrespective of necessity: Problems with using long words needlessly*. Applied Cognitive Psychology, 20(2), 139–156.
+- DOI: [10.1002/acp.1178](https://doi.org/10.1002/acp.1178). [출판사 원문 페이지](https://onlinelibrary.wiley.com/doi/10.1002/acp.1178), 확인일 2026-11-06. 온라인 공개는 2005-10-31, 권·호 연도는 2006이다.
+- 직접 확인: 출판사 **초록과 서지**. 실험 방법·통계 전문은 이번 확인 범위에 포함하지 않는다.
+- 확인 내용: 불필요하게 어려운 어휘가 지적 인상을 높이지 않으며 유창한 처리와 판단의 관계를 보고했다.
+- 적용·한계: **학술 연구**다. 독자가 이해하는 정확한 말을 고를 이유로 참고한다. 모든 긴 문장·한자어·전문용어를 없애거나 한국어 문장의 매력을 보장하는 근거로 확대하지 않는다.
+
+## W-SENT2 · Hansen·Wänke — 구체성과 주관적 진실 판단 연구
+
+- 서지: Hansen, J., & Wänke, M. (2010). *Truth From Language and Truth From Fit: The Impact of Linguistic Concreteness and Level of Construal on Subjective Truth*. Personality and Social Psychology Bulletin, 36(11).
+- DOI: [10.1177/0146167210386238](https://doi.org/10.1177/0146167210386238). [출판사 원문 페이지](https://journals.sagepub.com/doi/10.1177/0146167210386238), 확인일 2026-11-06.
+- 직접 확인: 출판사 **초록과 서지**. 네 실험의 상세 방법·통계 전문은 이번 확인 범위에 포함하지 않는다.
+- 확인 내용: 같은 내용을 구체적으로 표현했을 때 더 참이라고 판단하는 경향과 해석 수준에 따른 조건을 보고했다.
+- 적용·한계: **주관적 판단**에 관한 학술 결과다. 구체적인 문장이 사실임을 증명하지 않는다. 한국어 적용은 직접 검증하지 않았으며, 믿음직하게 보이게 하려고 인물·숫자·감각 묘사를 발명하지 않는다. 구체화는 제공된 사실 안에서 한다.
+
+## W-SENT3 · Packard·Berger — 고객 응대의 구체적 표현 연구
+
+- 서지: Packard, G., & Berger, J. (2021). *How Concrete Language Shapes Customer Satisfaction*. Journal of Consumer Research, 47(5), 787–806.
+- DOI: [10.1093/jcr/ucaa038](https://doi.org/10.1093/jcr/ucaa038). [출판사 페이지](https://academic.oup.com/jcr/article/47/5/787/5873524), [직접 열람한 York University Schulich 연구 목록의 해당 논문 초록](https://schulich.yorku.ca/faculty-research/publications-database/?_pub_keywords=customer-service), 확인일 2026-11-06.
+- 직접 확인: 저자 소속 기관의 해당 논문 **서지·초록**. 출판사 접속은 리디렉션 오류로 전문을 열지 못했다. 기관 초록에서 다섯 연구와 현장 고객 상호작용 자료 사용을 확인했다.
+- 확인 내용: 고객 응대의 구체적 표현이 상대의 말을 듣고 이해했다는 인식 및 만족과 연결되는 결과를 보고했다.
+- 적용·한계: **고객 서비스 맥락의 학술 연구**다. 대상·행동을 분명히 하는 편집에 참고하되 한국어 문학·모든 광고 문구의 효과로 일반화하지 않는다. 문장 리듬·길이 변화·말투 보존은 별도의 E1 편집 선택이다.

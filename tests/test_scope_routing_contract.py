@@ -1,5 +1,6 @@
 """Contract tests for application-scope routing and drafting prevention."""
 from pathlib import Path
+import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "korean-editing" / "SKILL.md"
@@ -29,3 +30,12 @@ def test_drafting_evaluation_packet_covers_application_limits():
         assert phrase in scenario
     for phrase in ("주장·근거·강도", "상관을 인과", "자료에 없는 행위자", "중대 오류"):
         assert phrase in rubric
+
+
+def load_tests(loader, tests, pattern):
+    """Include the existing function contracts in unittest discovery."""
+    return unittest.TestSuite(
+        unittest.FunctionTestCase(test)
+        for name, test in globals().items()
+        if name.startswith("test_") and callable(test)
+    )
