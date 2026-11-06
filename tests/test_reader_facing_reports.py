@@ -56,6 +56,42 @@ class ReportGuidanceTests(unittest.TestCase):
                      '적용 과정을 답변마다 해설하지 않는다']:
             self.assertIn(term, skill)
 
+    def test_change_summary_precedes_details(self):
+        """Report entry points surface the existing-baseline comparison first."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        for term in ['증감 요약 → 상세 내역', '보고서 상단', '기준값', '예상값',
+                     '증감액', '증감률', '약', '추정', 'U1 사용자 선호']:
+            with self.subTest(term=term):
+                self.assertIn(term, text)
+        for path in ['skills/korean-editing/SKILL.md', 'AGENTS.md']:
+            with self.subTest(path=path):
+                self.assertIn('기존 대비 증감', read_utf8(path))
+
+    def test_change_comparison_preserves_denominator_and_uncertainty(self):
+        """A headline must not turn incompatible or missing inputs into a rate."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        for term in ['(비교값 - 기준값) / 기준값 × 100', '기준값이 0',
+                     '기준값이 없', '음수', '통화', '세금', '일회성',
+                     '월 비용', '연 비용', '범위', '%p', '반올림',
+                     '맞춤법만 의뢰받았다면']:
+            with self.subTest(term=term):
+                self.assertIn(term, text)
+
+    def test_zero_baseline_does_not_invent_occurrence(self):
+        """Zero-to-zero and projected costs keep their distinct factual status."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        for term in ['0 → 0', '변동 없음', '실제 발생과 예상 발생',
+                     '증감률은 산출하지 않는다']:
+            with self.subTest(term=term):
+                self.assertIn(term, text)
+        self.assertNotIn('증감액과 신규 발생 사실을 쓰고', text)
+
+    def test_incompatible_scopes_do_not_produce_a_difference(self):
+        """Unmatched scopes cannot justify an absolute change either."""
+        text = read_utf8('skills/korean-editing/references/reader-facing-reports.md')
+        self.assertIn('환산 근거가 없으면 차이도 계산하지 않는다', text)
+        self.assertNotIn('기준값이 음수이거나 비교 범위가 다르면', text)
+
     def test_checklist_does_not_ship_placeholders(self):
         """The drafting checklist never tells agents to write placeholder markers."""
         text = read_utf8('skills/korean-editing/references/drafting-checklist.md')

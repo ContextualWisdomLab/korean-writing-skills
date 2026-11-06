@@ -1,0 +1,18 @@
+{
+  "recorded_after_execution": true,
+  "versions": {
+    "A-G": "evaluations/runs/report-change-summary-20261106/guidance-preflight.md",
+    "ZERO-PROJECTED": "evaluations/runs/report-change-summary-20261106/guidance-zero-baseline.md",
+    "UNMATCHED": "skills/korean-editing/references/reader-facing-reports.md"
+  },
+  "sha256": {
+    "skills/korean-editing/SKILL.md": "b395bc0053cd216b3c58f7e4d149b0cba398cd4c06eb417062c77d21d81ed15d",
+    "skills/korean-editing/references/reader-facing-reports.md": "a2d9f799ab12466c8320f6a9ada46cb75ee54ff36f196f82aa9f9b7655c6c771",
+    "evaluations/runs/report-change-summary-20261106/focused-regression.md": "f633ecb4ca096919baf857a6f90714d1c8df350eaa9f5e2e39750115a86542a8",
+    "evaluations/runs/report-change-summary-20261106/guidance-preflight.md": "20824713514a44d60579a9136cc920b0e09e4f7fe9e65cf905015c57f3198920",
+    "evaluations/runs/report-change-summary-20261106/guidance-zero-baseline.md": "be9afb1013f0af7c9923fe7a15db01c24cce9796c0b1d2048e4643b5094a78b8",
+    "evaluations/runs/report-change-summary-20261106/inputs.md": "e8ff5506c9aee0172abd9ab2dd19f5f944a73f73f4207903a3d1a7742d52cb1b",
+    "evaluations/runs/report-change-summary-20261106/output.md": "fa662b54ba82ed937af2b261441d75fd6f9ff2ae7dff567b921d08b5a4f97429",
+    "evaluations/runs/report-change-summary-20261106/review.md": "a902f97978a7e8f33224d5f911217c67cc351644e9ea2f571ef07e30b884f0ff"
+  }
+}
