@@ -20,6 +20,7 @@
 - [이력서·경력기술서](skills/korean-editing/references/resume-writing.md): 직무 요구와 실제 경험 연결, 개인 기여·팀 성과·수치의 범위 확인
 - [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
 - [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
+- [능동·피동과 주동·사동](skills/korean-editing/references/voice-and-causation.md): 문법적 지위, 문맥별로 적극 권할 표현과 고칠 표현, 상태 변화·사동 단계·행위자 보존
 - 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
 - 범위 라우팅과 검증 자료: 표준어·어휘·외래어·로마자·장르 질문을 적절한 근거로 보냄
 
