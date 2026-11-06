@@ -17,10 +17,15 @@
 - 초안 작성 전·중 점검: 주장·근거·범위·행위자·시점·불확실성 점검
 - 문단·문장 퇴고: 최소 교정과 구조 재구성 구분, 조건·예외·인용 귀속 보존
 - 표기 판단: 확인된 규정·사전·공식 상담의 적용 범위와 허용형 구분
+- [이력서·경력기술서](skills/korean-editing/references/resume-writing.md): 직무 요구와 실제 경험 연결, 개인 기여·팀 성과·수치의 범위 확인
+- [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
+- [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
 - 출처 장부와 실전 예문: [`source-ledger.md`](skills/korean-editing/references/source-ledger.md), [`examples.md`](skills/korean-editing/references/examples.md)
 - 범위 라우팅과 검증 자료: 표준어·어휘·외래어·로마자·장르 질문을 적절한 근거로 보냄
 
 현재 한국어 스킬은 한글 맞춤법 제41–50항과 문장 부호의 확인된 선택 절을 중심으로 하며, 그 밖의 표기는 실제 교정 때 현행 공식 원문이나 사전에서 다시 확인합니다. 개별 사례 평가 통과는 전체 규범 타당화나 실제 팀 사용 검증을 뜻하지 않습니다.
+
+장르별 작성 지침은 대학·공공기관의 권고와 학술 연구를 구분해 사용합니다. 출처 장부에는 직접 읽은 본문·초록의 범위와 적용 한계를 기록했습니다. 외국어권 연구의 결과를 한국어 채용 성과나 이 스킬의 성능으로 약속하지 않습니다. [세 유형별 요청 예시](docs/usage.md#목적별-작성-요청)에서 필요한 입력을 확인할 수 있습니다.
 
 ### `apa7-manuscript-writing`
 

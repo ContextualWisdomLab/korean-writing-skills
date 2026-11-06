@@ -1,5 +1,6 @@
 """Presence contracts for the drafting-time Korean editing guidance."""
 from pathlib import Path
+import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills" / "korean-editing" / "SKILL.md"
@@ -18,7 +19,8 @@ def test_drafting_checklist_is_linked_and_scope_is_explicit():
 def test_drafting_guidance_preserves_uncertainty_and_source_scope():
     text = CHECKLIST.read_text(encoding="utf-8")
     for phrase in (
-        "[확인 필요]",
+        "에이전트 자신의 작업 노트·할 일 관리에 기록",
+        "초안과 문서 파일에는 확인 표지·공란·조사 과제를 넣지 않는다",
         "상관",
         "인과",
         "아직 확인하지 못했다",
@@ -46,3 +48,11 @@ def test_common_confusions_are_meaning_based():
     for pair, rule in rules.items():
         assert pair in text
         assert rule in text
+
+
+def load_tests(loader, tests, pattern):
+    return unittest.TestSuite(
+        unittest.FunctionTestCase(test)
+        for name, test in globals().items()
+        if name.startswith("test_") and callable(test)
+    )
