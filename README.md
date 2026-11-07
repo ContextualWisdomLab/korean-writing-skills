@@ -74,6 +74,13 @@ uv run --locked python scripts/package_skills.py --output "$HOME/skill-preview-o
 
 preview 패키지에는 각 스킬의 `SKILL.md`와 해당 스킬의 근거 파일만 포함됩니다. 저장소 전체, 평가 기준·정답, 사용자 원고, 참여자 자료, Zotero 원문 전문은 배포 대상이 아닙니다. preview 설치는 공식 release나 APA 전체 인증이 아닙니다.
 
+Hermes·Claude Code·Codex·OpenCode·Cursor·Gemini CLI·Antigravity에 설치할 때는 설치 도구로 대상을 고를 수 있습니다. 먼저 `--dry-run`으로 설치 경로를 확인하세요. 경로와 공유 디렉터리 주의 사항은 [사용 안내의 에이전트별 설치](docs/usage.md#에이전트별-설치)에 있습니다.
+
+```bash
+uv run --locked python scripts/install_skills.py --agent claude --agent codex --dry-run
+uv run --locked python scripts/install_skills.py --agent claude --agent codex
+```
+
 Hermes에 수동 설치할 때는 manifest와 파일별 digest를 먼저 확인한 뒤, 활성 프로필의 `skills/` 아래에 필요한 스킬 폴더 전체를 복사하세요. `SKILL.md`만 복사하면 근거 파일이 없어 불완전한 설치가 됩니다. 다른 프로필이나 기존 사용자 수정본을 덮어쓰지 말고, 설치 후 새 세션에서 스킬 목록과 호출을 확인하세요.
 
 ## 평가와 검증 범위
