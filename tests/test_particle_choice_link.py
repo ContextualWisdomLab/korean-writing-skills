@@ -22,6 +22,11 @@ _VOID_HTML_TAGS = frozenset({
     "link", "meta", "param", "source", "track", "wbr",
 })
 
+# Non-rendering HTML containers never provide a clickable Markdown link.
+_NONVISIBLE_HTML_TAGS = frozenset({
+    "head", "noscript", "script", "style", "template", "textarea", "title",
+})
+
 
 class _AnchorLinks(HTMLParser):
     """Collect visibly labelled HTML links outside hidden ancestors."""
@@ -33,6 +38,7 @@ class _AnchorLinks(HTMLParser):
         self._elements: list[tuple[str, bool]] = []
         self._hidden_depth = 0
         self._anchor: tuple[str | None, list[str]] | None = None
+        self._anchor_depth: int | None = None
 
     @property
     def is_hidden(self) -> bool:
@@ -43,10 +49,11 @@ class _AnchorLinks(HTMLParser):
         """Track hidden elements and start collecting a named visible anchor."""
         tag = tag.lower()
         properties = {key.lower(): value for key, value in attrs}
-        hidden = "hidden" in properties
+        hidden = "hidden" in properties or tag in _NONVISIBLE_HTML_TAGS
         if tag == "a" and not (hidden or self.is_hidden):
             accessible_name = properties.get("aria-label") or properties.get("title") or ""
             self._anchor = (properties.get("href"), [accessible_name])
+            self._anchor_depth = len(self._elements)
         elif tag == "img" and self._anchor is not None and not (hidden or self.is_hidden):
             self._anchor[1].append(properties.get("alt") or "")
         if tag not in _VOID_HTML_TAGS:
@@ -62,13 +69,17 @@ class _AnchorLinks(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         """Complete named anchors and close matching HTML elements."""
         tag = tag.lower()
-        if tag == "a" and self._anchor is not None:
-            href, label_parts = self._anchor
-            if href is not None and "".join(label_parts).strip():
-                self.destinations.append(href)
-            self._anchor = None
         for index in range(len(self._elements) - 1, -1, -1):
             if self._elements[index][0] == tag:
+                # Discard an unclosed anchor when its ancestor closes, so
+                # text in a later sibling cannot be mistaken for its label.
+                if self._anchor_depth is not None and index <= self._anchor_depth:
+                    if tag == "a" and index == self._anchor_depth and self._anchor is not None:
+                        href, label_parts = self._anchor
+                        if href is not None and "".join(label_parts).strip():
+                            self.destinations.append(href)
+                    self._anchor = None
+                    self._anchor_depth = None
                 self._hidden_depth -= sum(is_hidden for _, is_hidden in self._elements[index:])
                 del self._elements[index:]
                 break
@@ -280,6 +291,32 @@ class ParticleChoiceLinkContract(unittest.TestCase):
             f'[Read]({_PARTICLE_TARGET})\n'
         )
         self.assertIn(_PARTICLE_TARGET, particle_section_links(content))
+
+    def test_unclosed_html_anchor_cannot_borrow_label_from_sibling(self) -> None:
+        """An implicitly closed anchor must not borrow a later table-cell label."""
+        target = _PARTICLE_TARGET
+        sample = (
+            f"### {_PARTICLE_HEADING}\n\n"
+            f'<table><tr><td><a href="{target}"></td>'
+            '<td>Later text</a></td></tr></table>\n'
+        )
+        self.assertNotIn(target, particle_section_links(sample))
+
+    def test_links_inside_nonvisible_html_elements_do_not_count(self) -> None:
+        """Markdown syntax inside nonrendered HTML is not a clickable link."""
+        target = _PARTICLE_TARGET
+        for tag in ("title", "style", "script", "template", "textarea"):
+            with self.subTest(tag=tag):
+                sample = (
+                    f"### {_PARTICLE_HEADING}\n\n"
+                    f'Notice: <{tag}>[Read]({target})</{tag}>\n'
+                )
+                self.assertNotIn(target, particle_section_links(sample))
+        visible_after_title = (
+            f"### {_PARTICLE_HEADING}\n\n"
+            f'<title>[Hidden]({target})</title> [Visible]({target})\n'
+        )
+        self.assertIn(target, particle_section_links(visible_after_title))
 
     def test_equivalent_local_paths_are_accepted(self) -> None:
         """Equivalent relative paths resolve to the same guidance file."""
