@@ -24,7 +24,8 @@ _VOID_HTML_TAGS = frozenset({
 
 # Non-rendering HTML containers never provide a clickable Markdown link.
 _NONVISIBLE_HTML_TAGS = frozenset({
-    "head", "noscript", "script", "style", "template", "textarea", "title",
+    "head", "noscript", "option", "optgroup", "script", "select",
+    "style", "template", "textarea", "title",
 })
 
 
@@ -282,6 +283,26 @@ class ParticleChoiceLinkContract(unittest.TestCase):
 
         visible = f'<p hidden><a href="{target}">Hidden</a></p>\n\n<a href="{target}">Visible</a>'
         self.assertIn(target, particle_section_links(f"### {_PARTICLE_HEADING}\n\n{visible}\n"))
+
+    def test_select_options_do_not_satisfy_direct_link_contract(self) -> None:
+        """Links inside a selector are not rendered clickable; later links remain valid."""
+        target = _PARTICLE_TARGET
+        selector = f'<select><option><a href="{target}">Read</option></select>'
+        rejected = (
+            selector,
+            f'<option><a href="{target}">Read</a></option>',
+            f'<select><option><a href="{target}" aria-label="Read"></a></option></select>',
+            f'<select>[Read]({target})</select>',
+        )
+        for markup in rejected:
+            with self.subTest(markup=markup):
+                content = f"### {_PARTICLE_HEADING}\\n\\n{markup}\\n"
+                self.assertNotIn(target, particle_section_links(content))
+        visible = selector + f' <a href="{target}">Visible</a>'
+        self.assertIn(
+            target,
+            particle_section_links(f"### {_PARTICLE_HEADING}\\n\\n{visible}\\n"),
+        )
 
     def test_hidden_inline_parent_does_not_hide_later_visible_links(self) -> None:
         """Closing an inline hidden parent restores subsequent link visibility."""
