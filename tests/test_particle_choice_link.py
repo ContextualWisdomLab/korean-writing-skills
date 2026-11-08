@@ -62,6 +62,10 @@ class _AnchorLinks(HTMLParser):
             if hidden:
                 self._hidden_depth += 1
 
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        """Keep non-void HTML elements open despite an XHTML-style slash."""
+        self.handle_starttag(tag, attrs)
+
     def handle_data(self, data: str) -> None:
         """Add visible HTML or Markdown text to the open anchor's label."""
         if self._anchor is not None and not self.is_hidden:
@@ -303,6 +307,19 @@ class ParticleChoiceLinkContract(unittest.TestCase):
             target,
             particle_section_links(f"### {_PARTICLE_HEADING}\n\n{visible}\n"),
         )
+
+    def test_self_closing_select_does_not_expose_links(self) -> None:
+        """A non-void slash keeps links hidden until the HTML element closes."""
+        target = _PARTICLE_TARGET
+        samples = (
+            (f'Notice: <select/> [Read]({target})', []),
+            (f'Notice: <select/> [Hidden]({target})</select> [Visible]({target})', [target]),
+            (f'Notice: <input hidden/> [Visible]({target})', [target]),
+        )
+        for markup, expected in samples:
+            with self.subTest(markup=markup):
+                content = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                self.assertEqual(expected, particle_section_links(content))
 
     def test_hidden_inline_parent_does_not_hide_later_visible_links(self) -> None:
         """Closing an inline hidden parent restores subsequent link visibility."""
