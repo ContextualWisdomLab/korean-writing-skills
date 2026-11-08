@@ -1,0 +1,10 @@
+{
+  "evaluated_commit": "633729d16bc6ef7dc0f29ba0e559df4dc0cdff78",
+  "evaluated_skill_tree": "eb1acafd8772bbc3374b0a7d36c896646471a4e7",
+  "frozen_at_utc": "2026-11-08T10:42:15.099547+00:00",
+  "files": {
+    "skills/korean-editing/SKILL.md": "6244a8eec1282814bb463bcb6b94f3f400f7af9ce6042e15e774826d4b804f27",
+    "evaluations/runs/self-editing-20261108/boundary-input.md": "2b1b1c25f763731d1fc0c420d69402661e48b8ee72179b1dcf48933c6774779d",
+    "evaluations/runs/self-editing-20261108/boundary-criteria.md": "494b74d1168c492b216a62a5958cbe99012360c472652e31801618e8d81f4d4f"
+  }
+}
