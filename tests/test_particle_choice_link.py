@@ -24,14 +24,15 @@ _VOID_HTML_TAGS = frozenset({
 
 
 class _AnchorLinks(HTMLParser):
-    """Collect HTML hrefs only when no HTML ancestor is hidden."""
+    """Collect visibly labelled HTML links outside hidden ancestors."""
 
     def __init__(self) -> None:
-        """Prepare the open-element stack for this rendered section."""
+        """Prepare the open-element stack and pending anchor for this section."""
         super().__init__(convert_charrefs=True)
         self.destinations: list[str] = []
         self._elements: list[tuple[str, bool]] = []
         self._hidden_depth = 0
+        self._anchor: tuple[str | None, list[str]] | None = None
 
     @property
     def is_hidden(self) -> bool:
@@ -39,26 +40,39 @@ class _AnchorLinks(HTMLParser):
         return self._hidden_depth > 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        """Collect visible anchor hrefs and track hidden HTML elements."""
+        """Track hidden elements and start collecting a named visible anchor."""
         tag = tag.lower()
-        hidden = any(name.lower() == "hidden" for name, _ in attrs)
+        properties = {key.lower(): value for key, value in attrs}
+        hidden = "hidden" in properties
         if tag == "a" and not (hidden or self.is_hidden):
-            self.destinations.extend(
-                value for key, value in attrs if key.lower() == "href" and value is not None
-            )
+            accessible_name = properties.get("aria-label") or properties.get("title") or ""
+            self._anchor = (properties.get("href"), [accessible_name])
+        elif tag == "img" and self._anchor is not None and not (hidden or self.is_hidden):
+            self._anchor[1].append(properties.get("alt") or "")
         if tag not in _VOID_HTML_TAGS:
             self._elements.append((tag, hidden))
             if hidden:
                 self._hidden_depth += 1
 
+    def handle_data(self, data: str) -> None:
+        """Add visible HTML or Markdown text to the open anchor's label."""
+        if self._anchor is not None and not self.is_hidden:
+            self._anchor[1].append(data)
+
     def handle_endtag(self, tag: str) -> None:
-        """End the matching element and all unmatched inner elements."""
+        """Complete named anchors and close matching HTML elements."""
         tag = tag.lower()
+        if tag == "a" and self._anchor is not None:
+            href, label_parts = self._anchor
+            if href is not None and "".join(label_parts).strip():
+                self.destinations.append(href)
+            self._anchor = None
         for index in range(len(self._elements) - 1, -1, -1):
             if self._elements[index][0] == tag:
                 self._hidden_depth -= sum(is_hidden for _, is_hidden in self._elements[index:])
                 del self._elements[index:]
                 break
+
 
 def _local_destination(href: str) -> str | None:
     """Compare local file targets, accepting equivalent dot/percent-encoded paths."""
@@ -99,17 +113,26 @@ def particle_section_links(content: str) -> list[str]:
         elif in_section:
             destinations: list[str] = []
             if token.type == "inline":
-                for child in token.children or []:
+                children = token.children or []
+                for position, child in enumerate(children):
                     if child.type == "link_open" and not anchors.is_hidden:
                         href = child.attrGet("href")
-                        if href is not None:
+                        label_parts: list[str] = []
+                        for inner in children[position + 1:]:
+                            if inner.type == "link_close":
+                                break
+                            if inner.type in {"text", "code_inline", "image"}:
+                                label_parts.append(inner.content)
+                        if href is not None and "".join(label_parts).strip():
                             destinations.append(href)
                     elif child.type == "html_inline":
-                        # Feed inline fragments in sequence so a hidden ancestor
-                        # around a later anchor is not accidentally forgotten.
+                        # Feed fragments in sequence; HTML anchors may enclose
+                        # Markdown text, including across inline token boundaries.
                         before = len(anchors.destinations)
                         anchors.feed(child.content)
                         destinations.extend(anchors.destinations[before:])
+                    elif child.type in {"text", "code_inline", "image"}:
+                        anchors.handle_data(child.content)
             elif token.type == "html_block":
                 before = len(anchors.destinations)
                 anchors.feed(token.content)
@@ -134,6 +157,24 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         target = skill_path.parent / _PARTICLE_TARGET
         self.assertTrue(target.is_file(), "The linked guidance must exist.")
+
+    def test_unlabelled_links_do_not_satisfy_contract(self) -> None:
+        """A direct link must offer visible text or an accessible HTML label."""
+        target = _PARTICLE_TARGET
+        rejected = (
+            f"[]({target})",
+            f"[ ]({target})",
+            f'<a href="{target}"></a>',
+            f'<a href="{target}">   </a>',
+            f'<a href="{target}"><span hidden>Hidden</span></a>',
+        )
+        for link in rejected:
+            with self.subTest(link=link):
+                content = f"### {_PARTICLE_HEADING}\\n{link}\\n".replace("\\\\n", "\\n")
+                self.assertNotIn(target, particle_section_links(content))
+        accessible = f'<a href="{target}" aria-label="Read the guidance"></a>'
+        content = f"### {_PARTICLE_HEADING}\\n{accessible}\\n".replace("\\\\n", "\\n")
+        self.assertIn(target, particle_section_links(content))
 
     def test_link_in_following_heading_does_not_satisfy_contract(self) -> None:
         """A link under a later top-level heading must not satisfy the entry point."""
