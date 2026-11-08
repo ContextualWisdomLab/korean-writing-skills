@@ -312,7 +312,7 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         for html in examples:
             with self.subTest(html=html):
-                sample = f"### {_PARTICLE_HEADING}\\n\\n{html}\\n"
+                sample = f"### {_PARTICLE_HEADING}\n\n{html}\n"
                 self.assertIn(target, particle_section_links(sample))
 
     def test_links_inside_nonvisible_html_elements_do_not_count(self) -> None:
