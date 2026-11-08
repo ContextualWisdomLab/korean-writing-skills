@@ -170,10 +170,10 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         for link in rejected:
             with self.subTest(link=link):
-                content = f"### {_PARTICLE_HEADING}\\n{link}\\n".replace("\\\\n", "\\n")
+                content = f"### {_PARTICLE_HEADING}\n{link}\n"
                 self.assertNotIn(target, particle_section_links(content))
         accessible = f'<a href="{target}" aria-label="Read the guidance"></a>'
-        content = f"### {_PARTICLE_HEADING}\\n{accessible}\\n".replace("\\\\n", "\\n")
+        content = f"### {_PARTICLE_HEADING}\n{accessible}\n"
         self.assertIn(target, particle_section_links(content))
 
     def test_link_in_following_heading_does_not_satisfy_contract(self) -> None:
