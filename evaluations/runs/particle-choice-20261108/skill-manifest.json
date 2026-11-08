@@ -1,0 +1,20 @@
+{
+  "base_commit": "70b3a9ced7a102c2bda73d0d8ea3b7dd33c152c2",
+  "files": {
+    "SKILL.md": "a4f3f8f8adf752e93337fa7cdf13e9940dd801e2c00b44545a095247bbc043f7",
+    "references/drafting-checklist.md": "24c828d7b36109edaeb6e6db6dceccc446a3f0482a5fb4832ea41260c4d6f4c0",
+    "references/engaging-sentences.md": "9e8fb34840c84685357b8c711fba64f5467d762c2536006ec4198811ba0f75c4",
+    "references/examples.md": "758c1ebc319e123716967f1db4189ab46345004330b5c086b1f2a43661ad9552",
+    "references/orthography-decisions.md": "ead3343b188acaf69b9cd9d56652e738293809c29cfde9563022b2b2b04788a6",
+    "references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "references/particle-choice.md": "43bee01d42eb3015c8ba75037ad54bdf7ed50ee760d53f332d1a4319478ba885",
+    "references/reader-facing-reports.md": "ceb0fe0020814275297c186d2c2a12332659bedc8b1cecd6e3b35db0a7a83f80",
+    "references/report-layout-verification.md": "3466abe0bde45bbe02377abc4765517cfa531664e2fa2f1a22dc0eebd4562ada",
+    "references/resume-writing.md": "9080c9d30c4c4dc23d10ad298af9e9589f37d006c85bc9de0ea7bfef8a878bba",
+    "references/scope-routing.md": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+    "references/sentence-repair.md": "c606eebfb8947b9ea2e5299499f00bfbf5b9f4825360cbb9c7d6b6483ff3fa8a",
+    "references/source-ledger.md": "5c42ed30f0fd39bbcdab913b0cc1418e1f6ee3a16044dedb51a3d8d6aff75da6",
+    "references/validation.md": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688",
+    "references/voice-and-causation.md": "2dadde4b5a9e8e49391b4c05f134b9477c50b193756a22c625c5882a0fe93912"
+  }
+}
