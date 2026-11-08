@@ -346,9 +346,14 @@ class ParticleChoiceLinkContract(unittest.TestCase):
                     f'Notice: <{tag}>[Read]({target})</{tag}>\n'
                 )
                 self.assertNotIn(target, particle_section_links(sample))
-        visible_after_title = (
+        block_after_title = (
             f"### {_PARTICLE_HEADING}\n\n"
             f'<title>[Hidden]({target})</title> [Visible]({target})\n'
+        )
+        self.assertNotIn(target, particle_section_links(block_after_title))
+        visible_after_title = (
+            f"### {_PARTICLE_HEADING}\n\n"
+            f'Notice: <title>[Hidden]({target})</title> [Visible]({target})\n'
         )
         self.assertIn(target, particle_section_links(visible_after_title))
 
