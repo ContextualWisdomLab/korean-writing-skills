@@ -109,6 +109,7 @@ Hermes에 수동 설치할 때는 manifest와 파일별 digest를 먼저 확인�
 ## 문서와 현재 한계
 
 - [사용 안내](docs/usage.md): 설치, 호출, preview, 입력·결과, 업데이트·제거
+- [온라인가나다 정기 보완](docs/online-ganada-maintenance.md): 원문 재확인, 출처 정정, 독립 검토·검증과 일반 병합
 - [Architecture](ARCHITECTURE.md): 제품 경계와 구성요소 책임
 - [제품·기술 Gap 기준선](docs/product-technical-gap-baseline.md): 현재 요구와 미완료 항목
 - [실사용판 개발 계약](docs/usability-plan.md): 제한 범위 preview와 실제 사용 검증의 분리
