@@ -296,12 +296,12 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         for markup in rejected:
             with self.subTest(markup=markup):
-                content = f"### {_PARTICLE_HEADING}\\n\\n{markup}\\n"
+                content = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
                 self.assertNotIn(target, particle_section_links(content))
         visible = selector + f' <a href="{target}">Visible</a>'
         self.assertIn(
             target,
-            particle_section_links(f"### {_PARTICLE_HEADING}\\n\\n{visible}\\n"),
+            particle_section_links(f"### {_PARTICLE_HEADING}\n\n{visible}\n"),
         )
 
     def test_hidden_inline_parent_does_not_hide_later_visible_links(self) -> None:
