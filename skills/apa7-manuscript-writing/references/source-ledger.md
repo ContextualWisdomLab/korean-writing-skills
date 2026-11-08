@@ -1,6 +1,6 @@
 # 근거 장부
 
-확인일: 2026-09-21(기존 Manual·공식 자료 열람), 2026-10-04(A-SECONDARY-WEB·A-BIAS-WEB 공식 웹 본문 직접 확인). 기존 편집 절차 반영 기록은 2026-09-22까지. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않는다. 본문을 얻은 자료와 접근 실패를 구별한다.
+확인일: 2026-09-21(기존 Manual·공식 자료 열람), 2026-10-04(A-SECONDARY-WEB·A-BIAS-WEB 공식 웹 본문 직접 확인), 2026-11-08(러닝헤드·자료 출처 공개·직접 인용 위치의 공식 웹 확인, A-JARSQ Author Note 재확인). 기존 편집 절차 반영 기록은 2026-09-22까지. 범위: skills/apa7-manuscript-writing 전체. 공식 자료를 검색 결과 요약만으로 규칙화하지 않는다. 본문을 얻은 자료와 접근 실패를 구별한다.
 
 **확인한 절(확인 범위에서만 세칙으로 씀):** Manual 7 리더 2.1·2.2·2.8·2.12·2.18–2.24, 6.36·6.44, 7.1·7.4–7.6·7.17·7.18, 8.4·8.10, 10.1–10.3 도입; 8.6은 2차 출처를 드물게 쓰라는 대목만 짧게 확인; A-REF·A-NUM·A-JARSQ PDF; S8 Table 1. 장시작 목차 쪽을 절 쪽으로 쓰지 않는다.
 
@@ -25,6 +25,18 @@
 | A-BIAS-WEB | American Psychological Association, *General Principles for Reducing Bias*, APA Style 웹 안내(독립 판 표시 없음), 2019 생성·2024-10 갱신 | https://apastyle.apa.org/style-grammar-guidelines/bias-free-language/general-principles | Guideline 1: 관련 특성·관련 차이·적절한 구체성; Guideline 2: 호칭·인간성 존중·거짓 위계 회피, 말미 갱신 정보; 2026-10-04 | 자기 호칭·집단 선호 존중, 상태명으로 사람을 환원하지 않음, 집단에 따라 사람 우선·정체성 우선 또는 양쪽 가능, ‘정상’ 집단을 보편 기준으로 삼지 않음. 페이지의 세부 주제 링크는 열지 않음. Manual 5.1·5.2 본문을 직접 읽었다고 하지 않음. |
 
 기존 S7 차단 기록과 Manual 8.6 일부 확인·5.1 본문 미확인 기록은 당시 이력으로 유지한다. 이번 추가는 위 웹 두 건뿐이다. 표·그림 세칙, JARS 추가표(특히 Table 3), 통계 규칙의 새 확인 범위는 추가하지 않으며 남은 미확인 항목으로 둔다.
+
+## 2026-11-08 공식 웹·JARS 보완
+
+아래 APA 공식 URL을 열어 반환된 본문을 직접 읽었다. 2026-09-21 러닝헤드 기록의 학생 논문 예외는 문장이 끊긴 당시 열람 범위로 보존하고, 현재 적용은 A-HEADER-WEB의 완결된 안내로 보완한다. 이번 웹 확인을 Manual 2.8이나 8.25–8.27 본문의 재열람으로 보고하지 않는다.
+
+| ID | 발행기관·제목·판본 | URL | 실제 읽은 절·확인일 | 적용 범위·한계 |
+| --- | --- | --- | --- | --- |
+| A-HEADER-WEB | American Psychological Association, *Page Header*, APA Style 웹 안내(독립 판 표시 없음), 2019 생성·2022-07 갱신 | https://apastyle.apa.org/style-grammar-guidelines/paper-format/page-header | Page numbers·Running head와 말미 갱신 정보; 2026-11-08 | 전문 원고에는 러닝헤드를 쓰고 학생 논문은 교수자나 기관이 요구하면 사용한다. 공백·문장 부호 포함 최대 50자, 대문자, 왼쪽 맞춤, `Running head:` 표지 생략을 확인했다. 링크된 학생 논문 안내서 전체는 열지 않았다. |
+| A-PLAGIARISM-WEB | American Psychological Association, *Plagiarism*, APA Style 웹 안내(독립 판 표시 없음), 2019 생성·2022-07 갱신 | https://apastyle.apa.org/style-grammar-guidelines/citations/plagiarism | Self-plagiarism·What specifically counts as self-plagiarism?·Exceptions와 말미 갱신 정보; 2026-11-08 | 제한적으로 유통된 학위논문을 전부 또는 일부 바탕으로 학술지 논문을 발표할 수 있으며, 그 기반 관계는 본문 인용 대신 저자 주에 밝힌다. 이 예외를 학위논문의 실제 직접 인용이나 필요한 선행 연구 인용까지 삭제하는 지침으로 확대하지 않는다. 비공개 대조 기록으로 공개 고지를 대신하지 않는 것은 이 안내에 따른 편집 적용이다. Manual 1.16·8.3 본문을 새로 읽은 것은 아니다. |
+| A-QUOTE-WEB | American Psychological Association, *Direct Quotation of Material With Page Numbers*, APA Style 웹 안내(독립 판 표시 없음), 2020 생성·2022-08 갱신 | https://apastyle.apa.org/style-grammar-guidelines/citations/quotations/page-numbers | 직접 인용의 저자·연도·쪽수, 한 쪽·여러 쪽·불연속 쪽 표시, 쪽수가 없는 자료의 다른 위치 안내와 말미 갱신 정보; 2026-11-08 | 직접 인용에는 저자·연도·쪽수를 제공하고, 쪽수가 없으면 독자가 인용 위치를 찾을 다른 정보를 쓴다. 작업용 학위논문 대조 쪽수를 본문에서 분리하더라도 실제 직접 인용의 위치를 삭제하지 않는 근거로 적용한다. 페이지가 연결한 Manual 8.25–8.27 본문은 이번에 열지 않았다. |
+
+**A-JARSQ 재확인:** APA, *JARS-Quant Table 1*, © 2024, https://apastyle.apa.org/jars/quant-table-1.pdf. 2026-11-08 공식 PDF를 직접 열어 PDF 1쪽의 Title and Title Page → Author Note를 확인했다. 기존 출판물과 겹치는 자료의 사용과 학위논문·학회 논문에서의 기초 자료 선행 보고를 고지 항목으로 제시한다. 표제의 신규 자료 수집 보고 범위를 유지하며, 이 확인을 다른 설계별 표나 Manual의 새 절 열람으로 확대하지 않는다. 기존 A-JARSQ와 S4의 접근·열람 이력은 그대로 둔다.
 
 ## U-KHU · 대학 교육 자료(교차 참고, APA 규범 아님)
 

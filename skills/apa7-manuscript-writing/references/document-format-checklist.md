@@ -1,6 +1,6 @@
 # 투고 원고 서식·문서 생성 체크리스트
 
-적용 대상: 학술지 **투고** 원고(전문 논문). 학생 논문 안내만으로 투고본을 수용하지 않는다. 그 안내는 근거 장부에 출처 ID로 등록된 열람 자료가 아니다. 학술지 규정이 APA와 다르면 학술지가 우선이다.
+적용 대상: 학술지 **투고** 원고(전문 논문). 학생 논문 안내만으로 투고본을 수용하지 않는다. A-HEADER-WEB에서 학생 논문의 러닝헤드 예외를 확인했지만, 별도 학생 논문 안내서 전체를 읽은 것은 아니다. 학술지 규정이 APA와 다르면 학술지가 우선이다.
 
 근거 절은 Manual 7판 RedShelf 리더(book 1302723, `platform.virdocs.com`, 2026-09-21 14:31Z–14:45Z 재열람, `/read/1302723/15/`·`/30/`). 2장 목차 시작 Page 28과 7장 Page 194는 절 쪽이 아니다. Format(`ch02sec3`)으로 들어갔을 때 쪽 칸은 43이었고 그 화면에 2.17–2.19가 보였다. 2.8·2.21·2.22의 단독 인쇄쪽은 그 재열람에서 분리하지 않았다.
 
@@ -16,9 +16,11 @@
 
 쪽번호 문장은 매뉴얼이 Section 2.18로 가리킨다. 모든 논문의 모든 쪽 머리 오른쪽이고, 제목 쪽이 1쪽이다. “All papers should contain the page number, flush right, in the header of every page.” “The title page is page number 1.”
 
-## 러닝헤드 (2.8)
+## 러닝헤드 (2.8·A-HEADER-WEB 보완)
 
-투고 원고에만 러닝헤드가 필요하다. “Running heads are required only for manuscripts being submitted for publication.” 학생 논문은 “Running heads are not required for student”까지 확인했다. 그 다음 단어는 끊겼다. 쪽머리 문장은 “Student papers need only the page number in the page header, unless the instructor or institution also requires a”까지다. 요구 대상의 명사는 미검증이다.
+현재 적용: 전문 원고에는 러닝헤드를 쓰고, 학생 논문은 교수자나 기관이 요구하면 사용한다. 2026-11-08 직접 읽은 공식 웹 A-HEADER-WEB에서 학생 논문 예외와 공백·문장 부호 포함 최대 50자 기준을 확인했다. 이는 아래 Manual 재열람 기록을 보완한 것이며, 끊긴 매뉴얼 원문을 복원한 것은 아니다.
+
+2026-09-21 Manual 재열람 기록: “Running heads are required only for manuscripts being submitted for publication.” 학생 논문은 “Running heads are not required for student”까지 확인했다. 그 다음 단어는 끊겼다. 쪽머리 문장은 “Student papers need only the page number in the page header, unless the instructor or institution also requires a”까지다. 당시 요구 대상의 명사는 미검증이었다.
 
 러닝헤드는 쪽머리 왼쪽, 모두 대문자, 글자·구두점·공백 합 최대 50자다. “The running head should contain a maximum of 50 characters, counting letters, punctuation, and spaces between words as characters.” “Write the running head in the page header, flush left, in all-capital letters,” 쪽번호는 오른쪽이다. “When both elements appear, the”와 “be flush left and the page number should be flush right.” 사이는 끊겼다.
 
