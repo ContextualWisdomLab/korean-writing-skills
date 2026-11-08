@@ -71,10 +71,10 @@ class _AnchorLinks(HTMLParser):
         tag = tag.lower()
         for index in range(len(self._elements) - 1, -1, -1):
             if self._elements[index][0] == tag:
-                # Discard an unclosed anchor when its ancestor closes, so
-                # text in a later sibling cannot be mistaken for its label.
+                # An ancestor's close can implicitly close a valid anchor.
+                # Preserve its own visible label, but never borrow sibling text.
                 if self._anchor_depth is not None and index <= self._anchor_depth:
-                    if tag == "a" and index == self._anchor_depth and self._anchor is not None:
+                    if self._anchor is not None:
                         href, label_parts = self._anchor
                         if href is not None and "".join(label_parts).strip():
                             self.destinations.append(href)
@@ -301,6 +301,19 @@ class ParticleChoiceLinkContract(unittest.TestCase):
             '<td>Later text</a></td></tr></table>\n'
         )
         self.assertNotIn(target, particle_section_links(sample))
+
+    def test_implicitly_closed_html_anchor_preserves_own_label(self) -> None:
+        """Keep a visible label when a parent closes an unclosed anchor."""
+        target = _PARTICLE_TARGET
+        examples = (
+            f'<table><tr><td><a href="{target}">Visible</td><td>Later</a></td></tr></table>',
+            f'<table><tr><td><a href="{target}"><strong>Visible</strong></td>'
+            '<td>Later</a></td></tr></table>',
+        )
+        for html in examples:
+            with self.subTest(html=html):
+                sample = f"### {_PARTICLE_HEADING}\\n\\n{html}\\n"
+                self.assertIn(target, particle_section_links(sample))
 
     def test_links_inside_nonvisible_html_elements_do_not_count(self) -> None:
         """Markdown syntax inside nonrendered HTML is not a clickable link."""
