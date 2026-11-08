@@ -1,8 +1,7 @@
 # Architecture
 
-`korean-writing-skills`는 실행 서비스가 아니라 두 개의 독립적인 Agent Skill과
-그 한계를 확인하는 평가 증거를 배포하는 문서 제품이다. 사용자 원문과 연구
-자료는 이 repository가 소유하거나 저장하지 않는다.
+`korean-writing-skills`는 두 개의 독립적인 Agent Skill과 그 적용 범위·한계를
+점검한 평가 기록을 제공한다. 사용자 원문과 연구 자료는 이 저장소에 보관하지 않는다.
 
 ## Context Map
 

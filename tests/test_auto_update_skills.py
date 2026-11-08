@@ -24,8 +24,7 @@ def load(path, name):
 
 class AutoUpdateTests(unittest.TestCase):
     def setUp(self):
-        scratch = Path.home() / '.hermes/cache/scratch'
-        self.temp = tempfile.TemporaryDirectory(dir=scratch, prefix='updater-test-')
+        self.temp = tempfile.TemporaryDirectory(prefix='updater-test-')
         self.addCleanup(self.temp.cleanup)
         self.base = Path(self.temp.name)
         self.repo = self.base / 'upstream'
