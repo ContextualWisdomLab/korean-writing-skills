@@ -15,7 +15,7 @@ jobs:
       - name: Checkout PR 29 exact head
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.2.2
         with:
-          ref: 5703488b620a2eda3abf719da297e3c614eb61e3
+          ref: c1fae077d94454f01b7f453672834eeb5b9e0598
           persist-credentials: false
           fetch-depth: 0
       - name: Install uv
@@ -27,7 +27,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "5703488b620a2eda3abf719da297e3c614eb61e3"
+          test "$(git rev-parse HEAD)" = "c1fae077d94454f01b7f453672834eeb5b9e0598"
           uv python install 3.14
           uv sync --locked --python 3.14
           uv run --locked python -c 'import sys; print(sys.version); assert sys.version_info[:2] == (3, 14)'
