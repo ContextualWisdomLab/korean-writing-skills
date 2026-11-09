@@ -58,8 +58,8 @@ class _AnchorLinks(HTMLParser):
                 if open_tag in {"td", "th"}:
                     self.handle_endtag(open_tag)
                     break
-        if tag == "tr":
-            # A sibling row also closes the previous row and its hidden state.
+        if tag == "tr" and any(open_tag == "table" for open_tag, _ in self._elements):
+            # Only a row in a table can close another row and its hidden state.
             for open_tag, _ in reversed(self._elements):
                 if open_tag in {"table", "template"}:
                     break
@@ -431,6 +431,25 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
         self.assertEqual([target], particle_section_links(sample))
+
+    def test_stray_row_outside_table_cannot_reveal_hidden_link(self) -> None:
+        """An invalid row outside a table cannot close a hidden ancestor."""
+        target = _PARTICLE_TARGET
+        examples = (
+            (
+                f'<tr><div hidden><tr><a href="{target}">Hidden</a></div>',
+                [],
+            ),
+            (
+                f'<tr><div hidden><tr><a href="{target}">Hidden</a></div>'
+                f'<a href="{target}">Visible</a>',
+                [target],
+            ),
+        )
+        for markup, expected in examples:
+            with self.subTest(markup=markup):
+                sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                self.assertEqual(expected, particle_section_links(sample))
 
     def test_implicitly_closed_html_anchor_preserves_own_label(self) -> None:
         """Keep a visible label when a parent closes an unclosed anchor."""
