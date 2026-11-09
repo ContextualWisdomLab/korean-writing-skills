@@ -49,11 +49,11 @@ class _AnchorLinks(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         """Track hidden elements and start collecting a named visible anchor."""
         tag = tag.lower()
-        if tag in {"td", "th"}:
-            # A sibling table cell implicitly closes the previous cell.
-            # Otherwise a dangling anchor can borrow the new cell's label.
+        if tag in {"td", "th", "tr"}:
+            # A new cell or row implicitly closes a cell in the same table.
+            # A template or nested table cannot close a surrounding cell.
             for open_tag, _ in reversed(self._elements):
-                if open_tag == "table":
+                if open_tag in {"table", "template"}:
                     break
                 if open_tag in {"td", "th"}:
                     self.handle_endtag(open_tag)
@@ -373,6 +373,31 @@ class ParticleChoiceLinkContract(unittest.TestCase):
         )
         sample = f"### {_PARTICLE_HEADING}\n\n{labelled}\n"
         self.assertIn(target, particle_section_links(sample))
+
+    def test_template_cell_does_not_close_visible_outer_link(self) -> None:
+        """A cell inside a hidden template must not close the outer table cell."""
+        target = _PARTICLE_TARGET
+        markup = (
+            f'<table><tr><td><a href="{target}">'
+            '<template><td>Hidden</td></template>'
+            'Read</a></td></tr></table>'
+        )
+        sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+        self.assertIn(target, particle_section_links(sample))
+
+    def test_new_table_row_implicitly_closes_previous_cell_link(self) -> None:
+        """A new row cannot supply a label to an unclosed anchor in the old row."""
+        target = _PARTICLE_TARGET
+        examples = (
+            (f'<table><tr><td><a href="{target}">'
+             '<tr>Later</a><td></td></tr></table>', []),
+            (f'<table><tr><td><a href="{target}">Visible'
+             '<tr>Later</a><td></td></tr></table>', [target]),
+        )
+        for markup, expected in examples:
+            with self.subTest(markup=markup):
+                sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                self.assertEqual(expected, particle_section_links(sample))
 
     def test_implicitly_closed_html_anchor_preserves_own_label(self) -> None:
         """Keep a visible label when a parent closes an unclosed anchor."""
