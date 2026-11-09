@@ -54,10 +54,20 @@ class _AnchorLinks(HTMLParser):
         ):
             # Browsers ignore row and cell starts outside table context.
             return
+        reconstructed_anchor: str | None = None
         if tag == "p":
-            # A new paragraph implicitly closes an earlier paragraph in scope.
-            for open_tag, _ in reversed(self._elements):
+            # Closing a paragraph removes its anchor from the element stack,
+            # but HTML keeps the anchor as an active formatting element.
+            for index in range(len(self._elements) - 1, -1, -1):
+                open_tag, _ = self._elements[index]
                 if open_tag == "p":
+                    if (
+                        self._anchor is not None
+                        and self._anchor_depth is not None
+                        and index <= self._anchor_depth
+                        and not self.is_hidden
+                    ):
+                        reconstructed_anchor = self._anchor[0]
                     self.handle_endtag("p")
                     break
                 if open_tag in {
@@ -94,6 +104,12 @@ class _AnchorLinks(HTMLParser):
             self._elements.append((tag, hidden))
             if hidden:
                 self._hidden_depth += 1
+        if reconstructed_anchor is not None and not self.is_hidden:
+            # The next paragraph reconstructs the still-active anchor; its
+            # later text belongs to that link, not to an unlinked sibling.
+            self._anchor = (reconstructed_anchor, [])
+            self._anchor_depth = len(self._elements)
+            self._elements.append(("a", False))
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         """Keep non-void HTML elements open despite an XHTML-style slash."""
@@ -491,6 +507,20 @@ class ParticleChoiceLinkContract(unittest.TestCase):
                 with self.subTest(tag=tag, markup=markup):
                     sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
                     self.assertEqual([target], particle_section_links(sample))
+
+    def test_new_paragraph_reconstructs_active_visible_anchor(self) -> None:
+        """HTML restores an open formatting anchor after closing its paragraph."""
+        target = _PARTICLE_TARGET
+        examples = (
+            (f'<p><a href="{target}"><p>Read</a>', [target]),
+            (f'<p><a href="{target}"><p><strong>Read</strong></a>', [target]),
+            (f'<p><a href="{target}"><p></a>Outside', []),
+            (f'<div hidden><p><a href="{target}"><p>Hidden</a></div>', []),
+        )
+        for markup, expected in examples:
+            with self.subTest(markup=markup):
+                sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                self.assertEqual(expected, particle_section_links(sample))
 
     def test_new_paragraph_implicitly_closes_hidden_paragraph(self) -> None:
         """A later paragraph is visible unless an enclosing div remains hidden."""
