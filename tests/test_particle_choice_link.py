@@ -49,9 +49,22 @@ class _AnchorLinks(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         """Track hidden elements and start collecting a named visible anchor."""
         tag = tag.lower()
-        if tag == "tr" and not any(open_tag == "table" for open_tag, _ in self._elements):
-            # Browsers ignore row start tags outside tables, including hidden rows.
+        if tag in {"td", "th", "tr"} and not any(
+            open_tag == "table" for open_tag, _ in self._elements
+        ):
+            # Browsers ignore row and cell starts outside table context.
             return
+        if tag == "p":
+            # A new paragraph implicitly closes an earlier paragraph in scope.
+            for open_tag, _ in reversed(self._elements):
+                if open_tag == "p":
+                    self.handle_endtag("p")
+                    break
+                if open_tag in {
+                    "button", "div", "table", "template", "td", "th",
+                    "section", "article", "blockquote", "li",
+                }:
+                    break
         if tag in {"td", "th", "tr"}:
             # A new cell or row implicitly closes a cell in the same table.
             # A template or nested table cannot close a surrounding cell.
@@ -466,6 +479,36 @@ class ParticleChoiceLinkContract(unittest.TestCase):
             with self.subTest(markup=markup):
                 sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
                 self.assertEqual([target], particle_section_links(sample))
+
+    def test_stray_table_cells_outside_table_cannot_hide_links(self) -> None:
+        """Browsers ignore td/th starts outside a table, including hidden cells."""
+        target = _PARTICLE_TARGET
+        for tag in ("td", "th"):
+            for markup in (
+                f'<{tag} hidden><a href="{target}">Read</a>',
+                f'<{tag} hidden><tr><a href="{target}">Read</a>',
+            ):
+                with self.subTest(tag=tag, markup=markup):
+                    sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                    self.assertEqual([target], particle_section_links(sample))
+
+    def test_new_paragraph_implicitly_closes_hidden_paragraph(self) -> None:
+        """A later paragraph is visible unless an enclosing div remains hidden."""
+        target = _PARTICLE_TARGET
+        examples = (
+            (
+                f'<div><p hidden>Hidden<p><a href="{target}">Visible</a></p></div>',
+                [target],
+            ),
+            (
+                f'<div hidden><p hidden>Hidden<p><a href="{target}">Hidden</a></p></div>',
+                [],
+            ),
+        )
+        for markup, expected in examples:
+            with self.subTest(markup=markup):
+                sample = f"### {_PARTICLE_HEADING}\n\n{markup}\n"
+                self.assertEqual(expected, particle_section_links(sample))
 
     def test_hidden_previous_cell_does_not_hide_visible_sibling(self) -> None:
         """An implicit cell close restores visibility for the following cell."""
