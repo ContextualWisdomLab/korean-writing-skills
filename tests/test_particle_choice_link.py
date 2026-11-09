@@ -49,6 +49,15 @@ class _AnchorLinks(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         """Track hidden elements and start collecting a named visible anchor."""
         tag = tag.lower()
+        if tag in {"td", "th"}:
+            # A sibling table cell implicitly closes the previous cell.
+            # Otherwise a dangling anchor can borrow the new cell's label.
+            for open_tag, _ in reversed(self._elements):
+                if open_tag == "table":
+                    break
+                if open_tag in {"td", "th"}:
+                    self.handle_endtag(open_tag)
+                    break
         properties = {key.lower(): value for key, value in attrs}
         hidden = "hidden" in properties or tag in _NONVISIBLE_HTML_TAGS
         if tag == "a" and not (hidden or self.is_hidden):
@@ -339,6 +348,31 @@ class ParticleChoiceLinkContract(unittest.TestCase):
             '<td>Later text</a></td></tr></table>\n'
         )
         self.assertNotIn(target, particle_section_links(sample))
+
+    def test_new_table_cell_implicitly_closes_unlabelled_anchor(self) -> None:
+        """A following table cell cannot label an anchor in the previous cell."""
+        target = _PARTICLE_TARGET
+        examples = (
+            (
+                f'<table><tr><td><a href="{target}">\n\n'
+                '<td>\n\nLater text </a>\n\n</td></tr></table>'
+            ),
+            (
+                f'<table><tr><td><a href="{target}">\n\n'
+                '<th>\n\nLater text </a>\n\n</th></tr></table>'
+            ),
+        )
+        for html in examples:
+            with self.subTest(html=html):
+                sample = f"### {_PARTICLE_HEADING}\n\n{html}\n"
+                self.assertNotIn(target, particle_section_links(sample))
+
+        labelled = (
+            f'<table><tr><td><a href="{target}">Visible\n\n'
+            '<td>\n\nLater text</a></td></tr></table>'
+        )
+        sample = f"### {_PARTICLE_HEADING}\n\n{labelled}\n"
+        self.assertIn(target, particle_section_links(sample))
 
     def test_implicitly_closed_html_anchor_preserves_own_label(self) -> None:
         """Keep a visible label when a parent closes an unclosed anchor."""
