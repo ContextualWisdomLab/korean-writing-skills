@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-08",
+  "base_commit": "70b3a9ced7a102c2bda73d0d8ea3b7dd33c152c2",
+  "task_count": 1,
+  "excerpt_count": 8,
+  "context_isolation": {
+    "designer": "fresh context; no skill draft or outputs",
+    "executor": "fresh context; frozen skill and raw input only",
+    "scorer": "designer; raw input, frozen criteria, actual output only"
+  },
+  "sha256": {
+    "input.md": "299c0a530d683fcb0727f491de04b2281cef152044d0e1b3286e97ecd2eae57a",
+    "criteria.md": "e4b833d7d5f2d04d2989dbb4151839648e88c8cbabcbe33695a264889293fb93",
+    "skill-manifest.json": "b491ea8ff414f96406de5662e500827adcdbfb788c320336b69c05cb33d81f7d"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "task_count": 1,
+  "excerpt_count": 8,
+  "axes": {
+    "meaning_preservation": 3,
+    "korean_naturalness": 3,
+    "overcorrection_prevention": 3
+  },
+  "major_errors": 0,
+  "output_sha256": "9d9e94824cc7867c3a88b7de8903bf225f1ec2b5170f78b209ea3a7afa708e07",
+  "original_scoring_sha256": "c7cefa83e470d176dfaf48d8cf85a114a1b1d0428ed98b67dfc00dd9be22c03a",
+  "published_scoring_sha256": "0ea7c0889cdca8a51bc4dd2dbf8c76afe2c6e03262da309b6a44287f99f0da16",
+  "publication_transform": "Only the three source-file paths in scoring metadata were changed to repository-relative filenames; verdict and reasoning unchanged.",
+  "limitations": "One synthetic task; no controlled before/after comparison or general effectiveness claim."
+}

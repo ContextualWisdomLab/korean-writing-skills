@@ -18,6 +18,7 @@
 - 문단·문장 퇴고: 최소 교정과 구조 재구성 구분, 조건·예외·인용 귀속 보존
 - 표기 판단: 확인된 규정·사전·공식 상담의 적용 범위와 허용형 구분
 - [스킬 지침·README·사용 안내](skills/korean-editing/references/instructions-and-guides.md): 의무·권고·허용·금지와 조건·예외 보존, 설명과 과거 평가 기록의 구별, 스킬을 그 스킬로 고치는 절차
+- [‘이/가’와 ‘은/는’](skills/korean-editing/references/particle-choice.md): 주격·보조사 기능과 사용 순위 구별, 질문·대조·화제 흐름에 따른 선택, 자연스러운 원문의 보존
 - [이력서·경력기술서·자기소개서](skills/korean-editing/references/resume-writing.md): 경력의 중심 설정, 직무와 실제 경험 연결, 개인 기여·팀 결과·산출물·효과 구분, 의미를 보존하는 압축과 제출본 점검
 - [업무·의사결정 보고서](skills/korean-editing/references/reader-facing-reports.md): 권고·비용 영향·결정 요청, 같은 기준의 대안 비교, 실행 조치
 - [매력적인 문장](skills/korean-editing/references/engaging-sentences.md): 독자와 말투에 맞는 구체성·정보 배열·호흡, 사실과 조건 보존
