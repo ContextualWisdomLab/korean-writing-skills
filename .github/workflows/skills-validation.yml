@@ -1,0 +1,56 @@
+name: Skills validation
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skills-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Python 3.14 locked tests and preview packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out full history for diff validation
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install uv
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        with:
+          version: '0.13.7'
+      - name: Install Python and locked dependencies
+        run: |
+          uv python install 3.14
+          uv sync --locked --python 3.14
+          uv run --locked --python 3.14 python --version
+      - name: Full unittest suite
+        run: uv run --locked --python 3.14 python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Skill structure and source traceability
+        run: |
+          uv run --locked --python 3.14 python tests/skill_structure_test.py
+          uv run --locked --python 3.14 python tests/source_traceability_test.py
+      - name: Public hygiene
+        run: |
+          command -v rg
+          bash tests/public_hygiene_test.sh
+      - name: Diff whitespace validation
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: git diff --check "$BASE_SHA" "$HEAD_SHA"
+      - name: Package both skill previews outside the repository
+        run: |
+          tmpdir="$(mktemp -d)"
+          trap 'rm -rf -- "$tmpdir"' EXIT
+          uv run --locked --python 3.14 python scripts/package_skills.py --output "$tmpdir/preview"
+          test -f "$tmpdir/preview/korean-editing-preview.zip"
+          test -f "$tmpdir/preview/apa7-manuscript-writing-preview.zip"
+          test -f "$tmpdir/preview/manifest.json"
