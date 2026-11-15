@@ -37,6 +37,10 @@ jobs:
         run: |
           uv run --locked --python 3.14 python tests/skill_structure_test.py
           uv run --locked --python 3.14 python tests/source_traceability_test.py
+      - name: Install ripgrep for public hygiene
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ripgrep
       - name: Public hygiene
         run: |
           command -v rg
