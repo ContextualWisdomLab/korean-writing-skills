@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-21: PR #31의 실제 독립 `COMMENTED` 리뷰 두 지적을 반영했다. N-Q17의 공지 처리 일시(2026-11-04 20:30:01), 공지 등록일(2026-11-09), 상담 `[고침]`의 별도 게시일 미표시를 구별했다. 미실행 Y1 진단 기준에서 분야 기준 미확인 시 `/년` 본문을 유지하고 `/연`으로 사전 교체하면 실패로 판정하며 조건부 제안을 구별했다. [공지 338232](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&qna_seq=338232)·[원상담 337820](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=337820)·[상담 338682](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&qna_seq=338682)를 11월 21일 재열람했다. 새 질문 338736은 미답변이다. 독립 행동 검증·Python 3.14 전체 검증·일반 병합 완료를 주장하지 않는다.
+
 - 2026-11-21: PR #31의 새 [독립 `COMMENTED` 리뷰](https://github.com/ContextualWisdomLab/korean-writing-skills/pull/31)가 지적한 `/연`·`/년` 가상 예문의 조건 불일치를 수정했다. **분야 단위 표기 기준을 확인하지 못했다면 원문 `/년`을 유지하고 확인 사항으로 남긴다.** 기준이 없다고 확인되었고 ‘한 해당’ 의미일 때에만 `/연`을 선택 제안한다. [338682의 2026-11-20 공식 답변](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&pageIndex=1&qna_seq=338682&searchCondition=&searchKeyword=)을 11월 21일 재열람했으며 새 규범·독립 행동 평가·Python 3.14 전체 검증 통과·병합으로 과장하지 않는다. 같은 날 새 질문 338734·338735는 상세만 확인했고 답변이 표시되지 않았다.
 
 - 2026-11-21: [온라인가나다 338682(2026-11-19 질문, 2026-11-20 공식 답변)](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338682)를 11월 21일 질문·답변 원문으로 처음 직접 확인했다. 빗금 뒤 `/연`·`/년`의 일률적 규정은 없으며 해당 상담은 ‘한 해당’ 문맥의 `/연`을 **조건부 권고**하고 분야별 단위 기준 확인을 요구한다. N-Q25와 직접 쓴 선택 수정·유지 예, 정기 확인 범위·진단 전용 평가 입력/기준을 좁게 추가했다. `/년`을 맞춤법 오류로 자동 판정하지 않으며 신규 규정 발표·독립 평가 완료·최신 head Python 3.14 전체 통과·일반 병합을 주장하지 않는다.
