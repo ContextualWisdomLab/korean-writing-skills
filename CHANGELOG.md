@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-23: [온라인가나다 새 답변 보완 공지 338800](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&qna_seq=338800)(11월 23일 등록)과 [332057 「N행시, N 행 시」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=332057)(질문 6월 7일, 답변 11월 17일, 덧붙임 처리 11월 17일 15:59:59)를 직접 열람했다. 단독 등재 `이행시·삼행시`, 행 수 `이 행 시·삼 행 시`, 숫자 `2 행 시/2행 시` 원칙·허용 구분을 N-Q26과 직접 쓴 수정/유지 예 및 **미실행 동결 진단 설계**에 좁게 반영했다. 함께 읽은 326839·326812·326747은 관리 기록에만 남겼다. 개별 사전 독립 조회, 독립 행동 평가, 최신 head Python 3.14 전체 검사·리뷰·병합 완료는 아직 아니다.
+
 - 2026-11-21: PR #31의 실제 독립 `COMMENTED` 리뷰 두 지적을 반영했다. N-Q17의 공지 처리 일시(2026-11-04 20:30:01), 공지 등록일(2026-11-09), 상담 `[고침]`의 별도 게시일 미표시를 구별했다. 미실행 Y1 진단 기준에서 분야 기준 미확인 시 `/년` 본문을 유지하고 `/연`으로 사전 교체하면 실패로 판정하며 조건부 제안을 구별했다. [공지 338232](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&qna_seq=338232)·[원상담 337820](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=337820)·[상담 338682](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&qna_seq=338682)를 11월 21일 재열람했다. 새 질문 338736은 미답변이다. 독립 행동 검증·Python 3.14 전체 검증·일반 병합 완료를 주장하지 않는다.
 
 - 2026-11-21: PR #31의 새 [독립 `COMMENTED` 리뷰](https://github.com/ContextualWisdomLab/korean-writing-skills/pull/31)가 지적한 `/연`·`/년` 가상 예문의 조건 불일치를 수정했다. **분야 단위 표기 기준을 확인하지 못했다면 원문 `/년`을 유지하고 확인 사항으로 남긴다.** 기준이 없다고 확인되었고 ‘한 해당’ 의미일 때에만 `/연`을 선택 제안한다. [338682의 2026-11-20 공식 답변](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&pageIndex=1&qna_seq=338682&searchCondition=&searchKeyword=)을 11월 21일 재열람했으며 새 규범·독립 행동 평가·Python 3.14 전체 검증 통과·병합으로 과장하지 않는다. 같은 날 새 질문 338734·338735는 상세만 확인했고 답변이 표시되지 않았다.
