@@ -32,16 +32,17 @@ jobs:
           uv python install 3.14
           uv sync --locked --python 3.14
           uv run --locked --python 3.14 python --version
+      # The unittest suite also invokes public_hygiene_test.sh.
+      - name: Install ripgrep for public hygiene
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ripgrep
       - name: Full unittest suite
         run: uv run --locked --python 3.14 python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Skill structure and source traceability
         run: |
           uv run --locked --python 3.14 python tests/skill_structure_test.py
           uv run --locked --python 3.14 python tests/source_traceability_test.py
-      - name: Install ripgrep for public hygiene
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ripgrep
       - name: Public hygiene
         run: |
           command -v rg
