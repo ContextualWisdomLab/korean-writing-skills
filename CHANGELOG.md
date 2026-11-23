@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-23: 이전 미확인 구간 338740~338749의 **2026-11-21 질문·2026-11-23 공식 답변**을 각각 직접 열었다. [338740 「먹음직하다」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338740&searchCondition=&searchKeyword=)에서 `먹음직하다` 등재 형용사와 `-ㅁ/음 직하다` 보조 용언(띄움 원칙·붙임 허용)의 구조 차이를 확인해 **N-Q30**과 직접 쓴 수정·유지 예 및 사전 고정 진단 기준을 보완했다. 나머지 아홉 답변의 채택/보류 이유, 새 질문 338810~338812의 미답변·최신 공지 재열람 범위는 관리 문서에 남겼다. 사전 원문 독립 확인·행동 평가·최종 head Python 3.14 검증·일반 병합을 완료한 것은 아니다.
+
 - 2026-11-23: [324373(2025-11-29 질문·12-02 답변)](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=&pageIndex=1&qna_seq=324373)과 [328958(2026-04-06 질문·04-07 답변)](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=27&pageIndex=1&qna_seq=328958)의 **과거 공식 상담 질문·답변**을 2026-11-23 처음 직접 읽었다. 조사/의존 명사 ‘만’의 문맥별 띄어쓰기를 N-Q28로 확인하고, 시간 명사구의 관형어 분석에는 학자별 견해차가 있다는 단서를 N-Q29로 보완했다. N-Q27을 새 규범이나 유일한 통사 분석으로 확대하지 않는다. 새 직접 작성 예의 미실행 진단과 실제 조회 범위를 기록했다. Python 3.14 전체 검증·독립 평가 및 일반 병합은 아직 미완료다.
 
 - 2026-11-23: 과거 조사 증거가 없는 338737~338799 구간 중 **338737~338739** 질문·답변 상세를 직접 재확인했다. [338739 「의존명사」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338739&searchCondition=&searchKeyword=)의 2026-11-23 공식 답변에서 시간 표현 `삼십 분`이 의존 명사 `만`을 꾸민다는 설명을 N-Q27과 직접 쓴 수정/유지 및 보조사 비교 예로 좁게 반영했다(질문 2026-11-21, 최초 답변 확인 2026-11-23). [338738](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338738&searchCondition=&searchKeyword=)의 사동 형태 형성 과정 불확실성은 보존하고 새 규칙을 만들지 않았다. 338737 미답변, 338740~338742는 상세 조회 실패여서 다음 확인 시작점은 338740이다. 새 head의 검증·독립 평가·일반 병합은 미완료다.
