@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-23: [324373(2025-11-29 질문·12-02 답변)](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=&pageIndex=1&qna_seq=324373)과 [328958(2026-04-06 질문·04-07 답변)](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=27&pageIndex=1&qna_seq=328958)의 **과거 공식 상담 질문·답변**을 2026-11-23 처음 직접 읽었다. 조사/의존 명사 ‘만’의 문맥별 띄어쓰기를 N-Q28로 확인하고, 시간 명사구의 관형어 분석에는 학자별 견해차가 있다는 단서를 N-Q29로 보완했다. N-Q27을 새 규범이나 유일한 통사 분석으로 확대하지 않는다. 새 직접 작성 예의 미실행 진단과 실제 조회 범위를 기록했다. Python 3.14 전체 검증·독립 평가 및 일반 병합은 아직 미완료다.
+
 - 2026-11-23: 과거 조사 증거가 없는 338737~338799 구간 중 **338737~338739** 질문·답변 상세를 직접 재확인했다. [338739 「의존명사」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338739&searchCondition=&searchKeyword=)의 2026-11-23 공식 답변에서 시간 표현 `삼십 분`이 의존 명사 `만`을 꾸민다는 설명을 N-Q27과 직접 쓴 수정/유지 및 보조사 비교 예로 좁게 반영했다(질문 2026-11-21, 최초 답변 확인 2026-11-23). [338738](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338738&searchCondition=&searchKeyword=)의 사동 형태 형성 과정 불확실성은 보존하고 새 규칙을 만들지 않았다. 338737 미답변, 338740~338742는 상세 조회 실패여서 다음 확인 시작점은 338740이다. 새 head의 검증·독립 평가·일반 병합은 미완료다.
 
 - 2026-11-23: PR #31 제출 리뷰가 지적한 온라인가나다 **조사 경계의 증거 공백**을 정정했다. 저장소에서 상세 확인 근거가 연결되는 이전 상한 338736과 외부 대화에서 보고된 338799를 구별하고, **338737~338799**를 남은 검토 범위로 명시했다. 새 [338803 「간접높임」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338803)의 2026-11-23 질문은 본문을 읽었으나 기관 답변·답변일이 미표시여서 근거로 편입하지 않았다. 11월 23일 [수정 공지 338800](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)는 공지 항목만 재확인했다. 언어 지침·출처 ID·동결 입력은 바꾸지 않았다. Python 3.14 Actions의 결제 잠금·최종 head 검사·독립 평가·일반 병합은 미완료다.
