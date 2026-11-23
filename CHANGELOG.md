@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-23: PR #31 제출 리뷰가 지적한 온라인가나다 **조사 경계의 증거 공백**을 정정했다. 저장소에서 상세 확인 근거가 연결되는 이전 상한 338736과 외부 대화에서 보고된 338799를 구별하고, **338737~338799**를 남은 검토 범위로 명시했다. 새 [338803 「간접높임」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338803)의 2026-11-23 질문은 본문을 읽었으나 기관 답변·답변일이 미표시여서 근거로 편입하지 않았다. 11월 23일 [수정 공지 338800](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)는 공지 항목만 재확인했다. 언어 지침·출처 ID·동결 입력은 바꾸지 않았다. Python 3.14 Actions의 결제 잠금·최종 head 검사·독립 평가·일반 병합은 미완료다.
+
 - 2026-11-23: [온라인가나다 새 답변 보완 공지 338800](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&qna_seq=338800)(11월 23일 등록)과 [332057 「N행시, N 행 시」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=332057)(질문 6월 7일, 답변 11월 17일, 덧붙임 처리 11월 17일 15:59:59)를 직접 열람했다. 단독 등재 `이행시·삼행시`, 행 수 `이 행 시·삼 행 시`, 숫자 `2 행 시/2행 시` 원칙·허용 구분을 N-Q26과 직접 쓴 수정/유지 예 및 **미실행 동결 진단 설계**에 좁게 반영했다. 함께 읽은 326839·326812·326747은 관리 기록에만 남겼다. 개별 사전 독립 조회, 독립 행동 평가, 최신 head Python 3.14 전체 검사·리뷰·병합 완료는 아직 아니다.
 
 - 2026-11-21: PR #31의 실제 독립 `COMMENTED` 리뷰 두 지적을 반영했다. N-Q17의 공지 처리 일시(2026-11-04 20:30:01), 공지 등록일(2026-11-09), 상담 `[고침]`의 별도 게시일 미표시를 구별했다. 미실행 Y1 진단 기준에서 분야 기준 미확인 시 `/년` 본문을 유지하고 `/연`으로 사전 교체하면 실패로 판정하며 조건부 제안을 구별했다. [공지 338232](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&qna_seq=338232)·[원상담 337820](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&qna_seq=337820)·[상담 338682](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&qna_seq=338682)를 11월 21일 재열람했다. 새 질문 338736은 미답변이다. 독립 행동 검증·Python 3.14 전체 검증·일반 병합 완료를 주장하지 않는다.
