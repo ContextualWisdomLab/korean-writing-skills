@@ -1,0 +1,13 @@
+{
+  "baseline_commit": "70b3a9ced7a102c2bda73d0d8ea3b7dd33c152c2",
+  "frozen_at_utc": "2026-11-08T10:08:37.293476+00:00",
+  "files": {
+    "skills/korean-editing/SKILL.md": "15839b87c698dd5908e585d1f0b957a24dde4ad75de3bd5a5c0b4a0d5262acf5",
+    "skills/korean-editing/references/instructions-and-guides.md": "35a332a4f3c86e29d44ed50dbbcead194e047e4a4c1427f35fa786e78ab59c92",
+    "skills/korean-editing/references/drafting-checklist.md": "d252fc57eb3b3e49947ed150b4a3b5a8b0730ba17cbfcb08f1eefea0554ab041",
+    "skills/korean-editing/references/source-ledger.md": "cbc4592354e57a71e56cd47ecb091203b15e77a82342e48e5ca1f6511b8e7529",
+    "skills/apa7-manuscript-writing/SKILL.md": "7f82efa14d5c5046f1f63f703285673f508326114a2b33a0634788c1aacf0064",
+    "evaluations/runs/self-editing-20261108/input.md": "fc541eb0f5a02f4f988289f80bde9c018d41e5cac9a631beb5a681f8459cc83f",
+    "evaluations/runs/self-editing-20261108/criteria.md": "6365e3f28b1126072c6ff34b4c3b98eac52754a8c47abeeb7e37c3b8e4763f29"
+  }
+}

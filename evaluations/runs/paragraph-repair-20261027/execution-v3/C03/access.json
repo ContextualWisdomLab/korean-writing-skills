@@ -1,0 +1,19 @@
+{
+  "case": "C03",
+  "skill_version": "candidate-v3",
+  "files_read": [
+    {"path": "candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "candidate-v3/korean-editing/references/paragraph-revision.md", "sha256": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2"},
+    {"path": "candidate-v3/korean-editing/references/orthography-decisions.md", "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac"},
+    {"path": "eval-design/C03.md", "sha256": "c2389e8c227ef6f149854edcd9033ea3751da1f1d1e6854d3ba0ea5598b155ef"}
+  ],
+  "root": "<evaluation-workspace>",
+  "not_read": ["references/source-ledger.md", "references/examples.md", "references/validation.md", "criteria", "design", "other inputs/outputs", "scoring", "research", "repository", "installed skills"],
+  "directory_listing": false,
+  "external_search": false,
+  "self_scoring": false,
+  "files_written": ["execution-v3/C03/output.md", "execution-v3/C03/access.json"],
+  "system_prompt_exposure": "Hermes 시스템 프롬프트에 설치 스킬 목록(korean-editing 설치본의 이름·한 줄 설명 포함)과 워크스페이스 AGENTS.md 전문이 들어 있었다. 설치본 SKILL.md 본문은 열지 않았다. AGENTS.md에는 korean-editing 근거 출처 요약이 있으나 교정 판단에 사용하지 않았다.",
+  "notes": "SHA-256는 읽기 직후 shasum -a 256으로 계산. 출력 디렉터리 생성에 mkdir -p만 사용."
+}

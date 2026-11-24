@@ -1,0 +1,3599 @@
+{
+  "schema_version": "1.0",
+  "title": "한국어 문장 수리 실제 출력 12항목 — candidate-v1 동결 기준 채점",
+  "language": "ko",
+  "evaluation_version": "grading-v1",
+  "started_at_utc": "2026-10-27T03:22:48.039977+00:00",
+  "source_verified_at_utc": "2026-10-27T03:29:27.293515+00:00",
+  "execution_under_review": {
+    "version": "candidate-v1",
+    "bundles": [
+      "C01",
+      "C02",
+      "C03"
+    ],
+    "output_paths": [
+      "execution/C01/output.md",
+      "execution/C02/output.md",
+      "execution/C03/output.md"
+    ],
+    "version_evidence": "세 access.json이 candidate-v1 동결 스킬 경로를 실행 입력으로 기록하며 위임 문맥도 현재 출력이 candidate-v1임을 명시했다. 채점자는 스킬 파일을 열지 않았다.",
+    "post_evidence_revision_rerun": false,
+    "scope_note": "기존 candidate-v1의 실제 출력만 채점했다. 후속 근거 수정판의 재실행·채점 결과가 아니다."
+  },
+  "judgment_method": {
+    "basis": "eval-design/criteria.json의 항목별 의미 관계·요구 행동·네 축·중대오류",
+    "exact_answer_matching": false,
+    "method_note": "적법한 어순·서술어 대안·문장 분리·절 구조를 의미로 판정했다. 정상문의 유지도 완전한 성공이며 보류 항목은 미정 정보의 특정·확정 회피를 평가했다. 문자열 검색은 실제 인용의 위치 검증에만 사용했다.",
+    "pass_rule": "네 축 각각 2점 이상 AND 중대오류 0개 AND 모든 의미 앵커·필수점검·적용 유지/보류 조건 충족",
+    "cut_score_caveat": "동결 설계의 임시 운영값이며 경험적으로 검증된 절단점이 아니다. 총점으로 중대오류나 요구 미충족을 상쇄하지 않는다.",
+    "axis_labels": {
+      "meaning_preservation": "의미보존",
+      "repair_resolution": "비문해소",
+      "naturalness": "자연스러움",
+      "overcorrection_restraint": "과잉교정억제"
+    },
+    "score_scale": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "critical_error_labels": {
+      "M01": "핵심 의미 변경",
+      "M02": "근거 없는 보충",
+      "M03": "모호성 임의 확정",
+      "M04": "명백한 수리 회피",
+      "M05": "인용 훼손",
+      "M06": "항목 누락"
+    }
+  },
+  "independence_and_exposure": {
+    "claim": "설계·실행 출력과 분리된 위임 채점 문맥에서의 단일 채점이다. 완전 무노출·익명 버전 블라인드·OS 강제 격리로 인증하지 않는다.",
+    "scorer_installed_skill_exposure": {
+      "loaded": true,
+      "name": "korean-editing",
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "reason": "상위 지침이 관련 설치 스킬의 필수 로딩을 요구했다.",
+      "timing": "첫 병렬 도구 호출에서 criteria.json·design.md와 함께, 실제 출력 열람 및 채점 전에 본문 전체가 노출되었다.",
+      "scope": "SKILL.md 본문 및 도구 반환 메타데이터·연결 파일 목록",
+      "linked_file_bodies_loaded": false,
+      "limitation": "설치 스킬에 완전히 무노출인 독립 채점이라고 주장할 수 없다. 점수의 근거는 동결 기준과 실제 출력에만 연결했다."
+    },
+    "designer_exposure": {
+      "source": "eval-design/design.md 15–19행",
+      "reported_exposure": [
+        "설치 korean-editing/SKILL.md 본문",
+        "evidence-backed-skill-development/SKILL.md 본문"
+      ],
+      "limitation": "설계 자체도 평가 대상 스킬에 완전 무노출인 블라인드 설계가 아니다."
+    },
+    "execution_exposure": {
+      "sources": [
+        "execution/C01/access.json",
+        "execution/C02/access.json",
+        "execution/C03/access.json"
+      ],
+      "all_three_report_installed_skill_body_exposure": true,
+      "reported_exclusions": "세 기록은 criteria·다른 입력/출력·저장소 도구 읽기·외부 검색·자가채점이 없었다고 기록한다.",
+      "limitation": "실행자는 동결본 외 설치 스킬 본문에도 노출되었다. 접근 기록은 실행자 자기기록이며 도구 전체 이력이나 OS 감사 로그와 독립 대조하지 않았다."
+    },
+    "version_blind": false,
+    "version_blind_note": "위임 문맥과 access.json에서 candidate-v1이라는 버전 대응이 노출되었다. 기존판과 후보판의 무작위 익명 쌍대 비교가 아니다.",
+    "preloaded_context": "상위 메시지의 설치 스킬 이름·설명 목록과 프로젝트 AGENTS.md 내용을 보았다. AGENTS.md 원본이나 저장소 파일을 도구로 읽지 않았다.",
+    "repository_research_content_review_read": false,
+    "candidate_skill_files_read_by_scorer": false,
+    "external_search_performed": false,
+    "os_isolation_verified": false,
+    "different_model_or_interrater_agreement_verified": false,
+    "read_sources": [
+      "eval-design/criteria.json",
+      "eval-design/design.md",
+      "eval-design/C01.md",
+      "eval-design/C02.md",
+      "eval-design/C03.md",
+      "execution/C01/output.md",
+      "execution/C01/access.json",
+      "execution/C02/output.md",
+      "execution/C02/access.json",
+      "execution/C03/output.md",
+      "execution/C03/access.json"
+    ],
+    "write_scope": [
+      "grading-v1.json",
+      "grading-v1.md"
+    ]
+  },
+  "integrity_verification": {
+    "status": "PASS",
+    "hash_algorithm": "SHA-256",
+    "hash_unit": "전체 UTF-8 파일 바이트",
+    "frozen_inputs_and_criteria_manifest_checks": {
+      "total": 4,
+      "matched": 4,
+      "mismatched": 0
+    },
+    "source_recheck": {
+      "files": 11,
+      "unchanged_files": 11,
+      "changed_files": 0,
+      "comparison": "채점 시작과 산출물 작성 직전 2회 실제 파일 바이트 및 SHA-256 대조"
+    },
+    "output_hash_limitation": "출력의 별도 사전 기대 해시는 허용된 access.json·design.md에 없었다. 출력 세 파일은 관측 해시를 기록하고 채점 중 비변경을 재독 대조했다. 이는 실행 당시의 외부 장부 대조나 전자서명 인증이 아니다.",
+    "design_hash_limitation": "design.md 자체의 이전 완료 보고 해시는 허용 범위에 제공되지 않았다. 관측 해시와 채점 중 비변경만 검증했다.",
+    "criteria_case_count": 12,
+    "input_case_count": 12,
+    "output_case_count": 12,
+    "graded_case_count": 12,
+    "expected_case_ids": [
+      "C01-01",
+      "C01-02",
+      "C01-03",
+      "C01-04",
+      "C02-01",
+      "C02-02",
+      "C02-03",
+      "C02-04",
+      "C03-01",
+      "C03-02",
+      "C03-03",
+      "C03-04"
+    ],
+    "missing_case_ids": [],
+    "duplicate_case_ids": [],
+    "unexpected_case_ids": [],
+    "case_id_assertions_executed": true,
+    "input_targets_match_criteria": true,
+    "criterion_list_assertions": "각 결과의 meaning_anchors·required_checks·maintain_conditions·hold_conditions 원문 목록이 기준과 순서까지 동일함을 assert했다.",
+    "score_gate_assertions_executed": true,
+    "quote_line_verification": "각 근거 인용이 해당 출력 항목의 지정 행에 실제 존재함을 코드로 대조했다. 이 대조는 의미 판정의 자동 증명이 아니다.",
+    "source_files": [
+      {
+        "path": "eval-design/criteria.json",
+        "bytes": 26201,
+        "sha256": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7",
+        "sha256_rechecked": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7",
+        "unchanged": true,
+        "frozen_expected_sha256": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7",
+        "frozen_manifest_match": true,
+        "comparison_basis": "design.md 88–91행의 동결 크기·해시"
+      },
+      {
+        "path": "eval-design/design.md",
+        "bytes": 16774,
+        "sha256": "920dfe2b70cc5bf508025e79eb9a91b62ef0ae60275bdd81d69d32484f15a1d1",
+        "sha256_rechecked": "920dfe2b70cc5bf508025e79eb9a91b62ef0ae60275bdd81d69d32484f15a1d1",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "eval-design/C01.md",
+        "bytes": 1196,
+        "sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+        "sha256_rechecked": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+        "unchanged": true,
+        "frozen_expected_sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+        "frozen_manifest_match": true,
+        "comparison_basis": "design.md 88–91행의 동결 크기·해시"
+      },
+      {
+        "path": "eval-design/C02.md",
+        "bytes": 1322,
+        "sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+        "sha256_rechecked": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+        "unchanged": true,
+        "frozen_expected_sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+        "frozen_manifest_match": true,
+        "comparison_basis": "design.md 88–91행의 동결 크기·해시"
+      },
+      {
+        "path": "eval-design/C03.md",
+        "bytes": 1397,
+        "sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+        "sha256_rechecked": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+        "unchanged": true,
+        "frozen_expected_sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+        "frozen_manifest_match": true,
+        "comparison_basis": "design.md 88–91행의 동결 크기·해시"
+      },
+      {
+        "path": "execution/C01/output.md",
+        "bytes": 550,
+        "sha256": "ed0fd8d8aec973c13190b776583b11120bd5609462ad95af7da8c6881456cab1",
+        "sha256_rechecked": "ed0fd8d8aec973c13190b776583b11120bd5609462ad95af7da8c6881456cab1",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "execution/C01/access.json",
+        "bytes": 3716,
+        "sha256": "da7f7d10ee5543232a749f6769f9a3a55b97aad5ff9fc25efae8271cda308d5d",
+        "sha256_rechecked": "da7f7d10ee5543232a749f6769f9a3a55b97aad5ff9fc25efae8271cda308d5d",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "execution/C02/output.md",
+        "bytes": 415,
+        "sha256": "6b3a596ed89495022720dfec8f3c5fc775a0d0801de4e9afb205beb888b76e7c",
+        "sha256_rechecked": "6b3a596ed89495022720dfec8f3c5fc775a0d0801de4e9afb205beb888b76e7c",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "execution/C02/access.json",
+        "bytes": 3685,
+        "sha256": "ab5e4073257ab9ecd8da1b716cebbf455ab44b1e40cd2d4745aaa943c5dc20ff",
+        "sha256_rechecked": "ab5e4073257ab9ecd8da1b716cebbf455ab44b1e40cd2d4745aaa943c5dc20ff",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "execution/C03/output.md",
+        "bytes": 687,
+        "sha256": "985c326193b8e23073c36f90478cf81b1f9f66753c2f168322f98a7afd85577d",
+        "sha256_rechecked": "985c326193b8e23073c36f90478cf81b1f9f66753c2f168322f98a7afd85577d",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      },
+      {
+        "path": "execution/C03/access.json",
+        "bytes": 2830,
+        "sha256": "4ecb3814e78bfe2c4e25335d5083a3c801812448c01bfe1d913509edc84f53d1",
+        "sha256_rechecked": "4ecb3814e78bfe2c4e25335d5083a3c801812448c01bfe1d913509edc84f53d1",
+        "unchanged": true,
+        "frozen_expected_sha256": null,
+        "frozen_manifest_match": null,
+        "comparison_basis": "채점 시작 시 바이트와 산출물 작성 직전 재독 바이트의 SHA-256 일치; 별도 사전 기대 해시는 제공되지 않음"
+      }
+    ]
+  },
+  "summary": {
+    "case_count": 12,
+    "pass_count": 12,
+    "nonpass_count": 0,
+    "all_cases_pass": true,
+    "critical_error_count": 0,
+    "critical_case_count": 0,
+    "score_total": 144,
+    "score_maximum": 144,
+    "per_action": {
+      "repair": {
+        "label": "수리",
+        "total": 7,
+        "pass": 7,
+        "nonpass": 0
+      },
+      "maintain": {
+        "label": "유지",
+        "total": 3,
+        "pass": 3,
+        "nonpass": 0
+      },
+      "hold": {
+        "label": "보류",
+        "total": 2,
+        "pass": 2,
+        "nonpass": 0
+      }
+    },
+    "axis_distribution": {
+      "meaning_preservation": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 12
+      },
+      "repair_resolution": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 12
+      },
+      "naturalness": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 12
+      },
+      "overcorrection_restraint": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 12
+      }
+    },
+    "criterion_coverage": {
+      "meaning_anchors": {
+        "label": "의미 앵커",
+        "total": 58,
+        "met": 58
+      },
+      "required_checks": {
+        "label": "필수점검",
+        "total": 46,
+        "met": 46
+      },
+      "maintain_conditions": {
+        "label": "유지 조건",
+        "total": 27,
+        "met": 27
+      },
+      "hold_conditions": {
+        "label": "보류 조건",
+        "total": 22,
+        "met": 22
+      }
+    },
+    "critical_errors_by_case": {
+      "C01-01": [],
+      "C01-02": [],
+      "C01-03": [],
+      "C01-04": [],
+      "C02-01": [],
+      "C02-02": [],
+      "C02-03": [],
+      "C02-04": [],
+      "C03-01": [],
+      "C03-02": [],
+      "C03-03": [],
+      "C03-04": []
+    },
+    "interpretation": "이 12개 합성 항목의 실제 candidate-v1 출력이 동결 운영 기준을 모두 충족했다. 일반적 타당성·기존판 대비 개선·채점자 간 일치도·후속 수정판 성능을 입증하지 않는다.",
+    "notes": [
+      "C02-01의 점검하고 … 답했다는 병렬 업무 연결이며 새로운 선후 관계의 확정으로 판정하지 않았다.",
+      "C03-01은 중첩절을 남겼지만 역할과 검토 대상을 추적할 수 있으므로 문장 미분리 자체를 감점하지 않았다.",
+      "C03-04는 무엇을 받았고 무엇을 전달했는지 각각 확인 요청하여 두 목적물 및 동일성의 미정을 보존했다. 동일성 질문의 별도 반복을 요구하지 않았다."
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "C01-01",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "제품 소개문; 소개 대상 = 자동 급수기",
+      "target": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다.",
+      "input_location": {
+        "path": "eval-design/C01.md",
+        "heading_line": 5,
+        "target_line": 7
+      },
+      "actual_output": {
+        "path": "execution/C01/output.md",
+        "line_start": 1,
+        "line_end": 3,
+        "label": "수정",
+        "text": "## C01-01 · 수정\n\n자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "소개 대상은 자동 급수기",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은"
+            }
+          ],
+          "rationale": "제품은 자동 급수기로 유지되며 소개 대상이 바뀌지 않았다."
+        },
+        {
+          "criterion": "장점의 내용은 물 주는 간격의 조절 가능성",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "장점의 내용은 여전히 급수 간격을 조절할 수 있다는 기능이다."
+        },
+        {
+          "criterion": "조절 단계는 세 단계",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "세 단계로"
+            }
+          ],
+          "rationale": "조절 단계 수를 세 단계로 보존했다."
+        },
+        {
+          "criterion": "가능성 설명이지 이미 간격을 바꾸었다는 완료 보고가 아님",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "가능성을 설명하며 실제 조절을 완료했다는 보고로 바꾸지 않았다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "장점이라는 명사 주제와 가능성을 나타내는 서술부의 불일치를 실제로 수리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "장점은 … 있다는 것이다로 명사 주제와 명사 서술부를 호응시킨 완결된 교정문이다."
+        },
+        {
+          "criterion": "기능의 설명과 장점의 설명 중 어느 구조를 택해도 의미를 보존하면 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "허용된 두 구조 중 장점을 설명하는 구조를 택했으며 기능의 뜻도 유지한다."
+        },
+        {
+          "criterion": "간격을 급수량·급수 횟수·한 번의 급수 지속 시간으로 임의 치환하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "물을 주는 간격을"
+            }
+          ],
+          "rationale": "조절 대상을 급수량·횟수·한 차례 지속 시간으로 치환하지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "원문 전체의 무수정 유지는 목표 호응 결함을 남기므로 불가",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "원문 전체를 그대로 두지 않고 바깥 서술부의 호응 결함을 수리했다."
+        },
+        {
+          "criterion": "제품·간격·세 단계·조절 가능성은 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "제품·간격·세 단계·조절 가능성이 모두 교정문 안에 남아 있다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "현재 문맥으로 기능의 뜻이 정해져 있으므로 행위자가 명시되지 않았다는 이유만으로 수리를 보류하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "미상 행위자를 이유로 보류하지 않고 문맥상 확정된 기능 설명을 실제로 수리했다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "제품·간격·세 단계·가능성이라는 모든 앵커가 보존되었다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "장점은과 … 있다는 것이다가 호응하여 목표 결함을 해소했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "제품 소개문의 장점 설명으로 자연스러운 완결문이다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+            }
+          ],
+          "rationale": "바깥 서술 구조만 보완하고 기능·수량·시점을 덧바꾸지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C01/output.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "자동 급수기의 장점은 물을 주는 간격을 세 단계로 조절할 수 있다는 것이다."
+          }
+        ],
+        "rationale": "핵심 앵커 변경·없는 사실 보충·수리 회피·항목 누락이 없다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C01-02",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "관람 상황을 기록한 서술문",
+      "target": "관람객들은 안전 안내 방송을 귀를 기울였다.",
+      "input_location": {
+        "path": "eval-design/C01.md",
+        "heading_line": 9,
+        "target_line": 11
+      },
+      "actual_output": {
+        "path": "execution/C01/output.md",
+        "line_start": 5,
+        "line_end": 7,
+        "label": "수정",
+        "text": "## C01-02 · 수정\n\n관람객들은 안전 안내 방송에 귀를 기울였다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "행위자는 관람객들",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은"
+            }
+          ],
+          "rationale": "행위자는 복수 관람객으로 그대로이다."
+        },
+        {
+          "criterion": "주의를 기울인 대상은 안전 안내 방송",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "주의의 대상은 안전 안내 방송으로 유지된다."
+        },
+        {
+          "criterion": "이미 이루어진 청취·주의 행위",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "귀를 기울였다."
+            }
+          ],
+          "rationale": "과거의 주의·청취 행위를 보존했다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "방송과 귀를 기울이는 행위를 잇는 조사를 바로잡거나 같은 뜻의 서술 구조로 수리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "방송을을 방송에로 고쳐 귀를 기울이다의 대상과 조사를 호응시켰다."
+        },
+        {
+          "criterion": "단순히 소리가 들린 것과 주의를 기울인 것을 구분",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "귀를 기울였다."
+            }
+          ],
+          "rationale": "단순히 방송이 들렸다는 뜻이 아니라 주의를 기울였다는 행위를 유지했다."
+        },
+        {
+          "criterion": "안전 수칙을 이해·준수했다는 결과는 덧붙이지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "이해 또는 준수라는 별도 결과를 추가하지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "현재의 목적어·서술어 호응 결함을 그대로 두지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "목표 조사 결함을 그대로 두지 않았다."
+        },
+        {
+          "criterion": "주의의 대상과 과거 행위라는 뜻은 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "안전 안내 방송을 대상으로 한 과거 주의 행위가 유지된다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "관람객의 신원·방송 내용이 없어도 수리 가능하므로 추가 정보 질문만으로 대신하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "관람객 신원이나 방송 내용을 되묻지 않고 실제 교정문을 제시했다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "행위자·주의 대상·과거 시점이 모두 같다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "귀를 기울이다와 방송에의 조사 호응을 완전히 수리했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "관람 상황을 기록하는 서술문에 자연스럽다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+            }
+          ],
+          "rationale": "필요한 조사만 바꾸고 청취 결과를 추정하지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C01/output.md",
+            "line_start": 7,
+            "line_end": 7,
+            "quote": "관람객들은 안전 안내 방송에 귀를 기울였다."
+          }
+        ],
+        "rationale": "주의를 소리 인지로 약화하거나 이해·준수 결과를 넣지 않았고 실제 수리문이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C01-03",
+      "action": "maintain",
+      "action_label": "유지",
+      "context": "시설 이용 규정; 보관함 개방에 필요한 전제 안내",
+      "target": "보관함 개방의 전제는 예약 확인서 제출이다.",
+      "input_location": {
+        "path": "eval-design/C01.md",
+        "heading_line": 13,
+        "target_line": 15
+      },
+      "actual_output": {
+        "path": "execution/C01/output.md",
+        "line_start": 9,
+        "line_end": 11,
+        "label": "유지",
+        "text": "## C01-03 · 유지\n\n보관함 개방의 전제는 예약 확인서 제출이다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "규정의 대상은 보관함 개방",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는"
+            }
+          ],
+          "rationale": "규정의 적용 대상은 보관함 개방이다."
+        },
+        {
+          "criterion": "필요한 전제는 예약 확인서의 제출",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "필요한 전제는 확인서 제출이며 예약 자체로 바꾸지 않았다."
+        },
+        {
+          "criterion": "전제라고 했을 뿐 제출만으로 개방이 보장된다고 하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "전제라는 필요조건 표현을 그대로 두어 충분조건·개방 보장으로 강화하지 않았다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "명사형 항목과 명사 서술어가 정상적으로 호응함을 인정",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C01-03 · 유지"
+            },
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "유지로 처리하여 명사형 주제와 명사 서술부의 정상 호응을 인정했다. 유지 항목에 문법 해설은 필수가 아니다."
+        },
+        {
+          "criterion": "명사형·한자어·의가 있다는 이유만으로 비문 판정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C01-03 · 유지"
+            },
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "명사형·한자어·의가 있다는 이유로 오류라고 하거나 고치지 않았다."
+        },
+        {
+          "criterion": "확인서 제출을 예약 자체·현장 결제 등 다른 행위로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "제출을 예약·결제 등 다른 행위로 교체하지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "원문 그대로 유지하면 성공",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "원문을 그대로 유지하여 정상문 수용 조건을 충족한다."
+        },
+        {
+          "criterion": "동등한 표현 대안도 허용하지만 명사형을 없앤 데 가산점을 주지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "원문 유지에 완전한 점수를 주며 명사형 제거를 요구하거나 가산하지 않는다."
+        },
+        {
+          "criterion": "필요조건을 충분조건이나 유일한 조건으로 강화하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "제출만 하면 반드시 개방된다는 뜻이나 유일 조건이라는 뜻을 만들지 않았다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "다른 개방 조건의 유무는 제공되지 않았으므로 만들어 넣지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "알려지지 않은 추가 개방 조건을 만들어 넣지 않았다."
+        },
+        {
+          "criterion": "그 미상 정보는 이 정상문 전체를 고칠 수 없다는 판단의 이유가 아님",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C01-03 · 유지"
+            }
+          ],
+          "rationale": "다른 조건의 미상 여부를 이유로 정상문 전체를 보류하지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "대상·제출 행위·전제의 논리 강도가 모두 원문과 같다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C01-03 · 유지"
+            }
+          ],
+          "rationale": "명사 서술 구조가 정상임을 인정하고 필요한 유지 행동을 했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "간결한 시설 이용 규정으로 자연스러우며 무수정이 허용된 정상문이다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+            }
+          ],
+          "rationale": "명사형·한자어·의와 필요조건의 표현을 근거 없이 바꾸지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C01/output.md",
+            "line_start": 11,
+            "line_end": 11,
+            "quote": "보관함 개방의 전제는 예약 확인서 제출이다."
+          }
+        ],
+        "rationale": "정상문의 조건을 강화하거나 추가 사실을 넣지 않았고 항목 응답이 명확하다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C01-04",
+      "action": "hold",
+      "action_label": "보류",
+      "context": "독립된 업무 기록; 배지를 단 사람이 누구인지는 별도 정보 없음",
+      "target": "담당자는 배지를 단 안내원의 동료에게 문서를 건넸다.",
+      "input_location": {
+        "path": "eval-design/C01.md",
+        "heading_line": 17,
+        "target_line": 19
+      },
+      "actual_output": {
+        "path": "execution/C01/output.md",
+        "line_start": 13,
+        "line_end": 17,
+        "label": "확인 필요",
+        "text": "## C01-04 · 확인 필요\n\n담당자는 배지를 단 안내원의 동료에게 문서를 건넸다.\n\n확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "문서를 건넨 사람은 담당자",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "담당자는"
+            }
+          ],
+          "rationale": "문서를 건넨 사람은 담당자로 유지된다."
+        },
+        {
+          "criterion": "받은 사람은 안내원의 동료",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "안내원의 동료에게"
+            }
+          ],
+          "rationale": "수령자는 안내원이 아니라 안내원의 동료이다."
+        },
+        {
+          "criterion": "건넨 것은 문서",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "문서를 건넸다."
+            }
+          ],
+          "rationale": "건넨 대상을 문서로 유지한다."
+        },
+        {
+          "criterion": "배지 착용자가 안내원인지 그 동료인지 확정되지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "배지 착용자가 안내원인지 그 동료인지 질문하여 두 가능성을 모두 미정으로 남겼다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "배지를 단 수식어가 안내원에만 걸리는 해석과 안내원의 동료 전체에 걸리는 해석을 구분",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "배지를 단이 안내원에 걸리는 해석과 동료 전체에 걸리는 해석을 착용자 두 후보로 구분한다."
+        },
+        {
+          "criterion": "문서를 받은 사람까지 안내원으로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "안내원의 동료에게"
+            }
+          ],
+          "rationale": "문서를 받은 사람을 안내원으로 바꾸지 않았다."
+        },
+        {
+          "criterion": "배지 착용자를 확인할 때까지 확정 교정을 보류",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "수식 대상 확인 전 확정 교정을 명시적으로 보류했다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "원문을 남기면서 수식 범위를 미정으로 표시하면 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "담당자는 배지를 단 안내원의 동료에게 문서를 건넸다."
+            },
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "원문을 남기고 수식 범위가 미정임을 밝혔다."
+        },
+        {
+          "criterion": "두 해석의 조건부 제안은 가능하나 한쪽을 최종 답으로 정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "한 해석을 최종 수정본으로 택하지 않았다. 두 완성 대안을 제시할 의무는 없다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "배지를 단 사람이 누구인지 확인 필요",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "배지를 단 사람은 안내원인가요, 안내원의 동료인가요?"
+            }
+          ],
+          "rationale": "확인할 정보가 배지 착용자임을 특정했다."
+        },
+        {
+          "criterion": "문법적 중의성을 단순 조사 오류로 단정하거나 임의의 수식 순서로 확정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "단순 조사 오류로 단정하지 않고 원문을 유지하므로 수식 순서의 임의 확정도 없다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "담당자는 배지를 단 안내원의 동료에게 문서를 건넸다."
+            }
+          ],
+          "rationale": "전달자·수령자·문서를 보존하고 별도 확인문에서 착용자 미정을 유지한다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "핵심 중의성의 두 수식 대상을 특정하고 확정 교정을 보류했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "무엇을 확인해야 하고 그전에는 어떻게 처리하는지 명료하다. 미정 원문 자체를 비문해소 실패로 세지 않는다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C01/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인할 점: 배지를 단 사람은 안내원인가요, 안내원의 동료인가요? 수식 대상이 분명해질 때까지 원문을 유지합니다."
+            }
+          ],
+          "rationale": "한쪽 해석을 골라 넣거나 원문에 없는 착용자 사실을 만들지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M03",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C01/output.md",
+            "line_start": 15,
+            "line_end": 15,
+            "quote": "담당자는 배지를 단 안내원의 동료에게 문서를 건넸다."
+          }
+        ],
+        "rationale": "전달 관계를 보존하고 배지 착용자를 임의 선택하지 않아 M01·M02·M03·M06이 없다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C02-01",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "완료된 두 업무 = 장비 상태 점검 / 이용자 문의 응답; 두 업무의 담당 = 시설팀",
+      "target": "시설팀은 장비 상태와 이용자 문의에 답했다.",
+      "input_location": {
+        "path": "eval-design/C02.md",
+        "heading_line": 5,
+        "target_line": 7
+      },
+      "actual_output": {
+        "path": "execution/C02/output.md",
+        "line_start": 3,
+        "line_end": 5,
+        "label": "수정",
+        "text": "## C02-01 · 수정\n\n시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "두 업무 모두 시설팀이 수행",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "하나의 주어 시설팀이 점검과 응답 두 서술을 모두 담당한다."
+        },
+        {
+          "criterion": "장비 상태에 대해서는 점검 업무가 완료됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "장비 상태를 점검하고"
+            }
+          ],
+          "rationale": "장비 상태와 점검 서술을 연결하고 문말 과거형이 병렬 업무의 완료를 나타낸다."
+        },
+        {
+          "criterion": "이용자 문의에 대해서는 응답 업무가 완료됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "이용자 문의에 응답한 과거 업무를 보존했다."
+        },
+        {
+          "criterion": "두 대상은 서로 다른 서술 관계를 요구함",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "장비 상태에는 점검하다를, 이용자 문의에는 답하다를 각각 연결했다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "문맥에 명시된 두 업무를 모두 실제 문장에 반영",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "문맥이 정한 장비 점검과 문의 응답을 모두 실제 교정문에 넣었다."
+        },
+        {
+          "criterion": "하나의 조사·서술어를 공유하게 하여 장비 상태에도 답했다는 뜻으로 남기지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "점검 대상을 목적어로, 문의를 응답 대상으로 분리하여 장비 상태에 답했다는 공유 오류를 없앴다."
+        },
+        {
+          "criterion": "병렬절·문장 분리 등 여러 적법한 구조를 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "같은 담당자를 공유하는 적법한 병렬절을 사용했다. 두 문장으로 나누지 않아도 허용된다."
+        },
+        {
+          "criterion": "점검 결과가 양호했다거나 문의를 모두 해결했다는 결과는 만들지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "상태 양호나 문의 완전 해결 같은 결과를 덧붙이지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "문맥을 포함하면 원문의 단일 서술어 공유를 그대로 유지할 수 없음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "원문의 단일 서술어를 유지하지 않고 다른 두 업무를 각각 서술했다."
+        },
+        {
+          "criterion": "두 업무의 담당과 완료 사실은 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "담당 시설팀과 두 업무의 과거 완료 상태가 유지된다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "점검과 응답의 내용이 문맥에 명시되어 있으므로 무슨 업무인지 되묻기만 하면 실패",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "두 업무를 되묻지 않고 주어진 문맥으로 실제 수리했다."
+        },
+        {
+          "criterion": "두 업무 사이의 시간 순서는 제시되지 않았으므로 새 선후 관계를 확정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "병렬 연결어 하고는 이 문장에서 두 업무를 연결한다. 뒤에·먼저·후 등 선후를 확정하는 표현이나 새로운 시간 조건은 넣지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "시설팀의 점검·응답 완료를 모두 보존하고 결과나 선후를 새로 정하지 않았다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "대상별로 점검하다·답하다를 분리하여 잘못된 서술어 공유를 해소했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "시설 업무 보고의 간결한 병렬문으로 관계가 분명하다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 5,
+              "line_end": 5,
+              "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+            }
+          ],
+          "rationale": "문맥에 명시된 점검만 복원했으며 업무 결과나 순서를 추정하지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C02/output.md",
+            "line_start": 5,
+            "line_end": 5,
+            "quote": "시설팀은 장비 상태를 점검하고 이용자 문의에 답했다."
+          }
+        ],
+        "rationale": "두 업무와 담당·완료를 보존했고 문맥 밖 결과나 확정 선후를 넣지 않았으며 실제 수리문이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C02-02",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "완결된 서술문을 쓰는 작업일지; 작업 내용 = 안내판의 로비 벽 고정; 작업 상태 = 완료",
+      "target": "보수팀은 안내판을 나사 세 개로 로비 벽에.",
+      "input_location": {
+        "path": "eval-design/C02.md",
+        "heading_line": 9,
+        "target_line": 11
+      },
+      "actual_output": {
+        "path": "execution/C02/output.md",
+        "line_start": 7,
+        "line_end": 9,
+        "label": "수정",
+        "text": "## C02-02 · 수정\n\n보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "행위자는 보수팀",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은"
+            }
+          ],
+          "rationale": "행위자는 보수팀이다."
+        },
+        {
+          "criterion": "대상은 안내판",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "안내판을"
+            }
+          ],
+          "rationale": "고정 대상은 안내판이다."
+        },
+        {
+          "criterion": "작업은 로비 벽에 고정하는 일",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "문맥의 로비 벽 고정 작업을 그대로 복원했다."
+        },
+        {
+          "criterion": "수단은 나사 세 개",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "나사 세 개로"
+            }
+          ],
+          "rationale": "수단과 수량을 모두 보존했다."
+        },
+        {
+          "criterion": "작업은 완료됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "고정했다."
+            }
+          ],
+          "rationale": "계획·진행이 아닌 과거 완료의 작업 보고이다."
+        },
+        {
+          "criterion": "요청 장르는 완결된 서술문 작업일지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "주어·목적어·수단·위치·서술어를 갖춘 완결된 작업일지 문장이다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "문맥으로 복원되는 서술어를 채워 완결된 교정문을 제시",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "문맥에서 주어진 고정했다를 채워 단편을 완결문으로 수리했다."
+        },
+        {
+          "criterion": "완료를 계획·의도·진행 상태로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "고정했다."
+            }
+          ],
+          "rationale": "고정할 계획이다나 고정 중이다로 완료 상태를 바꾸지 않았다."
+        },
+        {
+          "criterion": "같은 뜻의 고정·부착 관련 서술 대안을 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "고정했다."
+            }
+          ],
+          "rationale": "허용되는 고정 관련 서술 중 문맥과 같은 동사를 사용했다."
+        },
+        {
+          "criterion": "명사형 작업 메모로도 쓸 수 있다는 이유로 이 문맥의 결함을 방치하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "명사형 메모로 용인하지 않고 요청 장르의 완결 서술문을 실제로 제시했다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "완결된 서술문이라는 장르 지정 때문에 원문 단편의 그대로 유지는 불가",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "원문 단편을 그대로 두지 않았다."
+        },
+        {
+          "criterion": "행위자·고정 대상·위치·나사 수·완료 상태는 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "보수팀·안내판·로비 벽·나사 세 개·완료가 모두 남아 있다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "생략 성분을 복원할 단서가 충분하므로 작업이 무엇인지 확인 질문만으로 회피하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "복원 단서가 충분한 작업을 질문으로 회피하지 않았다."
+        },
+        {
+          "criterion": "고정 시각·담당자 개인 이름 등 없는 세부 사항은 추가하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "고정 시각·개인 담당자·추가 수단을 만들어 넣지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "행위자·대상·위치·수단 수량·완료·장르의 모든 앵커가 같다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "누락된 서술어 고정했다를 문맥대로 복원하여 완결시켰다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "수단과 위치가 분명한 자연스러운 작업일지 문장이다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+            }
+          ],
+          "rationale": "복원 가능한 서술어만 채우고 작업 세부사항을 보충하지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C02/output.md",
+            "line_start": 9,
+            "line_end": 9,
+            "quote": "보수팀은 안내판을 나사 세 개로 로비 벽에 고정했다."
+          }
+        ],
+        "rationale": "문맥에 명시된 복원이므로 근거 없는 보충이 아니며 수량·완료를 보존하고 실제 수리했다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C02-03",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "시연 발언을 전달하는 기사; 따옴표 안 = 시연자의 직접 인용",
+      "target": "시연자의 설명은 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다.",
+      "input_location": {
+        "path": "eval-design/C02.md",
+        "heading_line": 13,
+        "target_line": 15
+      },
+      "actual_output": {
+        "path": "execution/C02/output.md",
+        "line_start": 11,
+        "line_end": 13,
+        "label": "수정",
+        "text": "## C02-03 · 수정\n\n시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "발언자는 시연자",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는"
+            }
+          ],
+          "rationale": "직접 발언의 주체는 시연자로 유지된다."
+        },
+        {
+          "criterion": "시연자의 발언을 전하는 기사이지 기자가 효과를 검증한 보고가 아님",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "시연자의 발언을 말했다로 귀속해 전달할 뿐 기자의 검증 결과로 쓰지 않았다."
+        },
+        {
+          "criterion": "직접 인용 내부의 표현은 보존 대상",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "센서를 바꾸면 오차가 절반으로 줄 수도 있다"
+            }
+          ],
+          "rationale": "직접 인용의 모든 어휘를 원문대로 유지했다."
+        },
+        {
+          "criterion": "조건은 센서 교체",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "센서를 바꾸면"
+            }
+          ],
+          "rationale": "인용의 조건은 센서 교체이다."
+        },
+        {
+          "criterion": "가능한 결과는 오차가 절반으로 감소하는 것",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "오차가 절반으로"
+            }
+          ],
+          "rationale": "가능한 감소 결과와 절반이라는 비율을 보존했다."
+        },
+        {
+          "criterion": "줄 수도 있다는 가능성이지 효과 보장·실제 감소 보고가 아님",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "줄 수도 있다"
+            }
+          ],
+          "rationale": "가능성 표지를 그대로 두어 보장이나 실제 감소로 강화하지 않았다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "설명을 말하기 행위자로 놓은 바깥 주어·서술어 호응을 실제로 수리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "바깥 주어를 설명에서 시연자로 바꾸어 말하기 행위와 호응시켰다."
+        },
+        {
+          "criterion": "수리 범위는 인용 바깥 구조이며 직접 인용 내부를 교정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "바깥 주어만 수리했고 직접 인용 내부에는 손대지 않았다."
+        },
+        {
+          "criterion": "발언자·조건·절반이라는 비율·가능성 표지를 보존",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "발언자·센서 교체 조건·절반·줄 수도 있다를 모두 보존했다."
+        },
+        {
+          "criterion": "인용 부호 모양의 동등한 변경은 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "직접 인용 부호는 원문과 같으며 부호 모양의 대체 여부로 판정하지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "직접 인용 내부는 그대로 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "센서를 바꾸면 오차가 절반으로 줄 수도 있다"
+            }
+          ],
+          "rationale": "보호 구간 전체를 그대로 유지했다."
+        },
+        {
+          "criterion": "바깥 구조의 원문 전체 유지로는 결함이 해결되지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "바깥 구조를 그대로 두지 않고 명시된 발언자를 주어로 수리했다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "시연자의 이름이나 센서 모델이 없어도 바깥 호응 수리는 가능하므로 수리를 보류하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "실명·센서 모델을 묻지 않고 확정 가능한 바깥 호응을 실제로 수리했다."
+        },
+        {
+          "criterion": "효과의 실증 여부가 주어지지 않았으므로 인용 주장을 사실로 승격하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "말했다라는 발언 귀속과 인용의 가능성을 남겨 효과를 사실로 승격하지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "발언 귀속·인용 내용·조건·비율·가능성이 모두 보존되었다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "시연자는 … 말했다로 바깥 주어와 서술어를 완전히 호응시켰다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "시연 발언을 전하는 기사 문장으로 명료하고 자연스럽다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 13,
+              "line_end": 13,
+              "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+            }
+          ],
+          "rationale": "직접 인용을 건드리지 않고 잘못된 바깥 주어만 수리했다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M05",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C02/output.md",
+            "line_start": 13,
+            "line_end": 13,
+            "quote": "시연자는 “센서를 바꾸면 오차가 절반으로 줄 수도 있다”라고 말했다."
+          }
+        ],
+        "rationale": "발언자·보호 인용·조건·비율·가능성을 지켰으며 효과를 검증 사실로 바꾸지 않아 M05를 포함한 중대오류가 없다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C02-04",
+      "action": "maintain",
+      "action_label": "유지",
+      "context": "시설 관리 보고; 보관 행위자 = 기재되지 않음",
+      "target": "반납된 출입증은 점검 뒤 보안실에 보관되었다.",
+      "input_location": {
+        "path": "eval-design/C02.md",
+        "heading_line": 17,
+        "target_line": 19
+      },
+      "actual_output": {
+        "path": "execution/C02/output.md",
+        "line_start": 15,
+        "line_end": 17,
+        "label": "유지",
+        "text": "## C02-04 · 유지\n\n반납된 출입증은 점검 뒤 보안실에 보관되었다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "대상은 반납된 출입증",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은"
+            }
+          ],
+          "rationale": "화제와 보관 대상은 반납된 출입증이다."
+        },
+        {
+          "criterion": "점검 다음에 보관이 이루어짐",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "점검 뒤"
+            }
+          ],
+          "rationale": "점검이 보관보다 먼저라는 순서를 보존했다."
+        },
+        {
+          "criterion": "보관 장소는 보안실",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "보안실에"
+            }
+          ],
+          "rationale": "보관 장소는 보안실이다."
+        },
+        {
+          "criterion": "보관은 완료됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "보관되었다."
+            }
+          ],
+          "rationale": "과거 완료의 보관 상태를 유지했다."
+        },
+        {
+          "criterion": "보관 행위자는 주어지지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "피동을 유지하여 보관 행위자를 미상으로 남겼다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "피동 자체가 비문이 아님을 인정",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "## C02-04 · 유지"
+            },
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "피동문을 정상문으로 인정해 유지했다. 유지 판정에서 별도 문법 해설은 필수가 아니다."
+        },
+        {
+          "criterion": "출입증이라는 대상 중심의 정보 배치를 존중",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은"
+            }
+          ],
+          "rationale": "출입증을 중심에 둔 정보 초점을 그대로 존중했다."
+        },
+        {
+          "criterion": "담당자·보안요원·반납자 등을 보관 행위자로 만들어 넣지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "담당자·보안요원·반납자 같은 행위자를 보충하지 않았다."
+        },
+        {
+          "criterion": "점검과 보관의 순서나 장소를 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "순서와 장소를 바꾸지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "정상 피동인 원문 그대로 유지하면 성공",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "정상 피동 원문을 그대로 유지했다."
+        },
+        {
+          "criterion": "같은 초점과 미상 행위자 상태를 지키는 소폭 표현 대안도 문자열 차이만으로 탈락시키지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "같은 초점과 미상 행위자 상태가 유지된다. 문자열 대체를 요구하지 않았다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "행위자가 미상이라는 이유로 정상문 전체를 미완성으로 판단하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "## C02-04 · 유지"
+            }
+          ],
+          "rationale": "미상 행위자를 이유로 정상문을 미완성 처리하거나 보류하지 않았다."
+        },
+        {
+          "criterion": "능동 전환을 하려면 없는 행위자를 가정해야 하는 수정은 보류",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "없는 행위자를 가정한 능동 전환을 하지 않았다. 그러한 수정안을 제시하지 않아 별도 보류문도 필요 없다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "출입증·점검 뒤·보안실·완료·미상 행위자라는 앵커를 모두 보존했다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "## C02-04 · 유지"
+            }
+          ],
+          "rationale": "정상 피동을 인정하는 유지 행동이 정확하다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "시설 관리 보고의 대상 중심 정상문으로 자연스럽다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C02/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+            }
+          ],
+          "rationale": "피동을 일괄 교정하지 않고 미상 행위자를 채우지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C02/output.md",
+            "line_start": 17,
+            "line_end": 17,
+            "quote": "반납된 출입증은 점검 뒤 보안실에 보관되었다."
+          }
+        ],
+        "rationale": "순서·장소·대상·완료가 같고 없는 행위자를 만들지 않았으며 항목 응답이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C03-01",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "박물관 업무일지; 우산을 맡긴 사람 = 방문객; 회수·반환 및 보고 담당 = 직원; 보고 내용 검토 담당 = 관장",
+      "target": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용이 검토를 마쳤다.",
+      "input_location": {
+        "path": "eval-design/C03.md",
+        "heading_line": 5,
+        "target_line": 7
+      },
+      "actual_output": {
+        "path": "execution/C03/output.md",
+        "line_start": 1,
+        "line_end": 3,
+        "label": "수정",
+        "text": "## C03-01 · 수정\n\n관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "우산을 맡긴 사람은 방문객",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "방문객이 맡긴 우산을"
+            }
+          ],
+          "rationale": "우산을 맡긴 사람은 방문객으로 유지된다."
+        },
+        {
+          "criterion": "우산을 찾아 반환하고 그 내용을 보고한 사람은 직원",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용"
+            }
+          ],
+          "rationale": "우산을 찾아 반환했다고 보고한 주체는 직원이다. 회수·반환은 직원 보고 속 내용이다."
+        },
+        {
+          "criterion": "검토를 마친 사람은 관장",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "바깥 주어 관장은과 검토를 마쳤다가 호응하여 검토 완료 주체를 관장으로 유지한다."
+        },
+        {
+          "criterion": "관장의 검토 대상은 직원의 보고 내용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "관장의 검토 대상은 직원이 보고한 내용이다."
+        },
+        {
+          "criterion": "우산 반환은 직원의 보고 안에 들어 있는 내용이며 별도의 사실 확인 결과는 주어지지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "돌려주었다고 보고한 내용"
+            }
+          ],
+          "rationale": "반환을 보고 내용에 내포한 채 유지하고 독립 검증 사실로 격상하지 않았다."
+        },
+        {
+          "criterion": "관장의 검토는 완료됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "검토를 마쳤다."
+            }
+          ],
+          "rationale": "관장의 검토는 완료 상태이다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "보고 내용이 검토의 행위자인 것처럼 된 바깥 조사·서술어 호응을 실제로 수리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "내용이 검토를 마쳤다라는 잘못된 관계를 내용에 대한 검토를 마쳤다로 고쳐, 관장을 검토 행위자로 만들었다."
+        },
+        {
+          "criterion": "방문객·직원·관장의 역할을 각각 추적 가능하게 정리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "맡긴 사람은 방문객, 반환·보고 주체는 직원, 검토 주체는 관장으로 각각 추적 가능하다."
+        },
+        {
+          "criterion": "중첩절 재배치·분리·원래 절 구조의 명료한 보완 모두 허용하며 문장 분리를 강제하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "허용된 원래 절 구조의 명료한 보완을 사용했다. 중첩절 유지나 문장 미분리를 결함으로 세지 않는다."
+        },
+        {
+          "criterion": "직원 보고의 귀속을 지우거나 관장이 직접 우산을 찾았다는 뜻으로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용"
+            }
+          ],
+          "rationale": "직원에게 보고를 귀속하고 관장이 우산을 찾아 돌려준 것으로 바꾸지 않았다."
+        },
+        {
+          "criterion": "검토를 끝낸 사실을 보고 내용에 동의·승인했다는 뜻으로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "검토를 마쳤다."
+            }
+          ],
+          "rationale": "검토 완료만 서술하며 보고 내용에 대한 동의·승인 결과를 보태지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "내포된 사건과 보고 관계는 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "돌려주었다고 보고한 내용"
+            }
+          ],
+          "rationale": "내포된 반환 사건과 직원의 보고 관계를 유지했다."
+        },
+        {
+          "criterion": "목표인 바깥 호응 결함을 그대로 둔 전체 유지는 불가",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "바깥 호응 결함을 그대로 두지 않고 검토의 대상 관계를 실제로 고쳤다."
+        },
+        {
+          "criterion": "명료한 교정 구조라면 중첩절이 남아 있다는 이유만으로 감점하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "관장은을 중심으로 검토를 마쳤다가 명료하게 연결된다. 중첩절이 남았다는 이유로 감점하지 않았다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "역할은 제공 문맥으로 정해지므로 누가 무엇을 했는지 되묻기만 해서는 안 됨",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "문맥이 정한 역할을 되묻지 않고 실제 교정문을 냈다."
+        },
+        {
+          "criterion": "검토 결과와 우산 반환의 독립 검증 여부는 미상이므로 새로 확정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "검토 결과의 승인 여부나 우산 반환의 독립 검증 여부를 새로 정하지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "세 역할·보고의 귀속과 인식 범위·관장의 검토 완료를 모두 보존했다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "바깥 검토 주체와 대상을 내용에 대한 검토로 정리하여 목표 호응 결함을 해소했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "길고 내포절이 있지만 각 서술어의 주체·대상이 식별되며 업무일지의 격식에 맞는다. 명료한 중첩절 유지에 별도 감점을 하지 않는다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 3,
+              "line_end": 3,
+              "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+            }
+          ],
+          "rationale": "내포 사건·보고 관계를 남기고 바깥 검토 구조만 고쳤으며 승인·독립 확인을 추가하지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C03/output.md",
+            "line_start": 3,
+            "line_end": 3,
+            "quote": "관장은 직원이 방문객이 맡긴 우산을 찾아 돌려주었다고 보고한 내용에 대한 검토를 마쳤다."
+          }
+        ],
+        "rationale": "역할·보고 귀속·검토 완료를 지키며 없는 검증·승인 사실을 더하지 않았고 실제 수리문이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C03-02",
+      "action": "repair",
+      "action_label": "수리",
+      "context": "심사 절차 안내; 나머지 서류의 처리 여부 = 이 문장의 범위 밖",
+      "target": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건에 재검토하지 않는다.",
+      "input_location": {
+        "path": "eval-design/C03.md",
+        "heading_line": 9,
+        "target_line": 11
+      },
+      "actual_output": {
+        "path": "execution/C03/output.md",
+        "line_start": 5,
+        "line_end": 7,
+        "label": "수정",
+        "text": "## C03-02 · 수정\n\n보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "행위자는 심사팀",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "심사팀은"
+            }
+          ],
+          "rationale": "재검토 여부의 주체는 심사팀이다."
+        },
+        {
+          "criterion": "조건은 보완 신청이 접수되지 않는 경우",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면"
+            }
+          ],
+          "rationale": "조건은 보완 신청의 미접수이다."
+        },
+        {
+          "criterion": "제출된 전체 서류는 8건",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "제출된 서류 8건 가운데"
+            }
+          ],
+          "rationale": "제출된 전체 서류 수를 8건으로 유지한다."
+        },
+        {
+          "criterion": "그중 서명이 없는 부분집합은 2건",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "서명이 없는 2건을"
+            }
+          ],
+          "rationale": "서명 없는 두 건을 전체 8건의 부분집합으로 유지한다."
+        },
+        {
+          "criterion": "조건이 성립할 때 그 2건을 재검토하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "보완 신청이 접수되지 않는 조건에서 그 두 건을 재검토하지 않는다는 부정 관계가 같다."
+        },
+        {
+          "criterion": "나머지 6건의 처리 여부는 범위 밖",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "미재검토의 목적어는 서명 없는 두 건뿐이며 나머지 여섯 건의 처리는 덧붙이지 않았다."
+        },
+        {
+          "criterion": "보완 신청이 접수된 경우의 처리도 이 문장만으로 확정되지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "접수되면 반드시 재검토한다는 역방향 결론을 추가하지 않았다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "재검토 대상에 붙은 조사와 타동사 서술의 호응을 실제로 수리",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "2건에를 2건을로 고쳐 타동사 재검토하다와 대상을 호응시켰다."
+        },
+        {
+          "criterion": "조건절의 부정과 주절의 부정을 각각 보존",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "조건절의 접수되지 않으면과 주절의 재검토하지 않는다를 각각 보존했다."
+        },
+        {
+          "criterion": "8건 전체를 미검토 대상으로 넓히거나 2건을 전체 수로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "서류 8건 가운데 서명이 없는 2건을"
+            }
+          ],
+          "rationale": "전체 8건과 부분집합 2건을 구분하고 미재검토 범위를 넓히지 않았다."
+        },
+        {
+          "criterion": "보완 신청 접수라는 조건의 대상을 원래 서류 접수로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면"
+            }
+          ],
+          "rationale": "접수 조건의 대상을 원래 서류가 아니라 보완 신청으로 유지했다."
+        },
+        {
+          "criterion": "반대 조건에서 반드시 재검토한다는 역방향 명제를 덧붙이지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "반대 조건에서의 처리 방침을 새로 서술하지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "핵심 정보와 조건 논리는 모두 유지",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "행위자·보완 신청 미접수·8건 중 2건·재검토 부정의 핵심 논리를 모두 유지했다."
+        },
+        {
+          "criterion": "원문 전체의 무수정은 목표 호응 결함을 남기므로 불가",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "원문 전체를 무수정으로 두지 않고 조사 결함을 수리했다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "주어진 조건에서의 미재검토는 분명하므로 규정 의도를 묻는 질문만으로 수리를 대신하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "규정 의도를 되묻는 것 대신 뜻이 분명한 목적어 조사 수리문을 제시했다."
+        },
+        {
+          "criterion": "나머지 서류 또는 조건 불성립 때의 처리는 추정하지 않고 범위 밖으로 남김",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "나머지 여섯 건이나 조건 불성립 때의 처리는 언급하지 않아 범위 밖으로 남겼다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "행위자·이중 부정·조건 대상·전체와 부분집합·범위 밖 정보를 모두 보존했다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "대상 조사를 을로 고쳐 재검토하다와의 호응 결함을 해소했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "조건과 적용 범위가 분명한 심사 절차 안내문이다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 7,
+              "line_end": 7,
+              "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+            }
+          ],
+          "rationale": "필요한 조사만 고치고 반대 조건·다른 서류의 처리 규칙을 만들지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M04",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C03/output.md",
+            "line_start": 7,
+            "line_end": 7,
+            "quote": "보완 신청이 접수되지 않으면 심사팀은 제출된 서류 8건 가운데 서명이 없는 2건을 재검토하지 않는다."
+          }
+        ],
+        "rationale": "조건 방향·부정 범위·수량 부분집합을 그대로 지켰고 없는 처리 방침을 추가하지 않았으며 실제 수리문이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C03-03",
+      "action": "maintain",
+      "action_label": "유지",
+      "context": "현장 안내; 발화자 = 안내원; 수신자 = 방문객",
+      "target": "표를 받으면 입구 오른쪽에서 기다려 주세요.",
+      "input_location": {
+        "path": "eval-design/C03.md",
+        "heading_line": 13,
+        "target_line": 15
+      },
+      "actual_output": {
+        "path": "execution/C03/output.md",
+        "line_start": 9,
+        "line_end": 11,
+        "label": "유지",
+        "text": "## C03-03 · 유지\n\n표를 받으면 입구 오른쪽에서 기다려 주세요."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "안내원이 방문객에게 하는 정중한 요청",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "현장 안내 문맥에서 방문객에게 하는 정중한 요청형을 유지했다."
+        },
+        {
+          "criterion": "표를 받는 사람과 기다릴 사람은 수신자인 방문객",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "별도 주어를 채우지 않아 표를 받고 기다리는 사람은 문맥의 수신자인 방문객으로 읽힌다."
+        },
+        {
+          "criterion": "표를 받는 것이 기다림 요청의 조건",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면"
+            }
+          ],
+          "rationale": "표 수령을 기다림 요청의 조건으로 유지했다."
+        },
+        {
+          "criterion": "대기 위치는 입구 오른쪽",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "입구 오른쪽에서"
+            }
+          ],
+          "rationale": "대기 위치를 입구 오른쪽으로 유지했다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "문맥으로 분명한 수신자 주어의 생략을 정상으로 인정",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C03-03 · 유지"
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "유지 처리하여 문맥으로 정해진 수신자 주어의 정상 생략을 인정했다."
+        },
+        {
+          "criterion": "생략 주어를 발화자인 안내원으로 채우지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "안내원을 생략 주어로 채우지 않았다."
+        },
+        {
+          "criterion": "표를 받기 전의 대기 요청이나 다른 위치로 바꾸지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "표를 받기 전으로 시점을 옮기거나 대기 위치를 바꾸지 않았다."
+        },
+        {
+          "criterion": "주어를 반드시 반복해야 한다는 규칙을 만들지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C03-03 · 유지"
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "주어 반복을 강제하지 않았고 그런 일반 규칙을 덧붙이지 않았다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "원문 그대로 유지하면 성공",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "원문 그대로 유지하여 정상문 수용 조건을 충족했다."
+        },
+        {
+          "criterion": "문맥상 같은 수신자·조건·위치를 지키는 소폭 대안도 허용하지만 명시적 주어 추가에 가산점을 주지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "수신자·조건·위치를 그대로 두었으며 명시 주어 추가를 요구하거나 가산하지 않는다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "받을 표의 종류가 미상이어도 정상 안내문의 의미는 분명하므로 주어 정보 부족으로 보류하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C03-03 · 유지"
+            }
+          ],
+          "rationale": "표의 종류나 주어 정보 부족을 이유로 정상 안내문을 보류하지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "정중한 요청·수신자 주어·표 수령 조건·대기 위치가 모두 유지된다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 9,
+              "line_end": 9,
+              "quote": "## C03-03 · 유지"
+            }
+          ],
+          "rationale": "정상적인 수신자 주어 생략을 인정하는 유지 판단이 정확하다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "수신자가 분명한 현장 안내의 자연스러운 정중 요청문이다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 11,
+              "line_end": 11,
+              "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+            }
+          ],
+          "rationale": "생략 주어를 억지로 채우거나 주어 반복을 강제하지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C03/output.md",
+            "line_start": 11,
+            "line_end": 11,
+            "quote": "표를 받으면 입구 오른쪽에서 기다려 주세요."
+          }
+        ],
+        "rationale": "행위자를 안내원으로 오귀속하지 않고 조건·위치를 보존했으며 정상문 응답이 있다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    },
+    {
+      "case_id": "C03-04",
+      "action": "hold",
+      "action_label": "보류",
+      "context": "독립된 업무 기록; 제공된 앞뒤 문맥 = 없음",
+      "target": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다.",
+      "input_location": {
+        "path": "eval-design/C03.md",
+        "heading_line": 17,
+        "target_line": 19
+      },
+      "actual_output": {
+        "path": "execution/C03/output.md",
+        "line_start": 13,
+        "line_end": 17,
+        "label": "확인 필요",
+        "text": "## C03-04 · 확인 필요\n\n검토자는 제출자에게 받은 뒤 담당자에게 전달했다.\n\n확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+      },
+      "meaning_anchors": [
+        {
+          "criterion": "행위자는 검토자",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는"
+            }
+          ],
+          "rationale": "수령·전달의 행위자는 검토자로 유지된다."
+        },
+        {
+          "criterion": "받는 행위의 상대는 제출자",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "제출자에게 받은 뒤"
+            }
+          ],
+          "rationale": "수령 상대는 제출자로 유지된다."
+        },
+        {
+          "criterion": "전달의 상대는 담당자",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "담당자에게 전달했다."
+            }
+          ],
+          "rationale": "전달 상대는 담당자로 유지된다."
+        },
+        {
+          "criterion": "받은 뒤 전달하는 순서",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "받은 뒤"
+            }
+          ],
+          "rationale": "수령 후 전달이라는 순서를 그대로 유지했다."
+        },
+        {
+          "criterion": "무엇을 받았고 무엇을 전달했는지 주어지지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "수령 대상과 전달 대상을 각각 무엇으로 질문하여 둘 다 미상임을 드러낸다."
+        },
+        {
+          "criterion": "수령 대상과 전달 대상이 같은지도 명시되지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지"
+            }
+          ],
+          "rationale": "각 행위의 목적물을 따로 확인하며 동일 목적물이라고 확정하지 않았다. 뒤의 그 대상은 미정 목적물에 대한 메타 표현이지 동일성 단정이나 확정문 속 목적어 복원이 아니다."
+        }
+      ],
+      "required_checks": [
+        {
+          "criterion": "빠진 대상의 지시 정보를 복원할 근거가 없는 점을 특정",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "대상을 알 단서가 제공 문맥에 없다는 이유로 보류함을 명시했다."
+        },
+        {
+          "criterion": "한국어 목적어 생략 자체를 언제나 비문이라고 하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "목적어 생략 자체를 언제나 비문이라고 하지 않고 이 독립 기록에서 지시 정보를 알 수 없는 점만 지적했다."
+        },
+        {
+          "criterion": "서류·원고·시료·장비 등 그럴듯한 목적물을 최종 교정문에 만들어 넣지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "서류·원고·시료·장비 등 특정 목적물을 교정문에 만들어 넣지 않았다."
+        },
+        {
+          "criterion": "누가 누구에게라는 관계와 순서는 불확실한 목적물과 구분하여 보존",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            }
+          ],
+          "rationale": "확실한 검토자·제출자·담당자·받은 뒤의 관계와 순서는 그대로 남겨 미상 목적물과 구별했다."
+        }
+      ],
+      "maintain_conditions": [
+        {
+          "criterion": "원문을 남기며 대상 정보의 확인 필요를 표시하면 허용",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "원문을 남기면서 수령·전달 대상의 확인 필요를 표시했다."
+        },
+        {
+          "criterion": "일반적인 대명사만 넣어 지시 대상을 알아낸 것처럼 처리하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "원문에 대명사를 끼워 넣어 지시 대상을 해결한 것처럼 처리하지 않았다. 설명의 그 대상은 모른다는 진술에만 쓰였다."
+        },
+        {
+          "criterion": "명확하게 미정임을 표시한 자리표시자나 조건부 제안은 가능하나 확정 수정본으로 제시하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "특정 대상이나 자리표시자도 확정 수정본으로 제시하지 않았다. 조건부 제안은 선택 사항이다."
+        }
+      ],
+      "hold_conditions": [
+        {
+          "criterion": "무엇을 받아 무엇을 전달했는지 확인 필요",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요."
+            }
+          ],
+          "rationale": "수령과 전달 각각의 목적물이 무엇인지 구체적으로 확인 요청했다."
+        },
+        {
+          "criterion": "동일 대상인지 다른 대상인지도 필요에 따라 확인",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지"
+            }
+          ],
+          "rationale": "두 목적물을 각각 확인 대상으로 남겨 동일·상이 여부를 단정하지 않았다. 동일성 전용 질문을 별도로 반복하지 않아도 이 응답은 두 대상을 확정하지 않으며, 원 기준도 필요에 따라 확인하도록 한다."
+        },
+        {
+          "criterion": "제출자라는 호칭만으로 목적물을 문서로 단정하지 않음",
+          "met": true,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            },
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "제출자라는 이름만으로 대상을 문서로 추정하지 않았다."
+        }
+      ],
+      "axes": {
+        "meaning_preservation": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 15,
+              "line_end": 15,
+              "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+            }
+          ],
+          "rationale": "검토자·제출자·담당자·수령 후 전달을 지키고 확인문에서 목적물과 동일성의 미정을 보존한다."
+        },
+        "repair_resolution": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "복원 근거가 없는 수령·전달 목적물을 각각 특정해 확인 요청하고 확정 수정을 보류했다."
+        },
+        "naturalness": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "받은 것과 전달한 것을 각각 물으며 보류 이유가 명확하다. 불확실한 원문 자체의 매끄러움을 이 축의 실패로 세지 않는다."
+        },
+        "overcorrection_restraint": {
+          "score": 3,
+          "evidence": [
+            {
+              "path": "execution/C03/output.md",
+              "line_start": 17,
+              "line_end": 17,
+              "quote": "확인 사항: 제출자에게 무엇을 받았고, 담당자에게 무엇을 전달했는지 확인해 주세요. 제공된 문맥만으로는 그 대상을 알 수 없어 원문을 남겼습니다."
+            }
+          ],
+          "rationale": "그럴듯한 목적물을 보충하지 않고 한국어 목적어 생략의 일반 금지도 만들지 않았다."
+        }
+      },
+      "critical_errors": [],
+      "critical_error_review": {
+        "checked_ids": [
+          "M01",
+          "M02",
+          "M03",
+          "M06"
+        ],
+        "result": "해당 없음",
+        "evidence": [
+          {
+            "path": "execution/C03/output.md",
+            "line_start": 15,
+            "line_end": 15,
+            "quote": "검토자는 제출자에게 받은 뒤 담당자에게 전달했다."
+          }
+        ],
+        "rationale": "전달 관계·순서를 보존하고 목적물 또는 그 동일성을 임의 확정하지 않아 M01·M02·M03·M06이 없다."
+      },
+      "requirements_met": true,
+      "score_total": 12,
+      "verdict": "PASS"
+    }
+  ],
+  "unchanged_sources_note": "기준·입력·출력·접근 기록을 수정하지 않았고 후속 실행도 하지 않았다. 생성 대상은 grading-v1.json 및 grading-v1.md뿐이다."
+}

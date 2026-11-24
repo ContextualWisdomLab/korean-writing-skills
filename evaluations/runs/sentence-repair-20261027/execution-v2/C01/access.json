@@ -1,0 +1,77 @@
+{
+  "case_id": "C01",
+  "root": "evaluation-workspace",
+  "applied_skill_snapshot": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+  "hash_algorithm": "SHA-256",
+  "read_files": [
+    {
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "sha256": "a37694593b5f97b439f0d9f1610fa83bf4be72281d7028f5cca040bfe2bea99c",
+      "role": "상위 지침에 따라 필수 로딩된 설치 스킬 노출",
+      "access_methods": ["skill_view(name='korean-editing')", "python3 pathlib.read_bytes: 해시 계산"],
+      "applied_as_execution_snapshot": false
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "role": "이번 교정에 적용한 최종 스킬 스냅숏",
+      "access_methods": ["read_file: 전체", "python3 pathlib.read_bytes: 해시 계산"],
+      "applied_as_execution_snapshot": true
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "role": "스냅숏이 지정한 근거 분류 및 확인 범위",
+      "access_methods": ["read_file: 전체", "python3 pathlib.read_bytes: 해시 계산"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "role": "문장 호응 수리와 수식 대상 확인 절차",
+      "access_methods": ["read_file: 전체", "python3 pathlib.read_bytes: 해시 계산"]
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "role": "표기 판단 절차",
+      "access_methods": ["read_file: 전체", "python3 pathlib.read_bytes: 해시 계산"]
+    },
+    {
+      "path": "evaluation-workspace/eval-design/C01.md",
+      "sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+      "role": "허용된 C01 지시와 독립 대상문 4개",
+      "access_methods": ["read_file: 전체", "python3 pathlib.read_bytes: 해시 계산"]
+    }
+  ],
+  "mandatory_installed_skill_exposure": {
+    "occurred": true,
+    "reason": "상위 개발자 지침이 관련 스킬의 skill_view 로딩을 의무화하여 설치본을 먼저 로딩했다.",
+    "path": "installed-skills/korean-editing/SKILL.md",
+    "scope": "SKILL.md 본문과 연결 파일 목록이 노출되었다. 설치본의 참조 파일 내용은 읽지 않았다.",
+    "execution_policy": "설치본이 아니라 제공된 candidate-v2 최종 스냅숏과 그 직접 관련 참조 파일을 적용했다."
+  },
+  "conversation_context_exposure": [
+    {
+      "name": "상위 지침에 재현된 AGENTS.md 및 스킬 목록·설명",
+      "filesystem_read": false,
+      "sha256": null,
+      "note": "대화 컨텍스트로 제공되었다. 저장소 파일은 직접 열지 않았으며 원본 해시는 측정하지 않았다."
+    }
+  ],
+  "limits_observed": {
+    "external_search_or_fetch": false,
+    "examples_md_or_validation_md_content_read": false,
+    "prohibited_criteria_or_design_content_read": false,
+    "other_case_inputs_or_outputs_read": false,
+    "research_or_scoring_files_read": false,
+    "repository_files_read": false,
+    "self_scoring_performed": false,
+    "repository_modified": false,
+    "installation_commit_or_publication_performed": false,
+    "note": "design 경로에서는 명시적으로 허용된 eval-design/C01.md만 읽었다. 읽은 문서에 나타난 다른 파일명과 URL은 추가로 열지 않았다."
+  },
+  "output_files": [
+    "evaluation-workspace/execution-v2/C01/output.md",
+    "evaluation-workspace/execution-v2/C01/access.json"
+  ]
+}

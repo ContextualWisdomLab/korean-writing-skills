@@ -1,0 +1,101 @@
+{
+  "verdict": "PASS_WITH_MINOR",
+  "blocking": false,
+  "reviewed_at": "2026-10-27T17:42:07+09:00",
+  "scope": "candidate-v2 → candidate-v3 korean-editing 차이 (CR3-01·CR3-02 수정분)",
+  "diff_verification": {
+    "method": "Python 3: 파일 목록 비교, SHA-256, 행 단위 비교, v2에 두 수정만 적용한 재구성 문자열 == v3 비교",
+    "file_sets_equal": true,
+    "file_count": 7,
+    "other_6_files_identical_to_v2": true,
+    "identical_files": [
+      "SKILL.md",
+      "references/examples.md",
+      "references/orthography-decisions.md",
+      "references/sentence-repair.md",
+      "references/source-ledger.md",
+      "references/validation.md"
+    ],
+    "changed_file": "references/paragraph-revision.md",
+    "sha256_v3": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "matches_candidate-v3-hashes.json": true,
+    "lines_v2_v3": [
+      77,
+      77
+    ],
+    "changed_lines": [
+      55
+    ],
+    "bytes_v2_v3": [
+      11072,
+      11162
+    ],
+    "edits": [
+      {
+        "type": "replace",
+        "old": "문장 앞의 행위자가",
+        "new": "관형절 앞에 나온 행위자가",
+        "old_occurrences_in_v2": 1
+      },
+      {
+        "type": "insert_after",
+        "anchor": "두 행위를 모두 ○○팀에 둔다.",
+        "inserted": " ‘검토할’의 주체는 원문에 없으므로 새로 정하지 않는다.",
+        "anchor_occurrences_in_v2": 1
+      }
+    ],
+    "v2_plus_two_edits_equals_v3": true,
+    "only_two_sentences_changed": true
+  },
+  "resolution": {
+    "CR3-01": {
+      "status": "resolved",
+      "judgement": "제안 문구 그대로 삽입. 셋째 서술어 ‘검토할’의 주체를 채우지 말라는 경계가 예문 안에 드러나 과잉 교정 경로가 막혔다. 27행·sentence-repair.md 10행·SKILL.md 26행의 ‘없는 행위자 추가 금지’와 일치."
+    },
+    "CR3-02": {
+      "status": "resolved_with_minor_residual",
+      "judgement": "‘문장 앞’ 위치 제한은 사라졌다(예: `담당자는 ○○팀이 확인한 …`도 포괄). 다만 대체 문구에 아래 CR4-01의 표현상 부정확성이 남는다."
+    }
+  },
+  "current_line": {
+    "location": "references/paragraph-revision.md:55",
+    "text": "긴 관형절을 풀 때는 관형절 앞에 나온 행위자가 어느 서술어까지 걸리는지 확인한다. 예를 들어 `○○팀이 확인한 대상에 한해 검토할 수 있다고 적은 문구`에서 ○○팀이 ‘확인한’과 ‘적은’에 모두 걸리면 두 행위를 모두 ○○팀에 둔다. ‘검토할’의 주체는 원문에 없으므로 새로 정하지 않는다. `문서에는 … 조건이 적혀 있다`처럼 작성 주체를 지우지 않는다. 어디까지 걸리는지 문맥으로 정할 수 없으면 원래 결합을 한 문장에 남기거나 확인 질문을 둔다."
+  },
+  "findings": [
+    {
+      "id": "CR4-01",
+      "severity": "minor",
+      "blocking": false,
+      "axis": "정확성(문법 기술)",
+      "location": "references/paragraph-revision.md:55",
+      "quote": "관형절 앞에 나온 행위자가 어느 서술어까지 걸리는지 확인한다.",
+      "issue": "예문의 `○○팀이`는 관형절 ‘○○팀이 확인한’의 주어로 관형절 안(첫머리)에 있다. 엄밀히는 ‘관형절 앞’이 아니다. 독자가 오독할 위험은 낮고 지침 동작에는 영향이 거의 없다.",
+      "suggested_fix": "선택: `관형절 첫머리에 나온 행위자가` 또는 `행위자 표현이 어느 서술어까지 걸리는지 확인한다`"
+    },
+    {
+      "id": "CR4-02",
+      "severity": "info",
+      "blocking": false,
+      "axis": "의미 보존 경계",
+      "location": "references/paragraph-revision.md:55",
+      "quote": "‘검토할’의 주체는 원문에 없으므로 새로 정하지 않는다.",
+      "issue": "예문 범위에서는 맞는 서술이다. 앞뒤 문맥이 검토 주체를 밝히는 실제 글에서는 sentence-repair.md 10행 기준(문맥에 없을 때만 보류)이 적용된다는 점이 이 문장만으로는 드러나지 않는다. 같은 파일·SKILL이 이미 그 기준을 두므로 수정은 필수 아님.",
+      "suggested_fix": "선택: `원문과 문맥에 없으므로`"
+    },
+    {
+      "id": "CR3-03",
+      "severity": "info",
+      "status": "carried_over_unchanged",
+      "note": "출처·편집 판단 표시는 v3에서도 바뀌지 않았다. v3 검토와 같이 선택 사항."
+    }
+  ],
+  "new_semantic_problems": "차단 수준 없음. 삽입 문장은 앞 문장의 조건부(‘모두 걸리면’) 배정과 충돌하지 않고, 행위자 일괄 배정이나 새 규범 주장을 만들지 않는다. 국어 문장 자연스러움 문제 없음.",
+  "limits": [
+    "eval-design·execution·regression·grading 파일은 열지 않았다.",
+    "나머지 6파일은 해시 동일성만 확인했고 내용을 새로 검토하지 않았다(행위자 관련 행은 일관성 확인용으로만 grep).",
+    "원문 PDF를 재열람하지 않았다.",
+    "content-review-v3.json을 읽은 뒤의 검토이므로 완전 블라인드가 아니다.",
+    "모델 행동·독자 이해도는 검증하지 않았다.",
+    "저장소·설치본·후보 스냅숏을 수정하지 않았다. 산출물은 content-review-v4.json/md뿐이다."
+  ]
+}

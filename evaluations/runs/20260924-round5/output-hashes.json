@@ -1,0 +1,34 @@
+{
+ "K9-output.md": {
+  "as_produced": "8677d0ae060b49d8f872b87f1e7fa6c4dcaad5747bea5ca422c8b882d2157aba",
+  "committed": "7e05960f2d250b0280955e99a4e735eb561f4b6b28ec0cc8afed1d249056f16a"
+ },
+ "K9-scoring.md": {
+  "as_produced": "1628d77abe030a76852fcc2c38bb6f9a5f3219105b315ea30b14f24e8511a4d4",
+  "committed": "74256683cf3a24603652ebb34b0540290f88a54d126a5047ab1fd9dc5ff8b698"
+ },
+ "K10-output.md": {
+  "as_produced": "fab9c2629e89f54a4adefbd09b8d46b02ae708c829165385693731ce34cd990a",
+  "committed": "89a0cf2f248df3c46cdcd6074a82b139c50cef9ae201b2558aa9d145e74d1ed9"
+ },
+ "K10-scoring.md": {
+  "as_produced": "43ae9ebfe70f4cb66269f2436ffb364fd2c51c5015f11ce1bf9e4bf3f0f0fb63",
+  "committed": "6356714a5929cdabe500bc0bf74d62fa1ad2be8bca86a3f00984205c085a659b"
+ },
+ "K11-output.md": {
+  "as_produced": "b3f3ffacccf6ce12767f57e0ac1e4471b030421b0507b1f72ff5e3e2b7851efb",
+  "committed": "bc222f50d21a4a6eb1a962df5854120231a4f04ad4fc81fe4c1631409e967067"
+ },
+ "K11-scoring.md": {
+  "as_produced": "c8a8afa5352cf1b45346b349989d4071e75d8e790b6418dcaad808959c34a980",
+  "committed": "c7483d10bd26ac017a857e3db4e8ff87fa7d474d25990dc0d82522b38bada502"
+ },
+ "K12-output.md": {
+  "as_produced": "8b31cff0cbc22578597f3df34b160e134ea0acd7abdaab2ebf980b977f7c8746",
+  "committed": "c3fa84a4f7df573521ac80b6b95c16cc536f177e3de742155b9fa6f8d9f83bbc"
+ },
+ "K12-scoring.md": {
+  "as_produced": "460cb24edda2c5d5c695ba1cc5d5f5f77168cf90cf6594a1cc858dc43d7d2c3c",
+  "committed": "b4687c09c8e10f52f5ee22f5bc65e14b2c3da759a84d24c2e850b5027f4c502b"
+ }
+}

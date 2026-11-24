@@ -1,0 +1,100 @@
+{
+  "case_id": "C03",
+  "task": "장문교정 실제 실행",
+  "root": "<evaluation-workspace>",
+  "read_files": [
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "bytes": 17177,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<evaluation-workspace>/eval-design/C03.md",
+      "sha256": "c2389e8c227ef6f149854edcd9033ea3751da1f1d1e6854d3ba0ea5598b155ef",
+      "bytes": 2534,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+      "bytes": 10507,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "bytes": 6798,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "bytes": 12162,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "bytes": 32690,
+      "content_read_with": "functions.read_file",
+      "hash_measured_with": "python3 hashlib.sha256(Path.read_bytes())"
+    },
+    {
+      "path": "<installed-skills>/korean-editing/SKILL.md",
+      "sha256": null,
+      "bytes": null,
+      "content_read_with": "functions.skill_view(name='korean-editing')",
+      "scope": "outside_task_read_allowlist",
+      "hash_status": "설치본 전체 내용은 skill_view 반환으로 노출되었으나 설치 경로 파일의 바이트 해시는 측정하지 않았다. 후보본 해시를 설치본 해시로 간주하지 않았다."
+    }
+  ],
+  "installed_skill_exposure": {
+    "skill_catalog_metadata_exposed_in_prompt": true,
+    "full_skill_content_exposed": true,
+    "name": "korean-editing",
+    "source_path_returned_by_tool": "<installed-skills>/korean-editing/SKILL.md",
+    "reason": "상위 개발자 지침이 관련 스킬을 skill_view(name)로 반드시 불러오도록 요구했다. 후보 경로를 skill_view에 넘긴 첫 호출은 거부되었고, 이후 설치된 korean-editing을 불러왔다.",
+    "additional_installed_reference_content_read": false,
+    "linked_reference_filenames_exposed": [
+      "references/examples.md",
+      "references/source-ledger.md",
+      "references/orthography-decisions.md",
+      "references/validation.md",
+      "references/paragraph-revision.md",
+      "references/sentence-repair.md"
+    ],
+    "isolation_caveat": "설치 스킬 전문이 노출되었으므로 후보본만 읽은 격리 실행이라고 주장할 수 없다."
+  },
+  "failed_tool_requests": [
+    {
+      "tool": "functions.skill_view",
+      "requested_name": "<evaluation-workspace>/candidate-v1/korean-editing",
+      "result": "Skill name must be a relative path within the skills directory.",
+      "content_returned": false
+    }
+  ],
+  "other_prompt_exposure": [
+    "프롬프트에 재현된 프로젝트 AGENTS.md 내용. 저장소 파일을 직접 읽지는 않았다."
+  ],
+  "restricted_actions": {
+    "examples_or_validation_content_read": false,
+    "criteria_or_other_design_files_read": false,
+    "other_case_inputs_or_outputs_read": false,
+    "external_search_or_fetch": false,
+    "self_scoring": false,
+    "installation": false,
+    "repository_file_reads": false,
+    "repository_writes": false,
+    "skill_modification": false
+  },
+  "writes": [
+    "<evaluation-workspace>/execution/C03/output.md",
+    "<evaluation-workspace>/execution/C03/access.json"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "normalization": "Literal private path prefixes replaced with evaluation-workspace, installed-skills, repository, user-home; no scores, criteria or outputs rewritten. Original files retained privately.",
+  "files": [
+    {
+      "path": "eval-design/C01.md",
+      "original_sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6",
+      "public_sha256": "b8479065cd011628c0a7bc4cd23c0a71953216af7b05d2569c5ba0ffe87ed6e6"
+    },
+    {
+      "path": "eval-design/C02.md",
+      "original_sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7",
+      "public_sha256": "223b9c76698c82122860a8b653854e6fc50fce92307530b8df324ba5cdbb3ce7"
+    },
+    {
+      "path": "eval-design/C03.md",
+      "original_sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+      "public_sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c"
+    },
+    {
+      "path": "eval-design/criteria.json",
+      "original_sha256": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7",
+      "public_sha256": "572c7ca5535cdf125e3420c7cc9bc33660402dac1ef6f9f4b799756c0acb50f7"
+    },
+    {
+      "path": "eval-design/design.md",
+      "original_sha256": "920dfe2b70cc5bf508025e79eb9a91b62ef0ae60275bdd81d69d32484f15a1d1",
+      "public_sha256": "4fe4b5a301a726c86c5f20524d8cc4e9190d19d301703b47ca296cf4ff9e9a1f"
+    },
+    {
+      "path": "grading-v1.json",
+      "original_sha256": "5abcfdace809cd1a461ca44a03691732bfcea01b69bba3d016adf324ecd915da",
+      "public_sha256": "3ad54167561096700fcd24df9651938a2c07d5f00c9ec07aa11cd81e93827269"
+    },
+    {
+      "path": "grading-v2.json",
+      "original_sha256": "1e1cd334445b3f7d0c02a763332691e070fa6ec9865c119e26fa20b7a12eb8d6",
+      "public_sha256": "a49f8e26216566f06a5233cbfebf19744566dc5f0d7cc9501887063fb9df2347"
+    },
+    {
+      "path": "candidate-v1-hashes.json",
+      "original_sha256": "6c9bfe9d20fc820c75f102d2ab1f5745ff15c2cd572ee6340ab7a5f4b0998b15",
+      "public_sha256": "6c9bfe9d20fc820c75f102d2ab1f5745ff15c2cd572ee6340ab7a5f4b0998b15"
+    },
+    {
+      "path": "candidate-v2-hashes.json",
+      "original_sha256": "5c0515098ec6f688d26db0c79f1c9630e175e83d17ef8d9fecb5de6d6b274aa7",
+      "public_sha256": "5c0515098ec6f688d26db0c79f1c9630e175e83d17ef8d9fecb5de6d6b274aa7"
+    },
+    {
+      "path": "execution/C01/output.md",
+      "original_sha256": "ed0fd8d8aec973c13190b776583b11120bd5609462ad95af7da8c6881456cab1",
+      "public_sha256": "ed0fd8d8aec973c13190b776583b11120bd5609462ad95af7da8c6881456cab1"
+    },
+    {
+      "path": "execution/C01/access.json",
+      "original_sha256": "da7f7d10ee5543232a749f6769f9a3a55b97aad5ff9fc25efae8271cda308d5d",
+      "public_sha256": "c091907223dd84dcb465d64021af7adc89820e9288a20c31a13b4a76e3ad4bf3"
+    },
+    {
+      "path": "execution/C02/output.md",
+      "original_sha256": "6b3a596ed89495022720dfec8f3c5fc775a0d0801de4e9afb205beb888b76e7c",
+      "public_sha256": "6b3a596ed89495022720dfec8f3c5fc775a0d0801de4e9afb205beb888b76e7c"
+    },
+    {
+      "path": "execution/C02/access.json",
+      "original_sha256": "ab5e4073257ab9ecd8da1b716cebbf455ab44b1e40cd2d4745aaa943c5dc20ff",
+      "public_sha256": "2027b82468e0fa91e4414fd2a738a5122dfb948489f81a53b65789319eabbe2f"
+    },
+    {
+      "path": "execution/C03/output.md",
+      "original_sha256": "985c326193b8e23073c36f90478cf81b1f9f66753c2f168322f98a7afd85577d",
+      "public_sha256": "985c326193b8e23073c36f90478cf81b1f9f66753c2f168322f98a7afd85577d"
+    },
+    {
+      "path": "execution/C03/access.json",
+      "original_sha256": "4ecb3814e78bfe2c4e25335d5083a3c801812448c01bfe1d913509edc84f53d1",
+      "public_sha256": "e6931c898ff80e0aa8a45b1d7512c1506c2425d4bec12aa8eefb9a4a30dda0a6"
+    },
+    {
+      "path": "execution-v2/C01/output.md",
+      "original_sha256": "77eed786f82f5f9686cfea4c6e02fa668123f72ae1dcefdcfda9e55990992337",
+      "public_sha256": "77eed786f82f5f9686cfea4c6e02fa668123f72ae1dcefdcfda9e55990992337"
+    },
+    {
+      "path": "execution-v2/C01/access.json",
+      "original_sha256": "3f9ecfe2b3eea4c5f05888a52f4ec7682aa1732016db21687aac9f7c3d7c1fab",
+      "public_sha256": "8ebfc309d33f78d5d5a04c1100af31bc99bc954cc3fec4749e8eda68b5a45138"
+    },
+    {
+      "path": "execution-v2/C02/output.md",
+      "original_sha256": "e09027becd33d3d76ee7d26f26ea9616dba016cfc8576f6928552636e9445d57",
+      "public_sha256": "e09027becd33d3d76ee7d26f26ea9616dba016cfc8576f6928552636e9445d57"
+    },
+    {
+      "path": "execution-v2/C02/access.json",
+      "original_sha256": "892592f9d821cccc2b1749e317603d11b16f2b214a3cc53784e8430875a867c7",
+      "public_sha256": "2898f1add8dcdb6cdb86527126a9979d67388d9b0dbe5540548c96879383230a"
+    },
+    {
+      "path": "execution-v2/C03/output.md",
+      "original_sha256": "866f53dc72acdb4056bc3fbbc6b2235610109df69f855c9134ad3e8b70843de4",
+      "public_sha256": "866f53dc72acdb4056bc3fbbc6b2235610109df69f855c9134ad3e8b70843de4"
+    },
+    {
+      "path": "execution-v2/C03/access.json",
+      "original_sha256": "2b5abadef8abf5ed5df7390fdff032832df2510bd5096e27f5f16ac78fe59189",
+      "public_sha256": "58b3e256970ecde3dd2eef799a8eb1b8f22a02194b752fdd7d6b0c7148785ff8"
+    }
+  ]
+}

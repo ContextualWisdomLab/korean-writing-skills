@@ -1,0 +1,27 @@
+{
+  "purpose": "APA 8.6 근거 범위 정정 후 K16 단일 사례 퇴행 점검. 이전 판본과의 성능 차이 추정은 하지 않는다.",
+  "frozen_at_utc": "2026-09-27T13:30:47.543565+00:00",
+  "skill_commit": "20b33f4c23e90a53500bec2592326da7409d7f85",
+  "input_sha256": "05642f23306b458077c8246aff0139b66f603357f09e7f7566ae5fe0f82fc0a7",
+  "skill_sha256": {
+    "skills/apa7-manuscript-writing/SKILL.md": "6f849c937640971fea9bd4c7e8ffe2b1add4d7c6b3c671402bb624da00f4c35c",
+    "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+    "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+    "skills/apa7-manuscript-writing/references/reporting-workflow.md": "e2d6b5eeff9c4e065fae326d94d42047c9a2e548bbf1ce1f859eac721e5ba645",
+    "skills/apa7-manuscript-writing/references/source-ledger.md": "c9b80944ebabc307b526b73277f742c1f6d7eb435bf4b927cd11503128a20dbf",
+    "skills/apa7-manuscript-writing/references/validation.md": "3da4b12a96d5bd4a49e53f1a8179ce99f0a4774f522d8a83be98ba7f888a26c4",
+    "skills/apa7-manuscript-writing/references/verified-scope.md": "5ab2ed4745a32ba6bcc46a6661f40c7db16c1d571651662da471b0778b6bcfcf",
+    "skills/korean-editing/SKILL.md": "ffc942375ffc8cf4b02263902ef71e03b5e98c4ade44c2e1dfaeb6fc277ba889",
+    "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+    "skills/korean-editing/references/source-ledger.md": "edf652cc36ac955f4071cbe35f19d3f69f9e21c0e96b5f339745de9c8aa422aa",
+    "skills/korean-editing/references/validation.md": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688"
+  },
+  "criteria_sha256": {
+    "evaluations/fixtures/K16/criteria.md": "1983ab18ef61f7536393b82136093228ca69dc7595108b8b308cb876baf1511d",
+    "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+    "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5"
+  },
+  "executor_access": "격리 사본의 K16 입력과 두 스킬 및 references만",
+  "scorer_access": "격리 입력·출력과 K16 기준·두 루브릭만",
+  "limits": "새 판본 1회. 접근 준수는 자기보고로만 확인한다."
+}

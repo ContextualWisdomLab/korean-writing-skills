@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "task": "장문 재구성 새 지침 독립 내용 검토",
+  "owner": "독립 내용 검토 subagent",
+  "verdict": "NONPASS",
+  "verdict_reason": "추가 지침의 분기와 두 재구성 예문은 의미를 보존한다. 다만 49행 설명이 '결론 내리기 어렵다'를 '판단 불가능'으로 강화한다. 주장 강도 보존을 가르치는 지침이므로 이 한 문구를 수정한 뒤 재확인해야 한다.",
+  "reviewed_at": "2026-10-27T17:05:23.758342+09:00",
+  "repository": "<repository>",
+  "reviewed_head": "b03b58f31b9c69989a5fa9522b3a2b139304aa5a",
+  "reviewed_hash": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+  "reviewed_hash_algorithm": "sha256",
+  "target": {
+    "path": "skills/korean-editing/references/paragraph-revision.md",
+    "candidate_sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+    "candidate_git_blob_oid": "7e058ede101cb977c5f7c9817e0cff153ddc3df1",
+    "candidate_bytes": 10507,
+    "base_sha256": "889fa5923f5f4bddc7310530252cd7a873467a52bd2ec098d5f63e843dc8434a",
+    "base_git_blob_oid": "cc6256582043639866f569bb7e39969823e28e0a",
+    "added_lines": 32,
+    "deleted_lines": 0,
+    "added_line_range": [41, 72],
+    "added_lines_sha256": "bc46b8e5ac6871362845ee260542a73ebb3f7df5ec4361762754cfd2e66e9451",
+    "full_index_diff_sha256": "7b7beec0e48cda95d81f85499e9a42bbfa1db3e0be9b50dedd873ab809ed5c16"
+  },
+  "connected_files": [
+    {
+      "path": "skills/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"
+    },
+    {
+      "path": "skills/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96"
+    },
+    {
+      "path": "skills/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"
+    }
+  ],
+  "permitted_research_inputs": [
+    {
+      "path": "<evaluation-workspace>/research.md",
+      "sha256": "412b3bb346dcdff0a93b8714ef2c9a012583128936ec3cc527f60716cd0505af"
+    },
+    {
+      "path": "<evaluation-workspace>/research.json",
+      "sha256": "b3a3c9893cfa22f89ec9b870e4764b31d90adec8e91d69d98b2bcbd3daeaee35"
+    }
+  ],
+  "findings": [
+    {
+      "id": "CR-01",
+      "severity": "MEDIUM",
+      "must_fix": true,
+      "classification": "설명 자체의 주장 강도 과장",
+      "path": "skills/korean-editing/references/paragraph-revision.md",
+      "line_start": 49,
+      "line_end": 49,
+      "exact_quote": "이를 `효과가 없다`로 바꾸면 판단 불가능을 효과 부재로 바꾼다.",
+      "context_quote": "예를 들어 `결론 내리는 것이 어렵다는 점을 설명했다`는 문맥이 같다면 `결론 내리기 어렵다고 설명했다`로 줄일 수 있다.",
+      "analysis": "'어렵다'는 '불가능하다'와 같지 않다. 앞의 예가 말하는 것은 결론 도출의 어려움이고, 57–58행 예문에서도 '현재 자료만으로'라는 제한이 붙는다. '판단 불가능'은 판단 자체를 할 수 없다는 더 강한 표현이다. 효과 부재로 바꾸지 말라는 금지 방향은 맞지만 원문의 불확실성을 설명하는 문구가 먼저 강화되었다. 재구성 예문 자체가 의미를 훼손했다는 지적은 아니다.",
+      "proposed_fix_exact": "이를 `효과가 없다`로 바꾸면 결론을 내리기 어렵다는 판단을 효과 부재의 단정으로 바꾼다.",
+      "fix_rationale": "어려움과 불가능을 구별하면서 결론 도출의 한계를 효과 부재로 바꾸지 말라는 원래 취지를 유지한다.",
+      "exact_quote_match_count": 1,
+      "fix_applied": false,
+      "required_followup": "저장소 소유자가 이 한 문장을 수정하고 새 후보 해시에 대해 내용 검토를 재확인한다. 현재 NONPASS를 수정 전 후보에 대한 PASS로 소급하지 않는다."
+    }
+  ],
+  "positive_checks": [
+    {
+      "area": "요청 범위와 과잉 재작성 방지",
+      "lines": [43, 47],
+      "result": "PASS",
+      "observation": "최소교정/가독성 재구성/두 안 요청을 구별한다. 맞춤법만 요청하면 구조를 바꾸지 않는 기존 3행·SKILL 12행, 뜻이 분명한 비문은 실제로 수리하는 sentence-repair 9–11행과 함께 읽을 때 충돌이 없다. 고정 글자 수나 명사절 개수에 따른 자동 분할도 금지한다."
+    },
+    {
+      "area": "필수 명사절과 부정 범위",
+      "lines": [49, 59],
+      "result": "PASS_EXCEPT_CR-01",
+      "observation": "명사절을 일괄 금지하지 않는다. 위원회 예문의 '주장하는 것은 아니다'를 남겨 비주장과 중단 금지 당위를 구별한다. '결론 내리기 어렵다'를 '효과가 없다'로 고치는 안도 배제한다. 설명 중 '판단 불가능'이라는 한 표현만 CR-01로 분리했다."
+    },
+    {
+      "area": "보고·인용의 귀속",
+      "lines": [53, 59],
+      "result": "PASS",
+      "observation": "위원회의 보고서 설명과 필자 '나'의 주장 부정을 다른 문장으로 분리해도 각각의 행위자·시제·보고 귀속을 유지한다. '현재 자료만으로'와 불안 감소라는 판단 대상도 유지한다. 출처 범위가 원래 불분명하면 임의 배분하지 말라는 지침은 기존 SKILL 28행과 일치한다."
+    },
+    {
+      "area": "조건·예외·행위자·기한",
+      "lines": [63, 69],
+      "result": "PASS",
+      "observation": "센터 예문은 본인 확인을 마친 신청자에게만 발송한다는 범위, 누락 서류 보완 전 발송 보류, 안내를 받은 신청자의 선택 의무, 11월 5일 기한을 유지한다. '다만'은 원문에 이미 있는 예외 관계를 드러낼 뿐 새 예외를 추가하지 않는다. 실제 발송·보완·선택 완료를 주장하지 않는다. 센터가 이어지는 둘째 문장의 정상적인 주어 생략도 허용한다."
+    },
+    {
+      "area": "문단 연결과 지시어",
+      "lines": [63, 71],
+      "result": "PASS",
+      "observation": "가까운 명사만으로 지시 대상을 결정하지 않고 필요한 반복을 보존한다. 문단 순서 변경으로 원인·시간 순서를 만들지 않는다는 경계는 기존 SKILL·paragraph-revision·sentence-repair의 의미 보존 조건과 일치한다."
+    },
+    {
+      "area": "근거 층위와 효과 과장 방지",
+      "lines": [43, 71],
+      "result": "PASS",
+      "observation": "새 분기는 참고 자료를 활용한 편집 판단이라고 명시한다. 합성 예문을 실험 결과라고 주장하지 않으며 공공언어 권고를 어문 규정이나 학술 문체 전체의 의무로 확대하지 않는다.",
+      "source_ids": [1, 2]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "legacy_id": "K1",
+      "url": "https://www.korean.go.kr/common/download.do?c_file_name=f595077c-82b4-42a5-8ab6-0c31fef547ff.pdf&file_path=etcData&o_file_name=%28%EA%B0%9C%EC%A0%95%ED%8C%90%29+%ED%95%9C%EB%88%88%EC%97%90+%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94+%EA%B3%B5%EA%B3%B5%EC%96%B8%EC%96%B4+%EB%B0%94%EB%A1%9C+%EC%93%B0%EA%B8%B0%28%EC%9B%B9%EC%9A%A9%29+.pdf",
+      "title": "한눈에 알아보는 공공언어 바로 쓰기 (개정판)",
+      "organization": "국립국어원 공공언어과",
+      "edition": "개정판; 판권면은 이번 검토에서 미열람",
+      "accessed": "2026-10-27",
+      "checked_at": "2026-10-27T17:01:43.816417+09:00",
+      "status": 200,
+      "original_bytes_sha256": "d7df841aa63dc9bfda88804549a9060b2f256843cdbffc545aecb986925a80ac",
+      "research_original_hash_matches": true,
+      "pdf_page_count": 153,
+      "read_locators": ["인쇄 pp.11–15 / PDF12–16 텍스트층"],
+      "classification": "기관 권고 — 공공언어 문체; 어문 규정 아님",
+      "quotes": [
+        {
+          "text": "여러 가지 정보는 여러 문장으로 나누어 작성함.",
+          "locator": "인쇄 p.11 / PDF12, 나.1)나)",
+          "verified": true,
+          "verification_note": "실제 HTTP 반환 PDF 추출 텍스트의 제어 문자를 공백으로 정규화한 뒤 인용 검증 함수를 실행했다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "legacy_id": "A-JANG1999",
+      "url": "https://www.korean.go.kr/nkview/nklife/1999_4/1999_0405.pdf",
+      "title": "바른 글쓰기",
+      "author": "장경희",
+      "organization": "당시 국립국어연구원 간행; 현 국립국어원 제공",
+      "edition": "새국어생활 9권 4호, 1999년 겨울; 정확한 발행일·판권면은 이번 검토에서 미열람",
+      "accessed": "2026-10-27",
+      "checked_at": "2026-10-27T17:01:43.074244+09:00",
+      "status": 200,
+      "original_bytes_sha256": "2a0a75f6fdae6ff52fbf2c2ce4dfdd800fefddf174a94d71e9224ac97cb01a35",
+      "research_original_hash_matches": true,
+      "pdf_page_count": 24,
+      "read_locators": [
+        "§2.2.7 인쇄 pp.74–76와 p.77 상단 / PDF10–13 상단",
+        "§3.1 인쇄 p.77와 p.79 상단만 / PDF13와 PDF15 상단; p.78은 이번 미열람",
+        "§3.2 인쇄 pp.79–81 / PDF15–17",
+        "§3.3 인쇄 pp.82–84 / PDF18–20; pp.85–87은 이번 미열람"
+      ],
+      "classification": "저자 설명·권고 — 현행 어문 규정이나 기관 전체 명령 아님",
+      "quotes": [
+        {
+          "text": "수식어구가길고복잡한경우나문장의길이가너무긴경우는내용을나\n누어서2개나3개의문장을구성함으로써간결하고명료한문장을쓸수있\n다.",
+          "locator": "§2.2.7 인쇄 p.75 / PDF11 마지막 단락",
+          "verified": true,
+          "verification_note": "실제 HTTP 반환 PDF 텍스트층에서 복사했다. 추출상의 붙여쓰기와 행 나눔을 보존한 짧은 근거구다."
+        }
+      ]
+    }
+  ],
+  "verification_observations": {
+    "native_diff_check": {"exit_code": 0, "stdout": "", "stderr": ""},
+    "exact_finding_quote": {"line": 49, "match_count": 1},
+    "reviewed_four_file_hashes_rechecked": true,
+    "head_rechecked_unchanged": true,
+    "original_pdf_hashes_independently_retrieved_and_matching_research": 2,
+    "source_ids_registered_by": "grounded-citations sources.py add_sources",
+    "quote_verification_by": "grounded-citations sources.py attach_quote / quote_in_evidence",
+    "citation_storage_mode": "load/save/lock 입출력만 메모리 어댑터로 대체했다. 허용된 두 산출물 외에 장부·잠금 파일을 만들지 않았다.",
+    "python_observed": "3.14.5; 환경 설명의 3.14.7이 아니라 실측값을 기록했다.",
+    "initial_tmpdir_observed": "<system-tmpdir>",
+    "subsequent_tmpdir_explicitly_set": "<evaluation-workspace>",
+    "initial_tmpdir_note": "초기 해시·Git 읽기에서 환경 설명과 실제 TMPDIR가 다른 것을 관찰했다. 이후 명령은 허용 scratch를 명시했다. 초기 명령은 임시 파일을 생성하는 작업이 아니었다."
+  },
+  "boundaries": {
+    "repository_changes_performed": false,
+    "installation_changes_performed": false,
+    "evaluation_files_opened": false,
+    "criteria_design_execution_files_opened": false,
+    "allowed_output_paths": [
+      "<evaluation-workspace>/content-review.json",
+      "<evaluation-workspace>/content-review.md"
+    ],
+    "remote_commit_or_ci_claimed": false,
+    "primary_source_full_bodies_written": false
+  },
+  "limitations": [
+    "이 판정은 기록된 후보 SHA-256와 추가 32행에만 적용한다. 수정 후 새 해시를 자동 승인하지 않는다.",
+    "허용된 research.md/json의 제안·예문과 후보 자체를 읽었다. 작성자와 분리된 내용 검토지만 예문을 보지 않는 완전 블라인드 행동 평가가 아니다.",
+    "평가 자료·criteria/design/execution은 열지 않았다. 모델 실행 평가·실제 독자 이해도 실험·장르 전체 타당화를 수행하지 않았다.",
+    "공식 PDF 두 개를 실제 HTTP로 메모리에 받아 텍스트층의 지정 쪽만 읽었다. 페이지 이미지·일부 누락 쪽·서강대 원문·재인용 원전·현행 어문 규정 전체는 이번에 확인하지 않았다.",
+    "검토 중 지정 저장소 4파일과 HEAD를 재대조했으나 저장소 전체 파일에 대한 불변 매니페스트는 만들지 않았다.",
+    "수정안은 보고서에만 제시했으며 저장소·설치본에 적용하지 않았다. 재검토 전까지 원래 후보 판정은 NONPASS다."
+  ]
+}

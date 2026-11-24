@@ -1,0 +1,81 @@
+{
+  "case_id": "C04",
+  "root": "<evaluation-workspace>",
+  "execution_type": "입력 요청에 따른 실제 교정 실행; 자기채점 없음",
+  "read_log_scope": "작업 자료의 직접 파일 열람. 각 파일은 functions.read_file로 전체를 읽었고, 아래 SHA-256은 python3의 pathlib.Path.read_bytes와 hashlib.sha256으로 실제 파일 바이트에서 계산했다.",
+  "actual_reads": [
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/SKILL.md",
+      "bytes": 17177,
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/source-ledger.md",
+      "bytes": 32690,
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "bytes": 10507,
+      "sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/sentence-repair.md",
+      "bytes": 6798,
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    },
+    {
+      "path": "<evaluation-workspace>/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "bytes": 12162,
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    },
+    {
+      "path": "<evaluation-workspace>/eval-design/C04.md",
+      "bytes": 2465,
+      "sha256": "478c83b2186f250628baed856a2a0661f80cb029ce90e47e7a701289a31afef8",
+      "accesses": ["functions.read_file: 전체 본문", "python3: 해시 계산용 전체 바이트 읽기"]
+    }
+  ],
+  "installed_skill_exposure": {
+    "catalog_metadata_visible_in_prompt": true,
+    "matching_skill_name": "korean-editing",
+    "matching_skill_description_visible": true,
+    "installed_skill_body_loaded_by_tool": false,
+    "skill_view_called": false,
+    "candidate_skill_body_read": true,
+    "note": "개발자 메시지의 설치 스킬 목록에서 korean-editing 등을 포함한 이름·설명이 이미 노출되었다. 설치본 본문은 열지 않았으며, 허용된 candidate-v1의 SKILL.md와 관련 references만 직접 읽었다. source-ledger.md의 H1에는 다른 설치 스킬의 경로·해시·설명과 재사용 이력이 적혀 있으나 해당 설치 경로를 직접 열거나 실행하지 않았다."
+  },
+  "preloaded_project_context": {
+    "AGENTS_md_text_visible_in_prompt": true,
+    "AGENTS_md_opened_by_tool": false,
+    "note": "프로젝트 지침과 기존 근거 대응 내용은 대화 컨텍스트에 제공되어 있었다. 이번 실행에서 저장소의 AGENTS.md 또는 그 안에 연결된 저장소 파일은 직접 읽지 않았다."
+  },
+  "restricted_actions": {
+    "criteria_files_read": false,
+    "design_files_read_beyond_allowed_C04": false,
+    "other_case_inputs_read": false,
+    "other_case_outputs_read": false,
+    "examples_md_read": false,
+    "validation_md_read": false,
+    "research_files_read": false,
+    "repository_files_opened_by_tool": false,
+    "external_search_or_fetch": false,
+    "self_scoring": false,
+    "installation": false,
+    "repository_writes": false,
+    "skill_modification": false
+  },
+  "created_files": [
+    "<evaluation-workspace>/execution/C04/output.md",
+    "<evaluation-workspace>/execution/C04/access.json"
+  ],
+  "output_format": "교정한 전문과 확인 질문을 별도 절로 구분",
+  "issues": [
+    "사전 교육을 받은 대상의 범위는 원문만으로 확정하지 않고, 해당 문장을 유지한 채 확인 질문으로 남겼다."
+  ]
+}

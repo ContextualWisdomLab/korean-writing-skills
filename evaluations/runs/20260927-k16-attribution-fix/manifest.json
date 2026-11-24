@@ -1,0 +1,17 @@
+{
+  "skill_commit": "62a702525e82c8019c3a59530e30d6c161fd18b2",
+  "freeze_commit": "9f44393b4f7517fdafebb5279948f107c70e6e72",
+  "input_sha256": "05642f23306b458077c8246aff0139b66f603357f09e7f7566ae5fe0f82fc0a7",
+  "original_output_sha256": "494011eecd3d72075dd708af955c46579a0d28490a9c2e4160e5cf03a879bbed",
+  "public_output_sha256": "fec7a7496ac0f6fedc72672026e733177797c92af36f16646f8fee968ac32a3e",
+  "original_scoring_sha256": "5aa427b325c5be09f09c54b089814c68c233bd9f1fde6315c5c294b7f47d6c67",
+  "public_scoring_sha256": "5aa427b325c5be09f09c54b089814c68c233bd9f1fde6315c5c294b7f47d6c67",
+  "scores": {
+    "meaning": 3,
+    "naturalness": 2,
+    "overediting": 3
+  },
+  "decision": "pass",
+  "access_evidence": "실행자 파일 목록의 자기보고만 확인; 실제 파일 접근 로그는 별도 검증하지 않음.",
+  "public_copy_policy": "격리 절대경로만 역할 경로로 치환. 원본 파일은 저장소 밖에 보존."
+}

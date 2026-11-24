@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "path": "skills/korean-editing/SKILL.md",
+      "sha256": "0f8688b62e894c335fa7b42200fe86684ae0330820c188cf65b719fb8fa8f82e",
+      "bytes": 20496
+    },
+    {
+      "path": "skills/korean-editing/references/drafting-checklist.md",
+      "sha256": "2212054baf58ba56a1aee7b0b918f05035a26826ded664d2c73314f686aaa009",
+      "bytes": 6567
+    },
+    {
+      "path": "skills/korean-editing/references/scope-routing.md",
+      "sha256": "fc4741166d2374d4d5a74f3b3262ec1da4b0414abfe580607edc02cd0b6a7f95",
+      "bytes": 6060
+    },
+    {
+      "path": "evaluations/scenarios/drafting-blind-inputs.md",
+      "sha256": "5a10cb88fa851b02b71f6248bb1c68857c2d4d860cbb3205134f89e3d8eaaf5d",
+      "bytes": 2393
+    },
+    {
+      "path": "evaluations/rubrics/drafting-korean-editing.md",
+      "sha256": "cce457f30b3308998f72107340740a6154645f8f69294e854bf768d0e5f78781",
+      "bytes": 2198
+    },
+    {
+      "path": "evaluations/runs/drafting-preflight-20261102/output.md",
+      "sha256": "0bcd1be44dd6ee8da198549dce7e0829371005156448e11d3ca1d78b45a913cb",
+      "bytes": 3248
+    },
+    {
+      "path": "evaluations/runs/drafting-preflight-20261102/evaluation.md",
+      "sha256": "63de9406497c01815f05562858970f792ed7011abd66681983346897087dd8dd",
+      "bytes": 4197
+    },
+    {
+      "path": "evaluations/runs/drafting-preflight-20261102/followup.md",
+      "sha256": "1b60356a9bcb2605b8b9b56ed8b034812f1f91a95659d7ccd8eea7ac168b4135",
+      "bytes": 621
+    }
+  ]
+}

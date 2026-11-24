@@ -1,0 +1,14 @@
+{
+  "resume-output.md": {
+    "characters": 679,
+    "sha256": "b278f02ad5213498a6eefde604b4411988e07462ba7a8d93ba0defbc6954eada"
+  },
+  "cover-output.md": {
+    "characters": 476,
+    "sha256": "09879e5a3174a39559720343e53e4ee5ca3263a47a4ff445a2918538ffba9f57"
+  },
+  "report-output.md": {
+    "characters": 417,
+    "sha256": "b7ed20c6faf4dbe41569c96feee6965019e4bb12cb41b8dffe0b77b64f588206"
+  }
+}

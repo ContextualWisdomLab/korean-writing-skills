@@ -1,0 +1,86 @@
+{
+  "case_id": "C03",
+  "applied_snapshot": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+  "read_files": [
+    {
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "sha256": "a37694593b5f97b439f0d9f1610fa83bf4be72281d7028f5cca040bfe2bea99c",
+      "method": "skill_view(name='korean-editing')로 내용 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "상위 필수 스킬 로딩 지시 이행 및 설치본 노출 기록",
+      "applied_as_execution_snapshot": false
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "method": "read_file로 전체 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "이번 교정에 적용한 최종 스킬 snapshot",
+      "applied_as_execution_snapshot": true
+    },
+    {
+      "path": "evaluation-workspace/eval-design/C03.md",
+      "sha256": "e511fe6c5f201e646648065b004c30f4a35bf7f8685b990d4890173ba7a3a92c",
+      "method": "read_file로 전체 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "교정 대상 4개 항목, 해석용 문맥 및 출력 요구 확인"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "method": "read_file로 전체 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "호응 수리, 정상적인 생략의 유지 및 대상 정보 부족 시 확인 절차 적용"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "method": "read_file로 전체 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "문맥별 표기 및 허용형 보존 절차 확인"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v2/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "method": "read_file로 전체 열람, Python pathlib.read_bytes로 해시 산출",
+      "purpose": "제공된 스킬의 근거 종류와 확인 범위 파악; 장부에 실린 외부 원문은 이번 실행에서 열람하지 않음"
+    }
+  ],
+  "installed_skill_exposure": {
+    "occurred": true,
+    "reason": "상위 지시에서 관련 설치 스킬의 필수 로딩을 요구함",
+    "exposed_path": "installed-skills/korean-editing/SKILL.md",
+    "exposed_scope": "설치본 SKILL.md 전체와 연결 파일명 목록. 설치본 references의 본문은 열람하지 않음",
+    "handling": "설치본을 먼저 읽은 사실을 숨기지 않으며, 이후 제공된 candidate-v2 최종 snapshot과 허용된 references를 읽고 이번 실행에 적용함"
+  },
+  "provided_context_exposure": [
+    {
+      "name": "AGENTS.md",
+      "source": "상위 메시지에 재현된 프로젝트 지침",
+      "filesystem_read": false,
+      "sha256": null,
+      "note": "저장소의 원본 AGENTS.md 파일은 열지 않았으므로 파일 해시는 산출하지 않음"
+    },
+    {
+      "name": "설치 스킬 목록과 설명",
+      "source": "상위 메시지",
+      "filesystem_read": false
+    }
+  ],
+  "restrictions": {
+    "external_search_performed": false,
+    "external_urls_opened": false,
+    "criteria_or_other_design_files_read": false,
+    "other_case_inputs_or_outputs_read": false,
+    "examples_md_read": false,
+    "validation_md_read": false,
+    "research_or_scoring_files_read": false,
+    "repository_files_read": false,
+    "self_scoring_performed": false,
+    "repository_modified": false,
+    "installation_performed": false,
+    "commit_or_publication_performed": false
+  },
+  "written_files": [
+    "evaluation-workspace/execution-v2/C03/output.md",
+    "evaluation-workspace/execution-v2/C03/access.json"
+  ],
+  "issues": [
+    "상위 필수 로딩에 따른 설치본 노출이 있었으며, 위에 실제 경로와 해시를 기록함"
+  ]
+}

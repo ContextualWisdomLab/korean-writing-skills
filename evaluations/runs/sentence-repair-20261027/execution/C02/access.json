@@ -1,0 +1,75 @@
+{
+  "task": "C02",
+  "language": "ko",
+  "file_accesses": [
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/SKILL.md",
+      "tool": "read_file",
+      "purpose": "동결 교정 스킬 읽기"
+    },
+    {
+      "path": "evaluation-workspace/eval-design/C02.md",
+      "tool": "read_file",
+      "purpose": "허용된 C02 입력 읽기"
+    },
+    {
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "tool": "skill_view",
+      "purpose": "상위 실행 지침의 관련 설치 스킬 로드 의무 이행",
+      "scope_exception": true
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/source-ledger.md",
+      "tool": "read_file",
+      "purpose": "동결 스킬의 근거 구분과 확인 범위 읽기"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "tool": "read_file",
+      "purpose": "동결 스킬의 호응 오류와 정보 부족 구별 절차 읽기"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/sentence-repair.md",
+      "tool": "read_file",
+      "purpose": "동결 스킬의 문장 수리 절차 읽기"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "tool": "read_file",
+      "purpose": "동결 스킬의 표기 판단 절차 읽기"
+    }
+  ],
+  "installed_skill_preexposure": {
+    "catalog_metadata_visible_in_initial_instructions": true,
+    "catalog_note": "상위 지침에 설치 스킬 전체 목록의 이름과 설명이 제공되었으며 korean-editing과 apa7-manuscript-writing 등이 포함되어 있었다.",
+    "installed_skill_body_loaded": true,
+    "loaded_name": "korean-editing",
+    "loaded_path": "installed-skills/korean-editing/SKILL.md",
+    "timing": "동결 SKILL.md와 C02 입력을 먼저 읽은 뒤, 동결 reference 네 파일을 읽는 병렬 호출에서 설치본 본문도 로드했다. 교정 결과 작성 전 노출이다.",
+    "reason": "관련 설치 스킬을 반드시 로드하라는 상위 지침에 따랐다.",
+    "installed_reference_bodies_loaded": false,
+    "strict_frozen_only_exposure": false,
+    "limitation": "설치본 본문이 노출되었으므로 동결본만 본 실행이라고 주장할 수 없다. 실제 교정은 지정된 동결본의 문장 수리 절차와 C02의 명시 문맥을 기준으로 작성했다."
+  },
+  "prompt_provided_context": [
+    "작업 경로와 접근 제한",
+    "AGENTS.md 내용 및 근거 대응 표: 파일을 별도로 읽지 않고 초기 지침에 제공된 내용을 보았다.",
+    "설치 스킬 목록과 실행 지침"
+  ],
+  "restrictions_observed": {
+    "examples_md_read": false,
+    "validation_md_read": false,
+    "criteria_files_read": false,
+    "other_design_files_read": false,
+    "other_input_files_read": false,
+    "output_files_read": false,
+    "repository_files_read_via_tools": false,
+    "external_search_performed": false,
+    "external_sources_opened": false,
+    "self_scoring_performed": false
+  },
+  "write_paths": [
+    "evaluation-workspace/execution/C02/output.md",
+    "evaluation-workspace/execution/C02/access.json"
+  ]
+}

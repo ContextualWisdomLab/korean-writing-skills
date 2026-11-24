@@ -1,0 +1,16 @@
+{
+  "read_relative_paths": [
+    "input.md",
+    "skills/korean-editing/SKILL.md",
+    "skills/korean-editing/references/source-ledger.md",
+    "output.md"
+  ],
+  "read_purposes": {
+    "input.md": "동결 요청과 원문 열람",
+    "skills/korean-editing/SKILL.md": "허용된 교정 스킬 적용",
+    "skills/korean-editing/references/source-ledger.md": "스킬 근거 종류와 확인 범위 열람",
+    "output.md": "요청된 SHA256 계산을 위한 바이트 읽기만 수행"
+  },
+  "external_lookup_performed": false,
+  "isolation_limitations": "파일 접근은 자체적으로 허용 경로에 한정했으며 운영체제 수준의 격리 강제 여부는 확인하지 않았다. 상위 지침으로 제공된 프로젝트 문맥은 이미 대화에 있었으나 별도 파일로 열지 않았다. 저장 결과의 해시 계산 외에는 허용된 세 입력 파일만 읽었으며 저장소, 다른 사례, 다른 판본, 평가 기준, 검증 이력은 열지 않았다. 스킬 파일은 변경하지 않았다."
+}

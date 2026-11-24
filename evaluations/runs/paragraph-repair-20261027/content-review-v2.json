@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "task": "장문 지침의 주장 강도 수정 1건 독립 재검토",
+  "owner": "독립 내용 재검토 subagent",
+  "verdict": "PASS",
+  "verdict_reason": "49행의 '판단 불가능'이 '결론을 내리기 어렵다는 판단'으로 수정되어 어려움과 불가능을 혼동한 CR-01이 해소되었다. 효과 부재를 단정하지 말라는 취지도 유지된다. candidate-v1 대비 변경은 지정된 한 구절의 치환 1회뿐이며 나머지 6파일은 SHA-256와 바이트가 같다. 새 지적은 없다.",
+  "reviewed_at": "2026-10-27T17:18:18.443853+09:00",
+  "repository": "<repository>",
+  "reviewed_head": "b03b58f31b9c69989a5fa9522b3a2b139304aa5a",
+  "reviewed_hash": "a19f428055db1c370ad8a34cf4e689e56c9d815431cade71df5be653471251ae",
+  "hash_algorithm": "sha256",
+  "verdict_scope": "기록된 현재 7파일에 연결된 paragraph-revision.md:49의 단일 문구 수정 및 기존 CR-01 해소. 전체 스킬 신규 타당화나 실행 평가 판정이 아니다.",
+  "prior_review": {
+    "path": "<evaluation-workspace>/content-review.json",
+    "sha256": "fca29c7b9be4faf825786accd7f96eb81493cb7432c1a6f6fa459c16eaeb63e1",
+    "verdict": "NONPASS",
+    "reviewed_target_sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+    "snapshot_path": "<evaluation-workspace>/candidate-v1/korean-editing/references/paragraph-revision.md",
+    "snapshot_matches_prior_review_hash": true,
+    "connected_three_file_hashes_match_prior_review": true,
+    "prior_verdict_preserved": "수정 전 후보의 NONPASS는 그대로 유효하다. 이번 PASS를 이전 후보에 소급하지 않는다."
+  },
+  "current_seven_file_hashes": [
+    {
+      "path": "skills/korean-editing/SKILL.md",
+      "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "candidate_v1_sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 17177,
+      "current_bytes": 17177
+    },
+    {
+      "path": "skills/korean-editing/references/examples.md",
+      "sha256": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+      "candidate_v1_sha256": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 14938,
+      "current_bytes": 14938
+    },
+    {
+      "path": "skills/korean-editing/references/orthography-decisions.md",
+      "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "candidate_v1_sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 12162,
+      "current_bytes": 12162
+    },
+    {
+      "path": "skills/korean-editing/references/paragraph-revision.md",
+      "sha256": "a19f428055db1c370ad8a34cf4e689e56c9d815431cade71df5be653471251ae",
+      "candidate_v1_sha256": "73d2defd8a7b780c9b5c91ae38385482cc2de0bed46e99eac8b7a408ac289da1",
+      "unchanged_from_candidate_v1": false,
+      "candidate_v1_bytes": 10507,
+      "current_bytes": 10543
+    },
+    {
+      "path": "skills/korean-editing/references/sentence-repair.md",
+      "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "candidate_v1_sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 6798,
+      "current_bytes": 6798
+    },
+    {
+      "path": "skills/korean-editing/references/source-ledger.md",
+      "sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "candidate_v1_sha256": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 32690,
+      "current_bytes": 32690
+    },
+    {
+      "path": "skills/korean-editing/references/validation.md",
+      "sha256": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688",
+      "candidate_v1_sha256": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688",
+      "unchanged_from_candidate_v1": true,
+      "candidate_v1_bytes": 5762,
+      "current_bytes": 5762
+    }
+  ],
+  "exact_change": {
+    "path": "skills/korean-editing/references/paragraph-revision.md",
+    "line": 49,
+    "before": "판단 불가능을 효과 부재로 바꾼다",
+    "after": "결론을 내리기 어렵다는 판단을 효과 부재의 단정으로 바꾼다",
+    "old_fragment_occurrences_in_v1": 1,
+    "old_fragment_occurrences_in_current": 0,
+    "new_fragment_occurrences_in_v1": 0,
+    "new_fragment_occurrences_in_current": 1,
+    "byte_exact_single_replacement_reconstructs_current": true,
+    "matches_prior_proposed_fix": true,
+    "changed_line_numbers": [
+      49
+    ],
+    "added_lines": 1,
+    "deleted_lines": 1,
+    "candidate_v1_and_current_line_count": 75,
+    "byte_delta": 36,
+    "other_unchanged_files": 6,
+    "diff": "--- candidate-v1/korean-editing/references/paragraph-revision.md\n+++ current/skills/korean-editing/references/paragraph-revision.md\n@@ -46,7 +46,7 @@\n - **읽기 쉽게 다듬기 요청:** 최소교정 뒤에도 주체 전환이나 조건의 적용 범위를 되짚어야 한다면 절을 재배치하거나 문장을 나눈다. 쟁점이 다르면 문단을 나눈다. 단순히 마침표만 늘리는 것이 아니라 각 문장이 무엇을 말하는지 드러낸다.\n - **두 안을 요청:** 최소안과 재구성안을 구별해 제시한다. 요청하지 않았는데 모든 글에 두 안과 긴 분석표를 붙이지 않는다.\n \n-‘-다는 것·-음·-기’는 목적·판단 내용·부정 범위를 담을 수 있다. 중복된 틀만 풀고 필요한 명사절은 유지한다. 예를 들어 `결론 내리는 것이 어렵다는 점을 설명했다`는 문맥이 같다면 `결론 내리기 어렵다고 설명했다`로 줄일 수 있다. 이를 `효과가 없다`로 바꾸면 판단 불가능을 효과 부재로 바꾼다.\n+‘-다는 것·-음·-기’는 목적·판단 내용·부정 범위를 담을 수 있다. 중복된 틀만 풀고 필요한 명사절은 유지한다. 예를 들어 `결론 내리는 것이 어렵다는 점을 설명했다`는 문맥이 같다면 `결론 내리기 어렵다고 설명했다`로 줄일 수 있다. 이를 `효과가 없다`로 바꾸면 결론을 내리기 어렵다는 판단을 효과 부재의 단정으로 바꾼다.\n \n ### 분리한 문장이 독립적인 사실로 둔갑하지 않게 한다\n \n"
+  },
+  "resolved_findings": [
+    {
+      "id": "CR-01",
+      "previous_severity": "MEDIUM",
+      "previous_must_fix": true,
+      "classification": "설명 자체의 주장 강도 과장",
+      "status": "RESOLVED",
+      "path": "skills/korean-editing/references/paragraph-revision.md",
+      "line": 49,
+      "current_quote": "이를 `효과가 없다`로 바꾸면 결론을 내리기 어렵다는 판단을 효과 부재의 단정으로 바꾼다.",
+      "independent_analysis": [
+        "예문의 '결론 내리기 어렵다'와 수정 설명의 '결론을 내리기 어렵다는 판단'은 모두 결론 도출의 어려움을 가리킨다. 이제 판단 자체가 불가능하다고 강화하지 않는다.",
+        "'효과 부재의 단정'은 금지되는 변경 결과를 지칭한다. '이를 …로 바꾸면'이라는 조건문 안의 설명이므로 실제로 효과가 없다는 새 주장이 아니다.",
+        "53행의 보고·추정 귀속 원칙과 57–59행의 '현재 자료만으로' 제한, 위원회의 설명, 필자의 주장 부정이 그대로 남아 수정 설명과 충돌하지 않는다.",
+        "어려움을 불가능으로 바꾸지 않으면서 효과 미확정을 효과 부재로 바꾸지 말라는 원래 편집 취지를 유지한다."
+      ],
+      "evidence": "현재 문서 전체를 읽고 v1과 대조했다. Python 바이트 치환 검증과 7파일 SHA-256 재계산이 모두 exit 0으로 통과했다."
+    }
+  ],
+  "new_findings": [],
+  "verification": {
+    "native_verification_exit_code": 0,
+    "current_file_count": 7,
+    "unchanged_other_file_count": 6,
+    "all_current_hashes_stable_on_final_recheck": true,
+    "head_matches_prior_review": true,
+    "no_symlinks_in_reviewed_file_paths": true,
+    "meaning_judgment_based_on_direct_reading_not_hashes_alone": true,
+    "python_observed": "3.14.5",
+    "tmpdir_explicit_for_verification": "<evaluation-workspace>",
+    "initial_hash_read_note": "첫 읽기 전용 해시 비교에는 TMPDIR를 명시하지 않았지만 임시 파일을 만드는 처리는 없었다. 이후 검증에는 허용 scratch를 명시했다."
+  },
+  "boundaries": {
+    "repository_writes_performed": false,
+    "installation_changes_performed": false,
+    "commit_performed": false,
+    "evaluation_files_opened": false,
+    "criteria_design_execution_files_opened": false,
+    "other_six_files_used_for_hash_comparison_not_new_full_content_review": true,
+    "prior_review_and_snapshot_modified": false,
+    "allowed_output_paths": [
+      "<evaluation-workspace>/content-review-v2.json",
+      "<evaluation-workspace>/content-review-v2.md"
+    ],
+    "ci_remote_publication_or_behavioral_validation_claimed": false
+  },
+  "limitations": [
+    "판정은 기록한 현재 해시와 단일 구절 수정에 한정한다. 다른 버전·후속 변경을 자동 승인하지 않는다.",
+    "이전 검토 보고서와 수정 제안을 읽은 후 해소 여부를 판단했다. 작성자와 분리된 재검토지만 완전 블라인드 평가는 아니다.",
+    "다른 6파일은 v1과 현재의 바이트·해시 동일성을 검증했으며 내용 전체를 새로 심사한 것은 아니다. 저장소 전체 불변성도 증명하지 않는다.",
+    "평가 자료 및 criteria/design/execution을 열지 않았다. 모델 실행 평가·실제 독자 이해도 실험·장르 전체 타당화는 수행하지 않았다.",
+    "이번에는 원자료·PDF·공식 규정을 재열람하지 않았다. 기존 출처 검증의 세부 결과는 이전 보고서 기록이며 이번 독립 재열람 결과로 주장하지 않는다.",
+    "설치·저장소 수정·커밋은 하지 않았다. 허용 scratch의 새 재검토 보고서 2개만 작성한다."
+  ]
+}

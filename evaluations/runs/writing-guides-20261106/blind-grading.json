@@ -1,0 +1,366 @@
+{
+  "evaluation": "익명 한국어 작성 출력 평가",
+  "status": "completed",
+  "source_files": [
+    "criteria.md",
+    "three-axis.md",
+    "analytic-korean-editing.md",
+    "resume-input.md",
+    "report-input.md",
+    "sentences-input.md",
+    "resume-A.md",
+    "resume-B.md",
+    "report-A.md",
+    "report-B.md",
+    "sentences-A.md",
+    "sentences-B.md"
+  ],
+  "method": {
+    "criteria": "사전에 고정된 criteria.md와 동봉된 두 루브릭을 적용했다. 새로운 요구나 정답 문구를 추가하지 않았다.",
+    "read_boundary": "blind-packet의 명시된 12개 파일만 평가 근거로 읽었다. 스킬 초안·저장소·버전 매핑·다른 실행 출력·외부 문헌은 열람하지 않았다.",
+    "character_count": "전체 UTF-8 제출 문자열에서 CRLF/CR만 LF로 바꾼 뒤 유니코드 코드 포인트 수를 계산했다. 공백·줄바꿈·문장 부호·마크다운 표시와 마지막 LF를 포함하고 앞뒤 공백 제거 및 추가 정규화를 하지 않았다.",
+    "pass_rule": "meaning·naturalness·scope가 각각 2 이상이고 major_error가 false일 때 pass다. 축 간 평균이나 합계로 상쇄하지 않는다.",
+    "judgment_history": "아래 값이 최초 확정 판정이며 수정 판정은 없다.",
+    "limitations": "가상 사례 3쌍에 대한 단일 평가자의 텍스트 점검이다. 모집단 성능·통계적 우열·평가 타당도·채점자 신뢰도를 검증하지 않는다."
+  },
+  "outputs": [
+    {
+      "id": "resume-A",
+      "file": "resume-A.md",
+      "task": "이력서",
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "pass",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "요약 2문장과 핵심 경험 3개로 현업 요구 파악·성과 평가·부서 조율을 연결한다."
+        },
+        {
+          "criterion": "개인 역할",
+          "status": "충족",
+          "evidence": "8명 인터뷰, 120건 평가셋, 지표 정의, 평가 기준 협의를 개인 업무로 쓴다. 기간과 4인 팀도 일치한다."
+        },
+        {
+          "criterion": "성과 귀속·범위",
+          "status": "충족",
+          "evidence": "동일 평가셋·기준의 62%→74%를 “팀 결과”로 명시하고 차이를 12%p로 정확히 쓴다."
+        },
+        {
+          "criterion": "증거 한계",
+          "status": "충족",
+          "evidence": "통제집단 부재·개인 기여율 미산출과 1개 부서 사용·전사 배포 전을 보존한다."
+        }
+      ],
+      "evidence": [
+        "resume-input.md의 역할과 수치를 정확히 사용한다.",
+        "설명이나 검증 과정 없이 채용 문안으로 완결되며, 표현과 항목 구조가 읽기 쉽다."
+      ]
+    },
+    {
+      "id": "resume-B",
+      "file": "resume-B.md",
+      "task": "이력서",
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "pass",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "상단 요약 2문장과 경험 3개가 요구 파악·평가 설계·조율 경험을 드러낸다."
+        },
+        {
+          "criterion": "개인 역할",
+          "status": "충족",
+          "evidence": "인터뷰 8명, 평가셋 120건, 성공률 지표와 부서 간 협의를 본인 업무로 한정한다. 기간·팀 규모도 일치한다."
+        },
+        {
+          "criterion": "성과 귀속·범위",
+          "status": "충족",
+          "evidence": "62%→74%·12%p를 동일 평가셋·기준에서 측정한 팀 결과로 구분한다."
+        },
+        {
+          "criterion": "증거 한계",
+          "status": "충족",
+          "evidence": "통제집단·개인 기여율의 한계와 현재 1개 부서 사용·전사 배포 전이라는 범위를 유지한다."
+        }
+      ],
+      "evidence": [
+        "resume-input.md에 없는 모델 개발·총괄·경제적 성과를 추가하지 않는다.",
+        "요약과 경험 항목의 문장 호응 및 문체가 일관된다."
+      ]
+    },
+    {
+      "id": "report-A",
+      "file": "report-A.md",
+      "task": "의사결정 보고서",
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "pass",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "첫 본문 문단에서 B 추가 검증 후 도입 권고와 운영비·도입비 영향을 제시한다. 세 대안과 다음 조치가 있다."
+        },
+        {
+          "criterion": "분량",
+          "status": "충족",
+          "evidence": "전체 제출 문자열 563자이며 700자 이내다."
+        },
+        {
+          "criterion": "비용 대조",
+          "status": "충족",
+          "evidence": "현행 900, A 1,080~1,170·증가 180~270·20~30%, B 990·증가 90·10% 및 도입비가 정확하다."
+        },
+        {
+          "criterion": "비교 조건",
+          "status": "충족",
+          "evidence": "동일 사용량·서비스 범위·세금 기준을 명시하고 월 운영비와 일회성 도입비를 분리한다."
+        },
+        {
+          "criterion": "품질·불확실성",
+          "status": "충족",
+          "evidence": "A 개선 미시험, B의 2일·300건 파일럿 관찰과 장기·성수기 미시험을 구분한다."
+        },
+        {
+          "criterion": "다음 조치·승인",
+          "status": "충족",
+          "evidence": "추가 시험 승인·B 도입비 검토를 요청하며 운영팀의 11월 15일까지 시험 가능 일정을 유지한다."
+        }
+      ],
+      "evidence": [
+        "report-input.md의 수치·비교 조건·미검증 상태를 유지한다.",
+        "“도입 여부를 결정합니다”는 권고 및 다음 조치 문맥의 후속 방침으로 읽히며 시험·승인 완료를 주장하지 않는다."
+      ],
+      "character_count": 563,
+      "character_limit": 700,
+      "arithmetic": {
+        "A_monthly_increase": {
+          "calculation": "1080−900=180; 1170−900=270",
+          "verified": true
+        },
+        "A_increase_rate": {
+          "calculation": "180/900×100=20%; 270/900×100=30%",
+          "verified": true
+        },
+        "B_monthly_increase": {
+          "calculation": "990−900=90",
+          "verified": true
+        },
+        "B_increase_rate": {
+          "calculation": "90/900×100=10%",
+          "verified": true
+        },
+        "limit_comparison": {
+          "calculation": "20~30%>15%; 10%≤15%",
+          "verified": true
+        },
+        "absolute_monthly_limit": {
+          "status": "해당 없음",
+          "reason": "월 1,035만원이라는 선택적 파생 수치는 출력하지 않았다."
+        }
+      }
+    },
+    {
+      "id": "report-B",
+      "file": "report-B.md",
+      "task": "의사결정 보고서",
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "pass",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "첫 본문 문단에서 B 조건부 도입 권고와 운영비·도입비 영향을 보여주고 세 대안을 비교한다."
+        },
+        {
+          "criterion": "분량",
+          "status": "충족",
+          "evidence": "전체 제출 문자열 566자이며 700자 이내다."
+        },
+        {
+          "criterion": "비용 대조",
+          "status": "충족",
+          "evidence": "현행·A·B 운영비와 증가액·비율·도입비 및 월 상한 1,035만원이 정확하다."
+        },
+        {
+          "criterion": "비교 조건",
+          "status": "충족",
+          "evidence": "동일 비교 기준과 별도 도입비 승인을 유지하며 현행의 과거 도입비는 자료 없음을 명시한다."
+        },
+        {
+          "criterion": "품질·불확실성",
+          "status": "충족",
+          "evidence": "A 개선 미시험, B의 제한된 파일럿 관찰과 장기·성수기 미검증 상태를 보존한다."
+        },
+        {
+          "criterion": "다음 조치·승인",
+          "status": "충족",
+          "evidence": "시험 승인과 도입비 검토를 요청하고, 승인 후 운영팀이 11월 15일까지 시험하는 후속 조치를 제안한다."
+        }
+      ],
+      "evidence": [
+        "report-input.md의 사실과 비용 산술이 일치한다.",
+        "“승인되면”과 “제안합니다”가 후속 조치의 조건 및 제안 상태를 명확히 한다."
+      ],
+      "character_count": 566,
+      "character_limit": 700,
+      "arithmetic": {
+        "monthly_limit": {
+          "calculation": "900×1.15=1035",
+          "verified": true
+        },
+        "A_monthly_increase": {
+          "calculation": "1080−900=180; 1170−900=270",
+          "verified": true
+        },
+        "A_increase_rate": {
+          "calculation": "180/900×100=20%; 270/900×100=30%",
+          "verified": true
+        },
+        "B_monthly_increase": {
+          "calculation": "990−900=90",
+          "verified": true
+        },
+        "B_increase_rate": {
+          "calculation": "90/900×100=10%",
+          "verified": true
+        },
+        "limit_comparison": {
+          "calculation": "20~30%>15%; 10%≤15%",
+          "verified": true
+        }
+      }
+    },
+    {
+      "id": "sentences-A",
+      "file": "sentences-A.md",
+      "task": "지출 앱 문구",
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "pass",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "독립적인 3개 안이 각각 제목·설명 1문장이고 문구 외 해설이 없다. 질문·확인 권유·연결 권유로 접근이 구별된다."
+        },
+        {
+          "criterion": "기능·조건",
+          "status": "충족",
+          "evidence": "세 안 모두 금융계좌 연결과 연결 계좌의 지난주 지출, 월요일 반복 제공을 전달한다. 두 번째 안은 제목과 설명에 정보를 나누었다."
+        },
+        {
+          "criterion": "효과·표현",
+          "status": "충족",
+          "evidence": "절약·투자 기능이나 측정된 효과를 만들지 않고 제품 이용을 권한다."
+        }
+      ],
+      "evidence": [
+        "sentences-input.md의 필수 조건이 각 제목·설명 쌍 안에서 유지된다.",
+        "독자에게 직접 말하는 문장이 자연스럽고 각 안의 용도가 완결된다."
+      ]
+    },
+    {
+      "id": "sentences-B",
+      "file": "sentences-B.md",
+      "task": "지출 앱 문구",
+      "scores": {
+        "meaning": 1,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "major_error": false,
+      "verdict": "fail",
+      "checks": [
+        {
+          "criterion": "형식·용도",
+          "status": "충족",
+          "evidence": "제목·설명으로 된 3개 안이 있으며 문구 외 해설이 없다. 각 안의 표현도 구별된다."
+        },
+        {
+          "criterion": "기능·조건",
+          "status": "위반",
+          "evidence": "두 번째 안의 “이번 월요일엔”과 “한 주 동안…매주 월요일”은 집계 대상이 지난주임을 분명히 하지 않는다. 다른 안의 “지난주”를 빌려 독립 사용 조건을 충족시킬 수 없다."
+        },
+        {
+          "criterion": "효과·표현",
+          "status": "충족",
+          "evidence": "자동 절약·투자·경제적 이익을 약속하지 않는다. “어디에 얼마”만으로 별도의 분석 기능 날조를 확정하지 않았다."
+        }
+      ],
+      "evidence": [
+        "sentences-input.md는 지난주 지출을 보여주는 제품이며 criteria.md는 이 기간을 각 안에서 전달하도록 요구한다.",
+        "두 번째 안은 핵심 기간 조건의 누락·모호함으로 의미 보존 1점이다. 문장 자체와 요청 형식은 자연스럽고 적합하다."
+      ],
+      "alternatives": [
+        {
+          "alternative": 1,
+          "status": "충족",
+          "evidence": "“계좌를 연결하면 월요일마다 지난주 지출”로 조건·기간·주기를 전달한다."
+        },
+        {
+          "alternative": 2,
+          "status": "위반",
+          "evidence": "“한 주 동안”에 집계 기준 주가 없어 지난주라는 기간이 확정되지 않는다."
+        },
+        {
+          "alternative": 3,
+          "status": "충족",
+          "evidence": "“연결한 계좌에서 지난주에 쓴 돈을 월요일마다”로 대상·기간·주기를 전달한다."
+        }
+      ]
+    }
+  ],
+  "pair_preferences": [
+    {
+      "task": "이력서",
+      "preference": "tie",
+      "reason": "두 출력 모두 형식·개인 역할·팀 성과·증거 한계를 정확히 유지해 실질적 우열 근거가 부족하다."
+    },
+    {
+      "task": "의사결정 보고서",
+      "preference": "B",
+      "reason": "둘 다 통과한다. B는 승인 조건과 제안 상태를 더 명시적으로 표현해 후속 조치의 해석 여지를 줄인다. A에 특정 표현의 부재를 이유로 감점하지 않았다."
+    },
+    {
+      "task": "지출 앱 문구",
+      "preference": "A",
+      "reason": "A는 세 안 각각에서 지난주라는 기간을 전달하지만 B의 두 번째 안은 기준 주가 불분명하다."
+    }
+  ],
+  "interpretation_notes": [
+    "보고서 A의 후속 조치는 권고·요청이라는 문맥으로 제안 상태를 전달하므로 “제안”이라는 특정 단어를 별도 필수 요건으로 삼지 않았다.",
+    "문구 B의 “어디에 얼마”는 지출 내역 확인이라는 통상적 독해도 가능해 별도 분석 기능 날조로 단정하지 않았다. 실패 근거는 두 번째 안의 집계 기간 조건이다."
+  ],
+  "summary": {
+    "pass": 5,
+    "fail": 1,
+    "hold": 0,
+    "major_errors": 0
+  }
+}

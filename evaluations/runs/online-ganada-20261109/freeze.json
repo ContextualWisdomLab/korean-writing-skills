@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "b9fac4c443311a390da22d837be95d47ad4a4626",
+  "date": "2026-11-09",
+  "input_sha256": "47e4bc58c143a23679e73d0375538bfc455947aec911dbc1b30f71b245345cd9",
+  "criteria_sha256": "e37eaa29eeaf0bc13c0ff5f76f8ea7fc0404aa167f91cbd142b956c32a036e91",
+  "raw_baseline_output_sha256": "fcdb9c48d9fe0cae0a78e10922674f40b2a02840bd60d61e6de2f8871da8106d",
+  "public_baseline_output_sha256": "3595d53c4bcbaa33da67954408d35d0476cafa9ca0ef47c970813dfa174942db",
+  "baseline_output_normalization": "Two local skill link destinations replaced with immutable baseline commit URLs; prose unchanged.",
+  "candidate_skill_files": {
+    "skills/korean-editing/SKILL.md": "3c0412212845a68e2a33140ac902e60f1fcbf8efd57aea64b766bdfe147a8f59",
+    "skills/korean-editing/references/drafting-checklist.md": "041a193167795350bd8ba1faf4c24e6868870708ea40f1e1515f8d2afb93553b",
+    "skills/korean-editing/references/engaging-sentences.md": "9e8fb34840c84685357b8c711fba64f5467d762c2536006ec4198811ba0f75c4",
+    "skills/korean-editing/references/examples.md": "758c1ebc319e123716967f1db4189ab46345004330b5c086b1f2a43661ad9552",
+    "skills/korean-editing/references/instructions-and-guides.md": "e319f9de4cf4b5be911aab0cda00006e0cdf4a137b55ed7f808593acbbc25d16",
+    "skills/korean-editing/references/orthography-decisions.md": "d3ef26382eaae962f9a9f4a735107f379bd9f3332d127258b0a75321a9b1a56d",
+    "skills/korean-editing/references/paragraph-revision.md": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2",
+    "skills/korean-editing/references/reader-facing-reports.md": "ceb0fe0020814275297c186d2c2a12332659bedc8b1cecd6e3b35db0a7a83f80",
+    "skills/korean-editing/references/report-layout-verification.md": "3466abe0bde45bbe02377abc4765517cfa531664e2fa2f1a22dc0eebd4562ada",
+    "skills/korean-editing/references/resume-writing.md": "9080c9d30c4c4dc23d10ad298af9e9589f37d006c85bc9de0ea7bfef8a878bba",
+    "skills/korean-editing/references/scope-routing.md": "44df0e75e7c906a36ea667931d32627a765eecb2741f795909d64a79fb4b0a63",
+    "skills/korean-editing/references/sentence-repair.md": "2536f72b308a8d67ec843de181011a5bdc288e5f36444fed03b4c801ee78eec5",
+    "skills/korean-editing/references/source-ledger.md": "58404e3aa38a4404f7a673d09e0cf14744930d14f257ce0942bf7b016d69c17a",
+    "skills/korean-editing/references/validation.md": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688",
+    "skills/korean-editing/references/voice-and-causation.md": "2dadde4b5a9e8e49391b4c05f134b9477c50b193756a22c625c5882a0fe93912"
+  },
+  "candidate_output_sha256": "d7b1aee6e4980df8b937abf78d0762a9ba8111ba7df4ba00699f3c5068a85682",
+  "content_review_files": {
+    "docs/online-ganada-maintenance.md": "0e1dbea15ea6ec5b5206400038ec15ebab78eb02506138c3b62c7f56618b4f02",
+    "README.md": "cb46444a917cfc457f79912309d94ec946637e954faad16e0cf835c4b4fe2fb5",
+    "CHANGELOG.md": "55a94c139b0d5f0bae224f0b8e6b0662c04ac0cfd618509385e38ccef5f2e050",
+    "docs/product-technical-gap-baseline.md": "ecfb0618e57a6cd6223ea0093357c51f547881aa0be17c90a8218c1085d66984"
+  },
+  "output_review_sha256": "922366006dfaf35be31c8eac3f5b7fea83430846c98f528e02491a522796a224",
+  "editorial_followup_sha256": "c5b5acfd8bfa3688ba1f5c1da34b463f2e62489622f738334bbf6c3d91d2a210",
+  "editorial_followup_scope": "One explanation paragraph corrected after review; initial candidate output preserved and no new independent execution counted."
+}

@@ -1,0 +1,231 @@
+{
+  "date": "2026-11-06",
+  "base_commit": "f00ab66634d6b0d1496b7ff4d724e0dc0168927b",
+  "candidate_source_commit": "4506bf3ccd14df046e6c5ecf2423b615736be825",
+  "criteria_sha256": "bd9b7fb0f2b72f8414bff3d012ec6a526e96e410ac3a73b7556feb63d2c29302",
+  "rubrics": {
+    "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+    "evaluations/rubrics/analytic-korean-editing.md": "0d42c968dc51887afebc053e039597da6448c0baeb4db9b570991863edcd65a3"
+  },
+  "inputs": {
+    "report-input.md": "24215b6eab2cc31ee227594fc6a0565d13e8b4c35e8c89a23365532b4777c409",
+    "resume-input.md": "edbe02172127c9ee82c9c952391cf5fb4ee98e4dd9daaabbb4d2c1e69c788a20",
+    "sentences-input.md": "154fda03cd39bbd9c0eb0ac3bf8843bd609a3761024795b971a55faec296851d"
+  },
+  "snapshots": [
+    "comparison-freeze.json",
+    "comparison-v2-freeze.json",
+    "regression-v3-freeze.json"
+  ],
+  "outputs": [
+    {
+      "task": "resume",
+      "anonymous_label": "B",
+      "version": "baseline",
+      "output": "resume-B.md",
+      "sha256": "4754b1b34f969e72f8e55273a4632cd302531edfd3c3d9b4cd37e71166991f6b",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "resume-input.md",
+        "SKILL.md",
+        "references/scope-routing.md",
+        "references/source-ledger.md",
+        "references/drafting-checklist.md",
+        "references/orthography-decisions.md"
+      ],
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "pass"
+    },
+    {
+      "task": "resume",
+      "anonymous_label": "A",
+      "version": "candidate_v2",
+      "output": "resume-A.md",
+      "sha256": "0b9ceecb5577dc13b4f73dc7f0fc4787489da61744f6ee5146837b910fd4c76d",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "resume-input.md",
+        "SKILL.md",
+        "references/resume-writing.md"
+      ],
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "pass"
+    },
+    {
+      "task": "report",
+      "anonymous_label": "A",
+      "version": "baseline",
+      "output": "report-A.md",
+      "sha256": "543937ca95b222c966e40f1c78449898de43d4fc71136ff2d6a3ff1aa01053b8",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "report-input.md",
+        "SKILL.md",
+        "references/reader-facing-reports.md",
+        "references/orthography-decisions.md"
+      ],
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "pass"
+    },
+    {
+      "task": "report",
+      "anonymous_label": "B",
+      "version": "candidate_v2",
+      "output": "report-B.md",
+      "sha256": "e2af76d453ce4cbbce745cbb95ec846a14d2ba99233d0d23fe0845ba5b03befb",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "report-input.md",
+        "SKILL.md",
+        "references/reader-facing-reports.md",
+        "references/orthography-decisions.md"
+      ],
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "pass"
+    },
+    {
+      "task": "sentences",
+      "anonymous_label": "B",
+      "version": "baseline",
+      "output": "sentences-B.md",
+      "sha256": "00a87cf95083624342d7ea4adb566e31f7ce4349da4d980615f1f691626f7534",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "sentences-input.md",
+        "SKILL.md"
+      ],
+      "scores": {
+        "meaning": 1,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "fail"
+    },
+    {
+      "task": "sentences",
+      "anonymous_label": "A",
+      "version": "candidate_v2",
+      "output": "sentences-A.md",
+      "sha256": "a8a5c6a7a137558571b8954ede613313241a048454e0e6c23851a1a4c5b4764c",
+      "fresh_context": true,
+      "read_scope_self_reported": [
+        "sentences-input.md",
+        "SKILL.md",
+        "references/engaging-sentences.md"
+      ],
+      "scores": {
+        "meaning": 3,
+        "naturalness": 3,
+        "scope": 3
+      },
+      "verdict": "pass"
+    }
+  ],
+  "earlier_outputs_excluded_from_final_comparison": {
+    "exploratory-report.md": "4a7c235e4499bdd904f318bf17c2bf53aa97380ae3bfeeffd23ff37ec270f346",
+    "exploratory-resume.md": "cd73564e750554f661dd82d5fa8903bab6e270b8fed66f7c7c2bcc14fbe08a42",
+    "exploratory-sentences.md": "66aa097129eafaa037c38071db8580d339c85cbaddb878be3dcbbaf729ee49df"
+  },
+  "candidate_v1_resume_excluded": {
+    "path": "candidate-v1-resume.md",
+    "sha256": "68e9a7db8a207352f4bac8aa741ae50f69489e599c706a5b5c689b5035df7f96"
+  },
+  "limitations": [
+    "One synthetic task per genre and one final execution per version; no estimate of general effectiveness.",
+    "Execution access boundaries are instructions and self-reports, not operating-system isolation.",
+    "Executors received a named version path; only the independent scorer was blinded to version identities.",
+    "Scorer used provided facts and frozen rubrics, without reading skill drafts or other runs.",
+    "Earlier exploratory outputs predate the independent criteria freeze and do not count toward the final comparison.",
+    "Academic source access varies by entry; source-ledger records abstracts versus selected full-text sections."
+  ],
+  "candidate_v2_preview_packages": {
+    "apa7-manuscript-writing": {
+      "sha256": "931ee058eb88470515abb9f83f41e664795f2f63543ad926af6c9efa3b73bdf9",
+      "file_count": 7,
+      "archive_and_members_verified": true
+    },
+    "korean-editing": {
+      "sha256": "2014ef2fb98ac0597f1125b3ee500f57272dc6354d84be45cf415ded106ff310",
+      "file_count": 13,
+      "archive_and_members_verified": true
+    }
+  },
+  "final_source_commit": "621298d6c1cb06b14b410ce2e39bceae84ed4a8d",
+  "final_preview_packages": {
+    "apa7-manuscript-writing": {
+      "sha256": "931ee058eb88470515abb9f83f41e664795f2f63543ad926af6c9efa3b73bdf9",
+      "file_count": 7,
+      "archive_and_members_verified": true
+    },
+    "korean-editing": {
+      "sha256": "b7d8bb00cfc56200e1e0f0aeb5273e34a247b48b4a6a9ffa25c5470c513c6a5e",
+      "file_count": 13,
+      "archive_and_members_verified": true
+    }
+  },
+  "final_source_delta": {
+    "changed_skill_files": [
+      "references/reader-facing-reports.md"
+    ],
+    "resume_and_sentences_read_files_unchanged": true,
+    "validation": "Final report v3 executed once and passed separate independent scoring under unchanged criteria; earlier v2 outputs and scores remain intact."
+  },
+  "comparison_results": {
+    "baseline": {
+      "pass": 2,
+      "fail": 1,
+      "hold": 0
+    },
+    "candidate_v2": {
+      "pass": 3,
+      "fail": 0,
+      "hold": 0
+    }
+  },
+  "independent_grading": {
+    "blind-grading.json": "6ebf3c888b876a55045fb241181271c9e1de7462501e9e0e92ad18488f0f8e09",
+    "blind-grading.md": "1a9f3457204e443a19e2ab4b45d2b9c22ebf6f3be21c66ca46c76b80d564b06c"
+  },
+  "final_report_regression": {
+    "output": "regression-v3-report.md",
+    "sha256": "49b829922527460ab3aadb9f7df3dfec273ffdbceb8e5e267e2bc8caae219a81",
+    "fresh_executor_context": true,
+    "read_scope_self_reported": [
+      "report-input.md",
+      "SKILL.md",
+      "references/reader-facing-reports.md"
+    ],
+    "criteria_sha256": "bd9b7fb0f2b72f8414bff3d012ec6a526e96e410ac3a73b7556feb63d2c29302",
+    "scores": {
+      "meaning": 3,
+      "naturalness": 3,
+      "scope": 3
+    },
+    "verdict": "pass",
+    "character_count": 570,
+    "fresh_scorer_context": true,
+    "scorer_input_alias": {
+      "report-output.md": "regression-v3-report.md"
+    },
+    "grading": {
+      "regression-v3-grading.json": "57959a516a3204178e856b198a419760c57561247d0cb31b740d764e20149a0d",
+      "regression-v3-grading.md": "7d8e0b678ab44da1ce6e1f6befb088bdeb1d4cd1926799e650d86d6e89fa82a9"
+    }
+  }
+}

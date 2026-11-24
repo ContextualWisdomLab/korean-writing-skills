@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-04",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "scope": "파서 기반 preview 패키저·전체 시험·의존성 manifest와 lock·사용 안내의 로컬 독립 검토. GitHub 승인이 아님",
+  "hashes": {
+    "scripts/package_skills.py": "9b92af14d794bfd8c8c8be1ee18a8f390c190f68384f84169321739cda2147ec",
+    "tests/test_package_skills.py": "6fb6363df8a0ed284ba652f68490649063843aab2eae3b4128e0c140d2d22b2a",
+    "pyproject.toml": "e9d905e21d56f8cb6f32cebf4d39d39d75e21361f19305be204d1a82d490438f",
+    "uv.lock": "9972a62afabdaa9f449a30b1e24a5a0e43ba594541d97a97f4ec54c1f82c8849",
+    "docs/usage.md": "898c62359cc95638442268b88ea85c2a4798a193500c47b7fbfb36a65e9b7158",
+    ".gitignore": "0b0195a43afda5ee3b01a47b53ed51a79831cea4f3338d2b30af451877fac7a2"
+  },
+  "test_exit": 0,
+  "test_count": 29,
+  "test_failures": 0,
+  "test_errors": 0,
+  "existing_24_test_method_asts_unchanged": true,
+  "known_bypasses_rejected": 8,
+  "rejected_outputs_absent": 8,
+  "paired_safe_controls_passed": 8,
+  "safe_destinations_collected_and_archive_bytes_identical": true,
+  "validate_link_default_suppression_and_override_checked": true,
+  "build_exits": [0, 0],
+  "repeat_builds_byte_identical": true,
+  "archive_members_verified_per_build": 11,
+  "structure_exit": 0,
+  "public_hygiene_exit": 0,
+  "runtime": {
+    "python": "3.14.6",
+    "markdown-it-py": "4.2.0",
+    "mdurl": "0.1.2"
+  },
+  "initial_verifier_failure": "사용 안내가 초기 읽기 이후 변경되어 첫 해시 검사가 실패했다. 검토자는 최종 문서 전체를 다시 읽고 안정된 최종 해시에서 우회·안전 대조·전체 시험·반복 빌드를 재실행했다. 초기 실패를 성공으로 바꾸지 않는다",
+  "final_window": "206개 tracked 또는 unignored 파일의 해시와 index·status가 검증 구간 동안 불변. 부모도 검토 대상 6개 파일의 최종 SHA-256 일치를 재확인함",
+  "limits": [
+    "HTML sanitizer나 악의적 동시 파일 교체 방어 인증이 아니다",
+    "정지된 원본 트리와 통제된 출력 부모 디렉터리가 필요하다",
+    "실제 팀 dogfood·전체 APA 적합성·hosted CI·원격 승인·공식 release는 별도다"
+  ]
+}

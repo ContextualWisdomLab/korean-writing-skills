@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-07",
+  "base_commit": "0cd3281e075a5644498cf25f85d5563a2ea5ee67",
+  "skill_snapshot": "final-freeze.json",
+  "tasks": 2,
+  "outputs": 3,
+  "grading": "One independent grader per task, no inter-rater reliability estimate",
+  "files": {
+    "application-grading.json": "f43294be601cab107e8827553f4744e288f38490e4507700386294de83f95c44",
+    "application-grading.md": "41ba539db504e5a702cb1697d654fb0e6fe1d00312f46ec2361be7873816857c",
+    "content-review.md": "21d87de88643959e61ccefe0612b136dc7d15c0d284ece40084ae0cc34fb4cb0",
+    "cover-output.md": "09879e5a3174a39559720343e53e4ee5ca3263a47a4ff445a2918538ffba9f57",
+    "criteria.md": "9a75bb16a43cc333e498b8b8bee7be50c3d5b76a2a6a17e8d0c6d45b35250c6d",
+    "final-freeze.json": "96089e0d76aba7db13cad8220b7bb999acd1d17a2e36e4a1e7f4f8d29c26b93e",
+    "freeze.json": "8043e2eeb154a7989866145acca979036c64b0d33d6e60e0b77701cc7c035007",
+    "outputs.json": "ad7a0828c7fd6865577a9aecd4cc65efeb9894ba2d51d0b92f7d9d83e07aae9c",
+    "report-grading.json": "454696520ba76a0df3e19e6a24ba03c6a2aa72df427b42316d5d4c46870f9bd3",
+    "report-grading.md": "891cb84607bd80f51a4dac9a1f126aeaa5f818fc1a192e9b2d54098ca691ed59",
+    "report-input.md": "5115e7f5acad9f1011d5572b29013b335bf59b1e7df0e9e2476e349923c88955",
+    "report-output.md": "b7ed20c6faf4dbe41569c96feee6965019e4bb12cb41b8dffe0b77b64f588206",
+    "resume-input.md": "2c07f205a4a0cc01c2f19b506b2f45c6d255a6eb73a835974a3994f3071df46f",
+    "resume-output.md": "b278f02ad5213498a6eefde604b4411988e07462ba7a8d93ba0defbc6954eada",
+    "review.md": "2569e0fe167e55dd1e9bd20807d436fa3fa3c838d1898d6f2413d02957f17134",
+    "unit-tests.json": "784501a551bc8ff6c862730be8a3b3f18706f3067a4e93b0344483190b044655",
+    "unit-tests.txt": "9345dbc109c3c179c962067f0f0907df6826d835915dd438153bdcc132c29a3f",
+    "verification.md": "a849f326397f3883fb7f145c2c827f16db43977c70fc96eab8edd571fbd6d436"
+  }
+}

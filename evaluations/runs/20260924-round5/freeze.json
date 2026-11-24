@@ -1,0 +1,73 @@
+{
+ "purpose": "5회차 사례별 독립 평가의 사전 동결. 이 파일을 커밋·push한 뒤에만 실행자를 배정한다.",
+ "frozen_before_commit_utc": "2026-09-24T12:55:17Z",
+ "base_commit": "4d89dbe804bf15e0c2246e4ff2c8d5716b76cf86",
+ "cases": [
+  "K9",
+  "K10",
+  "K11",
+  "K12"
+ ],
+ "order": "K9 실행→K9 채점→K10 실행→K10 채점→K11 실행→K11 채점→K12 실행→K12 채점. 동시 실행 없음. 사례마다 새 에이전트 대화 한 개.",
+ "counting": "K9·K10은 4회차 결과로 통과 처리하지 않고 이 회차에서 새로 실행한다.",
+ "model_environment": {
+  "agents": "Claude Code Agent 도구의 general-purpose 서브에이전트. 모델은 부모 세션을 상속(claude-opus-5-5). 모델 재정의 없음.",
+  "host": "로컬 macOS, 같은 사용자 계정. OS 수준 격리 없음.",
+  "isolation": "접근 범위는 프롬프트 지시와 각 에이전트의 '열어본 파일' 자기보고로만 통제한다. 강제 격리·감사 로그 없음."
+ },
+ "access": {
+  "executor": {
+   "allow": [
+    "격리 임시 디렉터리의 해당 사례 입력 1개",
+    "skills/korean-editing/ 전체",
+    "skills/apa7-manuscript-writing/ 전체"
+   ],
+   "block": [
+    "evaluations/ 전체(판정표·루브릭·시나리오·과거 기록)",
+    "다른 사례 입력·출력",
+    "웹",
+    "연구 자료"
+   ],
+   "known_leak": "skills/korean-editing/references/validation.md·source-ledger.md에는 과거 평가의 입력·출력·통과 서술이 들어 있다. 스킬의 일부라 허용하므로 blind를 주장하지 않는다."
+  },
+  "scorer": {
+   "allow": [
+    "해당 사례 입력",
+    "해당 사례 출력",
+    "evaluations/rubrics/three-axis.md",
+    "evaluations/rubrics/analytic-korean-editing.md",
+    "evaluations/runs/20260924-round5/criteria.md"
+   ],
+   "block": [
+    "skills/ 전체",
+    "다른 사례 입력·출력",
+    "과거 채점 기록",
+    "웹",
+    "연구 자료"
+   ]
+  }
+ },
+ "identity_record": "실행자·채점자의 에이전트 식별자는 공개하지 않고 비공개 운영 기록에 보관한다(protocol.md 3단계).",
+ "sha256": {
+  "skills/apa7-manuscript-writing/SKILL.md": "275115b5b74f9a9ab89b443aa6e64c4bad0456900e4465e4bc1e40d0f409771f",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "e42794305039a75a0260a60f2aba256d02add3be8220eef78f96294fe4f8daa8",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff",
+  "evaluations/scenarios/blind-inputs.md": "069d6720058ff93e307024ab3de699c852761726c9f1a35611db90380fbd9894",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/runs/20260924-round5/criteria.md": "93bd781534244fb9a9e4dd6a282a8a9fe62a043fbbcc3e4c448e19a7127c363c",
+  "evaluations/runs/20260924-round5/inputs/K9.md": "b6448f52f75d8d218ccf7001775c67302e9af91ce4730da10b621b116998f34e",
+  "evaluations/runs/20260924-round5/inputs/K10.md": "ba7ccc872393496983a6f0c67987c1520d7229cf43a27296685c25edd677b45e",
+  "evaluations/runs/20260924-round5/inputs/K11.md": "d15bb207a76f5403d4c35ab55a1bf1618b2ec5feb69e57b310d2f89e45f91a2b",
+  "evaluations/runs/20260924-round5/inputs/K12.md": "d5b4b90fe8a84060b1d9f7083d2cd99dac89c7a293d712e08c942a728a27f88d"
+ }
+}

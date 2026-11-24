@@ -1,0 +1,26 @@
+{
+  "P01": {
+    "case": "C02",
+    "version": "baseline"
+  },
+  "P02": {
+    "case": "C01",
+    "version": "baseline"
+  },
+  "P03": {
+    "case": "C02",
+    "version": "candidate-v1"
+  },
+  "P04": {
+    "case": "C03",
+    "version": "baseline"
+  },
+  "P05": {
+    "case": "C01",
+    "version": "candidate-v1"
+  },
+  "P06": {
+    "case": "C03",
+    "version": "candidate-v1"
+  }
+}

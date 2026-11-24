@@ -1,0 +1,79 @@
+{
+  "verdict": "PASS_WITH_MINOR",
+  "blocking": false,
+  "reviewed_at": "2026-10-27T17:35:33.544674+09:00",
+  "scope": "candidate-v1 → candidate-v2 korean-editing 차이: 49행 문구 치환 + 55행 새 문단",
+  "repo_head": "b03b58f31b9c69989a5fa9522b3a2b139304aa5a",
+  "repo_worktree_paragraph_revision_sha256": "7ea3a2f678d8617f5548181642bb525c571bcccdccdd579b2673ca60306153f7 (= candidate-v2, 미커밋 수정 상태 M)",
+  "candidate_v2_sha256": {
+    "SKILL.md": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66",
+    "references/examples.md": "f92d8c57bd72b9d1e358e68734cf02f981b92efd5c1db7fdd555e3052335fde2",
+    "references/orthography-decisions.md": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac",
+    "references/paragraph-revision.md": "7ea3a2f678d8617f5548181642bb525c571bcccdccdd579b2673ca60306153f7",
+    "references/sentence-repair.md": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3",
+    "references/source-ledger.md": "90a181f576498877fe6d91b54a5bf6833eb5ae0217ae9ebe7201003ff22aaa96",
+    "references/validation.md": "d49b58a9d24c855a579d562fb7db688052932413bed2825621123685e0e9b688"
+  },
+  "diff_verification": {
+    "other_6_files_identical_to_v1": true,
+    "v1_line49_replacement_count": 1,
+    "v1_plus_replacement_sha256": "a19f428055db1c370ad8a34cf4e689e56c9d815431cade71df5be653471251ae (= content-review-v2 PASS 대상)",
+    "v1_plus_replacement_plus_new_paragraph_equals_v2": true,
+    "lines_v1_v2": [
+      75,
+      77
+    ],
+    "bytes_v1_v2": [
+      10507,
+      11072
+    ],
+    "method": "Python 3 바이트 재구성·SHA-256"
+  },
+  "replacement_review": {
+    "location": "references/paragraph-revision.md:49",
+    "quote": "이를 `효과가 없다`로 바꾸면 결론을 내리기 어렵다는 판단을 효과 부재의 단정으로 바꾼다.",
+    "judgement": "해소 유지. 새 문단과 충돌 없음. 주장 강도 과장 없음."
+  },
+  "new_paragraph_review": {
+    "location": "references/paragraph-revision.md:55",
+    "quote": "긴 관형절을 풀 때는 문장 앞의 행위자가 어느 서술어까지 걸리는지 확인한다. 예를 들어 `○○팀이 확인한 대상에 한해 검토할 수 있다고 적은 문구`에서 ○○팀이 ‘확인한’과 ‘적은’에 모두 걸리면 두 행위를 모두 ○○팀에 둔다. `문서에는 … 조건이 적혀 있다`처럼 작성 주체를 지우지 않는다. 어디까지 걸리는지 문맥으로 정할 수 없으면 원래 결합을 한 문장에 남기거나 확인 질문을 둔다.",
+    "judgement": "53행의 귀속 원칙을 관형절 행위자 범위로 좁게 구체화한다. ‘모두 걸리면’이라는 조건, 판정 불가 시 원래 결합 유지·확인 질문이라는 퇴로가 있어 행위자 일괄 배정을 지시하지 않는다. 작성 주체 삭제 금지는 귀속 보존 원칙과 맞다. 국어 문장 자연스러움 문제 없음. 출처를 주장하지 않아 근거 과장 없음."
+  },
+  "findings": [
+    {
+      "id": "CR3-01",
+      "severity": "minor",
+      "axis": "의미 보존·과잉 교정",
+      "location": "references/paragraph-revision.md:55",
+      "quote": "`○○팀이 확인한 대상에 한해 검토할 수 있다고 적은 문구`에서 ○○팀이 ‘확인한’과 ‘적은’에 모두 걸리면 두 행위를 모두 ○○팀에 둔다.",
+      "issue": "예문에는 서술어가 셋(확인한·검토할·적은)인데 지침은 둘만 다룬다. ‘검토할’의 주체는 원문에 없고 ○○팀이라는 근거도 없다. 행위자를 ‘모두’ 배정하라는 문장을 따라 `○○팀은 … ○○팀이 검토할 수 있다고 적었다`처럼 검토 주체까지 채우는 과잉 교정이 생길 수 있다. 본 문서 27행·sentence-repair.md 10행의 ‘빠진 행위자를 채우지 않는다’ 원칙과는 충돌하지 않지만 예문 안에서 그 경계가 드러나지 않는다.",
+      "suggested_fix": "…두 행위를 모두 ○○팀에 둔다. ‘검토할’의 주체는 원문에 없으므로 새로 정하지 않는다."
+    },
+    {
+      "id": "CR3-02",
+      "severity": "minor",
+      "axis": "정확성(표현)",
+      "location": "references/paragraph-revision.md:55",
+      "quote": "문장 앞의 행위자가 어느 서술어까지 걸리는지 확인한다.",
+      "issue": "관형절을 이끄는 행위자가 늘 문장 맨 앞에 있지는 않다(예: `담당자는 ○○팀이 확인한 …`). ‘문장 앞’은 위치 조건을 불필요하게 좁힌다.",
+      "suggested_fix": "관형절 앞에 나온 행위자가 어느 서술어까지 걸리는지 확인한다."
+    },
+    {
+      "id": "CR3-03",
+      "severity": "info",
+      "axis": "근거",
+      "location": "references/paragraph-revision.md:55",
+      "quote": "긴 관형절을 풀 때는 문장 앞의 행위자가 어느 서술어까지 걸리는지 확인한…",
+      "issue": "출처 표기가 없다. 근거 과장은 아니다(출처를 주장하지 않고, 73행이 합성 예문·미검증임을 밝힘). 복잡한 수식·중의 구조는 research.md가 재열람한 A-JANG1999 §2.2.7(pp.74–76)이 다루므로 47행처럼 참고 출처로 붙일 수 있다. 다만 ‘행위자 범위’ 판정 규칙 자체는 편집 판단으로 표시해야 한다.",
+      "suggested_fix": "선택: 문단 끝에 `(복잡한 수식의 중의성: A-JANG1999 §2.2.7 참고, 판정 절차는 편집 판단)`"
+    }
+  ],
+  "limits": [
+    "eval-design·execution·grading 파일은 열지 않았다.",
+    "나머지 6파일은 해시 동일성만 확인했고 내용을 새로 검토하지 않았다.",
+    "원문 PDF를 재열람하지 않았다. 근거 판단은 research.md 기록에 의존한다.",
+    "이전 검토 보고서(content-review-v2)를 읽은 뒤의 검토이므로 완전 블라인드가 아니다.",
+    "모델 행동·독자 이해도는 검증하지 않았다.",
+    "저장소·설치본·후보 스냅숏을 수정하지 않았다. 산출물은 content-review-v3.json/md뿐이다."
+  ]
+}

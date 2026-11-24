@@ -1,0 +1,18 @@
+{
+ "K11-output.md": {
+  "as_produced": "fdefbbf529b15546573c1aacaabb5b4df94fc3242f99c2816ec0cf6a7469e4c7",
+  "committed": "80245ac0f88f5736ed2b5693b962c20842387daa493403de4c37776391aeb8d0"
+ },
+ "K11-scoring.md": {
+  "as_produced": "b1093524f692d389cc2178f8d64b1e5b19fc8d648f1d79d0f81c2867677bbea9",
+  "committed": "65f9a9a58c4fc7dcff65c155a30569eefbb1908a0135c088e7afc43eaaf53da1"
+ },
+ "K12-output.md": {
+  "as_produced": "648a5d5f4caeff42e987991614cbf7fb3409302b7487fd06632d2a2b776a904f",
+  "committed": "92cb052cfc5c0044f4200c6bb4422284fe113448424a52ff6a1a515995ed6ef5"
+ },
+ "K12-scoring.md": {
+  "as_produced": "2dd0aa7acd17b01f5746e62f9d386b59e26eee9285fa877f496dbf8d1288b7e5",
+  "committed": "2c58e702a32c901b39cc7c295f0d63e52b367cbfad7efd33e54d84c4f43e1876"
+ }
+}

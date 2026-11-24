@@ -1,0 +1,57 @@
+{
+ "purpose": "K14 실패 원인(자료 출처 사실의 조용한 삭제) 수정 전 실패 / 수정 후 통과를 새 합성 사례 K15로 확인한다. 평가 답안·점수 없음.",
+ "frozen_before_commit_utc": "2026-09-24T20:00:57Z",
+ "pre_fix_commit": "42423b8f3209b11c1fdf802ca520d997b29dc863",
+ "post_fix": "이 동결 파일을 담은 커밋(스킬 3곳 수정 포함)",
+ "diagnosis": "K14 실행자는 reporting-workflow.md 예시(학위논문 자료 재분석 사실까지 지운 투고 문장)와, 출처 보존 문장이 경위 배제 문장과 한 덩어리로 붙은 apa7 SKILL.md, 출처 보존 문장이 없는 korean-editing SKILL.md를 근거로 원문 첫 문장 전체를 지웠다.",
+ "fix": "세 곳에서 '자료 출처 사실'과 '학위논문 쪽수·수정 경위'를 분리했다. 출처 사실은 조용히 지우지 않고 본문에 중립적으로 두거나, 위치가 맞지 않으면 저자 확인 요청·별도 출처 기록으로 옮기자고 제안한다.",
+ "plan": [
+  "s1에서 Codex 실행자 A: pre_fix_commit 체크아웃, K15 → 출력 동결",
+  "s1에서 Codex 채점자 A",
+  "s1에서 Codex 실행자 B: post-fix 커밋 체크아웃, K15 → 출력 동결",
+  "s1에서 Codex 채점자 B",
+  "각 워커는 앞 워커의 worker_done·출력 해시 확인 뒤에만 기동. 로컬 기동 없음."
+ ],
+ "prompts": "executor-prompt.md·scorer-prompt.md 본문, {ISO}·{REPO}만 치환. 실행자 A·B는 같은 지시문, 다른 {REPO}(판본).",
+ "sha256_fixture": {
+  "evaluations/fixtures/K15/input.md": "4753508283b0fd317905849e545bb57903a4cc346be09c5c9d4b9ab63369184d",
+  "evaluations/fixtures/K15/criteria.md": "95ed813059ce7102c6533cb4fce3e4664cbf381b534c95f6442f097a36c8dae2",
+  "evaluations/fixtures/K15/executor-prompt.md": "ed34c4adf3b0f4814f093aad6232555e4e474f065f87c27cbd0719e6828df5dc",
+  "evaluations/fixtures/K15/scorer-prompt.md": "ba70f70fde63838e230da50d2e5f5ebb55e835beb289d3212c73018557044460",
+  "evaluations/scenarios/blind-inputs.md": "55d394b7faebf2dc4918b10b17462b1828f033c1c5b79f999fa5f33d0969aaea",
+  "evaluations/rubrics/three-axis.md": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+  "evaluations/rubrics/analytic-korean-editing.md": "17bb4edb291bf28861ff7689d7ffc3b2df0bf5ba111329dd5bda106cb5b37ca5",
+  "evaluations/protocol.md": "11952ca21013c2d9a2426fb9e0ce4eab2b00f4da5be57a24c4ad86e684f989ff"
+ },
+ "sha256_skills_pre_fix": {
+  "skills/apa7-manuscript-writing/SKILL.md": "eda2a1c96dce74f5352eb701ee666f40936cfcca9e910d3393e50dd5f3af9e20",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "d294ffcd93d43a2c9cac64255e4ebabd8075f147182b3d1c74ad7613e118fbb2",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "ecb98dc6991d2eb9ed958b0269a97f635618600546924771a3dfc4ae90724429",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae"
+ },
+ "sha256_skills_post_fix": {
+  "skills/apa7-manuscript-writing/SKILL.md": "36a74c70cb2469a5c99736c1795566fd74f0b0eec9fcc432d8140a116e0826e8",
+  "skills/apa7-manuscript-writing/references/document-format-checklist.md": "904ab84632fc5ed1e6187bc841e48869dd1e4ad66e7f2899ea65e7b93c509839",
+  "skills/apa7-manuscript-writing/references/jars-quant-table1.md": "e199df712a7823fe43476eed184e71bab18113dd9590415fdcd21970c60737b5",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md": "dcac967cb24039e616925b05a40f0b497e42c3d81b21bdcd6359a136b6ec6759",
+  "skills/apa7-manuscript-writing/references/source-ledger.md": "35ba1f724458beb177eaad6acf52cb6df30a21a67cf7b09d78e7a7d65970bbab",
+  "skills/apa7-manuscript-writing/references/validation.md": "34c6addb5e5abeb1c37c4e9b114980e12ad17b1ad4f37d51145ae89c14167b9c",
+  "skills/apa7-manuscript-writing/references/verified-scope.md": "0db85ff9a70af74309d9037ad828bdcaab56551f2ed00236445c186b0de89921",
+  "skills/korean-editing/SKILL.md": "966af466423e6dc34ab94f66c3cf26687c4a86b572ef1ca5785f3105335fac97",
+  "skills/korean-editing/references/examples.md": "4990786a709fda9c478d2bf2209d5049d0c8d07d89277c439633b23e6cf25634",
+  "skills/korean-editing/references/source-ledger.md": "bdd52676fc389d1b2faf5d0e263fe17799fa66e1fd7b2066b771c7996c2ac017",
+  "skills/korean-editing/references/validation.md": "9f95da38f85d3f80035d2e914bdd4c95e0eac9f10e12c0dacaba6c66293d63ae"
+ },
+ "changed_skill_files": [
+  "skills/apa7-manuscript-writing/SKILL.md",
+  "skills/apa7-manuscript-writing/references/reporting-workflow.md",
+  "skills/korean-editing/SKILL.md"
+ ]
+}

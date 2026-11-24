@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "passed": false,
+  "scope": "독립 코드 검토: preview 패키저 전체·시험·사용 안내. GitHub 승인이 아님",
+  "hashes": {
+    "scripts/package_skills.py": "1ce3743607c31860f17cc13780f2bf6cb9cae012df0320a246d193b6150366ef",
+    "tests/test_package_skills.py": "9a396d8009079814f3900f5244098b43da01ced0cb8df36f0d7c066ca9e7bc88"
+  },
+  "test_exit": 0,
+  "test_count": 19,
+  "unsafe_accepted": 4,
+  "rejection_controls": 2,
+  "finding": "blockquote·목록 내부 참조 정의와 여러 줄 참조 라벨을 놓쳐 외부 경로·file URI 검사를 우회함. ZIP 경로 이탈·외부 파일 읽기·코드 실행을 관찰한 것은 아님",
+  "payloads": [
+    "[bad]\n\n> [bad]: ../../outside.md",
+    "[bad]\n\n- [bad]: ../../outside.md",
+    "[bad label]\n\n[bad\nlabel]: ../../outside.md",
+    "[bad]\n\n> [bad]: file:///outside.md"
+  ],
+  "basis": "https://spec.commonmark.org/0.31.2/#link-reference-definitions",
+  "next_action": "회귀시험 RED·최소 수정·전체 GREEN·새 독립 검토",
+  "limits": "실행자는 원격 승인 권한이 없는 별도 context 검토자. 정지된 원본 트리·통제된 출력 부모라는 동시변조 범위 제한은 별도다"
+}

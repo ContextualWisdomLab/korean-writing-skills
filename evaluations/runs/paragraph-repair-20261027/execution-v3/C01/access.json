@@ -1,0 +1,26 @@
+{
+  "case": "C01",
+  "root": "<evaluation-workspace>",
+  "files_read": [
+    {"path": "candidate-v3/korean-editing/SKILL.md", "sha256": "6677385f50a8b43fa2623a77c5cadd42a5a9b08f97b7d97f79fa00a4ed782e66"},
+    {"path": "candidate-v3/korean-editing/references/paragraph-revision.md", "sha256": "5fba610dd4a06d4bb5b7bf7670bf632d1de38cf0719046962a45ea8b079f25d2"},
+    {"path": "candidate-v3/korean-editing/references/sentence-repair.md", "sha256": "f9307712d5fa1a72bb45f907a4d741b1525e443f6e24f7c3d6f3ecc7f1068af3"},
+    {"path": "candidate-v3/korean-editing/references/orthography-decisions.md", "sha256": "dce36d4654afdd3449246fe5f235882e6b245596d5bcc844e07caad550621fac"},
+    {"path": "eval-design/C01.md", "sha256": "a10e81de9244554f550127afbcda304a92f727e4f9c627a8773c2197986f977b"}
+  ],
+  "files_not_read": [
+    "candidate-v3/korean-editing/references/source-ledger.md (linked from SKILL.md; not opened)",
+    "candidate-v3/korean-editing/references/examples.md (excluded by instruction)",
+    "candidate-v3/korean-editing/references/validation.md (excluded by instruction)"
+  ],
+  "directory_listings": "none",
+  "files_written": [
+    {"path": "execution-v3/C01/output.md", "sha256": "83def398df0a36a567da5e42f447c2688866ad243def2bf43714125a99afe522"},
+    {"path": "execution-v3/C01/access.json", "sha256": "not self-recorded"}
+  ],
+  "other_commands": ["shasum -a 256 on the files above", "grep -c on output.md for self-check of the corrected token"],
+  "external_search": false,
+  "self_scoring": false,
+  "installs_or_repo_writes": false,
+  "system_prompt_exposure": "The executing agent's system prompt contained the full Hermes available_skills list (including a description line for an installed 'korean-editing' skill) and the workspace AGENTS.md project context (Korean writing principles and source-mapping table). The installed skill itself was not opened. No criteria, design, other inputs/outputs, or scoring files were present in the prompt."
+}

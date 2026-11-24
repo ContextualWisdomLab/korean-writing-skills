@@ -1,0 +1,76 @@
+{
+  "case_id": "C01",
+  "task": "동결 한국어 스킬을 적용한 대상문 교정",
+  "frozen_skill_path": "evaluation-workspace/candidate-v1/korean-editing/SKILL.md",
+  "read_accesses": [
+    {
+      "path": "installed-skills/korean-editing/SKILL.md",
+      "tool": "skill_view",
+      "scope": "설치본 SKILL.md 본문 전체와 도구가 반환한 메타데이터·링크 파일 목록",
+      "note": "상위 지침이 관련 설치 스킬 로드를 요구하여 첫 도구 묶음에서 읽었다. 지정 동결본 외의 실제 본문 노출이다. 설치본 링크 파일은 열지 않았다."
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/SKILL.md",
+      "tool": "read_file",
+      "scope": "전체"
+    },
+    {
+      "path": "evaluation-workspace/eval-design/C01.md",
+      "tool": "read_file",
+      "scope": "전체"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/source-ledger.md",
+      "tool": "read_file",
+      "scope": "전체"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/sentence-repair.md",
+      "tool": "read_file",
+      "scope": "전체"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/paragraph-revision.md",
+      "tool": "read_file",
+      "scope": "전체"
+    },
+    {
+      "path": "evaluation-workspace/candidate-v1/korean-editing/references/orthography-decisions.md",
+      "tool": "read_file",
+      "scope": "전체"
+    }
+  ],
+  "installed_skill_preexposure": {
+    "catalog_metadata": "대화의 상위 지침에 available_skills 전체 목록의 이름·설명이 자동 제공되었다. korean-editing, apa7-manuscript-writing 등 한국어 관련 설치 스킬의 메타데이터도 포함되어 있었다.",
+    "full_text_loaded": [
+      "installed-skills/korean-editing/SKILL.md"
+    ],
+    "timing": "설치본 skill_view, 동결본 SKILL.md, C01 입력을 첫 병렬 도구 묶음에서 요청했다. 설치본 본문이 교정문 작성 전에 노출되었다.",
+    "application_note": "교정은 동결본과 그 허용된 reference의 절차에 따라 수행했다. 설치본 본문 노출 사실은 별도로 기록한다."
+  },
+  "other_preloaded_context": "대화에 AGENTS.md의 프로젝트 문맥이 자동 제공되었다. 저장소의 AGENTS.md나 다른 저장소 파일을 도구로 읽지는 않았다.",
+  "excluded_material_access": {
+    "examples_md_read": false,
+    "validation_md_read": false,
+    "criteria_read": false,
+    "additional_design_material_read": false,
+    "other_case_inputs_read": false,
+    "existing_outputs_read": false,
+    "research_material_read_outside_allowed_references": false,
+    "repository_files_read_with_tools": false,
+    "external_search_or_fetch_performed": false
+  },
+  "self_scoring_performed": false,
+  "write_accesses": [
+    {
+      "path": "evaluation-workspace/execution/C01/output.md",
+      "tool": "write_file",
+      "purpose": "항목별 실제 교정 결과"
+    },
+    {
+      "path": "evaluation-workspace/execution/C01/access.json",
+      "tool": "write_file",
+      "purpose": "접근 경로와 설치 스킬 사전노출 기록"
+    }
+  ]
+}

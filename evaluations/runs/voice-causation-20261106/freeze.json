@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_execution",
+  "frozen_at_utc": "2026-11-06T15:07:03Z",
+  "algorithm": "SHA-256",
+  "inputs": [
+    "input-1.md",
+    "input-2.md"
+  ],
+  "criteria": "criteria.md",
+  "rubrics": [
+    "three-axis.md",
+    "analytic-korean-editing.md"
+  ],
+  "files": {
+    "input-1.md": {
+      "sha256": "484cead1fe1af693aa32a8440c6a57a6a9754d5661f1c3de6e09045363eb0f9b",
+      "bytes": 1896
+    },
+    "input-2.md": {
+      "sha256": "27eb408577eecd49f9bf15ceaa4054328bdee52a884e586bebf23b41d2dee275",
+      "bytes": 2807
+    },
+    "criteria.md": {
+      "sha256": "3648c57aa75d4a6b82216685211585515aef2b28faf2fa40e0303b45560eeeec",
+      "bytes": 5908
+    },
+    "three-axis.md": {
+      "sha256": "7ac4bec374c583eedb8a740fa8681042364702c4808bb7547f37298c3c6669ad",
+      "bytes": 4251,
+      "published_sha256": "89361ce8007e1b337c26b8f8cabb9e1a99db9bd3358ef07606c9d10c61def391",
+      "published_bytes": 4158
+    },
+    "analytic-korean-editing.md": {
+      "sha256": "3f8226f9ed594fdad1c20993b251d75112fd995531199f94550e9e316f74d3bb",
+      "bytes": 4628,
+      "published_sha256": "80005155f65404dfab5dbdc35938c354a604a0377dae4a6b7980a2d438904f0a",
+      "published_bytes": 4597
+    }
+  },
+  "rubric_originals": {
+    "three-axis.md": {
+      "source": "../../rubrics/three-axis.md",
+      "sha256": "fb2a6c7d9c5db86817d6ab02549254436dc58ef85a0439230a131fb0fe63fbe6",
+      "bytes": 4127,
+      "copy": "three-axis.md"
+    },
+    "analytic-korean-editing.md": {
+      "source": "../../rubrics/analytic-korean-editing.md",
+      "sha256": "0d42c968dc51887afebc053e039597da6448c0baeb4db9b570991863edcd65a3",
+      "bytes": 4594,
+      "copy": "analytic-korean-editing.md"
+    }
+  },
+  "rubric_copy_content": "All scoring wording is unchanged from the recorded originals. Four relative Markdown link targets were rebased for execution and then rebased for repository publication.",
+  "verification_scope": {
+    "source_findings": "Primary-text findings supplied by a separate investigator before freeze; the evaluation designer did not independently reopen those texts.",
+    "source_scope_record": "criteria.md",
+    "pending_linguistic_judgments": [],
+    "inputs_and_criteria_reviewed_before_freeze": true,
+    "outputs_observed": false,
+    "expected_answers_observed": false,
+    "skill_files_or_repository_changes_observed": false,
+    "evaluation_executed": false
+  },
+  "acceptance": {
+    "per_input": "All three axes at least 2 of 3, with no major error.",
+    "overall": "Both inputs pass; no averaging across failed axes.",
+    "pending": "Unexecuted, empty output, or access-boundary violation.",
+    "multiple_valid_revisions": true
+  },
+  "core_documents_whitespace_word_count": 976,
+  "manifest_scope": "This manifest hashes the five final Markdown files and records both original rubric hashes separately. It does not hash itself.",
+  "publication_note": "Inputs and criteria are byte-identical to the frozen execution files. Only four relative link targets in the two rubric copies were rebased for this repository location. sha256 and bytes record the frozen execution copies; published_sha256 and published_bytes record those two published copies. Scoring wording is unchanged."
+}
