@@ -102,6 +102,23 @@ class TraceabilityContracts(unittest.TestCase):
     def test_duplicate_definition_is_rejected(self):
         self.assertRejected(korean_ledger=KOREAN_LEDGER + "\n## G1 · 다른 저자\n")
 
+    def test_duplicate_qna_sequence_is_rejected(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+            "## N-Q5 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=ledger)
+
+    def test_qna_sequence_repeated_within_one_source_is_not_a_duplicate(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+            "- 재열람: qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
         self.assertAccepted(
