@@ -342,6 +342,36 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
     return errors
 
 
+QNA_SECTION = re.compile(r"(?ms)^##\s+(N-Q\d+)\s+·[^\n]*\n(.*?)(?=^##\s+|\Z)")
+QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
+
+
+def qna_sequence_errors(ledger_text: str) -> list[str]:
+    """Reject duplicate qna_seq values across canonical N-Q source entries.
+
+    Only the first qna_seq in each N-Q section identifies that section's source;
+    later mentions may be cross-references to related consultations.
+    """
+    seen: dict[str, tuple[str, int]] = {}
+    errors: list[str] = []
+    for match in QNA_SECTION.finditer(ledger_text):
+        sequence_match = QNA_SEQUENCE.search(match.group(2))
+        if sequence_match is None:
+            continue
+        sequence = sequence_match.group(1)
+        source_id = match.group(1)
+        line_number = ledger_text.count("\n", 0, match.start()) + 1
+        if sequence in seen:
+            first_id, first_line = seen[sequence]
+            errors.append(
+                f"duplicate qna_seq {sequence} in {source_id} at line {line_number}; "
+                f"first defined in {first_id} at line {first_line}"
+            )
+        else:
+            seen[sequence] = (source_id, line_number)
+    return errors
+
+
 def validate_repository(root: Path) -> list[str]:
     """Validate both skills under ``root`` and return human-readable errors."""
     texts: dict[str, str] = {}
@@ -355,6 +385,7 @@ def validate_repository(root: Path) -> list[str]:
         texts[skill] = ledger_path.read_text(encoding="utf-8")
         ledgers[skill], duplicate_errors = ledger_definitions(texts[skill])
         errors.extend(f"{skill}: {error}" for error in duplicate_errors)
+        errors.extend(f"{skill}: {error}" for error in qna_sequence_errors(texts[skill]))
     for skill, ledger_text in texts.items():
         for alias, target in ALIASES.get(skill, {}).items():
             if ALIAS_DEFINITION_TEXT[(skill, target)] not in _ledger_section(ledger_text, target):
