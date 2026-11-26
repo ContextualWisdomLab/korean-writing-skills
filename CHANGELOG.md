@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- 2026-11-26: Fixed Q&A source traceability for reference-style Markdown links. The checker now scans section-bounded inline tokens from the full parsed ledger so document-level reference definitions retain their resolved destinations; regression coverage rejects the same qna_seq across two source sections while allowing repeated references within one source.
+
+- 2026-11-26: Corrected the provenance note for online Q&A 338914. The 2026-11-20 first answer cites Article 48 twice; the 2026-11-25 correction does not cite an article number. A fresh direct read of the current official orthography page confirms Article 47 covers auxiliary-verb spacing and Article 48 covers personal names and titles. Existing source IDs were updated without adding a duplicate or changing the editing rule.
+
+
 - 2026-11-26 21:14 KST: source-ledger의 N-Q9/N-Q11이 같은 qna_seq=322400을 중복 정의한 실제 출처 추적 결함을 발견했다. 원문 「[재질문] 맞춤법에 관한 질문」(질문 본문 2025-10-16, 페이지 등록·첫 답변 2025-10-17, 후속 답변 2025-10-20)을 다시 읽고 N-Q9 하나로 통합했으며 N-Q11 중복 정의를 제거했다. N-Q10(qna_seq=323925)은 별도 상담으로 유지했다. source_traceability_test.py에 canonical N-Q qna_seq 중복 검사를 추가하고 고정 입력 단위 테스트 2건을 보완했다. Python 3.14 전체 검증은 실행 환경 제약으로 아직 미완료다.
 
 - 2026-11-26 21:13 KST (최신 기록 커밋 이후): PR #31 head 78e304f의 CodeRabbit 독립 리뷰를 comment 7191934783으로 한 차례 요청했으며 새 제출 review는 아직 없다(기존 42/42 inline thread 해결). Actions run 45819061217/job 139906252173은 failure·steps null이고 로그 404 BlobNotFound로 이번 원인 annotation은 확인하지 못했다. 이전 run 45805475752의 billing-lock annotation을 이번 run에 소급하지 않는다. 컨테이너 Python 3.13.5·uv 0.10.0, GitHub DNS 실패로 Python 3.14 필수 검사·패키징 및 ML1–ML5 독립 실행·채점은 미실행이다.
