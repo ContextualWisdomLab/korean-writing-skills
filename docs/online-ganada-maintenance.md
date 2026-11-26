@@ -828,3 +828,12 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **행동 평가 범위 정정**: `SKILL.md` 본문은 변경되지 않았지만 `orthography-decisions.md`의 ‘-지 말다’ 정정 및 제47항 충돌 설명은 교정 행동에 영향을 주는 참고 지침 변경이다. 따라서 ML1–ML5 평가는 선택 사항이 아니며, 별도 독립 실행·채점 전까지 병합할 수 없다. 평가 기록은 여전히 설계만 완료(독립 실행 0건·별도 채점 0건)다.
 - **Python 3.14 검증 차단**: Actions run `45844208934`의 attempt 2 job `140033346282`도 completed/failure, steps 없음, 로그 404 `BlobNotFound`였다. 로컬 `uv python install 3.14`는 python-build-standalone 다운로드의 DNS 해석 실패로 종료했다. Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 `git diff --check`, preview 패키징은 실행·통과 증거가 없다.
 - **다음 단계**: 이 리뷰 지적을 반영한 새 head에서 다시 독립 리뷰를 받고, ML1–ML5를 각각 새 context에서 실행한 뒤 별도 채점한다. Python 3.14 전체 검증과 패키징을 새 head에서 완료한 후에만 expected-head 일반 병합을 검토한다. PR #29는 별도 Open으로 유지한다.
+
+
+## 2026-11-27 01:15 KST — 리뷰 지적 반영 후 최신 head
+
+- CodeRabbit의 2026-11-26 16:11:00Z 실제 리뷰가 지적한 병합 재개 단계의 ML1–ML5 독립 실행·별도 채점 누락을 두 커밋 `be58a7d6dc835461775f8f20c7883318d1dfee1d`, `7eaeada27989cbfe565791e1e8f087f39bbe977f`에서 수정했다. 이전 ‘행동 지침 변경 없음’ 판단도 바로잡았다. 리뷰 thread `PRRT_kwDOUiIin868eO7J`는 해결됐고 전체 45/45가 resolved다.
+- 수정 직후 PR #31 head는 `7eaeada27989cbfe565791e1e8f087f39bbe977f`, base/main은 `e6eda1432b938f0fa359e30aa35a225bc7276628`이다. Open·mergeable=true·merged=false다. 새 head의 CodeRabbit check `140037776133`은 `skipped`(Review paused)이며, 최신 실제 제출 리뷰는 이전 head `cc93c9c37597650fcf10e8e70aefa69774dc4660`에 대한 COMMENTED 리뷰다. 새 head 리뷰는 아직 없다.
+- 새 head Python 3.14 job `140037680733`은 completed/failure, steps 빈 배열이다. 직전 run의 재실행 attempt 2도 steps가 비었고 로그는 404 `BlobNotFound`였다. 로컬 Python 3.14 설치는 GitHub 다운로드 DNS 해석 실패다. 전체 unittest·구조·출처·공개 위생 검사·`git diff --check`·preview 패키징은 이 head에서 실행하지 못했다.
+- ML1–ML5 독립 실행·별도 채점은 여전히 0건이다. 독립 실행자·별도 채점자를 확보하지 못한 상태를 평가 완료로 바꾸지 않는다. 이 조건과 Python 3.14 전체 검증을 충족하기 전에는 일반 병합하지 않는다.
+- 다음 재개: CodeRabbit review allowance가 다시 유효해진 뒤 이 기록의 최신 head를 한 번만 재리뷰 요청한다. 별도 실행자와 채점자를 확보해 ML1–ML5를 각각 실행·채점하고, 승인된 Python 3.14 환경에서 전체 검사를 다시 수행한다.
