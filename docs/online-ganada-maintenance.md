@@ -665,3 +665,26 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **보조 정적 확인**: PR compare의 33개 파일 추가 diff에서 후행 공백·충돌 표식 0건. source-ledger의 N-Q 제목 ID 47개 중복 0건, qna_seq 중복 0건. 이는 필수 검사 대체가 아니다.
 - **행동 평가**: ML1–ML5 독립 실행 0건, 별도 채점 0건, 통과 판정 없음. 최신 head에서 실행·채점할 승인된 별도 환경을 확보하지 못했다.
 - **결론**: 리뷰의 유효 지적은 반영했으나 최신 head 리뷰와 Python 3.14 필수 검증·패키징, 독립 행동 평가는 미완료다. 일반 병합하지 않는다. 다음 유효한 재개 시점에 최신 head를 다시 리뷰하고, 승인된 Python 3.14 환경에서 전체 검증을 실행한 뒤 병합 직전 head/base/reviews/Checks를 새로 읽는다.
+
+## 2026-11-26 19:09 KST — 최신 질문 10건, 수정 공지 재열람 및 Actions 실행 원인 확인
+
+- **목록 확인 범위**: [온라인가나다 목록 첫 화면](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)의 최신 질문 10행 **338932~338923**을 확인하고 각 상세 질문 본문을 직접 읽었다. 모두 질문일은 **2026-11-26**, 답변 본문·답변일은 **미표시**였다. 최초 직접 확인일과 이번 확인일은 이 묶음에 대해 모두 **2026-11-26**이다. 질문자의 주장·인용은 답변이나 규정 근거로 채택하지 않았다. 첫 화면과 해당 상세 10건의 확인이며 게시판 전수조사가 아니다.
+
+| qna_seq | 정확한 제목 | 질문일 | 답변일 | 직접 읽은 범위 |
+| --- | --- | --- | --- | --- |
+| [338932](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338932) | 유통기한 유통 기한 띄어쓰기 원칙은? 표준국어사전에서 산 모양 형태의 표기 의미 | 2026-11-26 | 미표시 | 상세 175–193행 |
+| [338931](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338931) | '선형 속에 있다'의 의미에 대한 질문 | 2026-11-26 | 미표시 | 상세 175–181행 |
+| [338930](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338930) | 표준국어대사전 '책머리'의 뜻풀이에 관한 문의 | 2026-11-26 | 미표시 | 상세 175–200행 |
+| [338929](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338929) | '행복해했다' 띄어쓰기 | 2026-11-26 | 미표시 | 상세 175–187행 |
+| [338928](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338928) | 말줄임표 다음의 띄어쓰기(한 단어 안에서 말을 머뭇거리거나 끊어 말할 때) | 2026-11-26 | 미표시 | 상세 175–191행 |
+| [338927](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338927) | 옥에 티 찾기 - 파고 들어가다, 주눅들다, 빠져 들다 | 2026-11-26 | 미표시 | 상세 175–197행 |
+| [338926](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338926) | 형용사와 피동 표현 질문입니다. | 2026-11-26 | 미표시 | 상세 175–187행 |
+| [338925](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338925) | 하지않다 와 하잖다 | 2026-11-26 | 미표시 | 상세 175–179행 |
+| [338924](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338924) | 열매가 열다 vs 열리다 | 2026-11-26 | 미표시 | 상세 175–179행 |
+| [338923](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338923) | '되다' 띄어쓰기 | 2026-11-26 | 미표시 | 상세 175–181행 |
+
+- **수정 공지와 기존 상담 재열람**: 최신 공지 [338800 「11. 16.~22. 온라인가나다 답변 수정사항 등 공지」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)은 **2026-11-23 등록**이다. 공지의 덧붙임 332057(질문 2026-06-07, 표시 답변일 2026-11-17, 처리 시각 2026-11-17 15:59:59)과 2차 답변 326839(질문 2026-01-25, 표시 답변일 2026-11-16, 처리 00:40:22), 326812(질문 2026-01-24, 표시 답변일 2026-11-16, 처리 00:38:59), 326747(질문 2026-01-22, 표시 답변일 2026-11-16, 처리 00:42:38)의 질문·답변·덧붙임/2차 답변 본문과 공지 행을 다시 읽었다. 각 추가 답변의 별도 게시일은 화면에 표시되지 않는다. 기존 출처 항목 N-Q26·N-Q36~N-Q38에 19:09 KST 재열람을 추가했으며 판단·조건·허용형은 유지했다. 사전 표제어 원문은 별도 열람하지 않았다고 보존한다.
+- **PR #31과 리뷰**: 점검 기준 head는 `b2b1fedadc8cbaea1c3f6c55c72a40fcf0cb7ef7`, base/main은 `e6eda1432b938f0fa359e30aa35a225bc7276628`이다. PR은 open·merged=false이며 PR #29는 별도 open으로 보존한다. CodeRabbit [check 139774410448](https://github.com/ContextualWisdomLab/korean-writing-skills/runs/139774410448)은 현재 head 커밋 제목에서 확인되며 2026-11-26 08:07:08–08:09:26 UTC에 분석·피드백 게시 5단계를 모두 완료해 success였다. 새 GitHub 제출 review 객체는 없고 마지막 제출은 06:48:01 UTC의 `COMMENTED`; inline threads 42건은 모두 해결 상태다. check 성공과 제출 review 객체를 구별한다.
+- **필수 CI 차단 원인**: Python 3.14 Actions [run 45780624540](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45780624540), job `139774905396`는 약 4초 만에 failure였다. steps는 빈 배열이고 로그는 404 `BlobNotFound`다. GitHub Actions 화면의 실제 annotation은 **“The job was not started because your account is locked due to a billing issue.”**다. 테스트가 실행되어 실패한 것이 아니라 계정 billing lock으로 job이 시작되지 않았다. 로컬 컨테이너는 Python 3.13.5·uv 0.10.0이며 Python 3.14가 설치되어 있지 않다. `uv python install 3.14`와 GitHub clone은 DNS 해석 실패로 중단됐다.
+- **검증·병합 경계**: Python 3.14 locked sync, 전체 unittest, `skill_structure_test.py`, `source_traceability_test.py`, `public_hygiene_test.sh`, 실제 `git diff --check`, 두 preview 패키징은 미실행이다. ML1–ML5 독립 실행 0건·별도 채점 0건이다. 결제 설정은 변경하지 않았다. 계정 소유자가 billing lock을 해결하고 승인된 Python 3.14 환경을 확보하기 전까지 일반 병합하지 않는다.
+
