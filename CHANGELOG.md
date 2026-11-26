@@ -5,6 +5,7 @@
 - 2026-11-26: Fixed Q&A source traceability for reference-style Markdown links. The checker now scans section-bounded inline tokens from the full parsed ledger so document-level reference definitions retain their resolved destinations; regression coverage rejects the same qna_seq across two source sections while allowing repeated references within one source.
 
 - 2026-11-26: Corrected the provenance note for online Q&A 338914. The 2026-11-20 first answer cites Article 48 twice; the 2026-11-25 correction does not cite an article number. A fresh direct read of the current official orthography page confirms Article 47 covers auxiliary-verb spacing and Article 48 covers personal names and titles. Existing source IDs were updated without adding a duplicate or changing the editing rule.
+- 2026-11-26: Strengthened the fixed-input regression for inline-code and HTML-comment examples: separate N-Q5 controls using qna_seq=322399 and 322398 must be accepted, while a second real URL using qna_seq=322400 must be rejected. The isolated CommonMark regression set passes 5/5 on Python 3.13.5 with markdown-it-py 4.2.0; this is not the required Python 3.14 repository suite.
 
 
 - 2026-11-26 21:14 KST: source-ledger의 N-Q9/N-Q11이 같은 qna_seq=322400을 중복 정의한 실제 출처 추적 결함을 발견했다. 원문 「[재질문] 맞춤법에 관한 질문」(질문 본문 2025-10-16, 페이지 등록·첫 답변 2025-10-17, 후속 답변 2025-10-20)을 다시 읽고 N-Q9 하나로 통합했으며 N-Q11 중복 정의를 제거했다. N-Q10(qna_seq=323925)은 별도 상담으로 유지했다. source_traceability_test.py에 canonical N-Q qna_seq 중복 검사를 추가하고 고정 입력 단위 테스트 2건을 보완했다. Python 3.14 전체 검증은 실행 환경 제약으로 아직 미완료다.
