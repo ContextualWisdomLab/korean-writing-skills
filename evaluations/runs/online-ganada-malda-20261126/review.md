@@ -10,7 +10,7 @@
 
 ## 평가 입력
 
-- `evaluations/scenarios/blind-inputs.md`의 N-20261126-malda(ML1–ML5). 직접 작성한 가상 입력이며 각 사례는 별도 새 context에서 실행하도록 설계했다.
+- `evaluations/scenarios/blind-inputs.md`의 N-20261126-malda(ML1–ML5). ML1–ML3·ML5는 직접 작성한 가상 입력이며, ML4는 [N-WEB 한글 맞춤법 제47항 표의 공식 예문](https://www.korean.go.kr/kornorms/m/m_regltn.do?regltn_code=0001)을 재사용한다. 각 사례는 별도 새 context에서 실행하도록 설계했다.
 - 지침·출처 장부에 판단이 드러나므로 이 과제는 진단용이며 독립 성공 점수나 일반 성능 향상 근거로 사용하지 않는다.
 
 ## 사전 판정 기준
@@ -25,9 +25,11 @@
 
 ## 동결 식별자
 
-- 입력 블록 SHA-256: `b1c2ac8462d0b7eb2ee4dd3bc55c87ced888cdcd79f62db594d3b81013183b93` (blind-inputs.md의 N-20261126-malda 블록만, 끝 줄바꿈 포함).
-- 판정표 SHA-256: `1ac02e7b46ab4608baf1799ecbe8df99f1bd068a637a78f7d59089f2d58904a8` (위 표 본문만, 끝 줄바꿈 포함).
-- 이 해시는 설계 등록 시점의 입력·기준 고정값이다. 실제 실행 전 최종 head, 전달 스킬·참고 파일, 시나리오 및 루브릭의 해시를 다시 기록한다.
+- 등록 head `19d0fbf86d24f8703fb633446db05305f43b6c5c`의 입력 블록 SHA-256: `b1c2ac8462d0b7eb2ee4dd3bc55c87ced888cdcd79f62db594d3b81013183b93` (blind-inputs.md의 N-20261126-malda 블록만, 끝 줄바꿈 포함).
+- 등록 head `19d0fbf86d24f8703fb633446db05305f43b6c5c`의 판정표 SHA-256: `1ac02e7b46ab4608baf1799ecbe8df99f1bd068a637a78f7d59089f2d58904a8` (위 표 본문만, 끝 줄바꿈 포함).
+- 확인 head `bc88cc6e57d79b04506e18d7ebdf7ab1ddd75bfe`의 현재 입력 블록 SHA-256: `48a9741a09c53fbbf7e279a8f684e776002a330aac459377250e6286ae5bda64` (동일 블록만, 끝 줄바꿈 포함).
+- 확인 head `bc88cc6e57d79b04506e18d7ebdf7ab1ddd75bfe`의 현재 판정표 SHA-256: `70d057255f3dad322eb7cf3fe0b107d28c22268a55c97e1fabaee7cab4bbc411` (위 표 본문만, 끝 줄바꿈 포함). 이후 bc88cc6 이후의 source-ledger 기록 커밋은 입력 블록과 판정표를 변경하지 않았다.
+- 등록 시점과 확인 시점의 해시는 서로 다른 내용을 식별한다. 이 기록은 실행·채점 결과가 아니다. 실제 실행 전에는 전달 스킬·참고 파일, 시나리오, 루브릭의 해시를 다시 고정한다.
 
 ## 실행 계약과 한계
 
