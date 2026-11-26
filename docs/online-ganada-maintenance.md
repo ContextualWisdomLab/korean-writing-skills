@@ -747,3 +747,11 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **선택한 gap·변경**: 338945~338936은 질문 본문을 읽었으나 모두 공식 답변·답변일 미표시여서 새 규칙이나 출처 ID를 만들지 않았다. 338938은 이전 목록 확인만 가능했던 상태에서 이번에 질문 본문 열람이 가능해졌으나 여전히 답변은 없다. 기존 N-Q17·N-Q22·N-Q47의 같은 qna_seq 항목에 실제 재열람 시각과 범위를 추가하고, 나머지는 관리 기록에만 보존했다. 지침·평가 입력·판정 기준은 변경하지 않았다.
 - **PR·리뷰·검증 경계**: PR #31은 조사 직전 head `86cab97c73912d0efba44f9ab4e3d880c749f33b`, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`에서 open·mergeable=true·merged=false였다. PR #29는 별도 open으로 유지한다. 이 head의 CodeRabbit 독립 제출 리뷰는 확인되지 않았고, 이전 제출 review는 head `533b15a`까지다. inline thread 42건은 모두 해결 상태였다. Python 3.14 Actions run [45805475752](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45805475752), job 139859458229는 billing lock annotation으로 시작되지 않아 테스트 단계가 0건이다. 로컬 컨테이너는 Python 3.13.5·uv 0.10.0이고 GitHub DNS 실패로 clone이 불가능했다. Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 diff 검사·두 preview 패키징 및 ML1–ML5 독립 실행·별도 채점은 미완료다. 결제 설정·보호 설정을 변경하지 않았으며 일반 병합하지 않는다.
 
+## 2026-11-26 21:13 KST — 최신 기록 커밋 이후의 PR 리뷰·Checks
+
+- 앞선 21:13 KST 조사 기록은 source-ledger 커밋 `635e07648ed2bd7fc0df6aff893b004a76f6c21f`, 관리 기록 커밋 `c12603f879a7804ad1c31ef909898694ffcd8ea7`, CHANGELOG 커밋 `78e304f0c4f5e7d68422df1d1adc21c648abd182`에 반영했다.
+- 이후 PR #31 최신 head는 `78e304f0c4f5e7d68422df1d1adc21c648abd182`, base/main은 `e6eda1432b938f0fa359e30aa35a225bc7276628`이며 open·mergeable=true·merged=false다. PR #29는 별도 open으로 유지한다.
+- CodeRabbit에 최신 head와 base를 명시한 독립 콘텐츠 리뷰를 한 차례 요청했다([요청 comment 7191934783](https://github.com/ContextualWisdomLab/korean-writing-skills/pull/31#issuecomment-7191934783)). 이 기록 시점에는 새 제출 review 객체가 없고, 마지막 실제 제출 review는 head `533b15a3b1640783ab864f37e3afe9ce0770d1aa`까지다. inline thread 42건은 모두 해결 상태다. 요청 댓글·기존 리뷰 요약은 새 head의 완료 리뷰로 취급하지 않는다.
+- 새 head의 Python 3.14 Actions [run 45819061217](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45819061217), job `139906252173`은 completed/failure이고 steps는 `null`이다. job 로그 다운로드는 404 `BlobNotFound`로 실패해 이번 run의 원인 annotation은 확보하지 못했다. 직전 run 45805475752의 실제 billing-lock annotation은 별도 과거 관찰로 보존하며 이번 run 원인으로 단정하지 않는다.
+- 이 컨테이너는 Python 3.13.5·uv 0.10.0이며 GitHub DNS 해석 실패로 checkout이 불가능했다. 따라서 새 head의 Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 `git diff --check`, 두 preview 패키징과 ML1–ML5 독립 실행·별도 채점은 여전히 실행되지 않았다. 일반 병합은 보류한다.
+
