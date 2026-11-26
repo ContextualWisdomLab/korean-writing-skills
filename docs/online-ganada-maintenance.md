@@ -755,3 +755,11 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - 새 head의 Python 3.14 Actions [run 45819061217](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45819061217), job `139906252173`은 completed/failure이고 steps는 `null`이다. job 로그 다운로드는 404 `BlobNotFound`로 실패해 이번 run의 원인 annotation은 확보하지 못했다. 직전 run 45805475752의 실제 billing-lock annotation은 별도 과거 관찰로 보존하며 이번 run 원인으로 단정하지 않는다.
 - 이 컨테이너는 Python 3.13.5·uv 0.10.0이며 GitHub DNS 해석 실패로 checkout이 불가능했다. 따라서 새 head의 Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 `git diff --check`, 두 preview 패키징과 ML1–ML5 독립 실행·별도 채점은 여전히 실행되지 않았다. 일반 병합은 보류한다.
 
+## 2026-11-26 21:14 KST — qna_seq 중복 출처 통합과 회귀 검사 추가
+
+- **발견한 gap**: source-ledger의 N-Q9과 N-Q11이 모두 같은 [국립국어원 온라인가나다 「[재질문] 맞춤법에 관한 질문」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=73&qna_seq=322400&pageIndex=1), \`qna_seq=322400\`을 별도 출처처럼 정의하고 있었다. 이는 같은 상담을 중복 등록한 것이다.
+- **원문 직접 대조**: 2026-11-26 21:14 KST에 질문·답변 본문 **162–184행 전체**를 다시 읽었다. 페이지 등록일은 **2025-10-17**, 질문 본문에 적힌 최초 질문일은 **2025-10-16**, 첫 답변일은 **2025-10-17**, 후속 답변일은 **2025-10-20**이다. 후속 질문의 별도 등록일은 표시되지 않는다. 기존 source-ledger에는 최초 확인일이 없으므로 이를 추정하지 않고 ‘기존 장부 미기록’으로 보존했다.
+- **원문에서 확인한 범위**: 첫 답변은 ‘-데/-대’, ‘웬만하면/왠지’, ‘갈 때’, ‘안/않’, ‘안되다/안 되다’, ‘되/돼’와 ‘안 돼’ 띄어쓰기를 함께 설명한다. 후속 답변은 ‘노려보다’가 표준국어대사전에 한 단어로 올라 있다고 안내한다. 표준국어대사전 표제어 원문은 이번에 별도 열람하지 않았고, 상담이 전한 설명과 사전 직접 확인을 구별한다.
+- **정정**: N-Q9에 정확한 원제목·질문일·답변일·후속 답변일·읽은 범위와 여러 주제를 통합했다. 중복 N-Q11 정의를 제거했다. 별도 상담 N-Q10(\`qna_seq=323925\`)은 다른 원문이므로 유지한다. 기존 출처 ID N-Q9를 보존하고 새 ID를 만들지 않았다.
+- **회귀 방지**: \`tests/source_traceability_test.py\`에 N-Q 섹션의 canonical \`qna_seq\` 중복 검사를 추가하고, \`tests/test_source_traceability.py\`에 서로 다른 항목의 중복은 거부하고 같은 항목 내부의 재언급은 허용하는 고정 입력 테스트를 추가했다.
+- **검증 경계**: 이번 변경은 출처 장부 정합성과 검사 코드에 한정되며 교정 행동 지침은 바꾸지 않는다. Python 3.14 환경·전체 unittest·source traceability 실행은 별도 검증해야 한다.
