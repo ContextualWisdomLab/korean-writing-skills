@@ -11,7 +11,7 @@
 
 ## 검토와 병합
 
-작성 담당과 다른 검토자가 출처 귀속, 규정·상담·편집 선택의 구분, 의미·조건·예외와 허용형 보존을 확인한다. 행동 지침이 달라졌다면 기존 [평가 절차](../evaluations/protocol.md)에 따라 입력·기준을 먼저 정하고, 해당 판본으로 새로 수행한 교정 과제를 독립적으로 검토한다. 소수 합성 과제의 결과를 일반 효과로 확대하지 않는다.
+작성 담당과 다른 검토자가 출처 귀속, 규정·상담·편집 선택의 구분, 의미·조건·예외와 허용형 보존을 확인한다. `SKILL.md` 본문뿐 아니라 실제 교정 행동을 바꾸는 참고 지침(예: `orthography-decisions.md`, `scope-routing.md`)을 수정한 경우에도 행동 관련 변경으로 취급한다. 기존 [평가 절차](../evaluations/protocol.md)에 따라 입력·스킬·참고 파일·루브릭의 판본과 해시를 먼저 고정하고, 사례마다 새 독립 context에서 실행한다. 실행자에게는 해당 스킬·필요 참고 파일·해당 사례 입력만 주며, 예상 답·루브릭·작성자 설명은 제공하지 않는다. 별도 채점자는 원문과 실제 출력만으로 사례별 기준을 적용한다. **N-20261126-malda의 ML1–ML5는 다섯 사례를 각각 독립 실행하고 별도로 채점해야 하며, 이 실행·채점 증거가 확보되기 전에는 PR을 병합하지 않는다.** 독립 실행자나 별도 채점자를 확보하지 못하면 평가를 미완료/차단으로 기록하고 병합을 보류한다. 소수 합성 과제의 결과를 일반 효과로 확대하지 않는다.
 
 최종 후보에서 현재 `CLAUDE.md`의 검증을 실행한다. 이 절차를 추가한 시점의 명령은 다음과 같다.
 
@@ -808,7 +808,7 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **관련 커밋**: 검사기 수정 ec76f3e6076d0257e5fb83070ba1f848c0b04af4; reference-link 회귀 dab4651f4eb69b647d15bfb0b59b72d74ad616af; 인라인 예시 대조군 129057bbffacb75e9ea34f02a9614b01bea3e48f; 338914 조항 귀속 정정 a03765f516f6779587d6027765c14deb0072184a; 상담 재열람 갱신 c4c23b36800ed0cc1fda8fecf1ef0089a0d6e528; 338914 과거 재열람 문장 정정 8b55e3c1ee7243324d2609cd6fcc7a9a12da2af9; CHANGELOG 기록 14084d7b4b2707d3ccb668c827a0fddec3827fd3.
 - **로컬 격리 검증**: Python **3.13.5**·markdown-it-py **4.2.0**에서 전체 문서 토큰의 섹션 경계·reference link·인라인 코드/HTML 주석 대조군을 포함한 고정 회귀 5건을 실행해 **5/5 통과**했다. 이는 격리 시나리오 검증이지 저장소 전체 unittest 통과가 아니다.
 - **최신 원격 상태(이 관리 기록 커밋 직전)**: PR #31은 [Open](https://github.com/ContextualWisdomLab/korean-writing-skills/pull/31), head 14084d7b4b2707d3ccb668c827a0fddec3827fd3, base/main e6eda1432b938f0fa359e30aa35a225bc7276628, mergeable=true, merged=false다. PR #29는 별도 Open이며 이번에 수정하지 않았다. Inline thread는 **44/44 해결**이다. 마지막 실제 제출 리뷰는 2026-11-26 14:28:41Z이며 최신 head에 대한 새 제출 review는 없다. CodeRabbit check 139989765151은 rate limit으로 **neutral**, 모든 분석·게시 단계가 skipped다. 리뷰 완료가 아니다.
-- **Python 3.14 Actions·로컬 환경**: 최신 run [45843104866](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45843104866), job 139989657484는 3초 내 completed/failure, steps는 빈 배열, 로그 다운로드는 404 BlobNotFound다. 실패 원인은 확인되지 않았으며 이전 run의 billing-lock annotation을 이번 원인으로 소급하지 않는다. 로컬 uv python install 3.14는 python-build-standalone 다운로드에서 GitHub DNS 해석 실패로 끝났고, GitHub checkout도 DNS 실패였다. 따라서 Python 3.14 locked sync, 전체 unittest, skill_structure_test.py, source_traceability_test.py 전체 저장소 실행, public_hygiene_test.sh, 실제 git diff --check, 두 preview 패키징은 미실행이다. 사용자 행동 지침이 바뀌지 않아 ML1–ML5 새 행동 평가는 실행하지 않았다.
+- **Python 3.14 Actions·로컬 환경**: 최신 run [45843104866](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45843104866), job 139989657484는 3초 내 completed/failure, steps는 빈 배열, 로그 다운로드는 404 BlobNotFound다. 실패 원인은 확인되지 않았으며 이전 run의 billing-lock annotation을 이번 원인으로 소급하지 않는다. 로컬 uv python install 3.14는 python-build-standalone 다운로드에서 GitHub DNS 해석 실패로 끝났고, GitHub checkout도 DNS 실패였다. 따라서 Python 3.14 locked sync, 전체 unittest, skill_structure_test.py, source_traceability_test.py 전체 저장소 실행, public_hygiene_test.sh, 실제 git diff --check, 두 preview 패키징은 미실행이다. 당시 기록은 `SKILL.md` 본문을 바꾸지 않았다는 이유로 행동 평가를 생략했으나, PR에는 `orthography-decisions.md`의 적용 판단 변경이 포함된다. 이는 사용자 행동에 영향을 주는 참고 지침 변경이므로 ML1–ML5 독립 실행·별도 채점이 병합 전 필요하다. 이전 판정의 ‘행동 지침이 바뀌지 않았다’는 표현을 정정한다.
 - **병합 판단**: 최신 head의 실제 독립 리뷰와 Python 3.14 필수 검증이 아직 없다. PR #31은 일반 병합하지 않았다. 보호·결제 설정 변경, self-approve, 강제 push, 빈 push는 하지 않았다.
 
 ## 2026-11-26 23:56 KST — 최신 head의 Checks·리뷰 재조회
@@ -817,4 +817,14 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - Inline review thread는 44/44 해결이다. 마지막 실제 제출 CodeRabbit review는 2026-11-26 14:28:41Z의 이전 head 024d868에 대한 COMMENTED 리뷰다. 최신 head에는 새 제출 review가 없다. 8b55e3c head의 CodeRabbit check 139989765151은 rate limit neutral이었고, 9bfe4aa head의 check-runs 목록에는 CodeRabbit 검사가 없다. neutral/미생성은 리뷰 완료가 아니다.
 - 최신 Python 3.14 run 45844019691/job 139992845730은 completed/failure, 약 3초 종료, steps 빈 배열, 로그 404 BlobNotFound다. 이번 실패 원인은 확인되지 않았다. 이전 실행의 billing-lock annotation을 이 run의 원인으로 소급하지 않는다.
 - 컨테이너 Python 3.13.5·uv 0.10.0이다. 이번 실행의 uv python install 3.14는 python-build-standalone 다운로드의 GitHub DNS 해석 실패로 종료했다. GitHub checkout도 DNS 실패였다. Python 3.14 locked sync·전체 unittest·구조/출처/공개 위생 검사·실제 git diff --check·두 preview 패키징은 최신 head에서 미실행이다. 앞서 실행한 Python 3.13.5 격리 회귀 5/5만 해당 테스트 입력의 결과로 보존한다.
-- 다음 단계: CodeRabbit rate limit이 풀린 유효 시점에 최신 head를 대상으로 한 번만 독립 리뷰를 요청하고, 승인된 Python 3.14 환경에서 CLAUDE.md의 전체 검사와 패키징을 실행한다. 그 전에는 일반 병합하지 않는다.
+- 다음 단계: 최신 head의 실제 독립 리뷰를 확보하고, `N-20261126-malda`의 ML1–ML5를 각각 새 context에서 독립 실행한 뒤 별도 채점한다. 이어 승인된 Python 3.14 환경에서 `CLAUDE.md`의 전체 unittest·구조·출처·공개 위생 검사·`git diff --check`·두 preview 패키징을 새 head에서 실행한다. 모든 유효 지적과 필수 검증이 완료되기 전에는 일반 병합하지 않는다.
+
+
+## 2026-11-27 01:03 KST — PR #31 재리뷰·평가 절차 보완
+
+- **온라인가나다 목록 범위**: [목록 첫 화면](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)의 공지 338800·338530·338232와 질문 338949–338940을 확인했다. 338949·338948·338947·338946·338944·338941·338940은 상세 질문 본문을 읽었고 이번 확인 시 답변·답변일은 표시되지 않았다. 338945·338943·338942는 비밀번호 영역 때문에 전체 질문을 읽지 못했고 답변 상태도 확인하지 못했다. 이 범위는 첫 화면 일부이며 게시판 전수조사가 아니다. 338800 공지 본문은 11월 23일 등록, 덧붙임 332057 1건과 2차 답변 326839·326812·326747 3건을 표시한다. 이번에는 연결 상담 상세를 새로 열지 않았다.
+- **기존 근거 접근 상태**: 338914 상담과 한글 맞춤법 규정 원문을 이번 실행에서 다시 열려 했으나 웹 접근 오류로 실패했다. 2026-11-26에 직접 읽은 338914 상세 174–194행 및 현행 규정의 제47·48항 확인 기록은 보존하고, 이번 실패로 이전 확인일을 덮거나 판단을 바꾸지 않았다.
+- **PR #31 독립 리뷰**: head `cc93c9c37597650fcf10e8e70aefa69774dc4660`, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`에서 CodeRabbit가 2026-11-26 16:11:00Z에 실제 COMMENTED 리뷰를 제출했다. 새 리뷰는 병합 재개 단계에 ML1–ML5 각각의 독립 실행과 별도 채점을 명시하라고 지적했다. Inline thread는 45개 중 44개 해결, 이 지적 1개가 미해결이다.
+- **행동 평가 범위 정정**: `SKILL.md` 본문은 변경되지 않았지만 `orthography-decisions.md`의 ‘-지 말다’ 정정 및 제47항 충돌 설명은 교정 행동에 영향을 주는 참고 지침 변경이다. 따라서 ML1–ML5 평가는 선택 사항이 아니며, 별도 독립 실행·채점 전까지 병합할 수 없다. 평가 기록은 여전히 설계만 완료(독립 실행 0건·별도 채점 0건)다.
+- **Python 3.14 검증 차단**: Actions run `45844208934`의 attempt 2 job `140033346282`도 completed/failure, steps 없음, 로그 404 `BlobNotFound`였다. 로컬 `uv python install 3.14`는 python-build-standalone 다운로드의 DNS 해석 실패로 종료했다. Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 `git diff --check`, preview 패키징은 실행·통과 증거가 없다.
+- **다음 단계**: 이 리뷰 지적을 반영한 새 head에서 다시 독립 리뷰를 받고, ML1–ML5를 각각 새 context에서 실행한 뒤 별도 채점한다. Python 3.14 전체 검증과 패키징을 새 head에서 완료한 후에만 expected-head 일반 병합을 검토한다. PR #29는 별도 Open으로 유지한다.
