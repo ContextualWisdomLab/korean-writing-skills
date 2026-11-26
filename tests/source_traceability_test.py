@@ -346,16 +346,18 @@ QNA_HEADING = re.compile(r"^##\s+(N-Q\d+)\s+·")
 QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
 
 
-def _first_qna_sequence(markdown: str) -> str | None:
-    """Return the first qna_seq in visible CommonMark text or a link destination.
+def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
+    """Return the first qna_seq in a section of an already parsed document.
 
-    Fenced/indented code, inline code and HTML comments are examples, not source
-    records. Link destinations remain eligible because canonical Q&A URLs carry
-    the qna_seq value there.
+    Parsing the complete ledger first preserves document-level reference-link
+    definitions. Fenced/indented code, inline code and HTML comments remain
+    examples, not source records; visible link destinations are eligible.
     """
-    tokens = MarkdownIt("commonmark").enable("table").parse(markdown)
     for token in tokens:
-        if token.type in {"fence", "code_block", "html_block"} or token.type != "inline":
+        if token.type != "inline" or token.map is None:
+            continue
+        token_start, token_end = token.map
+        if token_end <= start_line or token_start >= end_line:
             continue
         for child in token.children or []:
             if child.type == "link_open":
@@ -396,7 +398,7 @@ def qna_sequence_errors(ledger_text: str) -> list[str]:
     errors: list[str] = []
     for source_id, heading_start, body_start in qna_headings:
         end_line = next((start for start in h2_starts if start > heading_start), len(lines))
-        sequence = _first_qna_sequence("\n".join(lines[body_start:end_line]))
+        sequence = _first_qna_sequence(tokens, body_start, end_line)
         if sequence is None:
             continue
         line_number = heading_start + 1
