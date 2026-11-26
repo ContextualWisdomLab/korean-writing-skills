@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-26 19:09 KST: 온라인가나다 최신 목록 338932~338923의 질문 본문 10건을 직접 읽었으며 답변·답변일은 모두 미표시라 새 근거로 채택하지 않았다. 338800 공지와 연결 상담 332057·326839·326812·326747을 재열람하고 기존 N-Q26·N-Q36~N-Q38의 같은 출처 항목에 확인 이력을 추가했다. PR #31 최신 head b2b1fed의 CodeRabbit check 139774410448은 분석·피드백 게시 5단계 success였으나 새 제출 review 객체는 없었다. Actions run 45780624540의 실제 annotation에서 계정 billing lock으로 job이 시작되지 않았음을 확인했다. Python 3.14 필수 검사·패키징 및 ML1~ML5 독립 행동 평가는 미실행이며 일반 병합하지 않는다.
+
 - 2026-11-26 15:51 KST: PR #31 최종 head `0753d9e2b6d8333ad2462db5591f4c154ddd5aa4`의 상태를 기록했다. CodeRabbit은 `533b15a`까지 두 지적을 제출했고 모두 수정·해결했으나 `0753d9e` check는 Review paused로 건너뛰었다. Python 3.14 run 45771043413은 steps null·로그 404 BlobNotFound, 로컬 Python/GitHub 접근은 DNS 실패로 필수 검증·패키징 미실행이다. PR compare 보조 공백 검사와 source-ledger 중복 검사만 통과했으며 독립 행동 평가는 미실행이다. 일반 병합 보류.
 
 - 2026-11-26 15:48 KST: CodeRabbit의 두 번째 실제 리뷰(19d0fbf→533b15a, success)에서 지적한 ML4 공식 예문 출처 중복 설명과 동결 해시의 등록/확인 head 혼동을 수정했다. 평가 설명은 ML1–ML3·ML5만 직접 작성했다고 명시하고 ML4는 N-WEB 제47항 공식 예문으로 구분한다. 입력·판정표 해시는 등록 head 19d0fbf와 확인 head bc88cc6을 각각 분리해 기록했다. 새 리뷰 요청은 시간당 포함 한도 소진으로 하지 않았으며, Python 3.14 run 45770518483은 steps null·로그 404 BlobNotFound, 로컬 DNS 실패로 필수 검사·패키징이 미완료여서 병합하지 않는다.
