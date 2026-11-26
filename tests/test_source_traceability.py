@@ -119,6 +119,24 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertAccepted(korean_ledger=ledger)
 
+    def test_qna_sequence_reference_links_keep_document_level_definitions(self):
+        duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문][q]\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: [원문][q]\n"
+            "\n[q]: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        repeated = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문][q]\n"
+            "- 재열람: [같은 원문][q]\n"
+            "\n[q]: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=repeated)
+
     def test_qna_sequence_examples_in_code_blocks_and_html_comments_are_ignored(self):
         ledger = KOREAN_LEDGER + (
             "\n## N-Q4 · 상담\n"
