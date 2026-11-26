@@ -342,25 +342,64 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
     return errors
 
 
-QNA_SECTION = re.compile(r"(?ms)^##\s+(N-Q\d+)\s+·[^\n]*\n(.*?)(?=^##\s+|\Z)")
+QNA_HEADING = re.compile(r"^##\s+(N-Q\d+)\s+·")
 QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
+
+
+def _first_qna_sequence(markdown: str) -> str | None:
+    """Return the first qna_seq in visible CommonMark text or a link destination.
+
+    Fenced/indented code, inline code and HTML comments are examples, not source
+    records. Link destinations remain eligible because canonical Q&A URLs carry
+    the qna_seq value there.
+    """
+    tokens = MarkdownIt("commonmark").enable("table").parse(markdown)
+    for token in tokens:
+        if token.type in {"fence", "code_block", "html_block"} or token.type != "inline":
+            continue
+        for child in token.children or []:
+            if child.type == "link_open":
+                value = child.attrGet("href") or ""
+            elif child.type == "text":
+                value = child.content
+            else:
+                continue
+            match = QNA_SEQUENCE.search(value)
+            if match:
+                return match.group(1)
+    return None
 
 
 def qna_sequence_errors(ledger_text: str) -> list[str]:
     """Reject duplicate qna_seq values across canonical N-Q source entries.
 
-    Only the first qna_seq in each N-Q section identifies that section's source;
+    Section boundaries come from rendered CommonMark H2 tokens, not raw heading
+    text. The first visible qna_seq in each section identifies that source;
     later mentions may be cross-references to related consultations.
     """
+    lines = ledger_text.splitlines()
+    tokens = MarkdownIt("commonmark").enable("table").parse(ledger_text)
+    h2_starts = [
+        token.map[0]
+        for token in tokens
+        if token.type == "heading_open" and token.tag == "h2" and token.map is not None
+    ]
+    qna_headings = []
+    for token in tokens:
+        if token.type != "heading_open" or token.tag != "h2" or token.map is None:
+            continue
+        match = QNA_HEADING.match(lines[token.map[0]])
+        if match:
+            qna_headings.append((match.group(1), token.map[0], token.map[1]))
+
     seen: dict[str, tuple[str, int]] = {}
     errors: list[str] = []
-    for match in QNA_SECTION.finditer(ledger_text):
-        sequence_match = QNA_SEQUENCE.search(match.group(2))
-        if sequence_match is None:
+    for source_id, heading_start, body_start in qna_headings:
+        end_line = next((start for start in h2_starts if start > heading_start), len(lines))
+        sequence = _first_qna_sequence("\n".join(lines[body_start:end_line]))
+        if sequence is None:
             continue
-        sequence = sequence_match.group(1)
-        source_id = match.group(1)
-        line_number = ledger_text.count("\n", 0, match.start()) + 1
+        line_number = heading_start + 1
         if sequence in seen:
             first_id, first_line = seen[sequence]
             errors.append(

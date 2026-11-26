@@ -119,6 +119,29 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertAccepted(korean_ledger=ledger)
 
+    def test_qna_sequence_examples_in_code_blocks_and_html_comments_are_ignored(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
+            "\n```markdown\n"
+            "## N-Q5 · 예시\n"
+            "- URL: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+            "```\n"
+            "\n<!--\n"
+            "## N-Q6 · 예시\n"
+            "- URL: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+            "-->\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
+    def test_qna_sequence_ignores_inline_code_and_html_comment_examples(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- 예시: `qna_seq=322399` <!-- qna_seq=322398 -->\n"
+            "- URL: [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
         self.assertAccepted(
