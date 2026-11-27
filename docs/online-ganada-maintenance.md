@@ -1214,3 +1214,28 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **현행 규정 N-WEB 재열람**: [한글 맞춤법 본문·해설](https://www.korean.go.kr/kornorms/regltn/regltnView.do?regltn_code=0001&regltn_no=346)을 2026-11-28 01:31 KST에 다시 열었다. 표시 판본은 시행 2017-03-28, 문화체육관광부 고시 제2017-12호다. 제47항 보조 용언 띄어쓰기의 원칙·허용과 제48항 성명·호칭의 제목·본문을 직접 확인했다. 2026-11-27의 웹 도구 내부 오류는 HTTP 상태 코드 미제공으로 기록하며, 이번 성공은 제47·48항의 재열람이지 관보 원파일·전체 개정 연혁 또는 제30항의 검증이 아니다.
 - **PR #31 CodeRabbit 실제 리뷰 지적 처리**: 시작 head 63297bc72d81eb3b57b9aa5007e67a1ea69ea155에 대한 2026-11-27 14:54:50Z 실제 COMMENTED 리뷰의 7개 지적을 반영한다. 338949·338948·338947 최초 확인 시각을 23:51 KST로 정정하고, 338985–338980·338978·338976의 21:35 최초 확인과 후속 재열람 시각을 구분했다. OM3의 학교·교과서 기준은 학교 맥락이 있을 때만 필수로 두고 학자별 분석 차이는 유지한다. R1–R4와 W1·W2는 진단 전용이며 독립 성공 점수·통과 증거에서 제외한다고 입력 등록 파일에 명시했다. N-WEB 11월 27일 실패를 HTTP 403으로 잘못 적은 부분은 도구 내부 오류·상태 코드 미제공으로 바로잡고, 11월 28일 직접 재열람 성공을 추가했다. N-Q52 범위 제한 문장을 완결된 부정문으로 고쳤다.
 - **검증 경계**: 이 커밋 후 head의 새 리뷰·Checks는 아직 확인 전이다. 직전 head의 CodeRabbit check 140573832653은 completed/success이고 실제 리뷰 7건을 제출했으나, Python 3.14 check 140574745174는 completed/failure·steps 없음·logs_url 없음이며 로그 조회는 404 BlobNotFound다. 로컬은 Python 3.13.5/uv 0.10.0이고 uv python install 3.14 및 git ls-remote는 GitHub DNS 해석 실패로 끝났다. 따라서 Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, 실제 git diff --check, preview 패키징과 독립 ML1–ML5/OM1–OM3 실행·별도 채점은 아직 통과·완료로 보고하지 않는다. PR #31 일반 병합은 보류한다.
+
+## 2026-11-28 03:05 KST — 최신 목록·수정 공지·기존 답변 재확인 및 PR #31 리뷰 반영
+
+- **원격 기준**: PR #31은 Open·mergeable=true·merged=false, 확인 시작 head `107c57bc811528bb91fd5e6b1324b3623aee5ad6`, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`이었다. PR #29는 별도 Open 작업으로 유지하며 수정하지 않는다.
+- **목록 확인 범위**: [국립국어원 온라인가나다 목록](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)을 다시 열었다. 화면 전체는 **30,061건**, 첫 화면은 공지 338800·338530·338232와 질문 338991–338982를 표시했다. 첫 화면 일부 확인이며 게시판 전수조사가 아니다.
+- **질문 상세 확인**:
+
+| qna_seq · 정확한 제목 · URL | 질문일 | 답변일 | 이번 확인 범위·판정 |
+| --- | --- | --- | --- |
+| 338991 · 「모음조화 소실 음성상징어」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338991) | 2026-11-28 | 미표시 | 상세 174–181행 질문 전체. 답변 미표시라 질문의 전제를 근거로 채택하지 않았다. |
+| 338990 · 「국수는 표의주의」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338990) | 2026-11-27 | 확인 불가 | 상세에서 비밀번호 확인 화면만 확인했다. 질문·답변 본문과 답변 유무는 확인하지 못했다. |
+| 338989 · 「띄어쓰기」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338989) | 2026-11-27 | 미표시 | 상세 174–183행 질문 전체. ‘한번’·‘같은’의 띄어쓰기를 묻지만 답변 미표시라 근거로 채택하지 않았다. |
+| 338988 · 「살은 의존명사 인가요?」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338988) | 2026-11-27 | 확인 불가 | 상세에 비밀번호 확인 화면이 나타나 전체 질문·답변 본문과 답변 유무를 확인하지 못했다. |
+| 338987 · 「[재질문] 살구잎 / 살굿잎 / 살구 잎」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338987) | 원질문 2026-11-25; 재질문 2026-11-27 | 2026-11-27 | 상세 174–191행 전체를 다시 읽었다. 기존 N-Q52와 같으며, ‘잎’의 붙임과 사전 등재 한 단어 지위, ‘살굿잎’의 사잇소리 판단 불확실성을 구별한다. 제30항 적용과 ‘살굿잎’을 확정하지 않는다. |
+| 338986 · 「‘이’의 품사에 관한 질문」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338986) | 2026-11-27 | 미표시 | 상세 174–181행 질문 전체. 이름 뒤 ‘이’의 조사·접사 구별을 묻고 답변은 미표시다. |
+| 338985 · 「‘비웃다’의 단일어 여부에 관한 질문」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338985) | 2026-11-27 | 미표시 | 상세 174–181행 질문 전체. 답변·사전 원문은 확인되지 않았다. |
+| 338984 · 「‘시건방지다’ 형태소 분석」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338984) | 2026-11-27 | 미표시 | 상세 174–181행 질문 전체. ‘시’의 접사 여부를 묻고 답변은 미표시다. |
+| 338983 · 「관용구」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338983) | 2026-11-27 | 미표시 | 상세 174–180행 질문 전체. 관용구 등재 요청이며 답변·사전 등재 여부는 미확인이다. |
+| 338982 · 「영문 자격증 발급 문의」 · [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338982) | 2026-11-27 | 미표시 | 상세 174–183행 질문 전체. 개인 연락처·이름이 포함되어 있어 복제하지 않았고 언어 규칙 근거로 사용하지 않는다. |
+
+- **답변 수정 공지**: [338800](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)(등록 2026-11-23), [338530](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338530)(등록 2026-11-16), [338232](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338232)(등록 2026-11-09)의 공지 본문을 직접 읽었다. 338800은 332057 덧붙임과 326839·326812·326747 2차 답변, 338530은 337647·337363·337283·326777 2차 답변, 338232는 337820 고침 처리 시각을 표시한다. 목록에 더 최신 수정 공지는 보이지 않았다. 처리 시각을 답변 게시일로 추정하지 않았다.
+- **기존 상담 재열람**: [qna_seq=338914](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338914)의 상세 174–203행 전체를 다시 읽었다. 원질문일 2026-11-19, 최초 답변일 11-20, 두 번째 질문일 11-24, 정정 답변일 11-25, 세 번째 질문 등록일 11-26, 세 번째 답변일 11-27을 구별했다. 제48항 두 차례 인용은 11월 20일 최초 답변에만 있고, 11월 25일 정정 답변에는 조항 번호가 없으며, 11월 27일 답변은 제47항 해설을 설명한다.
+- **이번 판단**: 새 질문 중 답변이 표시된 새 상담은 없으므로 신규 출처 ID·일반 규칙·교정 예를 추가하지 않았다. 기존 N-Q52와 N-Q45만 같은 qna_seq에 재열람 이력을 추가했다.
+- **PR #31 리뷰**: 2026-11-27 16:53:33Z에 제출된 CodeRabbit COMMENTED 리뷰(7 actionable comments, 대상 head `107c57b`)를 직접 읽었다. CHANGELOG의 제48항 답변별 귀속과 338866 상세 열람 범위, 338211 입력 5의 사전 열람 기준, DQ5·NG1 실패/선택 기준, source-ledger의 338914 분류와 네 상담의 최신 확인 시각을 수정했다. 이 변경은 SKILL.md의 일반 행동 지침을 바꾸지 않는다.
+- **검증 경계**: 직전 head `107c57bc811528bb91fd5e6b1324b3623aee5ad6`의 Actions run 46035992059는 failure, job 140632243028의 steps는 0개, 로그 조회는 404 BlobNotFound였다. 컨테이너 `git ls-remote`는 GitHub DNS 해석 실패로 중단됐다. 따라서 새 head의 Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, git diff --check, preview 패키징과 독립 평가를 통과·완료로 보고하지 않는다. 일반 병합은 보류한다.
