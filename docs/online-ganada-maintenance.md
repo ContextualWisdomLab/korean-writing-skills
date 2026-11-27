@@ -1157,3 +1157,9 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - 로컬은 Python 3.13.5/uv 0.10.0이며 Python 3.14가 없다. `uv python install 3.14`와 `git ls-remote`는 GitHub DNS 해석 실패로 중단됐다. 최신 head의 Python 3.14 locked sync, 전체 unittest, skill structure, source traceability, public hygiene, git diff --check, preview 패키징은 실행·통과하지 못했다.
 - 최신 PR diff의 보조 정적 검사에서는 추가 2,948줄의 trailing whitespace 0·conflict marker 0, source-ledger N-Q ID 50개·primary qna_seq 중복 0, 수정 7개 파일의 기계 경로·ephemeral ID·credential signature·전화번호 패턴 0을 확인했다. 이는 저장소 테스트나 git diff --check 통과가 아니다.
 - OM1–OM3 및 DQ1–DQ5의 독립 실행·별도 채점은 0건이다. 입력·기준 등록은 실행 결과가 아니므로 일반 병합은 보류한다.
+
+### 2026-11-27 22:27 KST — PR #31 최신 head의 Actions 재확인
+
+- 최신 head `f4860eb18dafcccd354a10d7bb89c93fe45cc73b`에서 [Skills validation run 46007137583](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/46007137583)은 completed/failure, job `140533031049`, steps 0개, 로그 404 `BlobNotFound`다. 직전 head의 run 46006907270도 같은 단계 이전 실패였으므로 추가 재실행하지 않는다.
+- PR #31은 Open·mergeable=true·merged=false, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`다. inline thread 72/72 resolved이며 마지막 실제 제출 review는 510f9b 대상이다. 현재 head에 대한 제출 review는 없다.
+- CodeRabbit 마지막 제출 리뷰 시각 2026-11-27 13:03:10 UTC로부터 한 시간이 지나기 전이므로 이 회차에는 같은 리뷰를 재요청하지 않는다. 다음 유효 재개 시점에 현재 head 전체 리뷰를 한 번 요청한다. Python 3.14 전체 검사·패키징 및 OM/DQ 독립 실행·채점은 여전히 미실행이다.
