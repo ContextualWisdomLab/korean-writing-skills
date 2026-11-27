@@ -2,7 +2,7 @@
 
 - 근거: N-Q32, [2026-11-21 질문·2026-11-23 공식 답변 338751](https://korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=81&pageIndex=1&qna_seq=338751&searchCondition=&searchKeyword=); 직접 질문·답변 확인 2026-11-24.
 - 적용판: 변경 전 PR #31 head `3504de4e782cbd85ae7ce1ceebfb457d6445b12c`에서 작성. **이 파일을 포함하는 최종 head와 제공 스킬·시나리오의 SHA-256은 평가 전 별도 고정해야 하며 이 파일을 실행 결과로 오해하면 안 된다.**
-- 시나리오: [N-20261124-hankot](../../scenarios/blind-inputs.md#n-20261124-hankot--한곳한-곳의-문맥-구분-진단-입력)의 직접 쓴 KOT1~KOT4. 실행자는 원문과 사용자 요청만 받는다. 채점자는 별도로 원문과 아래 사전 기준을 검토한다.
+- 시나리오: [N-20261124-hankot](../../scenarios/blind-inputs.md#n-20261124-hankot--한곳한-곳의-문맥-구분-진단-입력)의 직접 쓴 KOT1~KOT4. 실행자는 원문·사용자 요청과 함께 평가 대상으로 고정한 최종 head의 `skills/korean-editing/SKILL.md` 및 해당 사례에 필요한 참고 파일을 받는다. 실행 전에 대상 head, 전달 파일 목록과 각 SHA-256을 기록한다. 채점자는 별도로 원문과 아래 사전 기준을 검토한다.
 
 ## 사전 판정 기준
 

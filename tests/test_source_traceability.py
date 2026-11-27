@@ -172,6 +172,37 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertRejected(korean_ledger=duplicate)
 
+    def test_qna_sequence_detects_mixed_html_and_markdown_links(self):
+        duplicate = KOREAN_LEDGER + (
+            "
+## N-Q4 · 상담
+"
+            '- URL: <a href="https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400">원문</a>
+'
+            "
+## N-Q5 · 상담
+"
+            "- URL: [같은 원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)
+"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        ignored = KOREAN_LEDGER + (
+            "
+## N-Q4 · 상담
+"
+            '- 예시: <!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322399">원문</a> -->
+'
+            '- 예시: `<a href="https://example.org/onlineQnaView.do?qna_seq=322398">원문</a>`
+'
+            "
+## N-Q5 · 상담
+"
+            "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)
+"
+        )
+        self.assertAccepted(korean_ledger=ignored)
+
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
         self.assertAccepted(

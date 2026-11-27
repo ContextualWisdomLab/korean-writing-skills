@@ -7,8 +7,10 @@ allowed only when the IDs are qualified with that skill name in the same prose
 run, e.g. ``korean-editing K2`` or ``korean-editing M-HANI1–4, M-HEO1``.
 Run: uv run --locked python tests/source_traceability_test.py
 
-Recognized citation forms (prose only; CommonMark code, HTML, link
-destinations and bare URLs are skipped, and prose runs break at line ends):
+Recognized source-ID citations are prose-only; CommonMark code, HTML text, link
+destinations and bare URLs are skipped, and prose runs break at line ends.
+The qna_seq duplicate guard separately reads Markdown link destinations and
+HTML anchor hrefs while continuing to ignore comments and code examples:
 
 - a ledger family followed by a number, e.g. ``N-Q3``, ``S8``, ``P-SONG2008``.
   Families are derived from the IDs the two ledgers define, plus the committed
@@ -32,6 +34,7 @@ entry was read correctly or that a rule is supported by its source.
 from __future__ import annotations
 
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 
 from markdown_it import MarkdownIt
@@ -346,12 +349,37 @@ QNA_HEADING = re.compile(r"^##\s+(N-Q\d+)\s+·")
 QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
 
 
+class _AnchorHrefParser(HTMLParser):
+    """Collect hrefs only from HTML anchor start tags in an inline fragment."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.hrefs: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.casefold() == "a":
+            for name, value in attrs:
+                if name and name.casefold() == "href" and value:
+                    self.hrefs.append(value)
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+
+
+def _html_anchor_hrefs(fragment: str) -> list[str]:
+    parser = _AnchorHrefParser()
+    parser.feed(fragment)
+    parser.close()
+    return parser.hrefs
+
+
 def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
     """Return the first qna_seq in a section of an already parsed document.
 
     Parsing the complete ledger first preserves document-level reference-link
     definitions. Fenced/indented code, inline code and HTML comments remain
-    examples, not source records; visible link destinations are eligible.
+    examples, not source records. Markdown link destinations and HTML anchor
+    hrefs are eligible; unrelated HTML text is not.
     """
     for token in tokens:
         if token.type != "inline" or token.map is None:
@@ -361,14 +389,17 @@ def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
             continue
         for child in token.children or []:
             if child.type == "link_open":
-                value = child.attrGet("href") or ""
+                values = [child.attrGet("href") or ""]
+            elif child.type == "html_inline":
+                values = _html_anchor_hrefs(child.content)
             elif child.type == "text":
-                value = child.content
+                values = [child.content]
             else:
                 continue
-            match = QNA_SEQUENCE.search(value)
-            if match:
-                return match.group(1)
+            for value in values:
+                match = QNA_SEQUENCE.search(value)
+                if match:
+                    return match.group(1)
     return None
 
 
