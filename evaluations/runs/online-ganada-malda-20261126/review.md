@@ -10,7 +10,7 @@
 
 ## 평가 입력
 
-- `evaluations/scenarios/blind-inputs.md`의 N-20261126-malda(ML1–ML5). ML1–ML3·ML5는 직접 작성한 가상 입력이며, ML4는 [N-WEB 한글 맞춤법 제47항 표의 공식 예문](https://www.korean.go.kr/kornorms/m/m_regltn.do?regltn_code=0001)을 재사용한다. 각 사례는 별도 새 context에서 실행하도록 설계했다.
+- `evaluations/scenarios/blind-inputs.md`의 N-20261126-malda(ML1–ML5). **ML1·ML2**는 국립국어원 온라인가나다 [qna_seq=338842 「[재질문] 본용언과 보조용언의 띄어쓰기」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338842)의 질문 본문에 재수록된 2026-11-19 원질문의 어구다(N-Q48). **ML3·ML5**는 직접 작성한 가상 입력이며, **ML4**는 [N-WEB 한글 맞춤법 제47항 표의 공식 예문](https://www.korean.go.kr/kornorms/m/m_regltn.do?regltn_code=0001)을 재사용한다. 동결 입력 문구는 변경하지 않았다. 각 사례는 별도 새 context에서 실행하도록 설계했다.
 - 지침·출처 장부에 판단이 드러나므로 이 과제는 진단용이며 독립 성공 점수나 일반 성능 향상 근거로 사용하지 않는다.
 
 ## 사전 판정 기준
