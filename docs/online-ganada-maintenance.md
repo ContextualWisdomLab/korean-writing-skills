@@ -1072,18 +1072,18 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 ## 2026-11-27 19:06 KST — 최신 목록·답변 수정 공지와 연결 상담 재열람
 
 - **목록 확인 경계**: [국립국어원 온라인가나다 목록](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)을 다시 열었다. 화면 총 건수는 **30,096건**이며 첫 화면 10행은 **338975–338966**, 마지막 표시 행은 **338966(질문일 2026-11-27)**이다. 이 열 건의 상세 질문 본문을 각각 직접 읽었다. 열 건 모두 질문일은 2026-11-27이고 상세 화면에 기관 답변과 답변일은 표시되지 않았다. 이는 첫 화면 10건과 연결된 공지·상담만 확인한 범위이며 게시판 전체 전수 조사가 아니다.
-  | qna_seq | 원문 제목 | 질문일 | 답변일 |
-  | --- | --- | --- | --- |
-  | [338975](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338975) | 압존법 사용 문의 | 2026-11-27 | 미표시 |
-  | [338974](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338974) | 의존 명사 관련 주어 문의 | 2026-11-27 | 미표시 |
-  | [338973](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338973) | 깨뜨려버리다 띄어쓰기 | 2026-11-27 | 미표시 |
-  | [338972](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338972) | 뭐라 뭐라 뭐라뭐라 띄어쓰기 | 2026-11-27 | 미표시 |
-  | [338971](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338971) | 스몸비 표현 사용에 대한 문의 | 2026-11-27 | 미표시 |
-  | [338970](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338970) | 감면과 감경 | 2026-11-27 | 미표시 |
-  | [338969](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338969) | 허릿단을 늘이다 / 허릿단을 늘리다 중 어느 것이 맞나요? | 2026-11-27 | 미표시 |
-  | [338968](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338968) | 수관형사 구분 | 2026-11-27 | 미표시 |
-  | [338967](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338967) | 본용언-보조용언 띄어쓰기 | 2026-11-27 | 미표시 |
-  | [338966](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338966) | 완공 전 또는 완공 후 3년 이내의 의미 | 2026-11-27 | 미표시 |
+  | qna_seq | 원문 제목 | 질문일 | 최초 확인일 | 이번 확인일 | 답변일 |
+  | --- | --- | --- | --- | --- | --- |
+  | [338975](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338975) | 압존법 사용 문의 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338974](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338974) | 의존 명사 관련 주어 문의 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338973](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338973) | 깨뜨려버리다 띄어쓰기 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338972](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338972) | 뭐라 뭐라 뭐라뭐라 띄어쓰기 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338971](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338971) | 스몸비 표현 사용에 대한 문의 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338970](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338970) | 감면과 감경 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338969](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338969) | 허릿단을 늘이다 / 허릿단을 늘리다 중 어느 것이 맞나요? | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338968](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338968) | 수관형사 구분 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338967](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338967) | 본용언-보조용언 띄어쓰기 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
+  | [338966](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338966) | 완공 전 또는 완공 후 3년 이내의 의미 | 2026-11-27 | 2026-11-27 19:06 KST | 2026-11-27 19:06 KST | 미표시 |
 
 - **2026-11-23 수정 공지**: [338800 「11. 16.~22. 온라인가나다 답변 수정사항 등 공지」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)의 본문 전체를 직접 읽었다. 등록일은 2026-11-23이다.
   - [332057 「N행시, N 행 시」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=332057): 질문일 2026-06-07, 화면 답변일 2026-11-17, [덧붙임] 처리 시각 2026-11-17 15:59:59, 별도 게시일 미표시. 질문·최초 답변·[덧붙임] 전체(174–200행)를 재열람했다. 사전 등재 단독 낱말과 행 수를 세는 구 구성, 숫자 표기의 원칙·허용을 구별한다.
