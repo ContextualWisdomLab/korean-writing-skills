@@ -924,3 +924,36 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - 수정 커밋 head의 Python 3.14 Actions run [45903089422](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45903089422), job 140193299273은 completed/failure이며 steps가 제공되지 않았다. 로그 다운로드는 404 BlobNotFound였다. CodeRabbit check 140193345007은 조회 시 in_progress였다.
 - 로컬은 Python 3.13.5·uv 0.10.0이다. uv python install 3.14는 python-build-standalone GitHub 다운로드의 DNS 이름 해석 실패로 끝났다. 따라서 Python 3.14 locked sync·전체 unittest·skill structure·source traceability·public hygiene·실제 git diff --check·Preview 패키징은 최신 후보에서 실행·통과하지 못했다.
 - ML1–ML5 독립 실행 0건·별도 채점 0건이다. 이 세션에서 독립 실행자와 별도 채점자를 확보하지 못했으므로 평가를 완료한 것으로 처리하지 않는다. 최신 head의 실제 리뷰, 독립 행동 평가, Python 3.14 전체 검증·패키징을 모두 충족하기 전에는 일반 병합하지 않는다. PR #29는 별도 Open으로 유지한다.
+
+## 2026-11-27 09:07 KST — 첫 화면 질문 338956–338947과 PR #31 재개 상태
+
+### 온라인가나다 첫 화면
+
+[국립국어원 온라인가나다 목록](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)의 첫 화면에서 공지 338800과 질문 10행 338956–338947을 확인했다. 아래 열 건은 각각 상세 페이지를 열어 질문 본문을 읽었다. 질문일은 상세 화면에 표시된 날짜이며, 답변 본문·답변일은 모두 미표시다. 이는 게시판 일부 조회이며 전체 전수 확인이 아니다.
+
+| qna_seq | 원문 제목 | 질문일 | 최초 직접 확인일·이번 확인일 | 읽은 범위 | 답변 상태 |
+| --- | --- | --- | --- | --- | --- |
+| 338956 | 나으리와 나리 표기법 | 2026-11-27 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338955 | 포식소체는 捕食小體 | 2026-11-27 | 2026-11-27 09:07 KST | 상세 174–191행, 질문 본문 | 답변·답변일 미표시 |
+| 338954 | ~하는 데 능이 있다 | 2026-11-27 | 2026-11-27 09:07 KST | 상세 174–180행, 질문 본문 | 답변·답변일 미표시 |
+| 338953 | 미지칭 부정칭 | 2026-11-27 | 2026-11-27 09:07 KST | 상세 174–184행, 질문 본문 | 답변·답변일 미표시 |
+| 338952 | 시간 띄어쓰기 | 2026-11-27 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338951 | 중세국어 닐오디 연철 | 2026-11-26 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338950 | 어디 의 미지칭대명사 지시대명사 의문대명사 구별하는법 | 2026-11-26 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338949 | 의존명사, 조사의 구분 | 2026-11-26 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338948 | '마다'가 붙은 말의 문장성분 | 2026-11-26 | 2026-11-27 09:07 KST | 상세 174–185행, 질문 본문 | 답변·답변일 미표시 |
+| 338947 | 중세국어에서 각자병서와 ㅂ계, ㅂㅅ계, ㅅ계 합용병서의 발음 | 2026-11-26 | 2026-11-27 09:07 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+
+각 상세 URL은 목록의 해당 qna_seq로 연결된다. 질문 본문에 담긴 분석·인용·사전 오류 주장은 기관 답변으로 취급하지 않았다. 특히 338955의 한자 표기 이견과 338952의 띄어쓰기 질문은 공식 답변이 표시되지 않아 규칙 근거로 채택하지 않았다. 새 N-Q 출처 ID, 편집 규칙, 수정·유지 예, 평가 입력은 추가하지 않았다.
+
+### 기존 수정 공지 재확인
+
+[338800 「11. 16.~22. 온라인가나다 답변 수정사항 등 공지」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)은 2026-11-23 등록이다. 공지 본문과 연결된 [332057](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=332057), [326839](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326839), [326812](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326812), [326747](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326747)의 질문·답변·덧붙임/2차 답변 전체를 다시 읽었다. 기존 N-Q26·N-Q36–N-Q38의 조건·판단, 질문일·표시 답변일·공지 등록일·처리 시각·별도 게시일 미표시 구분과 최초 확인일은 07:07 KST 기록과 같아 출처 장부 항목을 다시 만들거나 해석을 바꾸지 않았다.
+
+### PR #31 상태와 검증 경계
+
+- 이 기록을 작성하기 전 PR #31의 head는 `95f0f0b9ec0bb879ad458afcac89fac6305ecb6f`, base/main은 `e6eda1432b938f0fa359e30aa35a225bc7276628`였다. PR은 Open·mergeable=true·merged=false이며 PR #29는 별도 Open으로 유지했다.
+- pre-update head의 CodeRabbit check [140231530558](https://github.com/ContextualWisdomLab/korean-writing-skills/runs/140231530558)는 completed/success였다. 범위 준비·저장소 준비·분석·피드백 생성·게시 5단계가 모두 완료됐고 annotations 0건이다. 다만 GitHub 제출 review 객체는 이전 head `c0c6d3d`까지이며, `95f0f0b`에 연결된 새 review 객체·inline comment는 없었다. 기존 inline thread는 46/46 resolved다. 이 check 결과는 이후 문서 커밋의 head 리뷰로 승계하지 않는다.
+- Python 3.14 Actions run [45903731107](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45903731107) attempt 2의 job `140231425108`은 약 2초 만에 failure, steps 빈 배열, 로그 404 `BlobNotFound`다. 별도 run [45915011727](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45915011727) attempt 1의 job `140232019166`도 약 4초 만에 failure, steps 미제공, 로그 404 `BlobNotFound`다. 두 실패 모두 테스트 명령 실행 여부나 원인을 로그로 확인할 수 없다.
+- 로컬 컨테이너는 Python 3.13.5·uv 0.10.0이다. 이번 실행의 `uv python install 3.14`는 python-build-standalone 다운로드 중 GitHub DNS 해석 오류로 실패했다. GitHub clone도 DNS 해석 실패다. 따라서 Python 3.14 locked sync, 전체 unittest, `skill_structure_test.py`, `source_traceability_test.py`, `public_hygiene_test.sh`, 실제 `git diff --check`, 두 preview 패키징은 최신 후보에서 실행·통과 증거가 없다.
+- ML1–ML5 독립 실행 0건·별도 채점 0건이다. 이 문서 기록은 행동 지침 변경이 아니며 새 행동 평가를 수행한 것으로 보지 않는다. 다음 head에는 새 독립 리뷰와 Python 3.14 전체 검증이 필요하고, ML1–ML5 독립 실행·별도 채점도 병합 전 조건으로 남는다. 일반 병합하지 않았다.
