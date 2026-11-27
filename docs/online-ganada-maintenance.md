@@ -957,3 +957,52 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - Python 3.14 Actions run [45903731107](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45903731107) attempt 2의 job `140231425108`은 약 2초 만에 failure, steps 빈 배열, 로그 404 `BlobNotFound`다. 별도 run [45915011727](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45915011727) attempt 1의 job `140232019166`도 약 4초 만에 failure, steps 미제공, 로그 404 `BlobNotFound`다. 두 실패 모두 테스트 명령 실행 여부나 원인을 로그로 확인할 수 없다.
 - 로컬 컨테이너는 Python 3.13.5·uv 0.10.0이다. 이번 실행의 `uv python install 3.14`는 python-build-standalone 다운로드 중 GitHub DNS 해석 오류로 실패했다. GitHub clone도 DNS 해석 실패다. 따라서 Python 3.14 locked sync, 전체 unittest, `skill_structure_test.py`, `source_traceability_test.py`, `public_hygiene_test.sh`, 실제 `git diff --check`, 두 preview 패키징은 최신 후보에서 실행·통과 증거가 없다.
 - ML1–ML5 독립 실행 0건·별도 채점 0건이다. 이 문서 기록은 행동 지침 변경이 아니며 새 행동 평가를 수행한 것으로 보지 않는다. 다음 head에는 새 독립 리뷰와 Python 3.14 전체 검증이 필요하고, ML1–ML5 독립 실행·별도 채점도 병합 전 조건으로 남는다. 일반 병합하지 않았다.
+
+## 2026-11-27 11:09 KST — 첫 화면 질문 338957–338948과 답변 수정 공지 재확인
+
+### 온라인가나다 첫 화면과 상세 질문
+
+[국립국어원 온라인가나다 목록](https://www.korean.go.kr/front/onlineQna/onlineQnaList.do?mn_id=201)의 첫 화면을 확인했다. 화면에는 전체 30,080건과 공지 338800·338530·338232, 최신 질문 10행 338957–338948이 표시됐다. 아래 10건은 각각 상세 페이지를 열어 질문 본문을 읽었다. 첫 화면의 마지막 행은 338948이며, 이 범위는 게시판 일부 조회이지 전체 전수 확인이 아니다.
+
+| qna_seq | 원문 제목 | 질문일 | 최초 직접 확인일 | 이번 확인일 | 읽은 범위 | 답변 상태 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 338957 | [작난의 뜻](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338957) | 2026-11-27 | 2026-11-27 11:09 KST | 2026-11-27 11:09 KST | 상세 174–179행, 질문 본문 | 답변·답변일 미표시 |
+| 338956 | [나으리와 나리 표기법](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338956) | 2026-11-27 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338955 | [포식소체는 捕食小體](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338955) | 2026-11-27 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–191행, 질문 본문 | 답변·답변일 미표시 |
+| 338954 | [~하는 데 능이 있다](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338954) | 2026-11-27 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–180행, 질문 본문 | 답변·답변일 미표시 |
+| 338953 | [미지칭 부정칭](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338953) | 2026-11-27 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–184행, 질문 본문 | 답변·답변일 미표시 |
+| 338952 | [시간 띄어쓰기](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338952) | 2026-11-27 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338951 | [중세국어 닐오디 연철](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338951) | 2026-11-26 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338950 | [어디 의 미지칭대명사 지시대명사 의문대명사 구별하는법](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338950) | 2026-11-26 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338949 | [의존명사, 조사의 구분](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338949) | 2026-11-26 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–181행, 질문 본문 | 답변·답변일 미표시 |
+| 338948 | ['마다'가 붙은 말의 문장성분](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338948) | 2026-11-26 | 2026-11-27 09:07 KST | 2026-11-27 11:09 KST | 상세 174–185행, 질문 본문 | 답변·답변일 미표시 |
+
+질문 본문에 포함된 역사·한자·문법 분석과 사전 인용은 질문자의 주장으로만 취급했다. 기관 답변이 표시되지 않아 새 N-Q 출처 ID, 규칙, 수정·유지 예, 평가 입력은 만들지 않았다. 관련 규정·사전 원문을 새로 확인한 것도 아니다. 따라서 이번 첫 화면 조사로 스킬 행동 지침은 바꾸지 않았다.
+
+### 최신 답변 수정 공지와 연결 상담
+
+[338800 「11. 16.~22. 온라인가나다 답변 수정사항 등 공지」](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=201&pageIndex=1&qna_seq=338800)은 2026-11-23 등록이다. 이번 확인에서 공지 본문 전체와 연결된 네 상담의 질문·최초 답변·후속 답변 전체를 다시 읽었다.
+
+| qna_seq | 원문 제목 | 질문일 | 화면 표시 답변일 | 공지의 처리 시각 | 읽은 범위 |
+| --- | --- | --- | --- | --- | --- |
+| 332057 | [N행시, N 행 시](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=332057) | 2026-06-07 | 2026-11-17 | 2026-11-17 15:59:59 | 상세 174–200행, 질문·최초 답변·[덧붙임] 전체 |
+| 326839 | [단 한 마디](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326839) | 2026-01-25 | 2026-11-16 | 2026-11-16 00:40:22 | 상세 174–229행, 질문·최초 답변·[2차답변] 전체 |
+| 326812 | [한순간의 띄어쓰기](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326812) | 2026-01-24 | 2026-11-16 | 2026-11-16 00:38:59 | 상세 174–216행, 질문·최초 답변·[2차답변] 전체 |
+| 326747 | [더하다의 예문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=216&pageIndex=1&qna_seq=326747) | 2026-01-22 | 2026-11-16 | 2026-11-16 00:42:38 | 상세 174–204행, 질문·최초 답변·[2차답변] 전체 |
+
+공지 등록일은 2026-11-23이고 표의 시각은 공지에 적힌 처리 시각이다. 덧붙임·2차 답변 문단의 별도 게시일은 모두 미표시이므로 처리 시각을 답변 게시일로 추정하지 않았다.
+
+- 332057은 단독 사전 등재어 ‘이행시·삼행시·사행시·오행시·팔행시’와 행 수를 세는 구 구성 ‘이 행 시’ 등을 구별한다. 숫자 표기는 ‘2 행 시’가 원칙이고 ‘2행 시’도 허용한다. 답변이 제43항을 언급하지만 사전 표제어 원문은 이번에도 별도 열람하지 않았다.
+- 326839는 수량을 세는 ‘단 한 마디·딱 한 마디·한 마디씩 끊어서’와 ‘짧고 간단한 말’의 ‘한마디’를 구별한다. 우리말샘 ‘가득하다004’ 용례 수정은 답변의 보고로만 기록했고 사전 원문은 별도 열람하지 않았다.
+- 326812는 질문의 용례를 ‘한 순간’ 구 구성으로 판단하고, ‘단 한순간의’와 ‘어느 한순간’을 각각 ‘단 한 순간의’, ‘어느 한 순간’으로 수정했다고 보고한다. 모든 ‘한순간’을 금지하는 일반 규칙으로 확대하지 않는다.
+- 326747은 ‘밖에’ 뒤에서 ‘어떤 기준보다 더 심하다’의 뜻이 성립하지 않는 해당 문맥의 ‘더 하다’를 띄어 쓰도록 설명하고, ‘기껏해야’ 용례의 ‘더하겠어’를 ‘더 하겠어’로 수정했다고 보고한다. 모든 문맥의 ‘더하다’를 일괄 붙이거나 띄우지 않는다.
+
+같은 qna_seq의 기존 N-Q26·N-Q36–N-Q38 항목에 2026-11-27 11:09 KST 재열람 기록을 덧붙였다. 최초 확인일과 앞선 확인 이력은 보존했다. 새 규정·사전 원문 확인·일반 편집 규칙은 추가하지 않았다.
+
+### PR #31의 이번 실행 시작 상태와 병합 제한
+
+- 기록 변경 전 PR #31은 Open·mergeable=true·merged=false, head `5c2a7d7eaae21a2c2ba067603de50aa8db33c6b8`, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`이었다. PR #29는 별도 Open으로 유지했다.
+- 최신 실제 CodeRabbit 제출 리뷰는 2026-11-26 20:25:29Z에 제출됐으며 대상 범위는 이전 head `c0c6d3de9afa7ccf8df3d0ab7de30efeca163e4f`까지다. 현재 head에 대한 새 제출 review는 없다. 기존 inline thread는 46/46 resolved다.
+- 현재 head CodeRabbit check `140233524890`은 `completed/neutral`·rate-limited이며 범위 준비·저장소 준비·분석·피드백·게시가 모두 skipped다. 실제 리뷰 완료로 보지 않는다.
+- 현재 head Python 3.14 Actions run [45915464708](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/45915464708), job `140233479544`는 `completed/failure`이고 실행 steps가 빈 배열이다. 로그 조회는 404 `BlobNotFound`로 실패했고 annotation 본문도 읽지 못해 원인을 단정하지 않는다. 컨테이너는 Python 3.13.5·uv 0.10.0이며 GitHub 호스트 DNS가 해석되지 않는다. 이 head에서 Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, `git diff --check`, 두 preview 패키징은 실행·통과하지 못했다.
+- N-20261126-malda의 ML1–ML5는 다섯 사례 독립 실행 0건·별도 채점 0건이다. 이 실행은 행동 지침을 바꾸지 않아 새 평가 입력을 만들지 않았지만 기존 평가 조건은 그대로 남는다. 새 head의 실제 제출 리뷰, 승인된 Python 3.14 전체 검증·패키징, ML1–ML5 독립 실행·별도 채점이 완료되기 전 일반 병합하지 않는다.
