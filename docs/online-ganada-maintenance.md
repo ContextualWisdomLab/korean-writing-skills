@@ -1148,3 +1148,12 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **기존 qna_seq=338862 접근·시각 한계**: 이번 22시대 상세 재열기 시도는 실패했다. 11/24 23시대의 ‘재열람’ 기록과 11/25 01시대의 ‘최초 직접 확인’ 기록이 충돌한다. 원시 접근 로그가 없어 최초 확인 시각은 확정하지 않고, 두 기록을 보존한다.
 - **PR #31 실제 리뷰와 수정**: 시작 head 510f9b4f2430430b828f685691ae1c754cc8419b, base/main e6eda1432b938f0fa359e30aa35a225bc7276628. 2026-11-27 13:03:10 UTC CodeRabbit 제출 리뷰(COMMENTED)의 5개 지적을 확인했다. 시작 시점 inline thread는 72개 중 67개 해결, 아래 5개 미해결이었다. (1) 338862 최초 확인 시각 충돌을 미확정으로 명시, (2) 제48항 인용을 11/20 최초 답변에 귀속하고 11/25 정정 답변에는 조항 번호가 없음을 반영, (3) OM1–OM3를 blind-inputs.md에 해시와 함께 등록하되 비블라인드 진단임을 표시, (4) N-Q40의 보존 범위를 기존 입력 기록·직접 인용으로 제한하고 새 안내문은 표준 발음으로 작성하도록 분리, (5) N-Q9의 ‘돼’ 축약 설명을 ‘-어/-었-/-어서’ 등 해당 결합으로 좁혔다. DQ5 추가 고정 입력과 별도 해시도 등록했다.
 - **검증·병합 경계**: 로컬 컨테이너는 Python 3.13.5/uv 0.10.0이며 Python 3.14는 설치되어 있지 않다. uv python install 3.14는 GitHub 다운로드 호스트 DNS 해석 실패로 3회 재시도 후 실패했고 git ls-remote도 DNS 해석 실패했다. 직전 Actions run 46002430887의 job 140447948913은 실행 단계 0개, 로그 조회 404 BlobNotFound였다. 따라서 Python 3.14 locked sync·전체 unittest·구조·출처·공개 위생 검사·git diff --check·preview 패키징은 이 head에서 실행·통과하지 못했다. OM1–OM3 및 DQ1–DQ5 독립 실행·별도 채점도 0건이며, 진단 입력 등록은 실행 결과가 아니다. 이번 수정 후 최신 head에 대한 새 제출 리뷰와 전체 검증이 필요하므로 일반 병합하지 않는다.
+
+## 2026-11-27 22:26 KST — PR #31 최신 head 검증 상태
+
+- 최신 head `c092c9c3c24041c967031d8031564f4ca61a3202`, base/main `e6eda1432b938f0fa359e30aa35a225bc7276628`, PR #31 Open·mergeable=true·merged=false다. PR #29는 별도 Open으로 유지한다.
+- 최신 Python 3.14 Actions run [46006907270](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/46006907270)은 completed/failure, job `140532243570`, 실행 steps 0개, 로그 404 `BlobNotFound`다. 직전 run 46006437803의 한 차례 rerun도 job `140531009722`, steps 0개, 로그 404로 실패했다. 동일한 저장소 Actions 로그 BlobNotFound가 반복되어 추가 rerun은 하지 않았다.
+- CodeRabbit의 마지막 실제 제출 review는 2026-11-27 13:03:10 UTC의 head 510f9b 대상 `COMMENTED` review다. 그 5개 지적은 최신 파일에 반영했고 inline thread 72/72를 해결했다. 현재 head c092c9c에 대한 새 제출 review는 아직 없다. 다음 유효 재개 시점에 전체 리뷰를 한 번 요청한다.
+- 로컬은 Python 3.13.5/uv 0.10.0이며 Python 3.14가 없다. `uv python install 3.14`와 `git ls-remote`는 GitHub DNS 해석 실패로 중단됐다. 최신 head의 Python 3.14 locked sync, 전체 unittest, skill structure, source traceability, public hygiene, git diff --check, preview 패키징은 실행·통과하지 못했다.
+- 최신 PR diff의 보조 정적 검사에서는 추가 2,948줄의 trailing whitespace 0·conflict marker 0, source-ledger N-Q ID 50개·primary qna_seq 중복 0, 수정 7개 파일의 기계 경로·ephemeral ID·credential signature·전화번호 패턴 0을 확인했다. 이는 저장소 테스트나 git diff --check 통과가 아니다.
+- OM1–OM3 및 DQ1–DQ5의 독립 실행·별도 채점은 0건이다. 입력·기준 등록은 실행 결과가 아니므로 일반 병합은 보류한다.
