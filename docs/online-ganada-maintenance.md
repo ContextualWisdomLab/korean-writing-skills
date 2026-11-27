@@ -1048,3 +1048,10 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - Python 3.14 workflow run 45941266193 attempt 1의 check 140315893228은 실행 steps 0개·로그 404 BlobNotFound로 실패했다. 실패 job 재실행 attempt 2의 check 140316204384도 실행 steps 0개·로그 404 BlobNotFound로 실패했다. annotation 1건의 본문은 도구에서 읽을 수 없어 원인을 추정하지 않는다.
 - 로컬 컨테이너는 Python 3.13.5/uv 0.10.0이다. GitHub DNS 오류로 저장소 clone과 uv python install 3.14가 실패했다. Python 3.14 locked sync, 전체 unittest, skill_structure_test.py, source_traceability_test.py, public_hygiene_test.sh, git diff --check, 두 preview 패키징은 실행·통과하지 못했다.
 - Notion Custom Agent 검색은 워크스페이스 entitlement 제한으로 실행되지 않았다. ML1–ML5 독립 실행 0건·별도 채점 0건이다. 현재 head에 대한 새 제출 리뷰, Python 3.14 검증, 독립 평가가 완료되기 전 일반 병합하지 않는다. PR #29는 별도 Open 상태로 유지하며 변경하지 않았다.
+## 2026-11-27 13:47 KST — 최신 head 재검사
+
+- PR #31의 현재 head는 271c3f54ad36c2b4db804937a9305c619f8c14d9, base/main은 e6eda1432b938f0fa359e30aa35a225bc7276628이다. Open·mergeable=true·merged=false다.
+- CodeRabbit check 140317891669은 Review paused/skipped로 끝났고, 271c3f에 대한 새 제출 review는 없다. 앞선 full-review 요청 7210010231은 부모 head acb35ec를 대상으로 했으며 rate limit 안내 이후 재요청하지 않았다. inline thread는 59/59 resolved다.
+- Python 3.14 workflow run 45941890153 attempt 1의 check 140317833884는 failure, steps 0개, 로그 404 BlobNotFound였다. attempt 2의 check 140318115574도 failure, steps 0개, 로그 404 BlobNotFound다. 실행된 테스트가 없어 통과로 계산하지 않는다.
+- 로컬 clone과 Python 3.14 설치는 GitHub DNS 오류로 실패했다. Python 3.13.5/uv 0.10.0만 확인됐다. Notion Custom Agent 검색은 entitlement 제한으로 사용할 수 없었고 ML1–ML5 독립 실행·별도 채점은 0건이다.
+- 이 head에서 일반 병합하지 않는다. 다음 유효한 리뷰 가능 시점과 새 head의 필수 검사·독립 평가 결과를 다시 확인한다.
