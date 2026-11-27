@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- 2026-11-27 17:19 KST: Corrected the 13:41 maintenance record to distinguish six detailed questions with no answer displayed from four pages whose restricted access left answer status unconfirmed. Added a fresh, explicitly first-page-only 17:19 observation for qna_seq 338972–338963 and re-read the 2026-11-23 correction notice 338800 plus its four linked answer records. No new source ID or editing rule was added because the current questions still show no institutional answers. Also recorded the actual 368dba4 CodeRabbit review finding and the unresolved Python 3.14 Actions infrastructure failure.
+
 - 2026-11-26: Fixed Q&A source traceability for reference-style Markdown links. The checker now scans section-bounded inline tokens from the full parsed ledger so document-level reference definitions retain their resolved destinations; regression coverage rejects the same qna_seq across two source sections while allowing repeated references within one source.
 
 - 2026-11-26: Corrected the provenance note for online Q&A 338914. The 2026-11-20 first answer cites Article 48 twice; the 2026-11-25 correction does not cite an article number. A fresh direct read of the current official orthography page confirms Article 47 covers auxiliary-verb spacing and Article 48 covers personal names and titles. Existing source IDs were updated without adding a duplicate or changing the editing rule.
