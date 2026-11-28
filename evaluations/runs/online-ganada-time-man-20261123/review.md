@@ -17,6 +17,7 @@
 
 ## 2026-11-28 실행 입력 등록 (미실행)
 
-- [scenarios/blind-inputs.md의 N-20261123-time-man](../../scenarios/blind-inputs.md#n-20261123-time-man)에 TIME-M1–TIME-M3를 등록했다. 각 실행은 공통 교정 요청과 해당 문장 하나만 전달하고 새 context에서 수행한다. 이 평가 파일의 기대 행동은 실행자에게 제공하지 않는다.
-- 등록 입력 SHA-256(공통 요청 + 해당 문장, UTF-8): TIME-M1 99301d6849e46e3fce533f66a7c523ff37685e979a44d207ef88ea3082453e0e; TIME-M2 475f24896dc0d8a31982a4b8d167b3d672638d03ea69d8812617bdad0f91c44e; TIME-M3 4acaf4f318d40602c5587cd145723f0011775e0d7d157276b3d130f05b5a51b4.
+- [scenarios/blind-inputs.md의 N-20261123-time-man](../../scenarios/blind-inputs.md#n-20261123-time-man-시간-표현과-의존명사-만-진단-입력-time-m1time-m3)에 TIME-M1–TIME-M3를 등록했다. 각 실행은 공통 교정 요청과 해당 문장 하나만 전달하고 새 context에서 수행한다. 이 평가 파일의 기대 행동은 실행자에게 제공하지 않는다.
+- 등록 입력 SHA-256: TIME-M1 `517123e1794f3a42206dc0aaf0da5fee930c38ca28088b4d15def03980206cb5`; TIME-M2 `6c5b8d0f3c135b6a91541fce0efb733e059fb54180758ede57d1968a305726c5`; TIME-M3 `cfb45ab477268da920a306c8fc993d65e542edba95b6162273cd0cc23690eca4`.
+- 해시 바이트 정의: 각 실행에 전달할 정확한 문자열은 `공통 요청: 다음 문장의 띄어쓰기를 문맥에 맞게 검토해 주세요. 시간의 길이·기간과 수량 제한의 ‘만’을 구별하고, 이미 바른 표현은 유지하세요. 교정문과 이유를 짧게 제시하세요.\n\n원문: <해당 사례 문장>\n`이다. 두 접두어를 포함하고, 요청과 원문 사이에는 LF 두 개, 원문 뒤에는 LF 한 개를 둔다. UTF-8 바이트에 SHA-256을 적용하며 BOM·CRLF·Markdown 제목·사례 ID·주변 메타데이터는 포함하지 않는다.
 - 기대 판단은 관련 근거·지침에 노출되어 있어 진단용이다. 실제 실행·출력·별도 채점은 아직 없다.
