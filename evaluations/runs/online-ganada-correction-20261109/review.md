@@ -27,7 +27,7 @@
 ## 실행자 전달용 고정 입력
 
 - [blind-inputs.md](../../scenarios/blind-inputs.md)의 `N-20261109-bulletin-correction` C1–C6 블록에 공통 요청과 입력만 등록했다. 기대 판정은 이 문서에만 남겨 실행자에게 전달하지 않는다.
-- 입력 블록 SHA-256: `c5655b2fb64c6a0feb1d20ab1eaf12071a90a3de410a8180eddede8be8f1a5eb` (해당 섹션 전체, UTF-8/LF, 마지막 LF 포함). 등록 head는 해당 블록을 포함하는 PR 커밋을 만든 뒤 기록한다.
+- 입력 블록 SHA-256: `c5655b2fb64c6a0feb1d20ab1eaf12071a90a3de410a8180eddede8be8f1a5eb` (해당 섹션 전체, UTF-8/LF, 마지막 LF 포함). **등록 head: `d71637f76678a54dd9cefe927d3f285f07daeaab`**.
 - **현재 상태: 입력 등록만 완료. 독립 실행 0건, 채점 0건, 통과 판정 없음.**
 
 ## 판정 범위와 후속 검증
