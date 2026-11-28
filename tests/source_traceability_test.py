@@ -350,19 +350,32 @@ QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
 
 
 class _AnchorHrefParser(HTMLParser):
-    """Collect hrefs only from HTML anchor start tags in an inline fragment."""
+    """Collect real anchor hrefs from HTML fragments, excluding code examples."""
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.hrefs: list[str] = []
+        self._literal_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag.casefold() == "a":
-            for name, value in attrs:
-                if name and name.casefold() == "href" and value:
-                    self.hrefs.append(value)
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            self._literal_depth += 1
+            return
+        if self._literal_depth or normalized != "a":
+            return
+        for name, value in attrs:
+            if name and name.casefold() == "href" and value:
+                self.hrefs.append(value)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.casefold() in {"code", "pre"} and self._literal_depth:
+            self._literal_depth -= 1
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            return
         self.handle_starttag(tag, attrs)
 
 
@@ -377,29 +390,33 @@ def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
     """Return the first qna_seq in a section of an already parsed document.
 
     Parsing the complete ledger first preserves document-level reference-link
-    definitions. Fenced/indented code, inline code and HTML comments remain
-    examples, not source records. Markdown link destinations and HTML anchor
-    hrefs are eligible; unrelated HTML text is not.
+    definitions. Fenced/indented code, inline code, HTML code/pre elements and
+    HTML comments remain examples, not source records. Markdown link
+    destinations and actual HTML anchor hrefs (inline or block) are eligible.
     """
     for token in tokens:
-        if token.type != "inline" or token.map is None:
+        if token.map is None:
             continue
         token_start, token_end = token.map
         if token_end <= start_line or token_start >= end_line:
             continue
-        for child in token.children or []:
-            if child.type == "link_open":
-                values = [child.attrGet("href") or ""]
-            elif child.type == "html_inline":
-                values = _html_anchor_hrefs(child.content)
-            elif child.type == "text":
-                values = [child.content]
-            else:
-                continue
-            for value in values:
-                match = QNA_SEQUENCE.search(value)
-                if match:
-                    return match.group(1)
+        values: list[str] = []
+        if token.type == "html_block":
+            values.extend(_html_anchor_hrefs(token.content))
+        elif token.type == "inline":
+            for child in token.children or []:
+                if child.type == "link_open":
+                    values.append(child.attrGet("href") or "")
+                elif child.type == "html_inline":
+                    values.extend(_html_anchor_hrefs(child.content))
+                elif child.type == "text":
+                    values.append(child.content)
+        else:
+            continue
+        for value in values:
+            match = QNA_SEQUENCE.search(value)
+            if match:
+                return match.group(1)
     return None
 
 

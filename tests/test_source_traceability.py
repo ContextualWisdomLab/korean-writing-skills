@@ -172,19 +172,19 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertRejected(korean_ledger=duplicate)
 
-    def test_qna_sequence_detects_mixed_html_and_markdown_links(self):
+    def test_qna_sequence_detects_block_html_and_markdown_links(self):
         duplicate = KOREAN_LEDGER + (
-            "\n## N-Q4 · 상담\n"
-            '- URL: <a href="https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400">원문</a>\n'
+            "\n## N-Q4 · 상담\n\n"
+            '<div><a href="https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400">원문</a></div>\n'
             "\n## N-Q5 · 상담\n"
             "- URL: [같은 원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
         )
         self.assertRejected(korean_ledger=duplicate)
 
         ignored = KOREAN_LEDGER + (
-            "\n## N-Q4 · 상담\n"
-            '- 예시: <!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322399">원문</a> -->\n'
-            '- 예시: `<a href="https://example.org/onlineQnaView.do?qna_seq=322398">원문</a>`\n'
+            "\n## N-Q4 · 상담\n\n"
+            '<div><!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322399">원문</a> -->'
+            '<code><a href="https://example.org/onlineQnaView.do?qna_seq=322398">예시</a></code></div>\n'
             "\n## N-Q5 · 상담\n"
             "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
         )
