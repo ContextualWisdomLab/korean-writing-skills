@@ -350,55 +350,88 @@ QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
 
 
 class _AnchorHrefParser(HTMLParser):
-    """Collect visible HTML text and real anchor hrefs, excluding examples."""
+    """Collect ordered visible-text and href events, excluding examples."""
+
+    _BLOCK_TAGS = {
+        "address", "article", "aside", "blockquote", "body", "dd", "div",
+        "dl", "dt", "fieldset", "figcaption", "figure", "footer", "form",
+        "h1", "h2", "h3", "h4", "h5", "h6", "header", "hr", "li", "main",
+        "nav", "ol", "p", "section", "table", "tbody", "td", "tfoot",
+        "th", "thead", "tr", "ul",
+    }
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.values: list[str] = []
+        self.events: list[tuple[str, str]] = []
         self._literal_depth = 0
+
+    def _boundary(self) -> None:
+        self.events.append(("boundary", ""))
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         normalized = tag.casefold()
         if normalized in {"code", "pre"}:
+            self._boundary()
             self._literal_depth += 1
             return
-        if self._literal_depth or normalized != "a":
+        if self._literal_depth:
             return
-        for name, value in attrs:
-            if name and name.casefold() == "href" and value:
-                self.values.append(value)
+        if normalized in self._BLOCK_TAGS:
+            self._boundary()
+        if normalized == "a":
+            for name, value in attrs:
+                if name and name.casefold() == "href" and value:
+                    self._boundary()
+                    self.events.append(("href", value))
+                    self._boundary()
+                    break
+        elif normalized in {"br", "hr"}:
+            self._boundary()
 
     @property
     def in_literal(self) -> bool:
         return self._literal_depth > 0
 
     def handle_endtag(self, tag: str) -> None:
-        if tag.casefold() in {"code", "pre"} and self._literal_depth:
-            self._literal_depth -= 1
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            if self._literal_depth:
+                self._literal_depth -= 1
+            self._boundary()
+            return
+        if normalized in self._BLOCK_TAGS or normalized in {"br", "hr"}:
+            self._boundary()
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         normalized = tag.casefold()
         if normalized in {"code", "pre"}:
+            self._boundary()
+            self._boundary()
             return
         self.handle_starttag(tag, attrs)
+        if normalized in self._BLOCK_TAGS or normalized in {"br", "hr"}:
+            self._boundary()
 
     def handle_data(self, data: str) -> None:
-        if not self.in_literal:
-            self.values.append(data)
+        if not self.in_literal and data:
+            self.events.append(("text", data))
+
+    def handle_comment(self, data: str) -> None:
+        self._boundary()
 
 
 def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
-    """Return the first visible qna_seq in a section of an already parsed document.
+    """Return the first qna_seq in visible text or a link destination.
 
     Parsing the complete ledger first preserves document-level reference-link
     definitions. One HTML parser spans all Markdown blocks in the section, so
-    code/pre and comment state survives block boundaries. Fenced/indented code,
-    inline code, HTML code/pre contents and HTML comments remain examples.
-    Markdown link destinations, HTML anchor hrefs and visible HTML text are
-    checked in document order.
+    code/pre and comment state survives block boundaries. Adjacent visible
+    text chunks are joined, but href, block, code, comment and hard-break
+    boundaries terminate a text run. Fenced/indented and inline code remain
+    examples, not source records.
     """
     parser = _AnchorHrefParser()
-    values: list[str] = []
+    events: list[tuple[str, str]] = []
     for token in tokens:
         if token.map is None:
             continue
@@ -406,27 +439,54 @@ def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
         if token_end <= start_line or token_start >= end_line:
             continue
         if token.type == "html_block":
-            previous_count = len(parser.values)
+            events.append(("boundary", ""))
+            previous_count = len(parser.events)
             parser.feed(token.content)
-            values.extend(parser.values[previous_count:])
+            events.extend(parser.events[previous_count:])
+            events.append(("boundary", ""))
         elif token.type == "inline":
+            events.append(("boundary", ""))
             for child in token.children or []:
                 if child.type == "html_inline":
-                    previous_count = len(parser.values)
+                    previous_count = len(parser.events)
                     parser.feed(child.content)
-                    values.extend(parser.values[previous_count:])
+                    events.extend(parser.events[previous_count:])
                 elif parser.in_literal:
                     continue
                 elif child.type == "link_open":
-                    values.append(child.attrGet("href") or "")
+                    events.extend(
+                        (("boundary", ""), ("href", child.attrGet("href") or ""), ("boundary", ""))
+                    )
                 elif child.type == "text":
-                    values.append(child.content)
+                    events.append(("text", child.content))
+                elif child.type in {"code_inline", "hardbreak"}:
+                    events.append(("boundary", ""))
+                elif child.type == "softbreak":
+                    events.append(("text", " "))
+            events.append(("boundary", ""))
+        else:
+            events.append(("boundary", ""))
 
-    previous_count = len(parser.values)
+    previous_count = len(parser.events)
     parser.close()
-    values.extend(parser.values[previous_count:])
-    for value in values:
-        match = QNA_SEQUENCE.search(value)
+    events.extend(parser.events[previous_count:])
+
+    pending_text = ""
+    for kind, value in events:
+        if kind == "text":
+            pending_text += value
+            continue
+        if pending_text:
+            match = QNA_SEQUENCE.search(pending_text)
+            if match:
+                return match.group(1)
+            pending_text = ""
+        if kind == "href":
+            match = QNA_SEQUENCE.search(value)
+            if match:
+                return match.group(1)
+    if pending_text:
+        match = QNA_SEQUENCE.search(pending_text)
         if match:
             return match.group(1)
     return None
