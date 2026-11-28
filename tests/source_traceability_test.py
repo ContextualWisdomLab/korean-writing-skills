@@ -409,19 +409,20 @@ def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
             values.extend(_html_anchor_hrefs(token.content))
         elif token.type == "inline":
             parser = _AnchorHrefParser()
-            inline_values: list[str] = []
             for child in token.children or []:
                 if child.type == "html_inline":
+                    previous_href_count = len(parser.hrefs)
                     parser.feed(child.content)
+                    values.extend(parser.hrefs[previous_href_count:])
                 elif parser.in_literal:
                     continue
                 elif child.type == "link_open":
-                    inline_values.append(child.attrGet("href") or "")
+                    values.append(child.attrGet("href") or "")
                 elif child.type == "text":
-                    inline_values.append(child.content)
+                    values.append(child.content)
+            previous_href_count = len(parser.hrefs)
             parser.close()
-            values.extend(inline_values)
-            values.extend(parser.hrefs)
+            values.extend(parser.hrefs[previous_href_count:])
         else:
             continue
         for value in values:

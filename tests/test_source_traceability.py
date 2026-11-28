@@ -201,6 +201,33 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertAccepted(korean_ledger=inline_html)
 
+    def test_qna_sequence_preserves_inline_html_anchor_order_before_text_and_markdown_links(self):
+        anchor_before_text = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a>; 관련 qna_seq=322401\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=anchor_before_text)
+
+        anchor_before_markdown = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a> '
+            "[관련](https://example.org/onlineQnaView.do?qna_seq=322401)\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=anchor_before_markdown)
+
+    def test_qna_sequence_detects_duplicate_from_single_inline_html_anchor(self):
+        single_anchor = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=single_anchor)
+
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
         self.assertAccepted(
