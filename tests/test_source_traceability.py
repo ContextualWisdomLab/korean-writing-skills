@@ -202,23 +202,41 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertAccepted(korean_ledger=ledger)
 
-    def test_qna_sequence_reads_visible_html_text_but_ignores_comments_and_code(self):
+    def test_qna_sequence_merges_tag_split_visible_html_text(self):
         duplicate = KOREAN_LEDGER + (
             "\n## N-Q4 · 상담\n\n"
-            "<div>qna_seq=322400</div>\n"
+            "<div>qna_seq=<span>322400</span></div>\n"
             "\n## N-Q5 · 상담\n"
             "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
         )
         self.assertRejected(korean_ledger=duplicate)
 
+        inline_duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: qna_seq=<span>322400</span>\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=inline_duplicate)
+
+    def test_qna_sequence_keeps_code_comment_and_block_boundaries(self):
         examples_only = KOREAN_LEDGER + (
             "\n## N-Q4 · 상담\n\n"
-            "<div><!-- qna_seq=322400 --><code>qna_seq=322401</code>"
-            "<span>qna_seq=322402</span></div>\n"
+            "<div>qna_seq=<code>ignored</code>322400</div>\n"
+            "<div>qna_seq=<!-- ignored -->322401</div>\n"
             "\n## N-Q5 · 상담\n"
             "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
         )
         self.assertAccepted(korean_ledger=examples_only)
+
+        block_split = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            "<div>qna_seq=</div>\n"
+            "322400\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=block_split)
 
     def test_qna_sequence_preserves_html_href_and_visible_text_order(self):
         text_before_href = KOREAN_LEDGER + (
