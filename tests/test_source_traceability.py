@@ -195,7 +195,7 @@ class TraceabilityContracts(unittest.TestCase):
             "\n## N-Q4 · 상담\n"
             '- 예시: <code><a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a></code> '
             '<pre>qna_seq=322400</pre>\n'
-            "- URL: [실제 원문](https://example.org/onlineQnaView.do?qna_seq=322401)\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322401">실제 원문</a>\n'
             "\n## N-Q5 · 상담\n"
             "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
         )
