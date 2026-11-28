@@ -10,7 +10,7 @@
 
 - 입력 블록: `evaluations/scenarios/blind-inputs.md`의 N-20261127-leaf(LF1–LF3).
 - 입력 블록 SHA-256: `2d5eb4d5361ca0054261aaf5ce8bc92dcefad74d845bae2cf6ecab5f133f8458`.
-- 판정표 SHA-256: `3a76a5e5b33dbee4a755139098f3625df92247be30b92fc40ce652cae064f6cf` (위에 명시한 표 범위).
+- 판정표 SHA-256: `c0b2309c3f433e49ba485f54903acbad043f439985b37b43b2fb56dcc64efc91` (현재 판정표 15–19행, LF 줄바꿈, 마지막 LF 1개 포함).
 
 | 입력 | 기대 행동 | 실패 조건 |
 | --- | --- | --- |
