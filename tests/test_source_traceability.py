@@ -190,6 +190,53 @@ class TraceabilityContracts(unittest.TestCase):
         )
         self.assertAccepted(korean_ledger=ignored)
 
+    def test_qna_sequence_keeps_html_code_state_across_markdown_blocks(self):
+        ledger = KOREAN_LEDGER + (
+            "\\n## N-Q4 · 상담\\n\\n"
+            "<div><code>\\n\\n"
+            '<a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a>\\n'
+            "</code></div>\\n\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322401\\n"
+            "\\n## N-Q5 · 상담\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
+    def test_qna_sequence_reads_visible_html_text_but_ignores_comments_and_code(self):
+        duplicate = KOREAN_LEDGER + (
+            "\\n## N-Q4 · 상담\\n\\n"
+            "<div>qna_seq=322400</div>\\n"
+            "\\n## N-Q5 · 상담\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        examples_only = KOREAN_LEDGER + (
+            "\\n## N-Q4 · 상담\\n\\n"
+            "<div><!-- qna_seq=322400 --><code>qna_seq=322401</code>"
+            "<span>qna_seq=322402</span></div>\\n"
+            "\\n## N-Q5 · 상담\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\\n"
+        )
+        self.assertAccepted(korean_ledger=examples_only)
+
+    def test_qna_sequence_preserves_html_href_and_visible_text_order(self):
+        text_before_href = KOREAN_LEDGER + (
+            "\\n## N-Q4 · 상담\\n\\n"
+            '<div>qna_seq=322400 <a href="https://example.org/onlineQnaView.do?qna_seq=322401">다른 원문</a></div>\\n'
+            "\\n## N-Q5 · 상담\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\\n"
+        )
+        self.assertRejected(korean_ledger=text_before_href)
+
+        href_before_text = KOREAN_LEDGER + (
+            "\\n## N-Q4 · 상담\\n\\n"
+            '<div><a href="https://example.org/onlineQnaView.do?qna_seq=322400">qna_seq=322401</a></div>\\n'
+            "\\n## N-Q5 · 상담\\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\\n"
+        )
+        self.assertRejected(korean_ledger=href_before_text)
+
     def test_qna_sequence_ignores_inline_html_code_and_pre_tokens_across_boundaries(self):
         inline_html = KOREAN_LEDGER + (
             "\n## N-Q4 · 상담\n"
