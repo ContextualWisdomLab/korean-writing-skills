@@ -28,7 +28,8 @@
 - 등록 head `19d0fbf86d24f8703fb633446db05305f43b6c5c`의 입력 블록 SHA-256: `b1c2ac8462d0b7eb2ee4dd3bc55c87ced888cdcd79f62db594d3b81013183b93` (blind-inputs.md의 N-20261126-malda 블록만, 끝 줄바꿈 포함).
 - 등록 head `19d0fbf86d24f8703fb633446db05305f43b6c5c`의 판정표 SHA-256: `1ac02e7b46ab4608baf1799ecbe8df99f1bd068a637a78f7d59089f2d58904a8` (위 표 본문만, 끝 줄바꿈 포함).
 - 확인 head `bc88cc6e57d79b04506e18d7ebdf7ab1ddd75bfe`의 현재 입력 블록 SHA-256: `48a9741a09c53fbbf7e279a8f684e776002a330aac459377250e6286ae5bda64` (동일 블록만, 끝 줄바꿈 포함).
-- 확인 head `bc88cc6e57d79b04506e18d7ebdf7ab1ddd75bfe`의 현재 판정표 SHA-256: `70d057255f3dad322eb7cf3fe0b107d28c22268a55c97e1fabaee7cab4bbc411` (위 표 본문만, 끝 줄바꿈 포함). 이후 bc88cc6 이후의 source-ledger 기록 커밋은 입력 블록과 판정표를 변경하지 않았다.
+- 확인 head `bc88cc6e57d79b04506e18d7ebdf7ab1ddd75bfe`의 판정표 SHA-256: `70d057255f3dad322eb7cf3fe0b107d28c22268a55c97e1fabaee7cab4bbc411` (범위: `| 입력 |` 머리행부터 ML5 마지막 행까지의 Markdown 표 전체, UTF-8 바이트, LF 줄바꿈, 마지막 행 뒤 LF 1개 포함, 다음 빈 줄 제외). 동일 범위로 재계산한 값과 일치한다.
+- 확인 head `8c83949555906e9653b11eb67384cc389f6382bf`의 현재 판정표 SHA-256: `61b546a6bc8e7e2844cf610d32d3efdb2faec2c0a7dbd2059e752b0f9b981758` (동일 범위). bc88cc6 이후 `review.md`의 ML1 실패 조건에 제48항 인용 혼동을 추가해 판정표가 변경됐다. N-20261126-malda 입력 블록 해시 `48a9741a09c53fbbf7e279a8f684e776002a330aac459377250e6286ae5bda64`는 변경되지 않았다. 이전에 판정표와 입력 블록 모두 변경되지 않았다고 적은 설명을 이 사실로 정정한다.
 - 등록 시점과 확인 시점의 해시는 서로 다른 내용을 식별한다. 이 기록은 실행·채점 결과가 아니다. 실제 실행 전에는 전달 스킬·참고 파일, 시나리오, 루브릭의 해시를 다시 고정한다.
 
 ## 실행 계약과 한계
