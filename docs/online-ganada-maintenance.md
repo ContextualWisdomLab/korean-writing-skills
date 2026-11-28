@@ -1356,3 +1356,12 @@ PR에는 보완 이유, 원문 URL·날짜, 실제 변경, 검사 명령·결과
 - **PR #31 상태**: base/main e6eda1432b938f0fa359e30aa35a225bc7276628, branch docs/online-ganada-correction-20261109, head b688f5e801e4d5b6d00b738978071133593474d7, open. CodeRabbit의 직전 실제 제출 리뷰는 2026-11-28 06:30:45Z, actionable 1건(판정표 SHA-256)이며 해당 기록은 head b688f5e에서 수정됐다. 새 head의 CodeRabbit check는 skipped/Review paused; 새 head 실제 리뷰 완료로 보지 않는다. Inline thread 129개는 모두 resolved, 미해결 0개. PR #29는 별도 branch docs/particle-priority-20261108에서 open이며 이 PR과 중복 처리하지 않는다.
 - **검증 실패·재시도 경계**: Python 3.14 locked workflow run [46117139995](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/46117139995)은 attempt 2도 2026-11-28 06:43:58Z failure, job steps 0개, 로그 다운로드 404 BlobNotFound였다. 첫 실행 뒤 job을 한 번 재실행했으나 같은 결과여서 이 run에서 추가 재시도하지 않는다. 로컬 컨테이너는 Python 3.13.5·uv 0.10.0이며 저장소 clone은 DNS 해석 실패로 시작되지 않았다. Python 3.14 locked sync, 전체 unittest, 구조·출처·공개 위생 검사, git diff --check, 패키징은 실행·통과했다고 보고하지 않는다.
 - **다음 행동**: CodeRabbit의 60분 재요청 가능 시각(직전 실제 제출 06:30:45Z 기준 07:30:45Z 이후)에 새 head를 다시 읽고 한 번만 리뷰를 요청한다. 승인된 Python 3.14 실행 환경 또는 원인 노출이 가능한 정상 Actions job이 확보되기 전 일반 병합하지 않는다. 보호·결제 설정은 변경하지 않는다.
+
+
+## 2026-11-28 15:57 KST — N-Q53 확인일 분리와 최신 PR 검증 상태
+
+- **출처 장부 정정**: N-Q53(qna_seq=338905)의 질문 최초 직접 확인일 2026-11-26 01:03 KST, 답변 최초 직접 확인일 2026-11-28 11:04 KST, 이번 직접 확인일 2026-11-28을 분리했다. 최초 확인일을 현재 재열람일로 덮어쓰지 않는다.
+- **PR #31 최신 상태(기록 시점)**: branch docs/online-ganada-correction-20261109, head f376d920650a26733b586c0c424b0c9f01679751, base/main e6eda1432b938f0fa359e30aa35a225bc7276628. PR #29는 별도 open 상태이며 중복 작업하지 않는다.
+- **검사**: workflow run [46118901538](https://github.com/ContextualWisdomLab/korean-writing-skills/actions/runs/46118901538)의 Python 3.14 job 140898799870은 2026-11-28 06:56:32Z failure, steps 0개, runner 이름 없음, 로그 404 BlobNotFound다. 실행 전 실패 원인은 GitHub 응답에서 확인되지 않았다. 동일 패턴으로 추가 재시도하지 않는다.
+- **리뷰**: 새 head에 대한 CodeRabbit 제출 리뷰는 아직 없다. 직전 실제 제출은 06:30:45Z이며 자동 check는 Review paused/skipped. 60분 제한이 지난 07:30:45Z 이후 다음 실행에서 최신 head/reviews/checks를 다시 읽고 한 번만 리뷰를 요청한다.
+- **병합·다음 행동**: 실제 새 head 리뷰와 Python 3.14 locked 전체 unittest, skill_structure_test.py, source_traceability_test.py, public_hygiene_test.sh, git diff --check 및 패키징의 성공 증거가 없으므로 일반 병합하지 않는다. 승인된 Python 3.14 환경 또는 정상 실행 가능한 Actions job이 확보되면 새 head에서 전체 검증을 다시 수행한다. 보호·결제 설정은 변경하지 않는다.
