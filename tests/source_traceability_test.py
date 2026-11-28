@@ -7,8 +7,10 @@ allowed only when the IDs are qualified with that skill name in the same prose
 run, e.g. ``korean-editing K2`` or ``korean-editing M-HANI1–4, M-HEO1``.
 Run: uv run --locked python tests/source_traceability_test.py
 
-Recognized citation forms (prose only; CommonMark code, HTML, link
-destinations and bare URLs are skipped, and prose runs break at line ends):
+Recognized source-ID citations are prose-only; CommonMark code, HTML text, link
+destinations and bare URLs are skipped, and prose runs break at line ends.
+The qna_seq duplicate guard reads Markdown destinations plus visible HTML text
+and anchor hrefs in document order, preserving code/comment state across blocks:
 
 - a ledger family followed by a number, e.g. ``N-Q3``, ``S8``, ``P-SONG2008``.
   Families are derived from the IDs the two ledgers define, plus the committed
@@ -32,6 +34,7 @@ entry was read correctly or that a rule is supported by its source.
 from __future__ import annotations
 
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 
 from markdown_it import MarkdownIt
@@ -342,6 +345,194 @@ def check_document(text: str, skill: str, index: _Index) -> list[tuple[int, str]
     return errors
 
 
+QNA_HEADING = re.compile(r"^##\s+(N-Q\d+)\s+·")
+QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
+
+
+class _AnchorHrefParser(HTMLParser):
+    """Collect ordered visible-text and href events, excluding examples."""
+
+    _BLOCK_TAGS = {
+        "address", "article", "aside", "blockquote", "body", "dd", "div",
+        "dl", "dt", "fieldset", "figcaption", "figure", "footer", "form",
+        "h1", "h2", "h3", "h4", "h5", "h6", "header", "hr", "li", "main",
+        "nav", "ol", "p", "section", "table", "tbody", "td", "tfoot",
+        "th", "thead", "tr", "ul",
+    }
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.events: list[tuple[str, str]] = []
+        self._literal_depth = 0
+
+    def _boundary(self) -> None:
+        self.events.append(("boundary", ""))
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            self._boundary()
+            self._literal_depth += 1
+            return
+        if self._literal_depth:
+            return
+        if normalized in self._BLOCK_TAGS:
+            self._boundary()
+        if normalized == "a":
+            for name, value in attrs:
+                if name and name.casefold() == "href" and value:
+                    self._boundary()
+                    self.events.append(("href", value))
+                    self._boundary()
+                    break
+        elif normalized in {"br", "hr"}:
+            self._boundary()
+
+    @property
+    def in_literal(self) -> bool:
+        return self._literal_depth > 0
+
+    def handle_endtag(self, tag: str) -> None:
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            if self._literal_depth:
+                self._literal_depth -= 1
+            self._boundary()
+            return
+        if normalized in self._BLOCK_TAGS or normalized in {"br", "hr"}:
+            self._boundary()
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        normalized = tag.casefold()
+        if normalized in {"code", "pre"}:
+            self._boundary()
+            self._boundary()
+            return
+        self.handle_starttag(tag, attrs)
+        if normalized in self._BLOCK_TAGS or normalized in {"br", "hr"}:
+            self._boundary()
+
+    def handle_data(self, data: str) -> None:
+        if not self.in_literal and data:
+            self.events.append(("text", data))
+
+    def handle_comment(self, data: str) -> None:
+        self._boundary()
+
+
+def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
+    """Return the first qna_seq in visible text or a link destination.
+
+    Parsing the complete ledger first preserves document-level reference-link
+    definitions. One HTML parser spans all Markdown blocks in the section, so
+    code/pre and comment state survives block boundaries. Adjacent visible
+    text chunks are joined, but href, block, code, comment and hard-break
+    boundaries terminate a text run. Fenced/indented and inline code remain
+    examples, not source records.
+    """
+    parser = _AnchorHrefParser()
+    events: list[tuple[str, str]] = []
+    for token in tokens:
+        if token.map is None:
+            continue
+        token_start, token_end = token.map
+        if token_end <= start_line or token_start >= end_line:
+            continue
+        if token.type == "html_block":
+            events.append(("boundary", ""))
+            previous_count = len(parser.events)
+            parser.feed(token.content)
+            events.extend(parser.events[previous_count:])
+            events.append(("boundary", ""))
+        elif token.type == "inline":
+            events.append(("boundary", ""))
+            for child in token.children or []:
+                if child.type == "html_inline":
+                    previous_count = len(parser.events)
+                    parser.feed(child.content)
+                    events.extend(parser.events[previous_count:])
+                elif parser.in_literal:
+                    continue
+                elif child.type == "link_open":
+                    events.extend(
+                        (("boundary", ""), ("href", child.attrGet("href") or ""), ("boundary", ""))
+                    )
+                elif child.type == "text":
+                    events.append(("text", child.content))
+                elif child.type in {"code_inline", "hardbreak"}:
+                    events.append(("boundary", ""))
+                elif child.type == "softbreak":
+                    events.append(("text", " "))
+            events.append(("boundary", ""))
+        else:
+            events.append(("boundary", ""))
+
+    previous_count = len(parser.events)
+    parser.close()
+    events.extend(parser.events[previous_count:])
+
+    pending_text = ""
+    for kind, value in events:
+        if kind == "text":
+            pending_text += value
+            continue
+        if pending_text:
+            match = QNA_SEQUENCE.search(pending_text)
+            if match:
+                return match.group(1)
+            pending_text = ""
+        if kind == "href":
+            match = QNA_SEQUENCE.search(value)
+            if match:
+                return match.group(1)
+    if pending_text:
+        match = QNA_SEQUENCE.search(pending_text)
+        if match:
+            return match.group(1)
+    return None
+
+
+def qna_sequence_errors(ledger_text: str) -> list[str]:
+    """Reject duplicate qna_seq values across canonical N-Q source entries.
+
+    Section boundaries come from rendered CommonMark H2 tokens, not raw heading
+    text. The first visible qna_seq in each section identifies that source;
+    later mentions may be cross-references to related consultations.
+    """
+    lines = ledger_text.splitlines()
+    tokens = MarkdownIt("commonmark").enable("table").parse(ledger_text)
+    h2_starts = [
+        token.map[0]
+        for token in tokens
+        if token.type == "heading_open" and token.tag == "h2" and token.map is not None
+    ]
+    qna_headings = []
+    for token in tokens:
+        if token.type != "heading_open" or token.tag != "h2" or token.map is None:
+            continue
+        match = QNA_HEADING.match(lines[token.map[0]])
+        if match:
+            qna_headings.append((match.group(1), token.map[0], token.map[1]))
+
+    seen: dict[str, tuple[str, int]] = {}
+    errors: list[str] = []
+    for source_id, heading_start, body_start in qna_headings:
+        end_line = next((start for start in h2_starts if start > heading_start), len(lines))
+        sequence = _first_qna_sequence(tokens, body_start, end_line)
+        if sequence is None:
+            continue
+        line_number = heading_start + 1
+        if sequence in seen:
+            first_id, first_line = seen[sequence]
+            errors.append(
+                f"duplicate qna_seq {sequence} in {source_id} at line {line_number}; "
+                f"first defined in {first_id} at line {first_line}"
+            )
+        else:
+            seen[sequence] = (source_id, line_number)
+    return errors
+
+
 def validate_repository(root: Path) -> list[str]:
     """Validate both skills under ``root`` and return human-readable errors."""
     texts: dict[str, str] = {}
@@ -355,6 +546,7 @@ def validate_repository(root: Path) -> list[str]:
         texts[skill] = ledger_path.read_text(encoding="utf-8")
         ledgers[skill], duplicate_errors = ledger_definitions(texts[skill])
         errors.extend(f"{skill}: {error}" for error in duplicate_errors)
+        errors.extend(f"{skill}: {error}" for error in qna_sequence_errors(texts[skill]))
     for skill, ledger_text in texts.items():
         for alias, target in ALIASES.get(skill, {}).items():
             if ALIAS_DEFINITION_TEXT[(skill, target)] not in _ledger_section(ledger_text, target):

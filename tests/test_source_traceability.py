@@ -102,6 +102,197 @@ class TraceabilityContracts(unittest.TestCase):
     def test_duplicate_definition_is_rejected(self):
         self.assertRejected(korean_ledger=KOREAN_LEDGER + "\n## G1 · 다른 저자\n")
 
+    def test_duplicate_qna_sequence_is_rejected(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+            "## N-Q5 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=ledger)
+
+    def test_qna_sequence_repeated_within_one_source_is_not_a_duplicate(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400\n"
+            "- 재열람: qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
+    def test_qna_sequence_reference_links_keep_document_level_definitions(self):
+        duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문][q]\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: [원문][q]\n"
+            "\n[q]: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        repeated = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문][q]\n"
+            "- 재열람: [같은 원문][q]\n"
+            "\n[q]: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=repeated)
+
+    def test_qna_sequence_examples_in_code_blocks_and_html_comments_are_ignored(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
+            "\n```markdown\n"
+            "## N-Q5 · 예시\n"
+            "- URL: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+            "```\n"
+            "\n<!--\n"
+            "## N-Q6 · 예시\n"
+            "- URL: https://example.org/front/onlineQnaView.do?qna_seq=322400\n"
+            "-->\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
+    def test_qna_sequence_ignores_inline_code_and_html_comment_examples(self):
+        first_source = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- 예시: `qna_seq=322399` <!-- qna_seq=322398 -->\n"
+            "- URL: [원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        for example_sequence in ("322399", "322398"):
+            with self.subTest(example_sequence=example_sequence):
+                other = first_source + (
+                    "\n## N-Q5 · 상담\n"
+                    f"- URL: https://example.org/onlineQnaView.do?qna_seq={example_sequence}\n"
+                )
+                self.assertAccepted(korean_ledger=other)
+
+        duplicate = first_source + (
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+    def test_qna_sequence_detects_block_html_and_markdown_links(self):
+        duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            '<div><a href="https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400">원문</a></div>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: [같은 원문](https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        ignored = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            '<div><!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a> -->'
+            '<code><a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a></code></div>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        self.assertAccepted(korean_ledger=ignored)
+
+    def test_qna_sequence_keeps_html_code_state_across_markdown_blocks(self):
+        ledger = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            "<div><code>\n\n"
+            '<a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a>\n'
+            "</code></div>\n\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322401\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=ledger)
+
+    def test_qna_sequence_merges_tag_split_visible_html_text(self):
+        duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            "<div>qna_seq=<span>322400</span></div>\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=duplicate)
+
+        inline_duplicate = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            "- URL: qna_seq=<span>322400</span>\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=inline_duplicate)
+
+    def test_qna_sequence_keeps_code_comment_and_block_boundaries(self):
+        examples_only = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            "<div>qna_seq=<code>ignored</code>322400</div>\n"
+            "<div>qna_seq=<!-- ignored -->322401</div>\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=examples_only)
+
+        block_split = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            "<div>qna_seq=</div>\n"
+            "322400\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertAccepted(korean_ledger=block_split)
+
+    def test_qna_sequence_preserves_html_href_and_visible_text_order(self):
+        text_before_href = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            '<div>qna_seq=322400 <a href="https://example.org/onlineQnaView.do?qna_seq=322401">다른 원문</a></div>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=text_before_href)
+
+        href_before_text = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n\n"
+            '<div><a href="https://example.org/onlineQnaView.do?qna_seq=322400">qna_seq=322401</a></div>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=href_before_text)
+
+    def test_qna_sequence_ignores_inline_html_code_and_pre_tokens_across_boundaries(self):
+        inline_html = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- 예시: <code><a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a></code> '
+            '<pre>qna_seq=322400</pre>\n'
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322401">실제 원문</a>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        self.assertAccepted(korean_ledger=inline_html)
+
+    def test_qna_sequence_preserves_inline_html_anchor_order_before_text_and_markdown_links(self):
+        anchor_before_text = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a>; 관련 qna_seq=322401\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=anchor_before_text)
+
+        anchor_before_markdown = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a> '
+            "[관련](https://example.org/onlineQnaView.do?qna_seq=322401)\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=anchor_before_markdown)
+
+    def test_qna_sequence_detects_duplicate_from_single_inline_html_anchor(self):
+        single_anchor = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- URL: <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a>\n'
+            "\n## N-Q5 · 상담\n"
+            "- URL: https://example.org/onlineQnaView.do?qna_seq=322400\n"
+        )
+        self.assertRejected(korean_ledger=single_anchor)
+
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
         self.assertAccepted(
