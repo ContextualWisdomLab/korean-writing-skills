@@ -368,6 +368,10 @@ class _AnchorHrefParser(HTMLParser):
             if name and name.casefold() == "href" and value:
                 self.hrefs.append(value)
 
+    @property
+    def in_literal(self) -> bool:
+        return self._literal_depth > 0
+
     def handle_endtag(self, tag: str) -> None:
         if tag.casefold() in {"code", "pre"} and self._literal_depth:
             self._literal_depth -= 1
@@ -404,13 +408,20 @@ def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
         if token.type == "html_block":
             values.extend(_html_anchor_hrefs(token.content))
         elif token.type == "inline":
+            parser = _AnchorHrefParser()
+            inline_values: list[str] = []
             for child in token.children or []:
-                if child.type == "link_open":
-                    values.append(child.attrGet("href") or "")
-                elif child.type == "html_inline":
-                    values.extend(_html_anchor_hrefs(child.content))
+                if child.type == "html_inline":
+                    parser.feed(child.content)
+                elif parser.in_literal:
+                    continue
+                elif child.type == "link_open":
+                    inline_values.append(child.attrGet("href") or "")
                 elif child.type == "text":
-                    values.append(child.content)
+                    inline_values.append(child.content)
+            parser.close()
+            values.extend(inline_values)
+            values.extend(parser.hrefs)
         else:
             continue
         for value in values:

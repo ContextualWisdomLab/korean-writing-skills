@@ -183,12 +183,23 @@ class TraceabilityContracts(unittest.TestCase):
 
         ignored = KOREAN_LEDGER + (
             "\n## N-Q4 · 상담\n\n"
-            '<div><!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322399">원문</a> -->'
-            '<code><a href="https://example.org/onlineQnaView.do?qna_seq=322398">예시</a></code></div>\n'
+            '<div><!-- <a href="https://example.org/onlineQnaView.do?qna_seq=322400">원문</a> -->'
+            '<code><a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a></code></div>\n'
             "\n## N-Q5 · 상담\n"
             "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
         )
         self.assertAccepted(korean_ledger=ignored)
+
+    def test_qna_sequence_ignores_inline_html_code_and_pre_tokens_across_boundaries(self):
+        inline_html = KOREAN_LEDGER + (
+            "\n## N-Q4 · 상담\n"
+            '- 예시: <code><a href="https://example.org/onlineQnaView.do?qna_seq=322400">예시</a></code> '
+            '<pre>qna_seq=322400</pre>\n'
+            "- URL: [실제 원문](https://example.org/onlineQnaView.do?qna_seq=322401)\n"
+            "\n## N-Q5 · 상담\n"
+            "- URL: [다른 원문](https://example.org/onlineQnaView.do?qna_seq=322400)\n"
+        )
+        self.assertAccepted(korean_ledger=inline_html)
 
     # GREEN controls.
     def test_ranges_lists_and_aliases_are_accepted(self):
