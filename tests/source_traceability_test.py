@@ -9,8 +9,8 @@ Run: uv run --locked python tests/source_traceability_test.py
 
 Recognized source-ID citations are prose-only; CommonMark code, HTML text, link
 destinations and bare URLs are skipped, and prose runs break at line ends.
-The qna_seq duplicate guard separately reads Markdown link destinations and
-HTML anchor hrefs while continuing to ignore comments and code examples:
+The qna_seq duplicate guard reads Markdown destinations plus visible HTML text
+and anchor hrefs in document order, preserving code/comment state across blocks:
 
 - a ledger family followed by a number, e.g. ``N-Q3``, ``S8``, ``P-SONG2008``.
   Families are derived from the IDs the two ledgers define, plus the committed
@@ -350,11 +350,11 @@ QNA_SEQUENCE = re.compile(r"\bqna_seq\s*=\s*(\d+)\b")
 
 
 class _AnchorHrefParser(HTMLParser):
-    """Collect real anchor hrefs from HTML fragments, excluding code examples."""
+    """Collect visible HTML text and real anchor hrefs, excluding examples."""
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
-        self.hrefs: list[str] = []
+        self.values: list[str] = []
         self._literal_depth = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -366,7 +366,7 @@ class _AnchorHrefParser(HTMLParser):
             return
         for name, value in attrs:
             if name and name.casefold() == "href" and value:
-                self.hrefs.append(value)
+                self.values.append(value)
 
     @property
     def in_literal(self) -> bool:
@@ -382,53 +382,53 @@ class _AnchorHrefParser(HTMLParser):
             return
         self.handle_starttag(tag, attrs)
 
-
-def _html_anchor_hrefs(fragment: str) -> list[str]:
-    parser = _AnchorHrefParser()
-    parser.feed(fragment)
-    parser.close()
-    return parser.hrefs
+    def handle_data(self, data: str) -> None:
+        if not self.in_literal:
+            self.values.append(data)
 
 
 def _first_qna_sequence(tokens, start_line: int, end_line: int) -> str | None:
-    """Return the first qna_seq in a section of an already parsed document.
+    """Return the first visible qna_seq in a section of an already parsed document.
 
     Parsing the complete ledger first preserves document-level reference-link
-    definitions. Fenced/indented code, inline code, HTML code/pre elements and
-    HTML comments remain examples, not source records. Markdown link
-    destinations and actual HTML anchor hrefs (inline or block) are eligible.
+    definitions. One HTML parser spans all Markdown blocks in the section, so
+    code/pre and comment state survives block boundaries. Fenced/indented code,
+    inline code, HTML code/pre contents and HTML comments remain examples.
+    Markdown link destinations, HTML anchor hrefs and visible HTML text are
+    checked in document order.
     """
+    parser = _AnchorHrefParser()
+    values: list[str] = []
     for token in tokens:
         if token.map is None:
             continue
         token_start, token_end = token.map
         if token_end <= start_line or token_start >= end_line:
             continue
-        values: list[str] = []
         if token.type == "html_block":
-            values.extend(_html_anchor_hrefs(token.content))
+            previous_count = len(parser.values)
+            parser.feed(token.content)
+            values.extend(parser.values[previous_count:])
         elif token.type == "inline":
-            parser = _AnchorHrefParser()
             for child in token.children or []:
                 if child.type == "html_inline":
-                    previous_href_count = len(parser.hrefs)
+                    previous_count = len(parser.values)
                     parser.feed(child.content)
-                    values.extend(parser.hrefs[previous_href_count:])
+                    values.extend(parser.values[previous_count:])
                 elif parser.in_literal:
                     continue
                 elif child.type == "link_open":
                     values.append(child.attrGet("href") or "")
                 elif child.type == "text":
                     values.append(child.content)
-            previous_href_count = len(parser.hrefs)
-            parser.close()
-            values.extend(parser.hrefs[previous_href_count:])
-        else:
-            continue
-        for value in values:
-            match = QNA_SEQUENCE.search(value)
-            if match:
-                return match.group(1)
+
+    previous_count = len(parser.values)
+    parser.close()
+    values.extend(parser.values[previous_count:])
+    for value in values:
+        match = QNA_SEQUENCE.search(value)
+        if match:
+            return match.group(1)
     return None
 
 
